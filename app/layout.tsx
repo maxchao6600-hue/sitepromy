@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: SITE.fullName,
     title: "SitePro Malaysia | Professional Web Design & Development",
     description: SITE.description,
-    images: [{ url: "/logo.jpg", width: 1024, height: 1024, alt: "SitePro Malaysia Web Design" }],
+    images: [{ url: "/logo.jpg", width: 1024, height: 1024, alt: "SitePro — Malaysia Web Design" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -68,10 +68,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo.jpg", type: "image/jpeg" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.jpg", type: "image/jpeg", sizes: "512x512" },
+      { url: "/logo.jpg", type: "image/jpeg", sizes: "1024x1024" },
     ],
-    apple: [{ url: "/logo.jpg" }],
+    shortcut: [{ url: "/icon.jpg", type: "image/jpeg" }],
+    apple: [{ url: "/apple-icon.jpg", type: "image/jpeg", sizes: "180x180" }],
   },
 };
 

@@ -6,10 +6,7 @@ export function Footer() {
     <footer className="border-t border-line bg-surface">
       <div className="container-main flex flex-col gap-10 py-12 sm:flex-row sm:items-start sm:justify-between sm:py-16">
         <div>
-          <Logo showDescriptor={false} />
-          <p className="mt-3 text-xs uppercase tracking-[0.22em] text-muted">
-            {SITE.descriptor}
-          </p>
+          <Logo variant="footer" />
           <p className="mt-4 text-sm text-cream/50">{SITE.tagline}</p>
         </div>
 
