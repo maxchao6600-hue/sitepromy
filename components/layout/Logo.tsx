@@ -10,7 +10,11 @@ export function Logo({ className, variant = "header" }: LogoProps) {
   return (
     <Link
       href="/"
-      className={cn("inline-flex shrink-0 items-center", className)}
+      className={cn(
+        "inline-flex shrink-0 items-center",
+        variant === "header" && "gap-2.5 sm:gap-3",
+        className,
+      )}
       aria-label="SitePro home"
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -24,6 +28,14 @@ export function Logo({ className, variant = "header" }: LogoProps) {
           variant === "header" ? "h-8 sm:h-9" : "h-10 sm:h-11",
         )}
       />
+      {variant === "header" ? (
+        <span
+          className="font-display text-[0.8125rem] font-semibold uppercase tracking-[0.12em] text-cream sm:text-[0.9375rem] sm:tracking-[0.14em]"
+          aria-hidden="true"
+        >
+          SITEPRO<span className="text-accent">MY</span>
+        </span>
+      ) : null}
     </Link>
   );
 }
