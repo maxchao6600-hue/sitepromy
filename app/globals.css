@@ -111,6 +111,18 @@ body {
   letter-spacing: 0.01em;
 }
 
+.meta-label {
+  font-size: clamp(0.625rem, 0.7vw, 0.75rem);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.micro-label {
+  font-size: clamp(0.6875rem, 0.75vw, 0.8125rem);
+  letter-spacing: 0.06em;
+}
+
 .section-y {
   padding-block: clamp(5rem, 12vw, 9rem);
 }

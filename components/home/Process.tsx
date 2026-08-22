@@ -67,13 +67,13 @@ export function Process() {
           <MotionReveal className="max-w-3xl">
             <p className="eyebrow text-accent">Process</p>
             <h2 className="display-lg mt-6">
-              FROM IDEA
+              FROM BRIEF
               <br />
-              <span className="text-accent">TO WEBSITE.</span>
+              <span className="text-accent">TO LIVE.</span>
             </h2>
             <p className="mt-5 body-lg text-secondary">
-              A clear path from first conversation to launch — no confusion, no
-              unnecessary steps.
+              Five focused stages — from understanding the brief to launching a
+              polished website ready for your audience.
             </p>
           </MotionReveal>
 

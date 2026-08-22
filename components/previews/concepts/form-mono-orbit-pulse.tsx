@@ -121,75 +121,98 @@ export function MonoPreview({ large }: { large?: boolean }) {
 export function OrbitPreview({ large }: { large?: boolean }) {
   const { hero, gallery } = conceptImages.orbit;
   const products = [
-    { src: gallery[0], name: "ORBIT ONE", price: "$299", note: "Everyday precision" },
-    { src: gallery[1], name: "ORBIT TWO", price: "$399", note: "Sapphire crystal" },
-    { src: gallery[2], name: "ORBIT PRO", price: "$599", note: "Automatic movement" },
+    {
+      src: gallery[0],
+      name: "ORBIT STUDIO",
+      price: "RM 1,299",
+      note: "Studio headphones",
+    },
+    {
+      src: gallery[1],
+      name: "ORBIT MINI",
+      price: "RM 499",
+      note: "Compact wireless speaker",
+    },
+    {
+      src: gallery[2],
+      name: "ORBIT AIR",
+      price: "RM 699",
+      note: "Wireless earbuds",
+    },
   ];
 
   return (
-    <PreviewRoot className="bg-[#f7f7f5] text-zinc-900">
+    <PreviewRoot className="bg-[#0a0a0c] text-white">
       <PreviewNav
         brand="ORBIT"
-        dark={false}
-        links={["Collection", "Technology", "About"]}
-        cta="Cart"
+        links={["Products", "Technology", "Support"]}
+        cta="Shop"
       />
 
-      <PreviewHero
-        src={hero}
-        priority={large}
-        gradientClass="bg-gradient-to-t from-[#f7f7f5] via-[#f7f7f5]/35 to-transparent"
-      >
-        <PreviewEyebrow className="text-zinc-500">Premium Watches</PreviewEyebrow>
-        <PreviewTitle large={large}>ORBIT</PreviewTitle>
-        <PreviewBody className="max-w-[90%] text-zinc-600">
-          Precision in motion. Modern timepieces engineered around precision, material
-          and everyday movement.
-        </PreviewBody>
-        <PreviewButton className="bg-zinc-900 text-white">Explore Collection</PreviewButton>
-      </PreviewHero>
+      <section className="grid shrink-0 grid-cols-1 border-b border-white/10 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
+        <div className="flex flex-col justify-center px-[4%] py-[5%] sm:py-[6%]">
+          <PreviewEyebrow className="text-white/40">Concept Website</PreviewEyebrow>
+          <PreviewTitle large={large}>ORBIT ONE</PreviewTitle>
+          <PreviewBody className="text-white/55">Precision in sound.</PreviewBody>
+          <PreviewBody className="max-w-[95%] text-[0.82em] text-white/45">
+            Adaptive audio. 40-hour battery. Designed for everyday listening.
+          </PreviewBody>
+          <PreviewButton variant="underline" className="border-white/30 text-white">
+            Explore Orbit One →
+          </PreviewButton>
+        </div>
+        <PreviewPhoto
+          src={hero}
+          priority={large}
+          className="min-h-[160px] sm:min-h-[220px]"
+          alt="Orbit One premium audio product"
+        />
+      </section>
 
       <section className="shrink-0 px-[4%] py-[3.5%]">
-        <div className="mb-[2%] flex items-end justify-between gap-[3%]">
-          <PreviewEyebrow className="text-zinc-500">Collection</PreviewEyebrow>
-          <span className="text-[0.72em] tracking-[0.12em] text-zinc-400">01 / 02 / 03</span>
-        </div>
-        <div className="grid grid-cols-3 gap-[3%]">
-          {products.map((product, index) => (
-            <article key={product.name} className="min-w-0">
-              <PreviewPhoto src={product.src} className="aspect-square bg-white" alt={product.name} />
-              <p className="mt-[0.55em] text-[0.72em] tracking-[0.16em] text-zinc-400">
-                0{index + 1}
-              </p>
-              <p className="mt-[0.2em] text-[0.88em] font-medium">{product.name}</p>
-              <p className="mt-[0.15em] text-[0.82em] font-semibold">{product.price}</p>
-              <p className="mt-[0.2em] text-[0.72em] text-zinc-500">{product.note}</p>
+        <PreviewEyebrow className="text-white/35">The Orbit Line</PreviewEyebrow>
+        <div className="mt-[2%] grid grid-cols-1 gap-[3%] sm:grid-cols-3">
+          {products.map((product) => (
+            <article
+              key={product.name}
+              className="flex min-w-0 flex-col border border-white/10 bg-white/[0.02] p-[4%]"
+            >
+              <PreviewPhoto src={product.src} className="aspect-square bg-[#111]" alt={product.name} />
+              <p className="mt-[0.6em] text-[0.88em] font-medium">{product.name}</p>
+              <p className="mt-[0.2em] text-[0.78em] text-white/45">{product.note}</p>
+              <p className="mt-[0.35em] text-[0.82em] font-semibold">{product.price}</p>
+              <PreviewButton
+                variant="outline"
+                className="mt-[0.5em] border-white/15 px-[1em] py-[0.45em] text-[0.72em] text-white/70"
+              >
+                View
+              </PreviewButton>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="grid shrink-0 grid-cols-3 gap-[2.5%] border-y border-zinc-200 px-[4%] py-[3%]">
+      <section className="grid shrink-0 grid-cols-3 gap-[2.5%] border-y border-white/10 px-[4%] py-[3%]">
         {[
-          { label: "Movement", value: "Quartz & automatic calibres" },
-          { label: "Materials", value: "Steel, ceramic & sapphire" },
-          { label: "Design", value: "Built for daily wear" },
+          { label: "Audio", value: "Adaptive sound tuning" },
+          { label: "Battery", value: "Up to 40 hours" },
+          { label: "Design", value: "Graphite · Silver · Black" },
         ].map((spec) => (
           <div key={spec.label} className="min-w-0">
-            <p className="text-[0.72em] tracking-[0.14em] text-zinc-400 uppercase">{spec.label}</p>
-            <p className="mt-[0.35em] text-[0.78em] leading-relaxed text-zinc-600">{spec.value}</p>
+            <p className="text-[0.72em] tracking-[0.14em] text-white/35 uppercase">{spec.label}</p>
+            <p className="mt-[0.35em] text-[0.78em] leading-relaxed text-white/50">{spec.value}</p>
           </div>
         ))}
       </section>
 
-      <div className="flex shrink-0 items-center justify-between px-[4%] py-[3%]">
-        <span className="text-[0.78em] text-zinc-500">Free shipping on orders above $200</span>
-        <PreviewButton className="mt-0 bg-zinc-900 px-[1.6em] py-[0.65em] text-white">
-          Shop Watches
+      <div className="flex shrink-0 flex-col gap-2 px-[4%] py-[3%] sm:flex-row sm:items-center sm:justify-between">
+        <span className="text-[0.78em] text-white/40">ORBIT ONE · RM 899 · Free delivery in Malaysia</span>
+        <PreviewButton className="mt-0 w-fit bg-white px-[1.4em] py-[0.6em] text-[#0a0a0c]">
+          Shop Orbit One
         </PreviewButton>
       </div>
 
-      <PreviewFooter text="Precision timepieces · Worldwide delivery" dark={false} />
+      <PreviewFooter text="Premium audio · Concept e-commerce experience" />
     </PreviewRoot>
   );
 }
