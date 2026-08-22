@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { cn } from "@/lib/cn";
 
 export function PreviewPhoto({
@@ -12,14 +11,14 @@ export function PreviewPhoto({
 }) {
   return (
     <div className={cn("relative overflow-hidden", className)}>
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src={src}
         alt=""
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1200px"
-        className="object-cover"
         loading={priority ? "eager" : "lazy"}
-        priority={priority}
+        decoding="async"
+        fetchPriority={priority ? "high" : "auto"}
+        className="absolute inset-0 h-full w-full object-cover"
       />
     </div>
   );

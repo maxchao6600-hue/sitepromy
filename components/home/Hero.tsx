@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { conceptImages } from "@/lib/images";
@@ -57,13 +56,14 @@ function BuildStage({ step }: { step: number }) {
             transition={{ duration: 0.6 }}
             className="relative mx-4 mt-3 flex-1 overflow-hidden rounded-md border border-white/[0.08] sm:mx-5"
           >
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={conceptImages.hero.build}
               alt=""
-              fill
-              sizes="(max-width: 1024px) 90vw, 560px"
-              className="object-cover"
-              priority
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#07090e]/90 via-[#07090e]/20 to-transparent" />
           </motion.div>
