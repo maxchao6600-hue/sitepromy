@@ -1,11 +1,11 @@
 export const SITE = {
   name: "SitePro",
   shortName: "SitePro",
-  descriptor: "Malaysia Web Design",
+  descriptor: "Malaysia Web Design Studio",
   fullName: "SitePro Malaysia Web Design",
   tagline: "Fast. Professional. Flexible.",
   description:
-    "SitePro provides professional web design and development in Malaysia. Fast, flexible and modern websites built around your business needs.",
+    "Fast, professional and flexible website design for businesses in Malaysia. SitePro turns your idea into a website you can launch.",
   url: "https://sitepromy.com",
   domain: "sitepromy.com",
   locale: "en_MY",
@@ -43,74 +43,66 @@ export type PreviewId =
 export const services = [
   {
     number: "01",
-    title: "Business Website",
+    title: "Business Websites",
+    description: "Professional sites built around how your business actually works.",
     preview: "business" as PreviewId,
   },
   {
     number: "02",
     title: "E-Commerce",
+    description: "Product-led storefronts with clear paths to purchase.",
     preview: "orbit" as PreviewId,
   },
   {
     number: "03",
-    title: "Restaurant Website",
-    preview: "atelier" as PreviewId,
+    title: "Landing Pages",
+    description: "One focused page. One clear action. Built to convert.",
+    preview: "landing" as PreviewId,
   },
   {
     number: "04",
-    title: "Corporate Website",
+    title: "Corporate Websites",
+    description: "Credibility, clarity and structure for growing companies.",
     preview: "mono" as PreviewId,
   },
   {
     number: "05",
-    title: "Landing Page",
-    preview: "landing" as PreviewId,
+    title: "Portfolio Websites",
+    description: "Editorial showcases that make your work impossible to ignore.",
+    preview: "nova" as PreviewId,
   },
   {
     number: "06",
-    title: "Custom Website",
+    title: "Custom Web Solutions",
+    description: "Tailored builds when your project needs something unique.",
     preview: "pulse" as PreviewId,
   },
 ] as const;
 
-export const brandPipeline = [
-  { key: "idea", label: "Idea", sub: "Sketch" },
-  { key: "wireframe", label: "Wireframe", sub: "Structure" },
-  { key: "design", label: "Design", sub: "UI" },
-  { key: "build", label: "Build", sub: "Code" },
-  { key: "live", label: "Live", sub: "Website" },
-] as const;
-
-export const speedStages = [
+export const buildPipeline = [
   { key: "idea", label: "IDEA" },
+  { key: "structure", label: "STRUCTURE" },
   { key: "design", label: "DESIGN" },
-  { key: "build", label: "BUILD" },
+  { key: "code", label: "CODE" },
   { key: "live", label: "LIVE" },
 ] as const;
 
-export const speedStatus = [
-  { key: "discovery", label: "DISCOVERY" },
-  { key: "designing", label: "DESIGNING" },
-  { key: "building", label: "BUILDING" },
-  { key: "ready", label: "READY" },
-] as const;
-
-export const values = [
+export const speedPillars = [
   {
-    title: "FAST",
-    description: "Efficient workflows and clear communication.",
+    title: "Fast Execution",
+    description: "Clear timelines. No unnecessary delays.",
   },
   {
-    title: "PROFESSIONAL",
-    description: "Modern responsive design and clean development.",
+    title: "Professional Design",
+    description: "Modern, responsive and polished from day one.",
   },
   {
-    title: "FLEXIBLE",
-    description: "Solutions built around different businesses.",
+    title: "Flexible Solutions",
+    description: "Built around your business — not a template.",
   },
   {
-    title: "BUSINESS-FIRST",
-    description: "Every website is designed around the actual business.",
+    title: "Built For Your Business",
+    description: "Every decision serves your goals and your customers.",
   },
 ] as const;
 
@@ -142,55 +134,67 @@ export const projects = [
     number: "01",
     slug: "atelier",
     name: "ATELIER",
-    type: "Restaurant Website",
-    category: "Concept Website",
-    summary: "Editorial restaurant experience — menu, booking and location.",
+    type: "Restaurant / Digital Experience",
+    category: "Concept Project",
+    summary:
+      "Luxury fine dining — editorial food photography, reservations and an immersive menu experience.",
     preview: "atelier" as PreviewId,
+    theme: "warm",
   },
   {
     number: "02",
     slug: "nova",
     name: "NØVA",
-    type: "Fashion / Brand",
-    category: "Concept Website",
-    summary: "Refined brand world with editorial typography and product focus.",
+    type: "Fashion / E-Commerce",
+    category: "Concept Project",
+    summary:
+      "Luxury fashion brand — editorial campaigns, collections and a refined product grid.",
     preview: "nova" as PreviewId,
+    theme: "editorial",
   },
   {
     number: "03",
     slug: "form",
     name: "FORM",
-    type: "Construction",
-    category: "Concept Website",
-    summary: "Bold industrial presence — projects, capability and contact.",
+    type: "Architecture / Construction",
+    category: "Concept Project",
+    summary:
+      "Modern architecture studio — bold typography, project showcase and material-led storytelling.",
     preview: "form" as PreviewId,
+    theme: "concrete",
   },
   {
     number: "04",
     slug: "mono",
     name: "MONO",
-    type: "Corporate",
-    category: "Concept Website",
-    summary: "Clean corporate structure — credibility, clarity and scale.",
+    type: "Corporate / Technology",
+    category: "Concept Project",
+    summary:
+      "Premium corporate presence — workspace photography, case studies and clear service structure.",
     preview: "mono" as PreviewId,
+    theme: "mono",
   },
   {
     number: "05",
     slug: "orbit",
     name: "ORBIT",
-    type: "E-Commerce",
-    category: "Concept Website",
-    summary: "Product-led storefront — browse, discover and buy with ease.",
+    type: "Product / E-Commerce",
+    category: "Concept Project",
+    summary:
+      "Premium product brand — studio photography, editorial composition and a clean shopping interface.",
     preview: "orbit" as PreviewId,
+    theme: "clean",
   },
   {
     number: "06",
     slug: "pulse",
     name: "PULSE",
     type: "Professional Service",
-    category: "Concept Website",
-    summary: "Trust-first service website — expertise, proof and enquiry.",
+    category: "Concept Project",
+    summary:
+      "Trust-first advisory — sophisticated workspace visuals, services and a strong enquiry flow.",
     preview: "pulse" as PreviewId,
+    theme: "navy",
   },
 ] as const;
 

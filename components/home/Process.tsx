@@ -21,26 +21,28 @@ function ProcessStep({
   const opacity = useTransform(
     scrollYProgress,
     [start, end],
-    reduced ? [1, 1] : [0.4, 1],
+    reduced ? [1, 1] : [0.35, 1],
+  );
+  const x = useTransform(
+    scrollYProgress,
+    [start, end],
+    reduced ? [0, 0] : [16, 0],
   );
 
   return (
     <motion.article
-      style={{ opacity: reduced ? 1 : opacity }}
-      className="w-[min(85vw,420px)] border-t border-line pt-8 lg:w-[480px]"
+      style={{ opacity: reduced ? 1 : opacity, x: reduced ? 0 : x }}
+      className="w-[min(88vw,440px)] shrink-0 border-t border-line pt-8 lg:w-[520px]"
     >
-      <span className="font-display text-sm tracking-[0.2em] text-accent">
+      <span className="font-display text-sm tracking-[0.24em] text-accent">
         {step.number}
       </span>
-      <h3 className="mt-4 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl">
+      <h3 className="mt-4 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl lg:text-6xl">
         {step.title}
       </h3>
-      <p className="mt-4 text-sm leading-7 text-cream/50 sm:text-base">
+      <p className="mt-4 max-w-sm text-sm leading-7 text-cream/50 sm:text-base">
         {step.description}
       </p>
-      <div className="mt-8 aspect-[4/3] rounded-lg border border-line bg-surface-2 p-6">
-        <div className="h-full rounded border border-dashed border-white/10" />
-      </div>
     </motion.article>
   );
 }
@@ -52,17 +54,38 @@ export function Process() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
+  const lineWidth = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduced ? ["100%"] : ["0%", "100%"],
+  );
 
   return (
-    <section id="process" className="scroll-mt-24 bg-ink">
+    <section id="process" className="scroll-mt-24 bg-surface">
       <div ref={containerRef} className="relative">
         <div className="container-main section-y pb-0">
-          <MotionReveal>
+          <MotionReveal className="max-w-3xl">
             <p className="eyebrow text-accent">Process</p>
+            <h2 className="display-lg mt-6">
+              FROM IDEA
+              <br />
+              <span className="text-accent">TO WEBSITE.</span>
+            </h2>
+            <p className="mt-5 text-base leading-7 text-cream/45">
+              A clear path from first conversation to launch — no confusion, no
+              unnecessary steps.
+            </p>
           </MotionReveal>
+
+          <div className="relative mt-12 hidden h-px bg-line lg:block">
+            <motion.div
+              style={{ width: lineWidth }}
+              className="absolute inset-y-0 left-0 bg-accent"
+            />
+          </div>
         </div>
 
-        <div className="h-scroll container-main pb-16 pt-4 lg:pb-24">
+        <div className="h-scroll container-main pb-16 pt-8 lg:pb-24 lg:pt-12">
           {steps.map((step, index) => (
             <ProcessStep
               key={step.number}

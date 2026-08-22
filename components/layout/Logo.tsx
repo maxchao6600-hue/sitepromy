@@ -15,28 +15,19 @@ function SiteProMark({ className }: { className?: string }) {
       className={className}
       aria-hidden="true"
     >
+      <rect x="1" y="1" width="38" height="38" rx="10" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
       <path
-        d="M20 2L34 10v12L20 38 6 22V10L20 2Z"
-        stroke="url(#mark-stroke)"
-        strokeWidth="1.5"
-        fill="url(#mark-fill)"
+        d="M20 4L32 11v10L20 34 8 21V11L20 4Z"
+        fill="rgba(255,255,255,0.04)"
+        stroke="rgba(255,255,255,0.55)"
+        strokeWidth="1.25"
       />
       <path
-        d="M14 12c2-2 5-2 7 0 2 2 2 5 0 7-2 2-5 2-7 0M22 14c2 2 2 5 0 7-2 2-5 2-7 0"
+        d="M14 14c2-2 5-2 7 0 2 2 2 5 0 7-2 2-5 2-7 0M22 15c2 2 2 5 0 7-2 2-5 2-7 0"
         stroke="#0080FF"
-        strokeWidth="2.2"
+        strokeWidth="2.4"
         strokeLinecap="round"
       />
-      <defs>
-        <linearGradient id="mark-stroke" x1="6" y1="2" x2="34" y2="38">
-          <stop stopColor="#C0C8D4" />
-          <stop offset="1" stopColor="#8B93A7" />
-        </linearGradient>
-        <linearGradient id="mark-fill" x1="20" y1="2" x2="20" y2="38">
-          <stop stopColor="#141820" />
-          <stop offset="1" stopColor="#0A0C10" />
-        </linearGradient>
-      </defs>
     </svg>
   );
 }
@@ -46,7 +37,7 @@ export function Logo({ className, variant = "header" }: LogoProps) {
     <Link
       href="/"
       className={cn(
-        "inline-flex items-center gap-2.5",
+        "inline-flex items-center gap-2.5 text-white",
         variant === "footer" && "gap-3",
         className,
       )}
@@ -61,7 +52,7 @@ export function Logo({ className, variant = "header" }: LogoProps) {
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            "font-display font-bold tracking-tight text-cream",
+            "font-display font-bold tracking-tight text-white",
             variant === "header" ? "text-base sm:text-[17px]" : "text-lg",
           )}
         >
@@ -69,7 +60,7 @@ export function Logo({ className, variant = "header" }: LogoProps) {
         </span>
         {variant === "footer" ? (
           <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.22em] text-muted">
-            Malaysia Web Design
+            Malaysia Web Design Studio
           </span>
         ) : null}
       </span>
@@ -79,4 +70,31 @@ export function Logo({ className, variant = "header" }: LogoProps) {
 
 export function SiteProMarkIcon({ className }: { className?: string }) {
   return <SiteProMark className={className} />;
+}
+
+export function SiteProMarkSvg({ size = 48 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <rect x="1" y="1" width="38" height="38" rx="10" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
+      <path
+        d="M20 4L32 11v10L20 34 8 21V11L20 4Z"
+        fill="rgba(255,255,255,0.06)"
+        stroke="rgba(255,255,255,0.6)"
+        strokeWidth="1.25"
+      />
+      <path
+        d="M14 14c2-2 5-2 7 0 2 2 2 5 0 7-2 2-5 2-7 0M22 15c2 2 2 5 0 7-2 2-5 2-7 0"
+        stroke="#0080FF"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
 }

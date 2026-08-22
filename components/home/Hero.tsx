@@ -5,106 +5,114 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { conceptImages } from "@/lib/images";
-import { SITE } from "@/lib/site";
+import { buildPipeline, SITE } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
-const BUILD_STEPS = [
-  { id: 0, label: "Frame" },
-  { id: 1, label: "Navbar" },
-  { id: 2, label: "Layout" },
-  { id: 3, label: "Type" },
-  { id: 4, label: "Content" },
-  { id: 5, label: "CTA" },
-  { id: 6, label: "Live" },
-];
+function BuildStage({ step }: { step: number }) {
+  const showNav = step >= 1;
+  const showStructure = step >= 2;
+  const showType = step >= 3;
+  const showImage = step >= 4;
+  const showCta = step >= 4;
+  const showLive = step >= 5;
 
-function BuildingUI({ step }: { step: number }) {
   return (
-    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#080a0f]">
-      <AnimatePresence mode="wait">
-        {step >= 1 ? (
+    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#07090e]">
+      <AnimatePresence>
+        {showNav ? (
           <motion.div
             key="nav"
-            initial={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center justify-between border-b border-white/[0.06] px-5 py-3 sm:px-6"
+            transition={{ duration: 0.45 }}
+            className="relative z-10 flex items-center justify-between border-b border-white/[0.06] px-5 py-3"
           >
-            <span className="font-display text-[11px] font-bold sm:text-xs">
-              Brand<span className="text-accent">.</span>
+            <span className="font-display text-[11px] font-bold tracking-wide">
+              Your<span className="text-accent">Brand</span>
             </span>
-            <div className="flex gap-2">
-              <span className="h-1 w-6 rounded-full bg-white/20" />
-              <span className="h-1 w-6 rounded-full bg-white/20" />
-              <span className="h-3 w-10 rounded-full bg-accent/80" />
+            <div className="flex items-center gap-2">
+              <span className="hidden h-1 w-5 rounded-full bg-white/20 sm:block" />
+              <span className="hidden h-1 w-5 rounded-full bg-white/20 sm:block" />
+              <span className="rounded-full bg-accent/90 px-3 py-1 text-[9px] font-medium">
+                Contact
+              </span>
             </div>
           </motion.div>
         ) : null}
       </AnimatePresence>
 
-      <div className="grid h-[calc(100%-44px)] grid-cols-1 gap-4 p-5 sm:grid-cols-[1fr_42%] sm:p-6">
-        <div className="flex flex-col justify-center">
-          {step >= 2 ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="mb-3 h-24 rounded-lg border border-dashed border-white/10 sm:h-32"
-            />
-          ) : null}
+      {showStructure ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="absolute inset-x-4 top-14 bottom-4 rounded-lg border border-dashed border-white/[0.08] sm:inset-x-5 sm:top-16"
+        />
+      ) : null}
 
-          {step >= 3 ? (
-            <motion.div initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }}>
-              <span className="block h-3 w-3/4 max-w-[220px] rounded-full bg-white/85" />
-              <span className="mt-2 block h-3 w-1/2 max-w-[160px] rounded-full bg-white/85" />
-              <span className="mt-3 block h-1.5 w-full max-w-[240px] rounded-full bg-white/20" />
-              <span className="mt-1.5 block h-1.5 w-4/5 max-w-[200px] rounded-full bg-white/15" />
+      <div className="absolute inset-x-0 bottom-0 top-12 flex flex-col sm:top-14">
+        {showImage ? (
+          <motion.div
+            initial={{ opacity: 0, scale: 1.03 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="relative mx-4 mt-3 flex-1 overflow-hidden rounded-md border border-white/[0.08] sm:mx-5"
+          >
+            <Image
+              src={conceptImages.hero.build}
+              alt=""
+              fill
+              sizes="(max-width: 1024px) 90vw, 560px"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#07090e]/90 via-[#07090e]/20 to-transparent" />
+          </motion.div>
+        ) : null}
+
+        <div className="relative z-10 p-4 sm:p-5">
+          {showType ? (
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h4 className="font-display text-lg font-bold leading-tight sm:text-2xl">
+                {showLive ? "Your website." : "Building your layout…"}
+              </h4>
+              <p className="mt-1 max-w-[280px] text-[10px] leading-relaxed text-white/45 sm:text-[11px]">
+                Professional design · Fast delivery · Built for your business
+              </p>
             </motion.div>
           ) : null}
 
-          {step >= 5 ? (
+          {showCta ? (
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-4 flex gap-2"
+              transition={{ delay: 0.15, duration: 0.4 }}
+              className="mt-3 flex gap-2"
             >
-              <span className="rounded-full bg-accent px-4 py-1.5 text-[10px] font-medium">Get started</span>
-              <span className="rounded-full border border-white/15 px-4 py-1.5 text-[10px]">Learn more</span>
-            </motion.div>
-          ) : null}
-        </div>
-
-        <div className="relative hidden sm:block">
-          {step >= 4 ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="absolute inset-0 overflow-hidden rounded-lg border border-white/[0.08]"
-            >
-              <Image
-                src={conceptImages.hero.build}
-                alt=""
-                fill
-                sizes="(max-width: 1024px) 50vw, 420px"
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080a0f]/80 via-transparent to-transparent" />
-              <div className="absolute inset-x-3 bottom-3 grid grid-cols-2 gap-2">
-                <span className="rounded bg-white/15 backdrop-blur-sm" />
-                <span className="rounded bg-white/10 backdrop-blur-sm" />
-              </div>
+              <span className="rounded-full bg-accent px-3.5 py-1.5 text-[10px] font-medium">
+                Get started
+              </span>
+              <span className="rounded-full border border-white/15 px-3.5 py-1.5 text-[10px]">
+                Learn more
+              </span>
             </motion.div>
           ) : null}
         </div>
       </div>
 
-      {step >= 6 ? (
+      {showLive ? (
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="absolute right-4 top-4 flex items-center gap-1.5 rounded-full border border-[#28c840]/30 bg-[#28c840]/10 px-3 py-1"
+          className="absolute right-4 top-4 z-20 flex items-center gap-1.5 rounded-full border border-[#28c840]/35 bg-[#28c840]/12 px-3 py-1"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
-          <span className="text-[10px] font-semibold tracking-widest text-[#28c840]">LIVE</span>
+          <span className="text-[10px] font-semibold tracking-[0.18em] text-[#28c840]">
+            LIVE
+          </span>
         </motion.div>
       ) : null}
     </div>
@@ -113,67 +121,75 @@ function BuildingUI({ step }: { step: number }) {
 
 export function Hero() {
   const reduced = useReducedMotion();
-  const [step, setStep] = useState(reduced ? 6 : 0);
+  const [step, setStep] = useState(reduced ? 5 : 0);
 
   useEffect(() => {
     if (reduced) return;
     const interval = setInterval(() => {
-      setStep((s) => (s >= 6 ? 0 : s + 1));
-    }, 1400);
+      setStep((s) => (s >= 5 ? 0 : s + 1));
+    }, 1600);
     return () => clearInterval(interval);
   }, [reduced]);
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden pt-[4.25rem]">
-      <div className="container-main flex min-h-[calc(100svh-4.25rem)] flex-col justify-center section-y">
-        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 70% 40%, rgba(0,128,255,0.12), transparent 60%)",
+        }}
+      />
+
+      <div className="container-main relative flex min-h-[calc(100svh-4.25rem)] flex-col justify-center section-y">
+        <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-16">
           <div className="max-w-xl">
             <p className="eyebrow text-accent">{SITE.descriptor}</p>
             <h1 className="display-xl mt-6">
               WE BUILD
               <br />
-              WEBSITES THAT
+              WEBSITES
               <br />
-              <span className="text-accent">STAND OUT.</span>
+              THAT <span className="text-accent">MOVE.</span>
             </h1>
-            <ul className="mt-8 space-y-1 text-sm text-cream/55 sm:text-base">
-              <li>Fast execution.</li>
-              <li>Professional design.</li>
-              <li>Built around your business.</li>
-            </ul>
+            <p className="mt-8 max-w-md text-base leading-7 text-cream/55 sm:text-lg">
+              You have an idea. We turn it into a website you can launch — fast,
+              professional and built around your business.
+            </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Button href="/quote">Start a Project →</Button>
               <Button href="/#portfolio" variant="secondary">
-                Explore Our Work →
+                View Concept Work →
               </Button>
             </div>
           </div>
 
           <div className="relative w-full">
-            <div className="overflow-hidden rounded-xl border border-line bg-surface-2 shadow-[0_48px_96px_rgba(0,0,0,0.5)]">
+            <div className="overflow-hidden rounded-2xl border border-line bg-surface-2 shadow-[0_56px_120px_rgba(0,0,0,0.55)]">
               <div className="flex items-center gap-2 border-b border-line px-4 py-2.5">
                 <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
                 <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
                 <span className="h-2 w-2 rounded-full bg-[#28c840]" />
                 <span className="ml-2 flex-1 text-center text-[10px] tracking-wide text-muted">
-                  sitepromy.com — building…
+                  sitepromy.com — building your website
                 </span>
               </div>
-              <BuildingUI step={step} />
+              <BuildStage step={step} />
             </div>
 
-            <div className="motion-safe-only mt-4 flex flex-wrap gap-2">
-              {BUILD_STEPS.map((s) => (
+            <div className="motion-safe-only mt-5 flex flex-wrap items-center gap-2">
+              {buildPipeline.map((stage, index) => (
                 <span
-                  key={s.id}
+                  key={stage.key}
                   className={cn(
-                    "rounded-full px-2.5 py-1 text-[10px] tracking-wide transition-colors",
-                    step >= s.id
+                    "rounded-full px-3 py-1.5 text-[10px] font-medium tracking-[0.12em] transition-all duration-500",
+                    step >= index
                       ? "bg-accent-dim text-accent"
                       : "bg-white/[0.04] text-muted",
                   )}
                 >
-                  {String(s.id).padStart(2, "0")} {s.label}
+                  {stage.label}
                 </span>
               ))}
             </div>

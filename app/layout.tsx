@@ -1,20 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Syne } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SkipLink } from "@/components/ui/SkipLink";
 import { SITE } from "@/lib/site";
 import "./globals.css";
 
-const syne = Syne({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-syne",
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
-const outfit = Outfit({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-outfit",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -85,7 +85,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-MY"
-      className={`${syne.variable} ${outfit.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-ink font-sans text-cream">
         <SkipLink />
