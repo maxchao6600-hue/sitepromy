@@ -1,0 +1,97 @@
+import type { Metadata, Viewport } from "next";
+import { Outfit, Syne } from "next/font/google";
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
+import { SkipLink } from "@/components/ui/SkipLink";
+import { SITE } from "@/lib/site";
+import "./globals.css";
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: "SitePro Malaysia | Professional Web Design & Development",
+    template: "%s | SitePro Malaysia",
+  },
+  description: SITE.description,
+  applicationName: SITE.shortName,
+  authors: [{ name: SITE.fullName, url: SITE.url }],
+  creator: SITE.fullName,
+  publisher: SITE.fullName,
+  category: "Web Design",
+  keywords: [
+    "Malaysia web design",
+    "web design Malaysia",
+    "website design Malaysia",
+    "website development Malaysia",
+    "professional website design",
+    "business website Malaysia",
+    "ecommerce website Malaysia",
+    "custom website Malaysia",
+  ],
+  alternates: {
+    canonical: SITE.url,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: SITE.locale,
+    url: SITE.url,
+    siteName: SITE.fullName,
+    title: "SitePro Malaysia | Professional Web Design & Development",
+    description: SITE.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SitePro Malaysia | Professional Web Design & Development",
+    description: SITE.description,
+  },
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-icon" }],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0b0e",
+  width: "device-width",
+  initialScale: 1,
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en-MY"
+      className={`${syne.variable} ${outfit.variable} h-full antialiased`}
+    >
+      <body className="min-h-full bg-paper font-sans text-ink">
+        <SkipLink />
+        <Navbar />
+        <main id="main">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
