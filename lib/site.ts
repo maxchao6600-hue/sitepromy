@@ -83,7 +83,7 @@ export const buildPipeline = [
   { key: "idea", label: "IDEA" },
   { key: "structure", label: "STRUCTURE" },
   { key: "design", label: "DESIGN" },
-  { key: "code", label: "CODE" },
+  { key: "build", label: "BUILD" },
   { key: "live", label: "LIVE" },
 ] as const;
 
