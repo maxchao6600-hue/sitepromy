@@ -20,7 +20,7 @@ export function FinalCTA() {
             <br />
             <span className="text-accent">LET&apos;S BUILD IT.</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-lg text-base leading-7 text-cream/50 sm:text-lg">
+          <p className="mx-auto mt-6 max-w-lg body-lg text-secondary">
             Tell us what you have in mind. We&apos;ll turn it into a website —
             fast, professional and ready to launch.
           </p>

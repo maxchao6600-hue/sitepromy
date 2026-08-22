@@ -153,7 +153,7 @@ export function Hero() {
               <br />
               THAT <span className="text-accent">MOVE.</span>
             </h1>
-            <p className="mt-8 max-w-md text-base leading-7 text-cream/55 sm:text-lg">
+            <p className="mt-8 max-w-md body-lg text-secondary">
               You have an idea. We turn it into a website you can launch — fast,
               professional and built around your business.
             </p>

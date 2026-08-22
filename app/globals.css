@@ -6,7 +6,7 @@
   --surface-2: #101318;
   --off-white: #f2f0eb;
   --cream: #f7f6f3;
-  --muted: #7a8294;
+  --muted: #8a929e;
   --accent: #0080ff;
   --accent-dim: rgba(0, 128, 255, 0.14);
   --line: rgba(255, 255, 255, 0.07);
@@ -41,6 +41,8 @@ body {
   background: var(--ink);
   color: var(--cream);
   font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.05vw, 1.125rem);
+  line-height: 1.65;
   min-height: 100%;
 }
 
@@ -59,31 +61,54 @@ body {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.055em;
-  line-height: 0.9;
-  font-size: clamp(2.75rem, 8.5vw, 9rem);
+  line-height: 0.92;
+  font-size: clamp(4rem, 8vw, 9.375rem);
 }
 
 .display-lg {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.045em;
-  line-height: 0.92;
-  font-size: clamp(2rem, 5.5vw, 5.25rem);
+  line-height: 0.95;
+  font-size: clamp(2.625rem, 5vw, 5rem);
 }
 
 .heading-display {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.02;
   font-size: clamp(2rem, 4vw, 3.5rem);
 }
 
+.portfolio-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  font-size: clamp(3rem, 6vw, 6.25rem);
+}
+
 .eyebrow {
-  font-size: 0.6875rem;
+  font-size: clamp(0.6875rem, 0.75vw, 0.8125rem);
   font-weight: 500;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+}
+
+.body-lg {
+  font-size: clamp(1rem, 1.1vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.text-secondary {
+  color: color-mix(in srgb, var(--cream) 62%, transparent);
+}
+
+.nav-link {
+  font-size: clamp(0.875rem, 0.9vw, 1rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .section-y {

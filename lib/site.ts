@@ -181,7 +181,7 @@ export const projects = [
     type: "Product / E-Commerce",
     category: "Concept Project",
     summary:
-      "Premium product brand — studio photography, editorial composition and a clean shopping interface.",
+      "Premium watch brand — precision timepieces, product-led e-commerce and a refined shopping experience.",
     preview: "orbit" as PreviewId,
     theme: "clean",
   },

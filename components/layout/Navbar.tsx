@@ -64,7 +64,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-[13px] font-medium text-cream/55 transition-colors hover:text-cream"
+              className="nav-link text-cream/60 transition-colors hover:text-cream"
             >
               {link.label}
             </a>

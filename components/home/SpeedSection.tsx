@@ -16,7 +16,7 @@ export function SpeedSection() {
             </div>
             <div>
               <p className="eyebrow text-accent">Our approach</p>
-              <p className="mt-4 max-w-xl text-lg leading-8 text-cream/50">
+              <p className="mt-4 max-w-xl body-lg text-secondary">
                 Speed doesn&apos;t mean cutting corners. SitePro delivers
                 professional design with efficient workflows — so your website
                 goes live without the wait.
@@ -34,7 +34,7 @@ export function SpeedSection() {
               <h3 className="font-display text-xl font-semibold tracking-tight text-cream sm:text-2xl">
                 {pillar.title}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-cream/45">
+              <p className="mt-3 text-[0.9375rem] leading-7 text-secondary sm:text-base">
                 {pillar.description}
               </p>
             </div>

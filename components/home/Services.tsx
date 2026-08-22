@@ -59,7 +59,7 @@ export function Services() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={reduced ? undefined : { opacity: 0, y: -4 }}
                       transition={{ duration: 0.35 }}
-                      className="mt-3 max-w-xl text-sm leading-7 text-cream/45 sm:text-base"
+                      className="mt-3 max-w-xl body-lg text-secondary"
                     >
                       {service.description}
                     </motion.p>

@@ -40,7 +40,7 @@ function ProcessStep({
       <h3 className="mt-4 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl lg:text-6xl">
         {step.title}
       </h3>
-      <p className="mt-4 max-w-sm text-sm leading-7 text-cream/50 sm:text-base">
+      <p className="mt-4 max-w-sm body-lg text-secondary">
         {step.description}
       </p>
     </motion.article>
@@ -71,7 +71,7 @@ export function Process() {
               <br />
               <span className="text-accent">TO WEBSITE.</span>
             </h2>
-            <p className="mt-5 text-base leading-7 text-cream/45">
+            <p className="mt-5 body-lg text-secondary">
               A clear path from first conversation to launch — no confusion, no
               unnecessary steps.
             </p>

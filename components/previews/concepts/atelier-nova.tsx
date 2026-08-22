@@ -1,74 +1,74 @@
-import { cn } from "@/lib/cn";
 import { conceptImages } from "@/lib/images";
-import { PreviewFooter, PreviewNav, PreviewPhoto } from "@/components/previews/shared";
+import {
+  PreviewBody,
+  PreviewButton,
+  PreviewEyebrow,
+  PreviewFooter,
+  PreviewHero,
+  PreviewHeroSide,
+  PreviewNav,
+  PreviewPhoto,
+  PreviewRoot,
+  PreviewTitle,
+} from "@/components/previews/shared";
 
 export function AtelierPreview({ large }: { large?: boolean }) {
   const { hero, gallery, story } = conceptImages.atelier;
   const dishes = [
-    { src: gallery[0], name: "Sea bass" },
-    { src: gallery[1], name: "Dry-aged ribeye" },
-    { src: gallery[2], name: "Seasonal tasting" },
+    { src: gallery[0], name: "Signature", label: "Sea bass · citrus beurre blanc" },
+    { src: gallery[1], name: "Seasonal menu", label: "Dry-aged ribeye · root vegetables" },
+    { src: gallery[2], name: "Chef's selection", label: "Seven-course tasting menu" },
   ];
 
   return (
-    <div className="flex h-full min-h-[320px] flex-col bg-[#120e0a] text-[#f4eadc]">
+    <PreviewRoot className="bg-[#120e0a] text-[#f4eadc]">
       <PreviewNav
         brand="ATELIER"
-        links={["Menu", "Story", "Reservations"]}
+        links={["Menu", "Chef", "Reservations"]}
         cta="Book"
       />
-      <div className="relative min-h-[38%] flex-1">
-        <PreviewPhoto src={hero} className="absolute inset-0" priority={large} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#120e0a] via-[#120e0a]/35 to-black/20" />
-        <div className="absolute inset-x-[5%] bottom-[10%] max-w-[70%]">
-          <p className="text-[clamp(5px,0.85vw,10px)] tracking-[0.32em] text-[#c9a882]">
-            FINE DINING · KUALA LUMPUR
-          </p>
-          <h3
-            className={cn(
-              "mt-[2%] font-display font-semibold leading-[0.95]",
-              large ? "text-3xl sm:text-5xl" : "text-base sm:text-2xl",
-            )}
-          >
-            Taste the craft
-          </h3>
-          <p className="mt-[2%] text-[clamp(5px,0.9vw,10px)] text-[#f4eadc]/60">
-            Seasonal menu · Private dining · Wine pairings
-          </p>
-          <span className="mt-[4%] inline-block rounded-full bg-[#b85c32] px-[5%] py-[2%] text-[clamp(5px,0.85vw,9px)]">
-            Reserve a table
-          </span>
-        </div>
-      </div>
-      <div className="grid shrink-0 grid-cols-[1fr_42%] gap-[2%] border-t border-[#f4eadc]/10 p-[3%]">
-        <div className="flex flex-col justify-center pr-[2%]">
-          <p className="text-[clamp(5px,0.75vw,9px)] tracking-[0.2em] text-[#c9a882]">
-            OUR STORY
-          </p>
-          <p className="mt-[3%] text-[clamp(5px,0.85vw,10px)] leading-relaxed text-[#f4eadc]/55">
-            A kitchen where technique meets terroir — every plate composed with
-            precision and warmth.
-          </p>
-        </div>
-        <PreviewPhoto src={story} className="aspect-[4/3]" />
-      </div>
-      <div className="shrink-0 border-t border-[#f4eadc]/10 px-[3%] py-[2.5%]">
-        <p className="mb-[2%] text-[clamp(5px,0.75vw,9px)] tracking-[0.2em] text-[#c9a882]">
-          SIGNATURE DISHES
-        </p>
-        <div className="grid grid-cols-3 gap-[2%]">
+
+      <PreviewHero
+        src={hero}
+        priority={large}
+        gradientClass="bg-gradient-to-t from-[#120e0a] via-[#120e0a]/55 to-transparent"
+      >
+        <PreviewEyebrow className="text-[#c9a882]">Fine Dining</PreviewEyebrow>
+        <PreviewTitle large={large}>ATELIER</PreviewTitle>
+        <PreviewBody className="max-w-[85%] text-[#f4eadc]/70">
+          A modern dining experience shaped by craft, season and detail.
+        </PreviewBody>
+        <PreviewButton className="bg-[#b85c32] text-[#f4eadc]">Reserve a Table</PreviewButton>
+      </PreviewHero>
+
+      <section className="shrink-0 border-t border-[#f4eadc]/10 px-[4%] py-[3.5%]">
+        <PreviewEyebrow className="text-[#c9a882]">Signature</PreviewEyebrow>
+        <div className="mt-[2%] grid grid-cols-3 gap-[2.5%]">
           {dishes.map((dish) => (
-            <div key={dish.name}>
-              <PreviewPhoto src={dish.src} className="aspect-[4/5]" />
-              <p className="mt-[3%] text-[clamp(5px,0.75vw,8px)] text-[#f4eadc]/70">
-                {dish.name}
+            <div key={dish.name} className="min-w-0">
+              <PreviewPhoto src={dish.src} className="aspect-[4/5]" alt={dish.name} />
+              <p className="mt-[0.5em] text-[0.82em] font-medium">{dish.name}</p>
+              <p className="mt-[0.25em] text-[0.72em] leading-relaxed text-[#f4eadc]/55">
+                {dish.label}
               </p>
             </div>
           ))}
         </div>
-      </div>
+      </section>
+
+      <section className="grid shrink-0 grid-cols-[1fr_42%] gap-[3%] border-t border-[#f4eadc]/10 px-[4%] py-[3.5%]">
+        <div className="flex flex-col justify-center pr-[2%]">
+          <PreviewEyebrow className="text-[#c9a882]">The Kitchen</PreviewEyebrow>
+          <PreviewBody className="text-[#f4eadc]/60">
+            Chef-led fine dining with seasonal produce, intimate service and a wine
+            program built around each course.
+          </PreviewBody>
+        </div>
+        <PreviewPhoto src={story} className="aspect-[4/3]" alt="Atelier dining room" />
+      </section>
+
       <PreviewFooter text="Jalan Ampang · Open Tue–Sun" />
-    </div>
+    </PreviewRoot>
   );
 }
 
@@ -76,61 +76,56 @@ export function NovaPreview({ large }: { large?: boolean }) {
   const { hero, gallery, collection } = conceptImages.nova;
 
   return (
-    <div className="flex h-full min-h-[320px] flex-col bg-[#faf8f5] text-[#111]">
+    <PreviewRoot className="bg-[#faf8f5] text-[#111]">
       <PreviewNav
         brand="NØVA"
         dark={false}
-        links={["Collection", "Editorial", "About"]}
+        links={["Collection", "Editorial", "Studio"]}
         cta="Shop"
       />
-      <div className="relative min-h-[42%] flex-1">
-        <PreviewPhoto src={hero} className="absolute inset-0" priority={large} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#faf8f5] via-[#faf8f5]/40 to-transparent" />
-        <div className="absolute inset-y-0 left-[5%] flex w-[55%] flex-col justify-center">
-          <p className="text-[clamp(5px,0.85vw,10px)] tracking-[0.35em] text-zinc-500">
-            SS26 COLLECTION
-          </p>
-          <h3
-            className={cn(
-              "mt-[3%] font-display font-light tracking-[0.28em]",
-              large ? "text-4xl sm:text-6xl" : "text-xl sm:text-3xl",
-            )}
-          >
-            NØVA
-          </h3>
-          <p className="mt-[4%] text-[clamp(5px,0.9vw,10px)] leading-relaxed text-zinc-600">
-            Editorial fashion · Minimal luxury · Studio crafted
-          </p>
-          <span className="mt-[5%] inline-flex w-fit border-b border-[#111] pb-[1%] text-[clamp(5px,0.85vw,9px)] tracking-[0.22em]">
-            EXPLORE COLLECTION
-          </span>
+
+      <PreviewHeroSide
+        src={hero}
+        priority={large}
+        gradientClass="bg-gradient-to-r from-[#faf8f5]/95 via-[#faf8f5]/45 to-transparent"
+        side="left"
+      >
+        <PreviewEyebrow className="text-zinc-500">New Season</PreviewEyebrow>
+        <PreviewTitle large={large} className="font-light tracking-[0.22em]">
+          NØVA
+        </PreviewTitle>
+        <PreviewBody className="text-zinc-600">New Collection</PreviewBody>
+        <PreviewButton variant="underline" className="border-[#111] text-[#111]">
+          Explore Collection
+        </PreviewButton>
+      </PreviewHeroSide>
+
+      <section className="shrink-0 px-[4%] py-[3.5%]">
+        <PreviewEyebrow className="text-zinc-400">Lookbook</PreviewEyebrow>
+        <div className="mt-[2%] grid grid-cols-3 gap-[2.5%]">
+          {gallery.map((src, i) => (
+            <div key={src} className="min-w-0">
+              <PreviewPhoto src={src} className="aspect-[3/4]" alt={`Look ${i + 1}`} />
+              <p className="mt-[0.5em] text-[0.75em] tracking-[0.14em] text-zinc-500">
+                LOOK 0{i + 1}
+              </p>
+            </div>
+          ))}
         </div>
-      </div>
-      <div className="grid shrink-0 grid-cols-3 gap-[2%] p-[3%]">
-        {gallery.map((src, i) => (
-          <div key={src}>
-            <PreviewPhoto src={src} className="aspect-[3/4]" />
-            <p className="mt-[3%] text-[clamp(5px,0.75vw,8px)] tracking-[0.12em] text-zinc-500">
-              LOOK 0{i + 1}
-            </p>
-          </div>
-        ))}
-      </div>
-      <div className="grid shrink-0 grid-cols-2 gap-[2%] border-t border-black/8 px-[3%] py-[2.5%]">
-        <PreviewPhoto src={collection} className="aspect-[16/11]" />
+      </section>
+
+      <section className="grid shrink-0 grid-cols-2 gap-[3%] border-t border-black/8 px-[4%] py-[3.5%]">
+        <PreviewPhoto src={collection} className="aspect-[16/11]" alt="Nova editorial" />
         <div className="flex flex-col justify-center">
-          <p className="text-[clamp(5px,0.75vw,9px)] tracking-[0.2em] text-zinc-400">
-            NEW ARRIVALS
+          <PreviewEyebrow className="text-zinc-400">Studio</PreviewEyebrow>
+          <p className="mt-[0.5em] font-display text-[1.15em] font-medium leading-tight">
+            Structured silhouettes for the new season
           </p>
-          <p className="mt-[3%] font-display text-[clamp(10px,1.8vw,18px)] font-medium">
-            Structured silhouettes
-          </p>
-          <span className="mt-[4%] inline-flex w-fit bg-[#111] px-[5%] py-[2%] text-[clamp(5px,0.85vw,9px)] text-white">
-            Shop collection
-          </span>
+          <PreviewButton className="bg-[#111] text-white">View Lookbook</PreviewButton>
         </div>
-      </div>
+      </section>
+
       <PreviewFooter text="Free shipping · KL & SG" dark={false} />
-    </div>
+    </PreviewRoot>
   );
 }

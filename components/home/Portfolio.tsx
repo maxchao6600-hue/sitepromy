@@ -84,22 +84,13 @@ function PortfolioItem({
           <p className="eyebrow text-accent">
             {project.category} · {project.number}
           </p>
-          <p className={cn("mt-3 text-sm", theme.muted)}>{project.type}</p>
-          <h3
-            className={cn(
-              "mt-4 font-display text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl",
-              theme.text,
-            )}
-          >
-            {project.name}
-          </h3>
-          <p className={cn("mt-5 max-w-xl text-base leading-7 sm:text-lg", theme.muted)}>
-            {project.summary}
-          </p>
+          <p className={cn("mt-3 body-lg", theme.muted)}>{project.type}</p>
+          <h3 className={cn("portfolio-title mt-4", theme.text)}>{project.name}</h3>
+          <p className={cn("mt-5 max-w-xl body-lg", theme.muted)}>{project.summary}</p>
           <a
             href={`/#portfolio-${project.slug}`}
             className={cn(
-              "mt-6 inline-flex items-center gap-2 text-sm font-medium tracking-wide text-accent transition-opacity hover:opacity-80",
+              "nav-link mt-6 inline-flex items-center gap-2 text-accent transition-opacity hover:opacity-80",
             )}
           >
             View Concept →
@@ -141,7 +132,7 @@ export function Portfolio({ hideIntro = false }: { hideIntro?: boolean }) {
               <br />
               <span className="text-accent">FOR EVERY INDUSTRY.</span>
             </h2>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-cream/50">
+            <p className="mt-6 max-w-2xl body-lg text-secondary">
               Six concept projects — each a different visual world. This is how
               SitePro designs for restaurants, fashion, architecture, corporate,
               e-commerce and professional services.
