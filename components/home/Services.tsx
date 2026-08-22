@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ProjectMockup } from "@/components/home/ProjectMockup";
+import { WebsitePreview } from "@/components/previews/WebsitePreview";
 import { MotionReveal } from "@/components/ui/Motion";
 import { services } from "@/lib/site";
 import { cn } from "@/lib/cn";
@@ -12,66 +12,61 @@ export function Services() {
   const reduced = useReducedMotion();
 
   return (
-    <section id="services" className="scroll-mt-24 bg-paper text-ink">
-      <div className="container-main section-pad">
+    <section id="services" className="scroll-mt-24 bg-off-white text-ink">
+      <div className="container-main section-y">
         <MotionReveal>
-          <p className="eyebrow text-accent">Services</p>
-          <h2 className="heading-display mt-5 text-[clamp(2.25rem,6vw,4.5rem)] text-ink">
-            WHAT WE BUILD.
-          </h2>
+          <h2 className="display-lg text-ink">WHAT WE BUILD.</h2>
         </MotionReveal>
 
-        <div className="mt-14 grid gap-0 lg:grid-cols-[1fr_420px] lg:gap-10">
-          <div className="divide-y divide-ink/10 border-y border-ink/10">
-            {services.map((service, index) => (
-              <button
-                key={service.number}
-                type="button"
-                onMouseEnter={() => setActive(index)}
-                onFocus={() => setActive(index)}
-                onClick={() => setActive(index)}
+        <div className="mt-16 lg:mt-24">
+          {services.map((service, index) => (
+            <button
+              key={service.number}
+              type="button"
+              onMouseEnter={() => setActive(index)}
+              onFocus={() => setActive(index)}
+              onClick={() => setActive(index)}
+              className={cn(
+                "group flex w-full border-t border-ink/10 py-10 text-left transition-colors lg:py-14",
+                active === index && "bg-ink/[0.02]",
+              )}
+            >
+              <span
                 className={cn(
-                  "group flex w-full items-start gap-6 py-7 text-left transition-colors duration-300 sm:gap-10 sm:py-8",
-                  active === index ? "bg-accent-soft" : "hover:bg-ink/[0.02]",
+                  "w-16 shrink-0 font-display text-sm tracking-widest transition-colors lg:w-24 lg:text-base",
+                  active === index ? "text-accent" : "text-ink/30",
                 )}
               >
-                <span
+                {service.number}
+              </span>
+              <div className="min-w-0 flex-1">
+                <h3
                   className={cn(
-                    "font-display text-sm tracking-[0.15em] transition-colors",
-                    active === index ? "text-accent" : "text-muted",
+                    "font-display text-3xl font-semibold tracking-tight transition-transform sm:text-4xl lg:text-5xl",
+                    active === index && !reduced && "translate-x-2",
                   )}
                 >
-                  {service.number}
-                </span>
-                <div className="min-w-0 flex-1">
-                  <h3
-                    className={cn(
-                      "font-display text-xl font-semibold tracking-tight transition-transform duration-300 sm:text-2xl",
-                      active === index && !reduced && "translate-x-1",
-                    )}
-                  >
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 max-w-lg text-sm leading-7 text-ink/60">
-                    {service.description}
-                  </p>
-                </div>
-              </button>
-            ))}
-          </div>
-
-          <div className="relative mt-8 hidden lg:block">
-            <motion.div
-              key={active}
-              initial={reduced ? false : { opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="sticky top-28 overflow-hidden rounded-2xl border border-ink/10 shadow-[0_24px_64px_rgba(6,8,15,0.12)]"
-            >
-              <ProjectMockup theme={services[active].theme} className="rounded-2xl" />
-            </motion.div>
-          </div>
+                  {service.title}
+                </h3>
+              </div>
+            </button>
+          ))}
+          <div className="border-t border-ink/10" />
         </div>
+
+        <motion.div
+          key={active}
+          initial={reduced ? false : { opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45 }}
+          className="mt-10 overflow-hidden rounded-xl border border-ink/10 shadow-[0_32px_80px_rgba(5,6,8,0.12)] lg:mt-14"
+        >
+          <WebsitePreview
+            id={services[active].preview}
+            large
+            className="aspect-[16/9] w-full"
+          />
+        </motion.div>
       </div>
     </section>
   );

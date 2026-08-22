@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
-import { SITE } from "@/lib/site";
 
-export const alt = "SitePro Malaysia — Premium Web Design Agency";
+export const alt = "SitePro Malaysia — Premium Web Design Studio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,7 +14,7 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#06080f",
+          background: "#050608",
           color: "#ffffff",
           padding: "72px 80px",
         }}
@@ -25,7 +24,6 @@ export default function OpenGraphImage() {
             style={{
               width: 48,
               height: 48,
-              borderRadius: 12,
               background: "#0080ff",
               display: "flex",
               alignItems: "center",
@@ -36,14 +34,7 @@ export default function OpenGraphImage() {
           >
             S
           </div>
-          <div
-            style={{
-              fontSize: 24,
-              fontWeight: 700,
-              letterSpacing: "-0.02em",
-              display: "flex",
-            }}
-          >
+          <div style={{ fontSize: 24, fontWeight: 700, display: "flex" }}>
             Site<span style={{ color: "#0080ff" }}>Pro</span>
           </div>
         </div>
@@ -61,27 +52,18 @@ export default function OpenGraphImage() {
           </div>
           <div
             style={{
-              fontSize: 64,
+              fontSize: 58,
               lineHeight: 1.05,
               fontWeight: 700,
               letterSpacing: "-0.04em",
               maxWidth: 900,
             }}
           >
-            YOUR IDEA. OUR CRAFT.
-          </div>
-          <div
-            style={{
-              fontSize: 24,
-              color: "rgba(255,255,255,0.55)",
-              marginTop: 16,
-            }}
-          >
-            {SITE.tagline}
+            WE BUILD WEBSITES THAT STAND OUT.
           </div>
         </div>
         <div style={{ fontSize: 22, color: "rgba(255,255,255,0.45)" }}>
-          {SITE.domain}
+          sitepromy.com
         </div>
       </div>
     ),

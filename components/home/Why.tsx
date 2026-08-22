@@ -1,37 +1,28 @@
-import { MotionReveal, Stagger, StaggerItem } from "@/components/ui/Motion";
+import { MotionReveal } from "@/components/ui/Motion";
 import { values } from "@/lib/site";
 
 export function Why() {
   return (
-    <section id="why" className="scroll-mt-24 border-y border-white/[0.06] bg-surface">
-      <div className="container-main section-pad">
-        <MotionReveal className="max-w-3xl">
-          <p className="eyebrow text-accent">Why SitePro</p>
-          <h2 className="heading-display mt-5 text-[clamp(2rem,5.5vw,4rem)]">
-            FAST DOESN&apos;T MEAN BASIC.
-          </h2>
-          <p className="mt-5 max-w-xl text-base leading-7 text-cream/55">
-            We build fast without compromising design, quality or performance.
-          </p>
+    <section id="why" className="scroll-mt-24 bg-off-white text-ink">
+      <div className="container-main section-y">
+        <MotionReveal>
+          <h2 className="display-lg text-ink">WHY SITEPRO?</h2>
         </MotionReveal>
 
-        <Stagger className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.06] sm:grid-cols-2">
-          {values.map((value) => (
-            <StaggerItem key={value.number}>
-              <article className="h-full bg-surface p-8 sm:p-10">
-                <span className="font-display text-sm tracking-[0.15em] text-accent">
-                  {value.number}
-                </span>
-                <h3 className="mt-4 font-display text-xl font-semibold tracking-tight sm:text-2xl">
+        <div className="mt-16 space-y-16 sm:mt-24 sm:space-y-20">
+          {values.map((value, index) => (
+            <MotionReveal key={value.title} delay={index * 0.05}>
+              <article className="grid gap-4 border-t border-ink/10 pt-10 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] sm:gap-12 sm:pt-12">
+                <h3 className="font-display text-[clamp(2rem,6vw,4.5rem)] font-bold leading-none tracking-tight text-ink">
                   {value.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-cream/55">
+                <p className="self-end text-base leading-7 text-ink/55 sm:text-lg">
                   {value.description}
                 </p>
               </article>
-            </StaggerItem>
+            </MotionReveal>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   );

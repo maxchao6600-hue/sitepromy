@@ -1,33 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #06080f;
-  --surface: #0c1018;
-  --surface-2: #121820;
-  --paper: #f4f5f8;
-  --paper-2: #e8eaef;
+  --ink: #050608;
+  --surface: #0a0c10;
+  --surface-2: #101318;
+  --surface-2: #101318;
+  --off-white: #f2f0eb;
   --cream: #ffffff;
-  --muted: #8b93a7;
+  --muted: #7a8294;
   --accent: #0080ff;
-  --accent-soft: rgba(0, 128, 255, 0.12);
-  --silver: #c0c8d4;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-dark: rgba(6, 8, 15, 0.1);
+  --accent-dim: rgba(0, 128, 255, 0.14);
+  --line: rgba(255, 255, 255, 0.07);
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --color-paper: var(--paper);
-  --color-paper-2: var(--paper-2);
+  --color-surface-2: var(--surface-2);
+  --color-off-white: var(--off-white);
   --color-cream: var(--cream);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
-  --color-silver: var(--silver);
-  --color-border: var(--border);
-  --color-border-dark: var(--border-dark);
+  --color-accent-dim: var(--accent-dim);
+  --color-line: var(--line);
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
 }
@@ -40,14 +36,6 @@ html {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
   }
 }
 
@@ -63,37 +51,59 @@ body {
   color: var(--cream);
 }
 
-.section-pad {
-  padding-block: clamp(4.5rem, 10vw, 7.5rem);
-}
-
 .container-main {
   margin-inline: auto;
-  max-width: 76rem;
-  padding-inline: clamp(1.25rem, 4vw, 2rem);
+  max-width: 80rem;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
-.heading-display {
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  font-size: clamp(2.75rem, 8vw, 8.75rem);
+}
+
+.display-lg {
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 0.95;
+  font-size: clamp(2rem, 5.5vw, 5rem);
 }
 
 .eyebrow {
   font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #c0c8d4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.section-y {
+  padding-block: clamp(5rem, 12vw, 9rem);
 }
 
-.accent-word {
-  color: var(--accent);
+.h-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.h-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.h-scroll > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-only {
+    display: none;
+  }
 }

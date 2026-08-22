@@ -1,135 +1,150 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { MotionReveal } from "@/components/ui/Motion";
-import { brandSteps } from "@/lib/site";
+import { brandPipeline } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
-function StepVisual({ visual, active }: { visual: string; active: boolean }) {
-  const reduced = useReducedMotion();
+function PipelineVisual({ stage }: { stage: number }) {
+  const key = brandPipeline[stage]?.key ?? "idea";
 
   return (
-    <div
-      className={cn(
-        "relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-xl border transition-colors duration-500",
-        active
-          ? "border-accent/30 bg-accent-soft"
-          : "border-white/[0.06] bg-white/[0.02]",
-      )}
-    >
-      {visual === "idea" && (
-        <div className="space-y-2 p-6">
-          <span className="block h-2 w-24 rounded-full bg-white/60" />
-          <span className="block h-2 w-32 rounded-full bg-white/30" />
-          <span className="block h-2 w-20 rounded-full bg-white/20" />
-          <span className="mt-4 block h-16 w-full rounded-lg border border-dashed border-white/15" />
+    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg border border-line bg-[#080a0f]">
+      {key === "idea" && (
+        <div className="flex h-full flex-col justify-center p-8 sm:p-12">
+          <div className="space-y-3 opacity-80">
+            <span className="block h-2 w-32 rounded-full bg-white/15" />
+            <span className="block h-2 w-48 rounded-full bg-white/10" />
+            <span className="block h-2 w-24 rounded-full bg-white/10" />
+          </div>
+          <div className="mt-8 h-40 rounded-lg border-2 border-dashed border-white/15" />
+          <p className="mt-4 font-mono text-xs text-muted">sketch notes</p>
         </div>
       )}
-      {visual === "design" && (
-        <div className="grid w-full grid-cols-3 gap-2 p-6">
-          {[...Array(6)].map((_, i) => (
+      {key === "wireframe" && (
+        <div className="grid h-full grid-cols-4 grid-rows-4 gap-2 p-6 sm:p-10">
+          {[...Array(12)].map((_, i) => (
             <span
               key={i}
               className={cn(
-                "rounded bg-white/10",
-                i === 0 ? "col-span-2 row-span-2" : "h-8",
+                "rounded border border-white/15 bg-white/[0.03]",
+                i === 0 && "col-span-2 row-span-1",
+                i === 1 && "col-span-2",
+                i === 4 && "col-span-2 row-span-2",
               )}
             />
           ))}
         </div>
       )}
-      {visual === "build" && (
-        <pre className="p-4 font-mono text-[10px] leading-relaxed text-accent/80 sm:text-xs">
-          {`const site = {
-  design: "ready",
-  mobile: true,
-  fast: true
-}`}
-        </pre>
-      )}
-      {visual === "launch" && (
-        <div className="w-full p-6">
-          <div className="rounded-lg border border-white/10 bg-[#0a0d14] p-3">
-            <div className="mb-2 flex gap-1.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
-              <span className="ml-auto text-[8px] text-muted">LIVE</span>
+      {key === "design" && (
+        <div className="flex h-full flex-col">
+          <div className="flex items-center justify-between border-b border-line px-6 py-3">
+            <span className="font-display text-xs font-bold">Brand.</span>
+            <span className="h-3 w-12 rounded-full bg-accent" />
+          </div>
+          <div className="grid flex-1 grid-cols-2 gap-4 p-6">
+            <div className="flex flex-col justify-center gap-2">
+              <span className="h-3 w-3/4 rounded-full bg-white/80" />
+              <span className="h-3 w-1/2 rounded-full bg-white/80" />
+              <span className="mt-2 h-2 w-full rounded-full bg-white/15" />
             </div>
-            <span className="block h-2 w-20 rounded-full bg-white/70" />
-            <span className="mt-2 block h-16 rounded bg-gradient-to-br from-accent/25 to-transparent" />
+            <div className="rounded-lg bg-gradient-to-br from-accent/25 to-transparent" />
           </div>
         </div>
       )}
-      {active && !reduced ? (
-        <motion.div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent"
-          layoutId="brand-glow"
-        />
-      ) : null}
+      {key === "build" && (
+        <pre className="flex h-full items-center p-8 font-mono text-xs leading-relaxed text-accent/90 sm:text-sm">
+          {`<section className="hero">\n  <h1>{title}</h1>\n  <Button>Launch</Button>\n</section>`}
+        </pre>
+      )}
+      {key === "live" && (
+        <div className="flex h-full flex-col">
+          <div className="flex items-center justify-between border-b border-line px-6 py-3">
+            <span className="font-display text-xs font-bold">Brand.</span>
+            <span className="flex items-center gap-1.5 text-[10px] text-[#28c840]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#28c840]" />
+              LIVE
+            </span>
+          </div>
+          <div className="grid flex-1 grid-cols-[1fr_40%] gap-4 p-6">
+            <div className="flex flex-col justify-center gap-2">
+              <span className="h-3 w-3/4 rounded-full bg-white/85" />
+              <span className="h-2 w-full rounded-full bg-white/15" />
+              <span className="mt-3 h-6 w-20 rounded-full bg-accent" />
+            </div>
+            <div className="rounded-lg bg-white/[0.06]" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 export function BrandFilm() {
-  const [active, setActive] = useState(0);
   const reduced = useReducedMotion();
+  const [stage, setStage] = useState(0);
+
+  useEffect(() => {
+    if (reduced) return;
+    const interval = setInterval(() => {
+      setStage((s) => (s >= brandPipeline.length - 1 ? 0 : s + 1));
+    }, 2200);
+    return () => clearInterval(interval);
+  }, [reduced]);
 
   return (
-    <section id="brand-film" className="relative overflow-hidden border-y border-white/[0.06] bg-surface">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,128,255,0.08),transparent_65%)]" />
-      <div className="container-main section-pad relative">
-        <MotionReveal className="max-w-3xl">
-          <p className="eyebrow text-accent">How we work</p>
-          <h2 className="heading-display mt-5 text-[clamp(2.25rem,6vw,4.5rem)]">
+    <section
+      id="brand-film"
+      className="relative flex min-h-[100svh] flex-col justify-center border-y border-line bg-surface"
+    >
+      <div className="container-main section-y w-full">
+        <MotionReveal>
+          <h2 className="display-lg max-w-4xl">
             FROM IDEA
             <br />
-            <span className="text-gradient">TO LIVE WEBSITE.</span>
+            <span className="text-accent">TO LIVE WEBSITE.</span>
           </h2>
         </MotionReveal>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[280px_1fr] lg:gap-12">
-          <div className="flex flex-row gap-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0">
-            {brandSteps.map((step, index) => (
+        <div className="mt-12 lg:mt-16">
+          <div className="mb-6 flex flex-wrap gap-2 sm:gap-3">
+            {brandPipeline.map((item, index) => (
               <button
-                key={step.number}
+                key={item.key}
                 type="button"
-                onClick={() => setActive(index)}
+                onClick={() => setStage(index)}
                 className={cn(
-                  "shrink-0 rounded-xl border px-5 py-4 text-left transition-all duration-300 lg:w-full",
-                  active === index
-                    ? "border-accent/40 bg-accent-soft"
-                    : "border-white/[0.06] bg-white/[0.02] hover:border-white/12",
+                  "rounded-full border px-4 py-2 text-left transition-all duration-300",
+                  stage === index
+                    ? "border-accent/40 bg-accent-dim text-accent"
+                    : "border-line text-muted hover:text-cream",
                 )}
               >
-                <span className="text-[11px] font-medium tracking-[0.2em] text-accent">
-                  {step.number}
+                <span className="block text-[10px] tracking-[0.2em]">
+                  {item.label.toUpperCase()}
                 </span>
-                <p className="mt-1 font-display text-lg font-semibold tracking-tight text-cream">
-                  {step.title.toUpperCase()}
-                </p>
+                <span className="block text-[10px] text-muted">{item.sub}</span>
               </button>
             ))}
           </div>
 
-          <div>
-            <StepVisual visual={brandSteps[active].visual} active />
-            <motion.p
-              key={active}
-              initial={reduced ? false : { opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-5 max-w-lg text-sm leading-7 text-cream/60"
-            >
-              {brandSteps[active].description}
-            </motion.p>
+          <motion.div
+            key={stage}
+            initial={reduced ? false : { opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <PipelineVisual stage={stage} />
+          </motion.div>
 
-            <div
-              className="mt-10 flex aspect-video items-center justify-center rounded-2xl border border-dashed border-white/10 bg-white/[0.02]"
-              aria-hidden="true"
-            >
-              <p className="text-center text-xs tracking-[0.2em] text-muted uppercase">
-                Future brand film · 16:9 reserved
-              </p>
-            </div>
+          <div className="mt-6 flex items-center gap-3 text-xs tracking-[0.25em] text-muted uppercase">
+            {brandPipeline.map((item, i) => (
+              <span key={item.key} className="flex items-center gap-3">
+                <span className={cn(stage >= i && "text-accent")}>{item.label}</span>
+                {i < brandPipeline.length - 1 ? <span>→</span> : null}
+              </span>
+            ))}
           </div>
         </div>
       </div>

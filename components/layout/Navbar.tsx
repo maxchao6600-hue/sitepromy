@@ -14,7 +14,7 @@ function subscribeScroll(callback: () => void) {
 }
 
 function getScrollSnapshot() {
-  return window.scrollY > 20;
+  return window.scrollY > 24;
 }
 
 export function Navbar() {
@@ -52,7 +52,7 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled
-          ? "border-b border-white/[0.06] bg-ink/80 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+          ? "border-b border-line bg-ink/85 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       )}
     >
@@ -64,7 +64,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-[13px] font-medium text-cream/60 transition-colors hover:text-cream"
+              className="text-[13px] font-medium text-cream/55 transition-colors hover:text-cream"
             >
               {link.label}
             </a>
@@ -73,36 +73,21 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <Button href="/quote" className="hidden sm:inline-flex">
-            Start Your Project
+            Start a Project
           </Button>
 
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-cream lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center border border-line text-cream lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((value) => !value)}
           >
             <span className="relative block h-3.5 w-4" aria-hidden="true">
-              <span
-                className={cn(
-                  "absolute left-0 h-px w-4 bg-current transition-transform duration-300",
-                  open ? "top-1.5 rotate-45" : "top-0.5",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute left-0 top-1.5 h-px w-4 bg-current transition-opacity duration-300",
-                  open && "opacity-0",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute left-0 h-px w-4 bg-current transition-transform duration-300",
-                  open ? "top-1.5 -rotate-45" : "top-2.5",
-                )}
-              />
+              <span className={cn("absolute left-0 h-px w-4 bg-current transition-transform", open ? "top-1.5 rotate-45" : "top-0.5")} />
+              <span className={cn("absolute left-0 top-1.5 h-px w-4 bg-current transition-opacity", open && "opacity-0")} />
+              <span className={cn("absolute left-0 h-px w-4 bg-current transition-transform", open ? "top-1.5 -rotate-45" : "top-2.5")} />
             </span>
           </button>
         </div>
@@ -112,30 +97,24 @@ export function Navbar() {
         {open ? (
           <motion.div
             id={menuId}
-            initial={reduced ? false : { opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={reduced ? undefined : { opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
-            className="border-b border-white/[0.06] bg-surface/95 backdrop-blur-xl lg:hidden"
+            initial={reduced ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduced ? undefined : { opacity: 0 }}
+            className="border-b border-line bg-surface lg:hidden"
           >
             <nav aria-label="Mobile" className="container-main flex flex-col gap-1 py-8">
-              {navLinks.map((link, index) => (
-                <motion.a
+              {navLinks.map((link) => (
+                <a
                   key={link.href}
                   href={link.href}
-                  initial={reduced ? false : { opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="font-display py-2.5 text-3xl font-semibold tracking-tight text-cream"
+                  className="font-display py-2 text-3xl font-semibold tracking-tight"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
-                </motion.a>
+                </a>
               ))}
               <div className="pt-6">
-                <Button href="/quote" className="w-full sm:w-auto">
-                  Start Your Project
-                </Button>
+                <Button href="/quote">Start a Project</Button>
               </div>
             </nav>
           </motion.div>
