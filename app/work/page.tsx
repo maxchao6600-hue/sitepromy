@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { FinalCTA } from "@/components/home/FinalCTA";
-import { Work } from "@/components/home/Work";
+import { Showcase } from "@/components/home/Showcase";
 import { PageHeader } from "@/components/page/PageHeader";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Our Work",
   description:
-    "Explore SitePro concept website designs for businesses in Malaysia — corporate, restaurant, e-commerce, service and campaign sites.",
+    "Explore SitePro concept website designs for businesses in Malaysia — corporate, restaurant, e-commerce, construction, beauty and professional service sites.",
   alternates: {
     canonical: `${SITE.url}/work`,
   },
@@ -25,9 +25,9 @@ export default function WorkPage() {
       <PageHeader
         eyebrow="Our work"
         title="Built for different businesses."
-        description="These are concept designs, not live client projects. They show the kind of websites SitePro can create — and will be replaced with real work as projects launch."
+        description="Concept designs showing the range of styles SitePro can create — not live client projects. Real work will replace these as projects launch."
       />
-      <Work hideIntro />
+      <Showcase hideIntro />
       <FinalCTA />
     </>
   );

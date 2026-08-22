@@ -1,11 +1,12 @@
 export const SITE = {
-  name: "SITEPRO",
+  name: "SitePro",
   shortName: "SitePro",
   descriptor: "Malaysia Web Design",
   fullName: "SitePro Malaysia Web Design",
-  tagline: "From Idea to Website, Fast.",
+  tagline: "Fast. Professional. Flexible.",
+  heroTitle: ["YOUR IDEA.", "OUR CRAFT."],
   supporting:
-    "Professional websites built around your needs — fast, efficient and flexible.",
+    "Modern websites designed and built around your business.",
   description:
     "SitePro provides professional web design and development in Malaysia. Fast, flexible and modern websites built around your business needs.",
   url: "https://sitepromy.com",
@@ -16,245 +17,304 @@ export const SITE = {
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/#services", label: "Services" },
-  { href: "/#solutions", label: "Solutions" },
-  { href: "/work", label: "Our Work" },
+  { href: "/#showcase", label: "Our Work" },
+  { href: "/#process", label: "Process" },
+  { href: "/#pricing", label: "Pricing" },
   { href: "/#faq", label: "FAQ" },
 ] as const;
 
 export const footerLinks = [
-  ...navLinks,
+  { href: "/", label: "Home" },
+  { href: "/#services", label: "Services" },
+  { href: "/#showcase", label: "Our Work" },
+  { href: "/#process", label: "Process" },
+  { href: "/#pricing", label: "Pricing" },
+  { href: "/#faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
 export const services = [
   {
+    number: "01",
     title: "Business Websites",
     description:
-      "Professional websites for companies, brands and local businesses that need a clear, credible presence online.",
+      "Professional websites for companies and local businesses that need a credible, clear online presence.",
+    theme: "corporate" as const,
   },
   {
+    number: "02",
+    title: "E-Commerce",
+    description:
+      "Online stores designed to present products clearly and help customers buy with confidence.",
+    theme: "ecommerce" as const,
+  },
+  {
+    number: "03",
     title: "Landing Pages",
     description:
-      "Focused pages designed to present your business, service or campaign clearly — and help people take the next step.",
+      "Focused pages built for campaigns, launches and offers — one clear path to action.",
+    theme: "landing" as const,
   },
   {
-    title: "E-Commerce Websites",
+    number: "04",
+    title: "Corporate Websites",
     description:
-      "Online stores designed to help businesses sell products, present catalogues and manage customers online.",
+      "Structured, established websites for companies that need to look professional at scale.",
+    theme: "corporate" as const,
   },
   {
-    title: "Custom Websites",
+    number: "05",
+    title: "Portfolio Websites",
     description:
-      "Tailored website solutions for businesses with specific requirements, workflows or more complex needs.",
+      "Showcase-led websites for creatives, agencies and professionals who lead with their work.",
+    theme: "beauty" as const,
   },
   {
-    title: "Website Redesign",
+    number: "06",
+    title: "Custom Web Solutions",
     description:
-      "Modernise outdated websites with a cleaner design, clearer structure and a better experience on every device.",
-  },
-  {
-    title: "Website Maintenance",
-    description:
-      "Ongoing updates, improvements and technical support so your website stays current after launch.",
+      "Tailored websites when your business needs something beyond a standard template.",
+    theme: "professional" as const,
   },
 ] as const;
 
 export const values = [
   {
-    eyebrow: "01",
-    title: "Fast execution",
+    number: "01",
+    title: "Fast Execution",
     description:
-      "We focus on efficient workflows and clear communication so your project keeps moving.",
+      "We move projects forward efficiently — clear communication, focused workflows and less unnecessary waiting.",
   },
   {
-    eyebrow: "02",
-    title: "Professional quality",
+    number: "02",
+    title: "Professional Design",
     description:
-      "Modern responsive design, clean development and a professional user experience across devices.",
+      "Every website is designed around your brand and business — not a one-size-fits-all template.",
   },
   {
-    eyebrow: "03",
-    title: "Flexible solutions",
+    number: "03",
+    title: "Flexible Solutions",
     description:
-      "Every business is different. Choose a solution that fits your goals, budget and requirements.",
+      "From a simple business website to a custom build — we adapt to what you actually need.",
   },
   {
-    eyebrow: "04",
-    title: "Built around your needs",
+    number: "04",
+    title: "Built For Your Business",
     description:
-      "We don’t force every business into the same website. Your website is planned around what you actually need.",
+      "We design around your customers, goals and industry — not just to make pages look good.",
+  },
+] as const;
+
+export const brandSteps = [
+  {
+    number: "01",
+    title: "Idea",
+    visual: "idea",
+    description: "Your business, goals and vision — captured clearly.",
+  },
+  {
+    number: "02",
+    title: "Design",
+    visual: "design",
+    description: "Wireframes and UI direction shaped into a modern experience.",
+  },
+  {
+    number: "03",
+    title: "Build",
+    visual: "build",
+    description: "Clean, responsive development — optimised for every device.",
+  },
+  {
+    number: "04",
+    title: "Launch",
+    visual: "launch",
+    description: "Your website goes live — ready for customers.",
   },
 ] as const;
 
 export const steps = [
   {
     number: "01",
-    title: "Tell Us Your Idea",
+    title: "Idea",
     description:
-      "Tell us what your business does, what you need and what you want your website to achieve — even if the idea is still rough.",
+      "We understand your business, goals and requirements.",
   },
   {
     number: "02",
-    title: "Plan & Design",
+    title: "Design",
     description:
-      "We turn your requirements into a clear website structure and a modern design direction that fits your brand.",
+      "We turn your idea into a modern visual experience.",
   },
   {
     number: "03",
-    title: "Build & Refine",
+    title: "Build",
     description:
-      "We develop the website, optimise it for mobile and refine the experience based on your feedback.",
+      "We develop a fast, responsive and scalable website.",
   },
   {
     number: "04",
     title: "Launch",
     description:
-      "Once everything is ready, your website goes live — and your business is ready to grow online.",
-  },
-] as const;
-
-export const solutions = [
-  {
-    title: "Small Business",
-    description: "A clear, professional website for local and growing businesses.",
-  },
-  {
-    title: "Company Website",
-    description: "A structured online presence for teams that need to look established.",
-  },
-  {
-    title: "Restaurant",
-    description: "Menus, atmosphere and booking-ready pages designed to convert visitors.",
-  },
-  {
-    title: "Service Business",
-    description: "Explain what you do, who you help and how to get in touch.",
-  },
-  {
-    title: "Personal Brand",
-    description: "A focused site for consultants, creators and independent professionals.",
-  },
-  {
-    title: "Online Store",
-    description: "Product-led websites built to present and sell with clarity.",
-  },
-  {
-    title: "Professional Services",
-    description: "Credible websites for firms that need trust, clarity and contact.",
-  },
-  {
-    title: "Campaign / Landing Page",
-    description: "A single, sharp page for a launch, offer or specific campaign.",
-  },
-  {
-    title: "Custom Business Platform",
-    description: "When a standard brochure site isn’t enough, we plan a tailored solution.",
+      "Your website goes live, ready for your customers.",
   },
 ] as const;
 
 export const projects = [
   {
     slug: "corporate",
-    title: "Corporate Website",
-    category: "Concept",
+    title: "Business / Corporate",
+    category: "SitePro Concept",
     summary:
-      "A structured, professional presence for companies that need to look established, clear and easy to navigate.",
-    theme: "corporate",
+      "Clean, structured and professional — built for companies that need to look established and trustworthy.",
+    theme: "corporate" as const,
   },
   {
     slug: "restaurant",
-    title: "Restaurant Website",
-    category: "Concept",
+    title: "Restaurant",
+    category: "SitePro Concept",
     summary:
-      "A warm, editorial layout for F&B brands — atmosphere first, with menu and visit information close at hand.",
-    theme: "restaurant",
+      "Immersive, image-led and warm — designed to capture atmosphere and drive reservations.",
+    theme: "restaurant" as const,
   },
   {
     slug: "ecommerce",
     title: "E-Commerce",
-    category: "Concept",
+    category: "SitePro Concept",
     summary:
-      "A product-led storefront designed to present catalogues cleanly and make purchasing feel straightforward.",
-    theme: "ecommerce",
+      "Product-focused and modern — a storefront that makes browsing and buying feel effortless.",
+    theme: "ecommerce" as const,
   },
   {
-    slug: "service",
-    title: "Service Business",
-    category: "Concept",
+    slug: "construction",
+    title: "Construction",
+    category: "SitePro Concept",
     summary:
-      "A direct, trust-building website for service providers who need to explain their offer and win enquiries.",
-    theme: "service",
+      "Bold, reliable and industrial — a website that communicates strength and capability.",
+    theme: "construction" as const,
   },
   {
-    slug: "landing",
-    title: "Landing Page",
-    category: "Concept",
+    slug: "beauty",
+    title: "Beauty / Fashion",
+    category: "SitePro Concept",
     summary:
-      "A focused campaign page with a strong headline, a clear offer and a single path to contact.",
-    theme: "landing",
+      "Refined, spacious and elegant — premium aesthetics with careful typography and whitespace.",
+    theme: "beauty" as const,
   },
   {
-    slug: "brand",
-    title: "Modern Brand Website",
-    category: "Concept",
+    slug: "professional",
+    title: "Professional Service",
+    category: "SitePro Concept",
     summary:
-      "A more expressive layout for brands that want distinctive typography and a memorable first impression.",
-    theme: "brand",
+      "Credible, concise and clear — designed to build trust and win enquiries.",
+    theme: "professional" as const,
   },
 ] as const;
 
-export type ProjectTheme = (typeof projects)[number]["theme"];
+export type ProjectTheme =
+  | "corporate"
+  | "restaurant"
+  | "ecommerce"
+  | "construction"
+  | "beauty"
+  | "professional"
+  | "landing"
+  | "service";
+
+export const pricingTiers = [
+  {
+    name: "Starter",
+    price: "Custom Quote",
+    description: "A focused starting point for getting online professionally.",
+    features: [
+      "Small businesses",
+      "Personal brands",
+      "Simple company websites",
+    ],
+    cta: "Get a Quote",
+    href: "/quote",
+    featured: false,
+  },
+  {
+    name: "Business",
+    price: "Custom Quote",
+    description: "Our recommended path for growing companies that need more structure.",
+    features: [
+      "Growing businesses",
+      "Professional companies",
+      "Service businesses",
+    ],
+    cta: "Get a Quote",
+    href: "/quote",
+    featured: true,
+  },
+  {
+    name: "E-Commerce",
+    price: "Custom Quote",
+    description: "Online stores built to present products and serve customers.",
+    features: [
+      "Online stores",
+      "Product businesses",
+      "Online selling",
+    ],
+    cta: "Get a Quote",
+    href: "/quote",
+    featured: false,
+  },
+  {
+    name: "Custom",
+    price: "Custom Quote",
+    description: "When your project needs something entirely your own.",
+    features: [
+      "Unique requirements",
+      "Advanced functionality",
+      "Custom solutions",
+    ],
+    cta: "Let's Talk",
+    href: "/contact",
+    featured: false,
+  },
+] as const;
 
 export const faqs = [
   {
-    question: "How long does it take to build a website?",
+    question: "How long does a website take?",
     answer:
-      "It depends on the type of website, how ready your content is, and how much customisation you need. A focused landing page can move faster than a custom or e-commerce site. After we understand your requirements, we’ll give you a clear timeline before work begins.",
+      "It depends on the scope, how ready your content is, and how much customisation you need. A landing page can move faster than a full e-commerce build. After we understand your requirements, we'll give you a clear timeline before work begins.",
   },
   {
-    question: "Can you build a website based on my own idea?",
+    question: "Do I need to provide the design?",
     answer:
-      "Yes. That’s how we prefer to work. Share what you have in mind — even if it’s rough — and we’ll help shape it into a practical website plan.",
+      "No. We handle design and development. Share your ideas, brand direction or references — even if they're rough — and we'll shape them into a practical website plan.",
   },
   {
-    question: "Do you provide custom designs?",
-    answer:
-      "Yes. We design around your business rather than forcing a one-size-fits-all template. The visual direction is planned according to your brand, audience and goals.",
-  },
-  {
-    question: "Can you redesign my existing website?",
-    answer:
-      "Yes. We can modernise an outdated site with a cleaner design, clearer structure and a stronger experience on mobile — while keeping what already works.",
-  },
-  {
-    question: "Do you build mobile-friendly websites?",
-    answer:
-      "Yes. Every SitePro website is designed mobile-first, so it stays readable, usable and professional on phones, tablets and desktops.",
-  },
-  {
-    question: "Can you build e-commerce websites?",
+    question: "Can you build an e-commerce website?",
     answer:
       "Yes. We build online stores that help businesses present products, handle orders and serve customers online.",
   },
   {
-    question: "Do you provide website maintenance?",
+    question: "Will my website work on mobile?",
     answer:
-      "Yes. We offer ongoing updates, improvements and technical support after launch so your website stays in good shape as your business changes.",
-  },
-  {
-    question: "Do I need to prepare the content myself?",
-    answer:
-      "You can share existing content, or we can help you structure what the website needs to say. You don’t need everything ready before we start — we’ll guide you on what’s needed.",
+      "Yes. Every SitePro website is designed mobile-first — readable, usable and professional on phones, tablets and desktops.",
   },
   {
     question: "Can you help with domain and hosting?",
     answer:
-      "Yes. We can advise on domain and hosting, and help you get set up if you don’t already have them.",
+      "Yes. We can advise on domain and hosting, and help you get set up if you don't already have them.",
   },
   {
-    question: "What happens after I contact SitePro?",
+    question: "Can you help with SEO?",
     answer:
-      "We’ll review your request and follow up to understand your business, goals and timeline. From there, we’ll recommend a suitable approach and provide a quote.",
+      "Yes. We build websites with SEO-ready structure — clean headings, semantic HTML, fast performance and proper metadata. Ongoing SEO strategy can be discussed separately.",
+  },
+  {
+    question: "Can I request custom features?",
+    answer:
+      "Yes. If your business needs specific functionality — booking, integrations, custom layouts — we'll plan a solution that fits.",
+  },
+  {
+    question: "How do I start?",
+    answer:
+      "Tell us about your project using the quote form. We'll review your requirements and follow up with a clear next step.",
   },
 ] as const;
 

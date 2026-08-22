@@ -2,21 +2,17 @@ import { Button } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <section className="bg-ink px-5 py-32 text-center text-cream sm:px-8">
-      <p className="text-[11px] font-medium uppercase tracking-[0.26em] text-accent">
-        404
-      </p>
-      <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-6xl">
-        This page doesn’t exist.
+    <section className="container-main px-5 py-32 text-center sm:px-8">
+      <p className="eyebrow text-accent">404</p>
+      <h1 className="heading-display mt-4 text-4xl sm:text-6xl">
+        Page not found.
       </h1>
-      <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-cream/60">
-        The page you’re looking for has moved or was never here. Head back to
-        the homepage to continue.
+      <p className="mx-auto mt-4 max-w-md text-sm leading-7 text-cream/55">
+        The page you&apos;re looking for doesn&apos;t exist. Head back to the
+        homepage to continue.
       </p>
       <div className="mt-8">
-        <Button href="/" tone="dark">
-          Back to Home
-        </Button>
+        <Button href="/">Back to Home</Button>
       </div>
     </section>
   );

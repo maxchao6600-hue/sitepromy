@@ -58,20 +58,25 @@ export const metadata: Metadata = {
     siteName: SITE.fullName,
     title: "SitePro Malaysia | Professional Web Design & Development",
     description: SITE.description,
+    images: [{ url: "/logo.jpg", width: 1024, height: 1024, alt: "SitePro Malaysia Web Design" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "SitePro Malaysia | Professional Web Design & Development",
     description: SITE.description,
+    images: ["/logo.jpg"],
   },
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/apple-icon" }],
+    icon: [
+      { url: "/logo.jpg", type: "image/jpeg" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/logo.jpg" }],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0b0e",
+  themeColor: "#06080f",
   width: "device-width",
   initialScale: 1,
 };
@@ -86,7 +91,7 @@ export default function RootLayout({
       lang="en-MY"
       className={`${syne.variable} ${outfit.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-paper font-sans text-ink">
+      <body className="min-h-full bg-ink font-sans text-cream">
         <SkipLink />
         <Navbar />
         <main id="main">{children}</main>

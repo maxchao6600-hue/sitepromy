@@ -24,19 +24,17 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Contact SitePro."
-        description="The fastest way to start is the form. Tell us about your project and we’ll follow up."
+        description="The fastest way to start is the form. Tell us about your project and we'll follow up."
       />
-      <section className="bg-paper py-16 sm:py-20">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr]">
+      <section className="bg-ink py-16 sm:py-20">
+        <div className="container-main grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <aside>
-            <p className="text-sm leading-7 text-ink/65">
+            <p className="text-sm leading-7 text-cream/55">
               SitePro designs and develops professional websites for businesses
               in Malaysia. If you already have an idea — or just know you need
               a better website — start here.
             </p>
-            <p className="mt-6 text-sm text-ink/55">
-              {SITE.domain}
-            </p>
+            <p className="mt-6 text-sm text-muted">{SITE.domain}</p>
           </aside>
           <QuoteForm />
         </div>

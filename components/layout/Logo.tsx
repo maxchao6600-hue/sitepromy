@@ -1,42 +1,48 @@
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/cn";
 
 type LogoProps = {
   className?: string;
-  markClassName?: string;
-  inverted?: boolean;
+  showDescriptor?: boolean;
+  compact?: boolean;
 };
 
-export function Logo({ className, markClassName, inverted = false }: LogoProps) {
+export function Logo({
+  className,
+  showDescriptor = true,
+  compact = false,
+}: LogoProps) {
   return (
     <Link
       href="/"
-      className={cn(
-        "group inline-flex items-center gap-2.5 tracking-tight",
-        inverted ? "text-cream" : "text-ink",
-        className,
-      )}
+      className={cn("group inline-flex items-center gap-3", className)}
       aria-label="SitePro home"
     >
-      <span
-        className={cn(
-          "relative flex h-7 w-7 items-center justify-center overflow-hidden rounded-md",
-          inverted ? "bg-accent" : "bg-ink",
-          markClassName,
-        )}
-        aria-hidden="true"
-      >
+      <span className="relative block h-9 w-9 shrink-0 overflow-hidden rounded-lg">
+        <Image
+          src="/logo.jpg"
+          alt=""
+          fill
+          className="object-cover object-top scale-[2.2] translate-y-[8%]"
+          sizes="36px"
+          priority
+        />
+      </span>
+      <span className="flex flex-col">
         <span
           className={cn(
-            "font-display text-[13px] font-bold leading-none",
-            inverted ? "text-ink" : "text-accent",
+            "font-display font-bold tracking-tight text-cream",
+            compact ? "text-sm" : "text-base sm:text-[17px]",
           )}
         >
-          S
+          Site<span className="text-accent">Pro</span>
         </span>
-      </span>
-      <span className="font-display text-[15px] font-bold uppercase tracking-[0.18em]">
-        Sitepro
+        {showDescriptor && !compact ? (
+          <span className="hidden text-[9px] font-medium uppercase tracking-[0.22em] text-muted sm:block">
+            Malaysia Web Design
+          </span>
+        ) : null}
       </span>
     </Link>
   );

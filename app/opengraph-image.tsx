@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { SITE } from "@/lib/site";
 
-export const alt = "SitePro Malaysia — From Idea to Website, Fast.";
+export const alt = "SitePro Malaysia — Premium Web Design Agency";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,22 +15,22 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#0a0b0e",
-          color: "#f6f4ee",
+          background: "#06080f",
+          color: "#ffffff",
           padding: "72px 80px",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
           <div
             style={{
-              width: 42,
-              height: 42,
-              background: "#1ed6a8",
-              color: "#0a0b0e",
+              width: 48,
+              height: 48,
+              borderRadius: 12,
+              background: "#0080ff",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 24,
+              fontSize: 28,
               fontWeight: 700,
             }}
           >
@@ -38,13 +38,13 @@ export default function OpenGraphImage() {
           </div>
           <div
             style={{
-              fontSize: 22,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
+              fontSize: 24,
               fontWeight: 700,
+              letterSpacing: "-0.02em",
+              display: "flex",
             }}
           >
-            SITEPRO
+            Site<span style={{ color: "#0080ff" }}>Pro</span>
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -53,7 +53,7 @@ export default function OpenGraphImage() {
               fontSize: 18,
               letterSpacing: "0.24em",
               textTransform: "uppercase",
-              color: "#1ed6a8",
+              color: "#0080ff",
               marginBottom: 18,
             }}
           >
@@ -63,15 +63,24 @@ export default function OpenGraphImage() {
             style={{
               fontSize: 64,
               lineHeight: 1.05,
-              fontWeight: 650,
+              fontWeight: 700,
               letterSpacing: "-0.04em",
               maxWidth: 900,
+            }}
+          >
+            YOUR IDEA. OUR CRAFT.
+          </div>
+          <div
+            style={{
+              fontSize: 24,
+              color: "rgba(255,255,255,0.55)",
+              marginTop: 16,
             }}
           >
             {SITE.tagline}
           </div>
         </div>
-        <div style={{ fontSize: 22, color: "rgba(246,244,238,0.55)" }}>
+        <div style={{ fontSize: 22, color: "rgba(255,255,255,0.45)" }}>
           {SITE.domain}
         </div>
       </div>

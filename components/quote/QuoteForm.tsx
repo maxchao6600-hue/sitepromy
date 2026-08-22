@@ -52,22 +52,17 @@ export function QuoteForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-ink/10 bg-white p-8 sm:p-10">
-        <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-accent-ink">
-          Request received
-        </p>
+      <div className="rounded-2xl border border-white/10 bg-surface-2 p-8 sm:p-10">
+        <p className="eyebrow text-accent">Request received</p>
         <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight">
           Thanks — we&apos;ll take a look.
         </h2>
-        <p className="mt-4 max-w-md text-sm leading-7 text-ink/65">
+        <p className="mt-4 max-w-md text-sm leading-7 text-cream/55">
           We&apos;ll review your project details and follow up using the email you
-          provided. If you&apos;d like to add anything, you can send another
-          request below.
+          provided.
         </p>
         <div className="mt-8">
-          <Button tone="light" onClick={() => setStatus("idle")}>
-            Send another request
-          </Button>
+          <Button onClick={() => setStatus("idle")}>Send another request</Button>
         </div>
       </div>
     );
@@ -77,7 +72,7 @@ export function QuoteForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-2xl border border-ink/10 bg-white p-6 sm:p-8"
+      className="rounded-2xl border border-white/10 bg-surface-2 p-6 sm:p-8"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <Field
@@ -137,9 +132,9 @@ export function QuoteForm() {
       </div>
 
       <div className="mt-5">
-        <label htmlFor="project" className="text-sm font-medium text-ink">
+        <label htmlFor="project" className="text-sm font-medium text-cream">
           Tell us about your project
-          <span className="text-ink/40"> *</span>
+          <span className="text-muted"> *</span>
         </label>
         <textarea
           id="project"
@@ -153,7 +148,7 @@ export function QuoteForm() {
           placeholder="What does your business do, and what do you want the website to achieve?"
         />
         {errors.project ? (
-          <p id="project-error" className="mt-2 text-sm text-red-700">
+          <p id="project-error" className="mt-2 text-sm text-red-400">
             {errors.project}
           </p>
         ) : null}
@@ -172,17 +167,17 @@ export function QuoteForm() {
       </p>
 
       {status === "error" ? (
-        <p className="mt-4 text-sm text-red-700" role="alert">
+        <p className="mt-4 text-sm text-red-400" role="alert">
           Something went wrong sending your request. Please try again in a
           moment.
         </p>
       ) : null}
 
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <Button type="submit" tone="light" disabled={status === "submitting"}>
+        <Button type="submit" disabled={status === "submitting"}>
           {status === "submitting" ? "Sending…" : "Get My Free Quote"}
         </Button>
-        <p className="text-xs leading-5 text-ink/50">
+        <p className="text-xs leading-5 text-muted">
           No obligation. We&apos;ll reply with a suitable next step.
         </p>
       </div>
@@ -192,8 +187,8 @@ export function QuoteForm() {
 
 function fieldClass(invalid: boolean, extra?: string) {
   return cn(
-    "w-full rounded-lg border bg-paper px-3.5 py-2.5 text-sm text-ink outline-none transition-colors placeholder:text-ink/35 focus-visible:ring-2 focus-visible:ring-accent",
-    invalid ? "border-red-400" : "border-ink/12 focus-visible:border-ink/30",
+    "w-full rounded-lg border bg-ink px-3.5 py-2.5 text-sm text-cream outline-none transition-colors placeholder:text-muted focus-visible:ring-2 focus-visible:ring-accent",
+    invalid ? "border-red-400" : "border-white/10 focus-visible:border-accent/40",
     extra,
   );
 }
@@ -220,9 +215,9 @@ function Field({
   const errorId = `${name}-error`;
   return (
     <div>
-      <label htmlFor={name} className="text-sm font-medium text-ink">
+      <label htmlFor={name} className="text-sm font-medium text-cream">
         {label}
-        {required ? <span className="text-ink/40"> *</span> : null}
+        {required ? <span className="text-muted"> *</span> : null}
       </label>
       <input
         id={name}
@@ -237,7 +232,7 @@ function Field({
         className={fieldClass(Boolean(error), "mt-2")}
       />
       {error ? (
-        <p id={errorId} className="mt-2 text-sm text-red-700">
+        <p id={errorId} className="mt-2 text-sm text-red-400">
           {error}
         </p>
       ) : null}
@@ -265,9 +260,9 @@ function SelectField({
   const errorId = `${name}-error`;
   return (
     <div>
-      <label htmlFor={name} className="text-sm font-medium text-ink">
+      <label htmlFor={name} className="text-sm font-medium text-cream">
         {label}
-        {required ? <span className="text-ink/40"> *</span> : null}
+        {required ? <span className="text-muted"> *</span> : null}
       </label>
       <select
         id={name}
@@ -287,7 +282,7 @@ function SelectField({
         ))}
       </select>
       {error ? (
-        <p id={errorId} className="mt-2 text-sm text-red-700">
+        <p id={errorId} className="mt-2 text-sm text-red-400">
           {error}
         </p>
       ) : null}

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useId, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
 import { cn } from "@/lib/cn";
@@ -13,7 +14,7 @@ function subscribeScroll(callback: () => void) {
 }
 
 function getScrollSnapshot() {
-  return window.scrollY > 12;
+  return window.scrollY > 20;
 }
 
 export function Navbar() {
@@ -22,14 +23,12 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [menuPath, setMenuPath] = useState(pathname);
   const menuId = useId();
+  const reduced = useReducedMotion();
 
   if (menuPath !== pathname) {
     setMenuPath(pathname);
     setOpen(false);
   }
-
-  const isHome = pathname === "/";
-  const inverted = isHome && !scrolled && !open;
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -51,29 +50,21 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter,box-shadow] duration-300",
-        inverted
-          ? "border-b border-transparent bg-transparent"
-          : "border-b border-ink/8 bg-paper/90 shadow-[0_1px_0_rgba(10,11,14,0.04)] backdrop-blur-md",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        scrolled
+          ? "border-b border-white/[0.06] bg-ink/80 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
-        <Logo inverted={inverted} />
+      <div className="container-main flex h-[4.25rem] items-center justify-between gap-4">
+        <Logo />
 
-        <nav
-          className="hidden items-center gap-8 lg:flex"
-          aria-label="Primary"
-        >
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={cn(
-                "text-[13px] font-medium tracking-wide transition-colors",
-                inverted
-                  ? "text-cream/72 hover:text-cream"
-                  : "text-ink/62 hover:text-ink",
-              )}
+              className="text-[13px] font-medium text-cream/60 transition-colors hover:text-cream"
             >
               {link.label}
             </a>
@@ -81,44 +72,34 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button
-            href="/quote"
-            tone={inverted ? "dark" : "light"}
-            className="hidden sm:inline-flex"
-          >
-            Get a Free Quote
+          <Button href="/quote" className="hidden sm:inline-flex">
+            Start Your Project
           </Button>
 
           <button
             type="button"
-            className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-full border lg:hidden",
-              inverted
-                ? "border-white/15 text-cream"
-                : "border-ink/10 text-ink",
-            )}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-cream lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((value) => !value)}
           >
-            <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             <span className="relative block h-3.5 w-4" aria-hidden="true">
               <span
                 className={cn(
-                  "absolute left-0 h-px w-4 bg-current transition-transform duration-200",
+                  "absolute left-0 h-px w-4 bg-current transition-transform duration-300",
                   open ? "top-1.5 rotate-45" : "top-0.5",
                 )}
               />
               <span
                 className={cn(
-                  "absolute left-0 top-1.5 h-px w-4 bg-current transition-opacity duration-200",
+                  "absolute left-0 top-1.5 h-px w-4 bg-current transition-opacity duration-300",
                   open && "opacity-0",
                 )}
               />
               <span
                 className={cn(
-                  "absolute left-0 h-px w-4 bg-current transition-transform duration-200",
+                  "absolute left-0 h-px w-4 bg-current transition-transform duration-300",
                   open ? "top-1.5 -rotate-45" : "top-2.5",
                 )}
               />
@@ -127,41 +108,39 @@ export function Navbar() {
         </div>
       </div>
 
-      <div
-        id={menuId}
-        inert={!open ? true : undefined}
-        className={cn(
-          "lg:hidden",
-          open
-            ? "pointer-events-auto visible opacity-100"
-            : "pointer-events-none invisible opacity-0",
-        )}
-      >
-        <div
-          className={cn(
-            "absolute inset-x-0 top-16 origin-top border-b border-white/8 bg-ink px-5 py-8 shadow-2xl transition-transform duration-300 sm:px-8",
-            open ? "translate-y-0" : "-translate-y-2",
-          )}
-        >
-          <nav aria-label="Mobile" className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="font-display text-3xl font-semibold tracking-tight text-cream py-2"
-                onClick={() => setOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            <div className="pt-6">
-              <Button href="/quote" tone="dark" className="w-full sm:w-auto">
-                Get a Free Quote
-              </Button>
-            </div>
-          </nav>
-        </div>
-      </div>
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            id={menuId}
+            initial={reduced ? false : { opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduced ? undefined : { opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="border-b border-white/[0.06] bg-surface/95 backdrop-blur-xl lg:hidden"
+          >
+            <nav aria-label="Mobile" className="container-main flex flex-col gap-1 py-8">
+              {navLinks.map((link, index) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  initial={reduced ? false : { opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="font-display py-2.5 text-3xl font-semibold tracking-tight text-cream"
+                  onClick={() => setOpen(false)}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <div className="pt-6">
+                <Button href="/quote" className="w-full sm:w-auto">
+                  Start Your Project
+                </Button>
+              </div>
+            </nav>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }
