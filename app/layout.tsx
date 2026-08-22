@@ -58,21 +58,16 @@ export const metadata: Metadata = {
     siteName: SITE.fullName,
     title: "SitePro Malaysia | Professional Web Design & Development",
     description: SITE.description,
-    images: [{ url: "/logo.jpg", width: 1024, height: 1024, alt: "SitePro — Malaysia Web Design" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "SitePro Malaysia | Professional Web Design & Development",
     description: SITE.description,
-    images: ["/logo.jpg"],
   },
   icons: {
-    icon: [
-      { url: "/icon.jpg", type: "image/jpeg", sizes: "512x512" },
-      { url: "/logo.jpg", type: "image/jpeg", sizes: "1024x1024" },
-    ],
-    shortcut: [{ url: "/icon.jpg", type: "image/jpeg" }],
-    apple: [{ url: "/apple-icon.jpg", type: "image/jpeg", sizes: "180x180" }],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
 };
 

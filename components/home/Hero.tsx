@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { conceptImages } from "@/lib/images";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
@@ -75,12 +77,20 @@ function BuildingUI({ step }: { step: number }) {
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="absolute inset-0 overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03]"
+              className="absolute inset-0 overflow-hidden rounded-lg border border-white/[0.08]"
             >
-              <div className="grid h-full grid-cols-2 gap-2 p-3">
-                <span className="rounded bg-white/10" />
-                <span className="rounded bg-white/5" />
-                <span className="col-span-2 rounded bg-accent/15" />
+              <Image
+                src={conceptImages.hero.build}
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 50vw, 420px"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#080a0f]/80 via-transparent to-transparent" />
+              <div className="absolute inset-x-3 bottom-3 grid grid-cols-2 gap-2">
+                <span className="rounded bg-white/15 backdrop-blur-sm" />
+                <span className="rounded bg-white/10 backdrop-blur-sm" />
               </div>
             </motion.div>
           ) : null}
