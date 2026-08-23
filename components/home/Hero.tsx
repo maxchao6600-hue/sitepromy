@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-16 lg:min-h-[100svh] lg:pt-[4.25rem]">
+    <section className="hero-section relative overflow-x-clip pt-16 lg:min-h-[100svh] lg:overflow-hidden lg:pt-[4.25rem]">
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         aria-hidden="true"
@@ -17,8 +17,8 @@ export function Hero() {
       />
 
       <div className="container-main relative py-10 lg:flex lg:min-h-[calc(100svh-4.25rem)] lg:flex-col lg:justify-center lg:section-y">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-end lg:gap-16">
-          <div className="max-w-xl">
+        <div className="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-end lg:gap-16">
+          <div className="hero-copy max-w-xl">
             <p className="hero-enter hero-enter-eyebrow eyebrow text-accent">
               {SITE.descriptor}
             </p>
@@ -57,7 +57,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hero-enter hero-enter-visual relative mx-auto w-full max-w-[520px] lg:mx-0 lg:max-w-none">
+          <div className="hero-enter hero-enter-visual relative mx-auto w-full min-w-0 max-w-[min(520px,calc(100vw-2rem))] lg:mx-0 lg:max-w-none">
             <WebsiteShowcase />
           </div>
         </div>

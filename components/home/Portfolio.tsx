@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { WebsitePreview } from "@/components/previews/WebsitePreview";
 import { MotionReveal } from "@/components/ui/Motion";
+import { usePortraitMobile } from "@/lib/useMediaQuery";
 import { projects } from "@/lib/site";
 import { cn } from "@/lib/cn";
 
@@ -81,12 +82,17 @@ function PortfolioItem({
 }) {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
+  const isPortraitMobile = usePortraitMobile();
   const theme = themeStyles[project.theme];
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [40, -40]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    reduced || isPortraitMobile ? [0, 0] : [40, -40],
+  );
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.25, 0.75, 1],
@@ -146,8 +152,8 @@ function PortfolioItem({
 
         <motion.div
           id={`portfolio-${project.slug}`}
-          style={{ y: reduced ? 0 : y }}
-          className="origin-center"
+          style={{ y: reduced || isPortraitMobile ? 0 : y }}
+          className="w-full max-w-full origin-center"
         >
           <div
             className={cn(
@@ -158,7 +164,7 @@ function PortfolioItem({
             <WebsitePreview
               id={project.preview}
               large
-              className="aspect-[16/10] min-h-[220px] w-full sm:min-h-[320px] lg:min-h-[min(68vh,820px)]"
+              className="aspect-[16/10] min-h-[220px] w-full max-w-full sm:min-h-[320px] lg:min-h-[min(68vh,820px)]"
             />
           </div>
           <p className={cn("meta-label mt-3 lg:mt-4", theme.meta)}>{project.category}</p>

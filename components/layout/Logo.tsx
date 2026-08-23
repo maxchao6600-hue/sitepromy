@@ -24,7 +24,7 @@ export function Logo({ className, variant = "header" }: LogoProps) {
         width={160}
         height={48}
         className={cn(
-          "h-auto w-auto max-w-none object-contain",
+          "site-logo-img h-auto w-auto max-w-none object-contain",
           variant === "header" ? "h-7 sm:h-8 lg:h-9" : "h-10 sm:h-11",
         )}
       />

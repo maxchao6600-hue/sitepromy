@@ -256,3 +256,73 @@ body {
     will-change: auto;
   }
 }
+
+@media (max-width: 600px) and (orientation: portrait) {
+  .container-main {
+    box-sizing: border-box;
+    max-width: 100%;
+    padding-inline: clamp(1.25rem, 5vw, 1.5rem);
+    width: 100%;
+  }
+
+  .display-xl {
+    font-size: clamp(3.25rem, 14vw, 4.875rem);
+    max-width: 100%;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .display-lg,
+  .portfolio-title {
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    letter-spacing: 0.18em;
+    max-width: 100%;
+  }
+
+  .hero-section {
+    overflow-x: clip;
+    overflow-y: visible;
+  }
+
+  .hero-copy {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-enter-line {
+    max-width: 100%;
+  }
+
+  .hero-enter-visual {
+    box-sizing: border-box;
+    margin-inline: auto;
+    max-width: min(520px, calc(100vw - 2rem));
+    min-width: 0;
+    width: 100%;
+  }
+
+  .hero-showcase-frame {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero-showcase-stage {
+    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .preview-root {
+    min-height: 0;
+    overflow-x: hidden;
+  }
+
+  .site-logo-img {
+    max-width: 6.5rem;
+  }
+}

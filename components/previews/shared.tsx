@@ -10,7 +10,7 @@ export function PreviewRoot({
   return (
     <div
       className={cn(
-        "flex h-full min-h-[320px] flex-col overflow-y-auto text-[clamp(10px,1.05vw,14px)] leading-snug",
+        "preview-root flex h-full min-h-0 flex-col overflow-x-hidden overflow-y-auto text-[clamp(10px,1.05vw,14px)] leading-snug",
         className,
       )}
     >
@@ -118,15 +118,15 @@ export function PreviewNav({
   return (
     <div
       className={cn(
-        "relative z-20 flex shrink-0 items-center justify-between border-b px-[4%] py-[2.8%]",
+        "relative z-20 flex shrink-0 items-center justify-between gap-[2%] overflow-hidden border-b px-[4%] py-[2.8%]",
         dark ? "border-white/10" : "border-black/8",
       )}
     >
-      <span className="font-display text-[0.95em] font-bold tracking-[0.2em]">
+      <span className="shrink-0 font-display text-[0.95em] font-bold tracking-[0.2em]">
         {brand}
       </span>
       {links ? (
-        <div className="flex items-center gap-[5%]">
+        <div className="hidden min-w-0 items-center gap-[5%] sm:flex">
           {links.map((link) => (
             <span
               key={link}
@@ -140,7 +140,7 @@ export function PreviewNav({
           ))}
         </div>
       ) : null}
-      <span className="rounded-full bg-accent px-[4%] py-[1.4%] text-[0.78em] font-medium text-white">
+      <span className="shrink-0 rounded-full bg-accent px-[4%] py-[1.4%] text-[0.78em] font-medium text-white">
         {cta}
       </span>
     </div>

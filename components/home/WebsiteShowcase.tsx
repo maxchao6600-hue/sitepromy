@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { WebsitePreview } from "@/components/previews/WebsitePreview";
-import { useMediaQuery } from "@/lib/useMediaQuery";
+import { usePortraitMobile } from "@/lib/useMediaQuery";
 import type { PreviewId } from "@/lib/site";
 
 const SHOWCASE_SITES: ReadonlyArray<{
@@ -17,6 +17,8 @@ const SHOWCASE_SITES: ReadonlyArray<{
   { id: "orbit", brand: "ORBIT", url: "orbit.sitepromy.com" },
   { id: "pulse", brand: "PULSE", url: "pulse.sitepromy.com" },
 ];
+
+const PORTRAIT_SHOWCASE_ID: PreviewId = "atelier";
 
 const INTERVAL_MS = 4500;
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -43,10 +45,12 @@ function BrowserChrome({ url }: { url: string }) {
 
 export function WebsiteShowcase() {
   const reduced = useReducedMotion();
-  const isMobile = useMediaQuery("(max-width: 1023px)");
+  const isPortraitMobile = usePortraitMobile();
   const [index, setIndex] = useState(0);
-  const active = SHOWCASE_SITES[index];
-  const shouldRotate = !reduced && !isMobile;
+  const active = isPortraitMobile
+    ? SHOWCASE_SITES.find((site) => site.id === PORTRAIT_SHOWCASE_ID) ?? SHOWCASE_SITES[0]
+    : SHOWCASE_SITES[index];
+  const shouldRotate = !reduced && !isPortraitMobile;
 
   useEffect(() => {
     if (!shouldRotate) return;
@@ -59,39 +63,45 @@ export function WebsiteShowcase() {
   }, [shouldRotate]);
 
   return (
-    <div className="relative w-full">
-      <div
-        className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#07090e] shadow-[0_24px_64px_rgba(0,0,0,0.45)] sm:rounded-2xl lg:shadow-[0_56px_120px_rgba(0,0,0,0.55)]"
-      >
+    <div className="hero-showcase-frame relative w-full max-w-full">
+      <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#07090e] shadow-[0_24px_64px_rgba(0,0,0,0.45)] sm:rounded-2xl lg:shadow-[0_56px_120px_rgba(0,0,0,0.55)]">
         <BrowserChrome url={active.url} />
 
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#07090e]">
-          {SHOWCASE_SITES.map((site, siteIndex) => (
-            <motion.div
-              key={site.id}
-              className="absolute inset-0"
-              initial={false}
-              animate={{
-                opacity: siteIndex === index ? 1 : 0,
-                scale: siteIndex === index ? 1 : 1.012,
-              }}
-              transition={{
-                duration: reduced ? 0 : 0.65,
-                ease: EASE,
-              }}
-              style={{
-                pointerEvents: siteIndex === index ? "auto" : "none",
-                zIndex: siteIndex === index ? 2 : 1,
-              }}
-              aria-hidden={siteIndex !== index}
-            >
-              <WebsitePreview
-                id={site.id}
-                large
-                className="h-full min-h-full w-full"
-              />
-            </motion.div>
-          ))}
+        <div className="hero-showcase-stage relative aspect-[16/10] w-full max-w-full overflow-hidden bg-[#07090e]">
+          {isPortraitMobile ? (
+            <WebsitePreview
+              id={PORTRAIT_SHOWCASE_ID}
+              large
+              className="h-full min-h-full w-full max-w-full"
+            />
+          ) : (
+            SHOWCASE_SITES.map((site, siteIndex) => (
+              <motion.div
+                key={site.id}
+                className="absolute inset-0 overflow-hidden"
+                initial={false}
+                animate={{
+                  opacity: siteIndex === index ? 1 : 0,
+                  scale: siteIndex === index ? 1 : 1.012,
+                }}
+                transition={{
+                  duration: reduced ? 0 : 0.65,
+                  ease: EASE,
+                }}
+                style={{
+                  pointerEvents: siteIndex === index ? "auto" : "none",
+                  zIndex: siteIndex === index ? 2 : 1,
+                }}
+                aria-hidden={siteIndex !== index}
+              >
+                <WebsitePreview
+                  id={site.id}
+                  large
+                  className="h-full min-h-full w-full max-w-full"
+                />
+              </motion.div>
+            ))
+          )}
         </div>
       </div>
 

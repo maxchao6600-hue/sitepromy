@@ -36,7 +36,7 @@ const shells: Record<PreviewId, string> = {
 export function WebsitePreview({ id, className, large }: WebsitePreviewProps) {
   return (
     <div
-      className={cn("relative overflow-hidden", shells[id], className)}
+      className={cn("relative max-w-full overflow-hidden", shells[id], className)}
       aria-hidden="true"
     >
       {id === "atelier" && <AtelierPreview large={large} />}
