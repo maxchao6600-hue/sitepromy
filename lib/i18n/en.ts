@@ -64,10 +64,13 @@ export const en: SiteCopy = {
   manifesto: {
     scene: "02",
     index: "Manifesto",
-    lines: ["GOOD WEBSITES AREN'T", "DECORATION.", "THEY'RE BUSINESS TOOLS."],
+    lines: ["GOOD WEBSITES", "AREN'T", "DECORATION."],
     accentLineIndex: 2,
     body: "Every decision should serve clarity, conversion and credibility. That's the standard we build to — not decoration for its own sake.",
+    sideBody:
+      "A website should make the business clearer, the brand stronger, and the next action obvious.",
     credibility: ["DESIGN", "DEVELOPMENT", "PERFORMANCE", "SEO"],
+    previewLabel: "Interface specimen",
   },
   services: {
     eyebrow: "Services",
@@ -78,6 +81,7 @@ export const en: SiteCopy = {
       type: "Type",
       role: "Role",
       focus: "Focus",
+      deliverable: "Deliverable",
     },
     items: {
       "01": {
@@ -87,6 +91,7 @@ export const en: SiteCopy = {
         type: "Business Website",
         role: "Design / Development",
         focus: "Brand / Conversion",
+        deliverable: "Design / Development / SEO",
       },
       "02": {
         title: "E-Commerce",
@@ -94,6 +99,7 @@ export const en: SiteCopy = {
         type: "E-Commerce",
         role: "Design / Development",
         focus: "Conversion / UX",
+        deliverable: "Design / Development / SEO",
       },
       "03": {
         title: "Landing Pages",
@@ -101,6 +107,7 @@ export const en: SiteCopy = {
         type: "Landing Page",
         role: "Design / Development",
         focus: "Conversion / Campaign",
+        deliverable: "Design / Development / SEO",
       },
       "04": {
         title: "Custom Web Design",
@@ -109,6 +116,7 @@ export const en: SiteCopy = {
         type: "Custom Experience",
         role: "Design / Development",
         focus: "Brand / Experience",
+        deliverable: "Design / Development / SEO",
       },
       "05": {
         title: "Website Redesign",
@@ -117,6 +125,7 @@ export const en: SiteCopy = {
         type: "Website Redesign",
         role: "Design / Development",
         focus: "Performance / Brand",
+        deliverable: "Design / Development / SEO",
       },
       "06": {
         title: "Ongoing Support",
@@ -125,6 +134,7 @@ export const en: SiteCopy = {
         type: "Ongoing Support",
         role: "Development / Support",
         focus: "Maintenance / Growth",
+        deliverable: "Updates / Optimization / Support",
       },
     },
   },
@@ -200,6 +210,11 @@ export const en: SiteCopy = {
     industry: "Industry",
     direction: "Direction",
     focus: "Focus",
+    caseStudy: {
+      designDirection: "Design Direction",
+      experience: "Experience",
+      system: "System",
+    },
     projects: {
       atelier: {
         subtitle: "Fine Dining Digital Experience",
@@ -209,6 +224,9 @@ export const en: SiteCopy = {
         direction: "Editorial / Luxury",
         focus: ["Brand Experience", "Reservations", "Mobile UX"],
         category: "Concept Website",
+        designDetail: "Typography / Photography / Atmosphere",
+        experienceDetail: "Menu / Reservations / Private Dining",
+        systemDetail: "Grid / Navigation / Responsive",
       },
       nova: {
         subtitle: "Fashion Editorial Commerce",
@@ -218,6 +236,9 @@ export const en: SiteCopy = {
         direction: "Editorial / Commerce",
         focus: ["Collection Discovery", "Lookbook", "Mobile UX"],
         category: "Concept Website",
+        designDetail: "Editorial Type / Imagery / Spacing",
+        experienceDetail: "Lookbook / Collection / Product",
+        systemDetail: "Layout / Commerce / Mobile",
       },
       form: {
         subtitle: "Architecture Digital Portfolio",
@@ -227,6 +248,9 @@ export const en: SiteCopy = {
         direction: "Material / Spatial",
         focus: ["Project Showcase", "Studio Identity", "Case Studies"],
         category: "Concept Website",
+        designDetail: "Material / Structure / Space",
+        experienceDetail: "Projects / Location / Year",
+        systemDetail: "Grid / Case Studies / Responsive",
       },
       mono: {
         subtitle: "Corporate Digital Experience",
@@ -236,6 +260,9 @@ export const en: SiteCopy = {
         direction: "Clarity / Credibility",
         focus: ["Service Structure", "Case Studies", "Conversion"],
         category: "Concept Website",
+        designDetail: "Typography / Hierarchy / Clarity",
+        experienceDetail: "Services / Leadership / Capabilities",
+        systemDetail: "Components / Structure / Responsive",
       },
       orbit: {
         subtitle: "Premium Audio E-Commerce",
@@ -245,6 +272,9 @@ export const en: SiteCopy = {
         direction: "Luxury / Product-Led",
         focus: ["Product Storytelling", "E-Commerce UX", "Brand System"],
         category: "Concept E-Commerce Experience",
+        designDetail: "Product / Material / Precision",
+        experienceDetail: "Specs / Purchase / Comparison",
+        systemDetail: "Commerce / Product Grid / Mobile",
       },
       pulse: {
         subtitle: "Professional Services Platform",
@@ -254,6 +284,9 @@ export const en: SiteCopy = {
         direction: "Trust / Expertise",
         focus: ["Service Clarity", "Advisory Flow", "Credibility"],
         category: "Concept Website",
+        designDetail: "Typography / Trust / Structure",
+        experienceDetail: "Strategy / Advisory / Results",
+        systemDetail: "Services / Flow / Responsive",
       },
     },
   },
@@ -265,6 +298,7 @@ export const en: SiteCopy = {
     scene: "05",
     index: "Approach",
     body: "Speed doesn't mean cutting corners. SitePro moves from brief to launch with editorial precision — structure, design, build and live delivery in one focused workflow.",
+    stages: ["Wireframe", "Layout", "Design", "Build", "Live"],
     sampleProgression: "Sample build progression",
     preview: "Preview",
     live: "LIVE",
@@ -346,6 +380,17 @@ export const en: SiteCopy = {
     credibility: ["BUILT FOR", "BRAND", "BUSINESS", "GROWTH"],
   },
   footer: {
+    descriptor: "Malaysia Web Design Studio",
+    statementLines: ["LET'S BUILD", "SOMETHING", "USEFUL."],
+    navTitle: "Navigation",
+    servicesTitle: "Services",
+    contactTitle: "Contact",
+    serviceLinks: [
+      "Business Websites",
+      "E-Commerce",
+      "Landing Pages",
+      "Custom Experience",
+    ],
     tagline: "Fast. Professional. Flexible.",
     rights: "© 2026 SitePro Malaysia Web Design. All rights reserved.",
   },

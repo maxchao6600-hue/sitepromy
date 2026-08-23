@@ -64,10 +64,12 @@ export const zh: SiteCopy = {
   manifesto: {
     scene: "02",
     index: "理念",
-    lines: ["好的网站", "不是装饰。", "而是商业工具。"],
+    lines: ["好的网站", "不是", "装饰。"],
     accentLineIndex: 2,
     body: "每一个设计决策都应服务于清晰、转化与信任——这是我们构建网站的标准，而非为了好看而好看。",
+    sideBody: "网站应该让业务更清晰，品牌更有力，下一步行动更明确。",
     credibility: ["设计", "开发", "性能", "SEO"],
+    previewLabel: "界面样本",
   },
   services: {
     eyebrow: "服务",
@@ -78,6 +80,7 @@ export const zh: SiteCopy = {
       type: "类型",
       role: "职责",
       focus: "重点",
+      deliverable: "交付",
     },
     items: {
       "01": {
@@ -86,6 +89,7 @@ export const zh: SiteCopy = {
         type: "企业网站",
         role: "设计 / 开发",
         focus: "品牌 / 转化",
+        deliverable: "设计 / 开发 / SEO",
       },
       "02": {
         title: "电子商务网站",
@@ -93,6 +97,7 @@ export const zh: SiteCopy = {
         type: "电子商务",
         role: "设计 / 开发",
         focus: "转化 / 体验",
+        deliverable: "设计 / 开发 / SEO",
       },
       "03": {
         title: "营销落地页",
@@ -100,6 +105,7 @@ export const zh: SiteCopy = {
         type: "营销落地页",
         role: "设计 / 开发",
         focus: "转化 / 营销",
+        deliverable: "设计 / 开发 / SEO",
       },
       "04": {
         title: "定制网页设计",
@@ -107,6 +113,7 @@ export const zh: SiteCopy = {
         type: "定制体验",
         role: "设计 / 开发",
         focus: "品牌 / 体验",
+        deliverable: "设计 / 开发 / SEO",
       },
       "05": {
         title: "网站改版",
@@ -114,6 +121,7 @@ export const zh: SiteCopy = {
         type: "网站改版",
         role: "设计 / 开发",
         focus: "性能 / 品牌",
+        deliverable: "设计 / 开发 / SEO",
       },
       "06": {
         title: "持续支持",
@@ -121,6 +129,7 @@ export const zh: SiteCopy = {
         type: "持续支持",
         role: "开发 / 维护",
         focus: "维护 / 增长",
+        deliverable: "更新 / 优化 / 支持",
       },
     },
   },
@@ -196,6 +205,11 @@ export const zh: SiteCopy = {
     industry: "行业",
     direction: "设计方向",
     focus: "重点",
+    caseStudy: {
+      designDirection: "设计方向",
+      experience: "体验",
+      system: "系统",
+    },
     projects: {
       atelier: {
         subtitle: "高端餐饮数字体验",
@@ -204,6 +218,9 @@ export const zh: SiteCopy = {
         direction: "编辑式 / 奢华",
         focus: ["品牌体验", "预订系统", "移动端体验"],
         category: "概念网站",
+        designDetail: "字体 / 摄影 / 氛围",
+        experienceDetail: "菜单 / 预订 / 私人用餐",
+        systemDetail: "栅格 / 导航 / 响应式",
       },
       nova: {
         subtitle: "时尚编辑式电商",
@@ -212,6 +229,9 @@ export const zh: SiteCopy = {
         direction: "编辑式 / 电商",
         focus: ["系列展示", "Lookbook", "移动端体验"],
         category: "概念网站",
+        designDetail: "编辑式排版 / 影像 / 留白",
+        experienceDetail: "Lookbook / 系列 / 产品",
+        systemDetail: "布局 / 电商 / 移动端",
       },
       form: {
         subtitle: "建筑数字作品集",
@@ -220,6 +240,9 @@ export const zh: SiteCopy = {
         direction: "材质 / 空间",
         focus: ["项目展示", "工作室形象", "案例研究"],
         category: "概念网站",
+        designDetail: "材质 / 结构 / 空间",
+        experienceDetail: "项目 / 地点 / 年份",
+        systemDetail: "栅格 / 案例 / 响应式",
       },
       mono: {
         subtitle: "企业数字体验",
@@ -228,6 +251,9 @@ export const zh: SiteCopy = {
         direction: "清晰 / 可信",
         focus: ["服务结构", "案例研究", "转化优化"],
         category: "概念网站",
+        designDetail: "字体 / 层级 / 清晰",
+        experienceDetail: "服务 / 领导团队 / 能力",
+        systemDetail: "组件 / 结构 / 响应式",
       },
       orbit: {
         subtitle: "高端音频电商",
@@ -236,6 +262,9 @@ export const zh: SiteCopy = {
         direction: "奢华 / 产品导向",
         focus: ["产品叙事", "电商体验", "品牌系统"],
         category: "概念电商体验",
+        designDetail: "产品 / 材质 / 精准",
+        experienceDetail: "规格 / 购买 / 对比",
+        systemDetail: "电商 / 产品栅格 / 移动端",
       },
       pulse: {
         subtitle: "专业服务网站",
@@ -244,6 +273,9 @@ export const zh: SiteCopy = {
         direction: "信任 / 专业",
         focus: ["服务清晰", "咨询流程", "可信度"],
         category: "概念网站",
+        designDetail: "字体 / 信任 / 结构",
+        experienceDetail: "战略 / 咨询 / 成果",
+        systemDetail: "服务 / 流程 / 响应式",
       },
     },
   },
@@ -255,6 +287,7 @@ export const zh: SiteCopy = {
     scene: "05",
     index: "方法",
     body: "快速不代表偷工减料。SitePro 以编辑式精度从需求沟通推进到上线——结构、设计、开发与交付，在一个聚焦的工作流程中完成。",
+    stages: ["线框", "布局", "设计", "开发", "上线"],
     sampleProgression: "示例构建流程",
     preview: "预览",
     live: "上线",
@@ -326,6 +359,12 @@ export const zh: SiteCopy = {
     credibility: ["为品牌而建", "为业务而建", "为增长而建"],
   },
   footer: {
+    descriptor: "马来西亚网页设计工作室",
+    statementLines: ["一起打造", "真正", "有用的网站。"],
+    navTitle: "导航",
+    servicesTitle: "服务",
+    contactTitle: "联系",
+    serviceLinks: ["企业网站", "电子商务", "营销落地页", "定制体验"],
     tagline: "快速。专业。灵活。",
     rights: "© 2026 SitePro Malaysia Web Design. 保留所有权利。",
   },

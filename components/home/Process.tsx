@@ -132,8 +132,8 @@ export function Process() {
   return (
     <section id="process" className="scene-process scene-noise relative scroll-mt-24">
       <div ref={containerRef} className="relative">
-        <div className="container-main section-y pb-0">
-          <MotionReveal className="max-w-3xl">
+        <div className="container-main section-y-compact pb-0 lg:section-y lg:pb-0">
+          <MotionReveal className="max-w-5xl">
             <SectionIndex index={t.process.scene} label={t.process.index} />
             <h2 className="display-lg mt-6 text-cream lg:mt-8">
               {t.process.titleLines.map((line, index) => (
@@ -149,6 +149,17 @@ export function Process() {
               ))}
             </h2>
             <p className="mt-4 body-lg text-secondary lg:mt-5">{t.process.intro}</p>
+
+            <ol className="mt-8 hidden items-center gap-2 lg:flex" aria-hidden="true">
+              {processSteps.map((step, index) => (
+                <li key={step.number} className="flex items-center gap-2">
+                  <span className="meta-label text-muted">{step.label}</span>
+                  {index < processSteps.length - 1 ? (
+                    <span className="text-muted">→</span>
+                  ) : null}
+                </li>
+              ))}
+            </ol>
           </MotionReveal>
 
           <div className="relative mt-10 hidden h-px bg-line lg:mt-12 lg:block">

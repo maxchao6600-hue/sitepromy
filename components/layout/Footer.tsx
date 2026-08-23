@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Logo } from "@/components/layout/Logo";
 import { SITE } from "@/lib/site";
 import { NAV_PAGES, ROUTES, useLanguage } from "@/lib/i18n";
@@ -8,28 +9,84 @@ export function Footer() {
   const { t, href } = useLanguage();
 
   return (
-    <footer className="border-t border-line bg-surface">
-      <div className="container-main flex flex-col gap-8 py-12 sm:flex-row sm:items-start sm:justify-between sm:py-16">
-        <div>
-          <Logo variant="footer" />
-          <p className="mt-3 text-sm text-cream/50 sm:mt-4">{t.footer.tagline}</p>
-          <p className="mt-2 text-sm text-muted">{SITE.domain}</p>
-        </div>
+    <footer className="scene-footer scene-noise relative border-t border-line">
+      <div className="container-main section-y-compact pb-8 lg:pb-10">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <Logo variant="footer" />
+            <p className="mt-3 font-display text-sm font-semibold uppercase tracking-[0.12em] text-cream">
+              SITEPRO<span className="text-accent">MY</span>
+            </p>
+            <p className="meta-label mt-3 text-accent">{t.footer.descriptor}</p>
+            <h2 className="type-editorial mt-6 max-w-md text-cream">
+              {t.footer.statementLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </h2>
+            <p className="mt-4 text-sm text-secondary">{t.footer.tagline}</p>
+          </div>
 
-        <nav aria-label="Footer">
-          <ul className="flex flex-wrap gap-x-8 gap-y-3">
-            {NAV_PAGES.filter((page) => page !== "home").map((page) => (
-              <li key={page}>
-                <a
-                  href={href(ROUTES[page].en)}
-                  className="inline-flex min-h-12 items-center text-sm text-cream/60 transition-colors hover:text-cream"
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
+            <div>
+              <p className="meta-label text-muted">{t.footer.navTitle}</p>
+              <ul className="mt-4 space-y-2">
+                {NAV_PAGES.map((page) => (
+                  <li key={page}>
+                    <Link
+                      href={href(ROUTES[page].en)}
+                      className="group inline-flex min-h-10 items-center text-sm text-cream/60 transition-colors hover:text-cream"
+                    >
+                      <span className="relative">
+                        {t.nav[page]}
+                        <span className="absolute -bottom-px left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <p className="meta-label text-muted">{t.footer.servicesTitle}</p>
+              <ul className="mt-4 space-y-2">
+                {t.footer.serviceLinks.map((item) => (
+                  <li key={item}>
+                    <Link
+                      href={href("/services")}
+                      className="group inline-flex min-h-10 items-center text-sm text-cream/60 transition-colors hover:text-cream"
+                    >
+                      <span className="relative">
+                        {item}
+                        <span className="absolute -bottom-px left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="col-span-2 sm:col-span-1">
+              <p className="meta-label text-muted">{t.footer.contactTitle}</p>
+              <div className="mt-4 space-y-3">
+                <Link
+                  href={href("/contact")}
+                  className="block text-sm text-cream/60 transition-colors hover:text-cream"
                 >
-                  {t.nav[page as "services" | "work" | "process" | "contact"]}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+                  {t.nav.contact}
+                </Link>
+                <Link
+                  href={href("/quote")}
+                  className="block text-sm text-accent transition-colors hover:text-cream"
+                >
+                  {t.nav.startProject}
+                </Link>
+                <p className="text-sm text-muted">{SITE.domain}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="border-t border-line">

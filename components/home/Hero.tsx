@@ -20,14 +20,14 @@ export function Hero() {
         }}
       />
 
-      <div className="container-main relative z-10 py-10 lg:flex lg:min-h-[calc(100svh-4.25rem)] lg:flex-col lg:justify-center lg:section-y">
+      <div className="container-main relative z-10 py-8 lg:flex lg:min-h-[calc(100svh-4.25rem)] lg:flex-col lg:justify-center lg:py-12">
         <SectionIndex
           index={t.hero.scene}
           label={t.hero.eyebrow}
-          className="hero-enter hero-enter-eyebrow mb-6 lg:mb-8"
+          className="hero-enter hero-enter-eyebrow mb-5 lg:mb-6"
         />
 
-        <div className="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-end lg:gap-16">
+        <div className="grid min-w-0 grid-cols-1 items-end gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10 xl:gap-14">
           <div className="hero-copy max-w-xl">
             <h1 className="display-xl hero-title mt-0">
               {t.hero.lines.map((line, index) => (
@@ -43,10 +43,10 @@ export function Hero() {
                 </span>
               ))}
             </h1>
-            <p className="hero-enter hero-enter-body mt-6 max-w-md body-lg text-secondary lg:mt-8">
+            <p className="hero-enter hero-enter-body mt-5 max-w-md body-lg text-secondary lg:mt-6">
               {t.hero.body}
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-10">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-8">
               <Button
                 href={href("/quote")}
                 className="hero-enter hero-enter-cta-button hero-enter-cta-button-1 min-h-12 w-full sm:w-auto"
@@ -63,7 +63,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hero-enter hero-enter-visual relative mx-auto w-full min-w-0 max-w-[min(520px,calc(100vw-2rem))] lg:mx-0 lg:max-w-none">
+          <div className="hero-enter hero-enter-visual relative mx-auto w-full min-w-0 max-w-[min(560px,calc(100vw-2rem))] lg:mx-0 lg:max-w-none">
             <WebsiteShowcase />
           </div>
         </div>

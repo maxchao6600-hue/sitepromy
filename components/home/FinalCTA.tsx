@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { MotionReveal } from "@/components/ui/Motion";
 import { SectionIndex } from "@/components/ui/SectionIndex";
 import { CredibilityStrip } from "@/components/ui/CredibilityStrip";
+import { GridAccent } from "@/components/ui/GridAccent";
 import { useLanguage } from "@/lib/i18n";
 
 export function FinalCTA() {
@@ -12,9 +13,9 @@ export function FinalCTA() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="scene-cta scene-noise relative overflow-hidden">
+    <section className="scene-cta scene-noise relative overflow-hidden border-t border-line">
       <div
-        className="pointer-events-none absolute inset-0 opacity-25"
+        className="pointer-events-none absolute inset-0 opacity-20"
         aria-hidden="true"
         style={{
           background:
@@ -22,49 +23,50 @@ export function FinalCTA() {
         }}
       />
 
-      <div className="container-main relative section-y">
-        <MotionReveal className="max-w-6xl">
+      <div className="container-main relative section-y-compact lg:section-y">
+        <MotionReveal>
           <SectionIndex index={t.cta.scene} label={t.cta.eyebrow} />
 
-          <h2 className="display-lg mt-8 text-cream lg:mt-10">
-            {t.cta.titleLines.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:mt-10 lg:grid-cols-2 lg:items-end lg:gap-12">
+            <div>
+              <h2 className="display-lg text-cream">
+                {t.cta.titleLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </h2>
+              <p className="mt-5 max-w-md body-lg text-secondary">{t.cta.body}</p>
+              <CredibilityStrip items={t.cta.credibility} className="mt-6" />
+            </div>
 
-          <Link
-            href={href("/quote")}
-            className="group relative mt-10 block max-w-4xl sm:mt-12 lg:mt-16"
-          >
-            <span
-              className="pointer-events-none absolute -inset-x-4 -inset-y-6 rounded-sm bg-accent/[0.04] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-              aria-hidden="true"
-            />
-            <span className="relative block font-display text-[clamp(2.75rem,9vw,7rem)] font-bold leading-[0.9] tracking-tight text-cream transition-transform duration-500 group-hover:translate-x-1">
-              {t.cta.action}
-              <motion.span
-                className="ml-2 inline-block text-accent"
-                initial={false}
-                whileHover={reduced ? undefined : { x: 12 }}
-                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            <div>
+              <Link
+                href={href("/quote")}
+                className="group relative block border border-line bg-surface-2/40 p-6 transition-colors duration-500 hover:border-accent/30 lg:p-8"
               >
-                →
-              </motion.span>
-            </span>
-          </Link>
+                <span className="font-display text-[clamp(2rem,6vw,4.5rem)] font-bold leading-[0.92] tracking-tight text-cream transition-transform duration-500 group-hover:translate-x-1">
+                  {t.cta.action}
+                  <motion.span
+                    className="ml-2 inline-block text-accent"
+                    initial={false}
+                    whileHover={reduced ? undefined : { x: 12 }}
+                    transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    →
+                  </motion.span>
+                </span>
+              </Link>
+              <GridAccent className="mt-4 hidden lg:block" />
+            </div>
+          </div>
 
-          <p className="mt-8 max-w-md body-lg text-secondary lg:mt-10">{t.cta.body}</p>
-
-          <CredibilityStrip
-            items={t.cta.credibility}
-            className="mt-8 lg:mt-10"
-          />
-
-          <ul className="mt-8 flex flex-wrap gap-x-5 gap-y-2 border-t border-line pt-8">
+          <ul className="mt-8 grid grid-cols-2 gap-3 border-t border-line pt-8 sm:grid-cols-4 lg:mt-10">
             {t.cta.offerings.map((item) => (
-              <li key={item} className="micro-label text-muted">
+              <li
+                key={item}
+                className="border border-line px-4 py-3 text-center micro-label text-muted transition-colors hover:border-white/15 hover:text-cream"
+              >
                 {item}
               </li>
             ))}

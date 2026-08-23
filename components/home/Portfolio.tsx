@@ -7,6 +7,7 @@ import { MotionReveal } from "@/components/ui/Motion";
 import { SectionIndex } from "@/components/ui/SectionIndex";
 import { PreviewFrame } from "@/components/ui/PreviewFrame";
 import { usePortraitMobile } from "@/lib/useMediaQuery";
+import { conceptImages } from "@/lib/images";
 import { projects } from "@/lib/site";
 import { useLanguage } from "@/lib/i18n";
 import type { ProjectSlug } from "@/lib/i18n/types";
@@ -73,6 +74,55 @@ function ProjectMeta({
     <div className={className}>
       <p className="meta-label">{label}</p>
       <p className="mt-1.5 text-sm leading-6">{value}</p>
+    </div>
+  );
+}
+
+function CaseStudyDetails({
+  slug,
+  theme,
+}: {
+  slug: ProjectSlug;
+  theme: (typeof themeStyles)[keyof typeof themeStyles];
+}) {
+  const { t } = useLanguage();
+  const copy = t.portfolio.projects[slug];
+  const images = conceptImages[slug];
+  const crops = [
+    images.hero,
+    images.gallery?.[0] ?? images.hero,
+    images.gallery?.[1] ?? images.hero,
+  ];
+
+  const blocks = [
+    { label: t.portfolio.caseStudy.designDirection, value: copy.designDetail, image: crops[0] },
+    { label: t.portfolio.caseStudy.experience, value: copy.experienceDetail, image: crops[1] },
+    { label: t.portfolio.caseStudy.system, value: copy.systemDetail, image: crops[2] },
+  ];
+
+  return (
+    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mt-8 lg:gap-5">
+      {blocks.map((block) => (
+        <article
+          key={block.label}
+          className={cn("overflow-hidden border", theme.border, theme.section)}
+        >
+          <div className="aspect-[16/10] overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={block.image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-cover transition-transform duration-500 hover:scale-[1.03]"
+            />
+          </div>
+          <div className={cn("border-t p-4", theme.border)}>
+            <p className={cn("meta-label", theme.meta)}>{block.label}</p>
+            <p className={cn("mt-2 text-sm leading-6", theme.muted)}>{block.value}</p>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }
@@ -164,6 +214,7 @@ function PortfolioItem({
             <p className={cn("meta-label", theme.meta)}>{copy.category}</p>
             <p className={cn("micro-label", theme.meta)}>{project.name}</p>
           </div>
+          <CaseStudyDetails slug={project.slug as ProjectSlug} theme={theme} />
         </motion.div>
       </motion.div>
     </article>

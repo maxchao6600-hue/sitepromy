@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import { MotionReveal } from "@/components/ui/Motion";
 import { SectionIndex } from "@/components/ui/SectionIndex";
+import { StagePipeline } from "@/components/ui/StagePipeline";
 import { conceptImages } from "@/lib/images";
 import { useLanguage } from "@/lib/i18n";
 import type { SpeedPillarKey } from "@/lib/i18n/types";
@@ -106,17 +107,6 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
             {t.speed.builtWithIntent}
           </p>
         </motion.div>
-
-        <motion.div
-          className="mt-3 flex gap-2"
-          initial={false}
-          animate={{ opacity: showBuild ? 1 : 0 }}
-          transition={{ duration: 0.45, ease: EASE }}
-        >
-          <span className="rounded-full bg-accent px-3 py-1.5 text-[10px] text-white">
-            {t.speed.sampleExperience}
-          </span>
-        </motion.div>
       </div>
 
       {showLive ? (
@@ -146,14 +136,12 @@ function SpeedPillar({
   const pillar = t.speed.pillars[pillarKey];
 
   return (
-    <article className="min-w-0 border-t border-line pt-5 lg:border-t-0 lg:pt-0">
+    <article className="border border-line bg-surface-2/30 p-4">
       <span className="meta-label text-accent">0{index + 1}</span>
-      <h3 className="mt-2 font-display text-lg font-semibold uppercase tracking-[0.08em] text-cream sm:text-xl">
+      <h3 className="mt-2 font-display text-base font-semibold uppercase tracking-[0.08em] text-cream">
         {pillar.title}
       </h3>
-      <p className="mt-2 max-w-xs text-[0.875rem] leading-7 text-secondary">
-        {pillar.description}
-      </p>
+      <p className="mt-2 text-sm leading-7 text-secondary">{pillar.description}</p>
     </article>
   );
 }
@@ -175,54 +163,55 @@ export function SpeedSection() {
 
   useEffect(() => {
     if (reduced) return;
-
     const id = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % 5);
     }, VISUAL_CYCLE_MS);
-
     return () => window.clearInterval(id);
   }, [reduced]);
 
   return (
-    <section ref={sectionRef} className="scene-speed scene-noise relative overflow-x-clip">
-      <div className="container-main section-y">
+    <section ref={sectionRef} className="scene-speed scene-noise relative overflow-x-clip border-y border-line">
+      <div className="container-main section-y-compact lg:section-y">
         <MotionReveal>
           <SectionIndex index={t.speed.scene} label={t.speed.index} />
 
-          <div className="mt-8 grid grid-cols-1 gap-10 lg:mt-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
-            <div className="type-poster">
-              <span className="block text-cream">{t.speed.fast}</span>
-              <span className="block text-accent">{t.speed.notEqual}</span>
-              <span className="block text-cream/20">{t.speed.basic}</span>
-            </div>
-            <div>
-              <p className="eyebrow text-accent">{t.speed.eyebrow}</p>
-              <p className="mt-4 max-w-xl body-lg text-secondary">{t.speed.body}</p>
-            </div>
-          </div>
-        </MotionReveal>
-
-        <div className="mt-14 grid grid-cols-1 gap-10 lg:mt-24 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-14">
-          <div>
-            <div className="relative mb-8 hidden h-px bg-line lg:mb-10 lg:block">
-              <motion.div
-                style={{ width: lineWidth }}
-                className="absolute inset-y-0 left-0 bg-accent"
+          <div className="mt-6 grid grid-cols-1 gap-8 lg:mt-8 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-4">
+              <div className="type-poster">
+                <span className="block text-cream">{t.speed.fast}</span>
+                <span className="block text-accent">{t.speed.notEqual}</span>
+                <span className="block text-cream/20">{t.speed.basic}</span>
+              </div>
+              <p className="eyebrow mt-6 text-accent">{t.speed.eyebrow}</p>
+              <p className="mt-3 text-sm leading-7 text-secondary lg:text-base">
+                {t.speed.body}
+              </p>
+              <StagePipeline
+                stages={t.speed.stages}
+                activeIndex={activeIndex}
+                className="mt-8 hidden lg:flex"
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-2">
-              {PILLAR_KEYS.map((pillarKey, index) => (
-                <SpeedPillar key={pillarKey} pillarKey={pillarKey} index={index} />
-              ))}
+            <div className="lg:col-span-8">
+              <ProcessVisual activeIndex={activeIndex} />
+              <p className="meta-label mt-3 text-muted">{t.speed.sampleProgression}</p>
+
+              <div className="relative mt-6 hidden h-px bg-line lg:mb-6 lg:block">
+                <motion.div
+                  style={{ width: lineWidth }}
+                  className="absolute inset-y-0 left-0 bg-accent"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+                {PILLAR_KEYS.map((pillarKey, index) => (
+                  <SpeedPillar key={pillarKey} pillarKey={pillarKey} index={index} />
+                ))}
+              </div>
             </div>
           </div>
-
-          <div className="lg:sticky lg:top-28">
-            <ProcessVisual activeIndex={activeIndex} />
-            <p className="meta-label mt-4 text-muted">{t.speed.sampleProgression}</p>
-          </div>
-        </div>
+        </MotionReveal>
       </div>
     </section>
   );

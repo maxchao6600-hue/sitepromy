@@ -70,7 +70,9 @@ export type SiteCopy = {
     lines: string[];
     accentLineIndex: number;
     body: string;
+    sideBody: string;
     credibility: string[];
+    previewLabel: string;
   };
   services: {
     eyebrow: string;
@@ -81,6 +83,7 @@ export type SiteCopy = {
       type: string;
       role: string;
       focus: string;
+      deliverable: string;
     };
     items: Record<
       ServiceKey,
@@ -90,6 +93,7 @@ export type SiteCopy = {
         type: string;
         role: string;
         focus: string;
+        deliverable: string;
       }
     >;
   };
@@ -116,6 +120,11 @@ export type SiteCopy = {
     industry: string;
     direction: string;
     focus: string;
+    caseStudy: {
+      designDirection: string;
+      experience: string;
+      system: string;
+    };
     projects: Record<
       ProjectSlug,
       {
@@ -125,6 +134,9 @@ export type SiteCopy = {
         direction: string;
         focus: string[];
         category: string;
+        designDetail: string;
+        experienceDetail: string;
+        systemDetail: string;
       }
     >;
   };
@@ -136,6 +148,7 @@ export type SiteCopy = {
     scene: string;
     index: string;
     body: string;
+    stages: string[];
     sampleProgression: string;
     preview: string;
     live: string;
@@ -163,6 +176,12 @@ export type SiteCopy = {
     credibility: string[];
   };
   footer: {
+    descriptor: string;
+    statementLines: string[];
+    navTitle: string;
+    servicesTitle: string;
+    contactTitle: string;
+    serviceLinks: string[];
     tagline: string;
     rights: string;
   };

@@ -64,24 +64,41 @@ body {
 }
 
 .scene-manifesto {
-  background: var(--scene-1);
+  background: #07090c;
 }
 
-.scene-services,
+.scene-services {
+  background: #050608;
+}
+
 .scene-work-intro {
-  background: var(--surface);
+  background: #080a0d;
 }
 
 .scene-speed {
-  background: var(--scene-2);
+  background: #050608;
 }
 
 .scene-process {
-  background: var(--surface);
+  background: #050608;
 }
 
 .scene-cta {
-  background: var(--scene-0);
+  background: #07090c;
+}
+
+.scene-footer {
+  background: #050608;
+}
+
+.section-y-compact {
+  padding-block: clamp(2.75rem, 7vw, 5.5rem);
+}
+
+@media (min-width: 1024px) {
+  .section-y-compact {
+    padding-block: clamp(3.5rem, 8vw, 6.5rem);
+  }
 }
 
 .type-editorial {
