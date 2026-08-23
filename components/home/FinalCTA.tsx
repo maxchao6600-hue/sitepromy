@@ -3,16 +3,11 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { MotionReveal } from "@/components/ui/Motion";
+import { useLanguage } from "@/lib/i18n";
 import { cn } from "@/lib/cn";
 
-const offerings = [
-  "Business website",
-  "E-commerce",
-  "Landing page",
-  "Custom experience",
-];
-
 export function FinalCTA() {
+  const { t, href } = useLanguage();
   const reduced = useReducedMotion();
 
   return (
@@ -28,21 +23,23 @@ export function FinalCTA() {
 
       <div className="container-main relative section-y">
         <MotionReveal className="max-w-5xl">
-          <p className="eyebrow text-accent">Start here</p>
+          <p className="eyebrow text-accent">{t.cta.eyebrow}</p>
 
           <h2 className="display-lg mt-8 text-cream">
-            HAVE A
-            <br />
-            GOOD IDEA?
+            {t.cta.titleLines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </h2>
 
           <Link
-            href="/quote"
+            href={href("/quote")}
             className="group mt-8 inline-flex min-h-12 flex-col items-start gap-4 transition-colors duration-500 hover:text-accent sm:mt-10 lg:mt-12"
           >
             <span className="relative font-display text-[clamp(2.75rem,8vw,6rem)] font-bold leading-[0.92] tracking-tight text-cream transition-transform duration-500 group-hover:translate-x-1">
               <span className="relative z-10">
-                LET&apos;S BUILD IT.
+                {t.cta.action}
                 <motion.span
                   className="ml-2 inline-block text-accent transition-transform duration-500 group-hover:translate-x-2"
                   initial={false}
@@ -62,12 +59,10 @@ export function FinalCTA() {
             </span>
           </Link>
 
-          <p className="mt-8 max-w-md body-lg text-secondary">
-            Tell us what you&apos;re building.
-          </p>
+          <p className="mt-8 max-w-md body-lg text-secondary">{t.cta.body}</p>
 
           <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-            {offerings.map((item) => (
+            {t.cta.offerings.map((item) => (
               <li key={item} className="micro-label text-muted">
                 {item}
               </li>

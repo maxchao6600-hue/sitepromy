@@ -6,6 +6,8 @@ import { Process } from "@/components/home/Process";
 import { Services } from "@/components/home/Services";
 import { SpeedSection } from "@/components/home/SpeedSection";
 
+export const revalidate = 300;
+
 export default function HomePage() {
   return (
     <>

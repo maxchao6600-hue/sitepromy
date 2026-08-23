@@ -5,11 +5,14 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ServicePreview } from "@/components/home/ServicePreview";
 import { MotionReveal } from "@/components/ui/Motion";
 import { services } from "@/lib/site";
+import { useLanguage } from "@/lib/i18n";
+import type { ServiceKey } from "@/lib/i18n/types";
 import { cn } from "@/lib/cn";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function Services() {
+  const { t } = useLanguage();
   const [active, setActive] = useState(0);
   const [mobileOpen, setMobileOpen] = useState<number | null>(null);
   const reduced = useReducedMotion();
@@ -25,19 +28,20 @@ export function Services() {
       <div className="container-main section-y">
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
           <MotionReveal className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
-            <p className="eyebrow text-accent">Services</p>
+            <p className="eyebrow text-accent">{t.services.eyebrow}</p>
             <h2 className="display-lg mt-5 text-cream lg:mt-6">
-              WHAT
-              <br />
-              WE
-              <br />
-              BUILD.
+              {t.services.titleLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h2>
           </MotionReveal>
 
           <div className="mt-10 lg:col-span-5 lg:mt-0">
             <div className="border-t border-line">
               {services.map((service, index) => {
+                const copy = t.services.items[service.number as ServiceKey];
                 const isActive = active === index;
                 const isMobileExpanded = mobileOpen === index;
 
@@ -70,7 +74,7 @@ export function Services() {
                               isActive ? "text-cream" : "text-cream/65",
                             )}
                           >
-                            {service.title}
+                            {copy.title}
                           </h3>
                           <span
                             className={cn(
@@ -89,7 +93,7 @@ export function Services() {
                             isActive ? "text-secondary" : "text-muted/80",
                           )}
                         >
-                          {service.description}
+                          {copy.description}
                         </p>
 
                         <span

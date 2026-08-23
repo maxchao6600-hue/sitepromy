@@ -10,10 +10,29 @@ export type QuotePayload = {
   project: string;
 };
 
+type ValidateOptions = {
+  websiteTypes?: readonly string[];
+  budgetRanges?: readonly string[];
+  messages?: {
+    name?: string;
+    nameTooLong?: string;
+    businessNameTooLong?: string;
+    email?: string;
+    phoneTooLong?: string;
+    websiteType?: string;
+    budget?: string;
+    project?: string;
+    projectTooLong?: string;
+  };
+};
+
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function validateQuote(input: Partial<QuotePayload>) {
+export function validateQuote(input: Partial<QuotePayload>, options?: ValidateOptions) {
   const errors: Partial<Record<keyof QuotePayload, string>> = {};
+  const types = options?.websiteTypes ?? websiteTypes;
+  const ranges = options?.budgetRanges ?? budgetRanges;
+  const messages = options?.messages ?? {};
 
   const name = input.name?.trim() ?? "";
   const businessName = input.businessName?.trim() ?? "";
@@ -23,30 +42,32 @@ export function validateQuote(input: Partial<QuotePayload>) {
   const budget = input.budget?.trim() ?? "";
   const project = input.project?.trim() ?? "";
 
-  if (name.length < 2) errors.name = "Please enter your name.";
-  if (name.length > 80) errors.name = "Name is too long.";
+  if (name.length < 2) errors.name = messages.name ?? "Please enter your name.";
+  if (name.length > 80) errors.name = messages.nameTooLong ?? "Name is too long.";
 
   if (businessName.length > 120) {
-    errors.businessName = "Business name is too long.";
+    errors.businessName = messages.businessNameTooLong ?? "Business name is too long.";
   }
 
-  if (!emailPattern.test(email)) errors.email = "Please enter a valid email.";
-
-  if (phone.length > 40) errors.phone = "Phone number is too long.";
-
-  if (!websiteTypes.includes(websiteType as (typeof websiteTypes)[number])) {
-    errors.websiteType = "Please choose a website type.";
+  if (!emailPattern.test(email)) {
+    errors.email = messages.email ?? "Please enter a valid email.";
   }
 
-  if (!budgetRanges.includes(budget as (typeof budgetRanges)[number])) {
-    errors.budget = "Please choose a budget range.";
+  if (phone.length > 40) errors.phone = messages.phoneTooLong ?? "Phone number is too long.";
+
+  if (!types.includes(websiteType)) {
+    errors.websiteType = messages.websiteType ?? "Please choose a website type.";
+  }
+
+  if (!ranges.includes(budget)) {
+    errors.budget = messages.budget ?? "Please choose a budget range.";
   }
 
   if (project.length < 10) {
-    errors.project = "Please tell us a little more about your project.";
+    errors.project = messages.project ?? "Please tell us a little more about your project.";
   }
   if (project.length > 2000) {
-    errors.project = "Please keep this under 2,000 characters.";
+    errors.project = messages.projectTooLong ?? "Please keep this under 2,000 characters.";
   }
 
   const data: QuotePayload = {

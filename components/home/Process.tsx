@@ -5,20 +5,25 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { MotionReveal } from "@/components/ui/Motion";
 import { useMediaQuery } from "@/lib/useMediaQuery";
 import { processSteps } from "@/lib/site";
+import { useLanguage } from "@/lib/i18n";
+import type { ProcessKey } from "@/lib/i18n/types";
+import { cn } from "@/lib/cn";
 
 function ProcessStepItem({
-  step,
+  stepNumber,
   index,
   scrollYProgress,
   reduced,
   animate,
 }: {
-  step: (typeof processSteps)[number];
+  stepNumber: ProcessKey;
   index: number;
   scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"];
   reduced: boolean | null;
   animate: boolean;
 }) {
+  const { t } = useLanguage();
+  const step = t.process.steps[stepNumber];
   const start = index / processSteps.length;
   const end = (index + 1) / processSteps.length;
   const opacity = useTransform(
@@ -41,7 +46,7 @@ function ProcessStepItem({
       className="w-full shrink-0 border-t border-line pt-6 lg:w-[min(88vw,440px)] lg:pt-8 xl:w-[520px]"
     >
       <span className="font-display text-sm tracking-[0.24em] text-accent">
-        {step.number}
+        {stepNumber}
       </span>
       <h3 className="mt-3 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl lg:mt-4 lg:text-6xl">
         {step.title}
@@ -54,6 +59,7 @@ function ProcessStepItem({
 }
 
 export function Process() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
   const isDesktop = useMediaQuery("(min-width: 1024px)");
@@ -72,16 +78,21 @@ export function Process() {
       <div ref={containerRef} className="relative">
         <div className="container-main section-y pb-0">
           <MotionReveal className="max-w-3xl">
-            <p className="eyebrow text-accent">Process</p>
+            <p className="eyebrow text-accent">{t.process.eyebrow}</p>
             <h2 className="display-lg mt-5 lg:mt-6">
-              FROM BRIEF
-              <br />
-              <span className="text-accent">TO LIVE.</span>
+              {t.process.titleLines.map((line, index) => (
+                <span
+                  key={line}
+                  className={cn(
+                    "block",
+                    index === t.process.accentLineIndex && "text-accent",
+                  )}
+                >
+                  {line}
+                </span>
+              ))}
             </h2>
-            <p className="mt-4 body-lg text-secondary lg:mt-5">
-              Five focused stages — from understanding the brief to launching a
-              polished website ready for your audience.
-            </p>
+            <p className="mt-4 body-lg text-secondary lg:mt-5">{t.process.intro}</p>
           </MotionReveal>
 
           <div className="relative mt-10 hidden h-px bg-line lg:mt-12 lg:block">
@@ -96,7 +107,7 @@ export function Process() {
           {processSteps.map((step, index) => (
             <ProcessStepItem
               key={step.number}
-              step={step}
+              stepNumber={step.number as ProcessKey}
               index={index}
               scrollYProgress={scrollYProgress}
               reduced={reduced}

@@ -3,10 +3,19 @@
 import { useCallback, useEffect, useId, useState, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
 import { cn } from "@/lib/cn";
-import { navLinks } from "@/lib/site";
+import { useLanguage } from "@/lib/i18n";
+
+const navItems = [
+  { href: "/", key: "home" as const },
+  { href: "/#services", key: "services" as const },
+  { href: "/#portfolio", key: "work" as const },
+  { href: "/#process", key: "process" as const },
+  { href: "/contact", key: "contact" as const },
+];
 
 function subscribeScroll(callback: () => void) {
   window.addEventListener("scroll", callback, { passive: true });
@@ -19,6 +28,7 @@ function getScrollSnapshot() {
 
 export function Navbar() {
   const pathname = usePathname();
+  const { t, href } = useLanguage();
   const scrolled = useSyncExternalStore(subscribeScroll, getScrollSnapshot, () => false);
   const [open, setOpen] = useState(false);
   const [menuPath, setMenuPath] = useState(pathname);
@@ -59,21 +69,23 @@ export function Navbar() {
       <div className="container-main flex h-16 items-center justify-between gap-3 lg:h-[4.25rem]">
         <Logo />
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-          {navLinks.map((link) => (
+        <nav className="hidden items-center gap-8 lg:flex" aria-label={t.nav.primary}>
+          {navItems.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={href(link.href)}
               className="nav-link text-cream/60 transition-colors hover:text-cream"
             >
-              {link.label}
+              {t.nav[link.key]}
             </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-2 lg:gap-3">
-          <Button href="/quote" className="hidden min-h-12 sm:inline-flex">
-            Start a Project
+          <LanguageSwitcher className="hidden sm:inline-flex" />
+
+          <Button href={href("/quote")} className="hidden min-h-12 sm:inline-flex">
+            {t.nav.startProject}
           </Button>
 
           <button
@@ -81,7 +93,7 @@ export function Navbar() {
             className="inline-flex h-11 w-11 min-h-12 min-w-12 items-center justify-center border border-line text-cream lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
             onClick={() => setOpen((value) => !value)}
           >
             <span className="relative block h-3.5 w-4" aria-hidden="true">
@@ -117,20 +129,21 @@ export function Navbar() {
             exit={reduced ? undefined : { opacity: 0 }}
             className="border-b border-line bg-surface lg:hidden"
           >
-            <nav aria-label="Mobile" className="container-main flex flex-col gap-1 py-6">
-              {navLinks.map((link) => (
+            <nav aria-label={t.nav.mobile} className="container-main flex flex-col gap-1 py-6">
+              {navItems.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={href(link.href)}
                   className="font-display py-3 text-2xl font-semibold tracking-tight"
                   onClick={() => setOpen(false)}
                 >
-                  {link.label}
+                  {t.nav[link.key]}
                 </a>
               ))}
-              <div className="pt-4">
-                <Button href="/quote" className="min-h-12 w-full sm:w-auto">
-                  Start a Project
+              <div className="flex items-center justify-between pt-4">
+                <LanguageSwitcher />
+                <Button href={href("/quote")} className="min-h-12 w-auto">
+                  {t.nav.startProject}
                 </Button>
               </div>
             </nav>

@@ -2,9 +2,12 @@
 
 import { Button } from "@/components/ui/Button";
 import { WebsiteShowcase } from "@/components/home/WebsiteShowcase";
-import { SITE } from "@/lib/site";
+import { useLanguage } from "@/lib/i18n";
+import { cn } from "@/lib/cn";
 
 export function Hero() {
+  const { t, href } = useLanguage();
+
   return (
     <section className="hero-section relative overflow-x-clip pt-16 lg:min-h-[100svh] lg:overflow-hidden lg:pt-[4.25rem]">
       <div
@@ -20,39 +23,38 @@ export function Hero() {
         <div className="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-end lg:gap-16">
           <div className="hero-copy max-w-xl">
             <p className="hero-enter hero-enter-eyebrow eyebrow text-accent">
-              {SITE.descriptor}
+              {t.hero.eyebrow}
             </p>
             <h1 className="display-xl mt-5 lg:mt-6">
-              <span className="hero-enter hero-enter-line hero-enter-line-1">
-                WE BUILD
-              </span>
-              <span className="hero-enter hero-enter-line hero-enter-line-2">
-                WEBSITES
-              </span>
-              <span className="hero-enter hero-enter-line hero-enter-line-3">
-                THAT
-              </span>
-              <span className="hero-enter hero-enter-line hero-enter-line-4 text-accent">
-                MOVE.
-              </span>
+              {t.hero.lines.map((line, index) => (
+                <span
+                  key={line}
+                  className={cn(
+                    "hero-enter hero-enter-line",
+                    `hero-enter-line-${index + 1}`,
+                    index === t.hero.accentLineIndex && "text-accent",
+                  )}
+                >
+                  {line}
+                </span>
+              ))}
             </h1>
             <p className="hero-enter hero-enter-body mt-6 max-w-md body-lg text-secondary lg:mt-8">
-              You have an idea. We turn it into a fast, professional website built
-              around your business — from first direction to final launch.
+              {t.hero.body}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-10">
               <Button
-                href="/quote"
+                href={href("/quote")}
                 className="hero-enter hero-enter-cta-button hero-enter-cta-button-1 min-h-12 w-full sm:w-auto"
               >
-                Start a Project →
+                {t.hero.ctaPrimary}
               </Button>
               <Button
-                href="/#portfolio"
+                href={href("/#portfolio")}
                 variant="secondary"
                 className="hero-enter hero-enter-cta-button hero-enter-cta-button-2 min-h-12 w-full sm:w-auto"
               >
-                View Concept Work →
+                {t.hero.ctaSecondary}
               </Button>
             </div>
           </div>

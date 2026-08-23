@@ -1,101 +1,44 @@
+"use client";
+
 import { cn } from "@/lib/cn";
 import { conceptImages } from "@/lib/images";
 import type { PreviewId } from "@/lib/site";
+import { useLanguage } from "@/lib/i18n";
+import type { ServicePreviewKey } from "@/lib/i18n/types";
 
 type ServicePreviewProps = {
   preview: PreviewId;
   className?: string;
 };
 
-type ServiceDemo = {
-  label: string;
-  nav: string[];
-  eyebrow: string;
-  headline: string;
-  image: string;
-  traits: string[];
-  dark?: boolean;
+const previewKeyMap: Partial<Record<PreviewId, ServicePreviewKey>> = {
+  business: "business",
+  ecommerce: "ecommerce",
+  landing: "landing",
+  corporate: "corporate",
+  nova: "nova",
+  pulse: "pulse",
+  mono: "mono",
+  orbit: "orbit",
 };
 
-const serviceDemos: Partial<Record<PreviewId, ServiceDemo>> = {
-  business: {
-    label: "Business Website",
-    nav: ["Home", "About", "Services", "Projects", "Contact"],
-    eyebrow: "Homepage",
-    headline: "Professional presence for your business",
-    image: conceptImages.mono.hero,
-    traits: ["Professional", "Modern", "Responsive"],
-  },
-  ecommerce: {
-    label: "E-Commerce",
-    nav: ["Shop", "Products", "Collections", "Cart"],
-    eyebrow: "Product Page",
-    headline: "Clear paths to purchase",
-    image: conceptImages.orbit.hero,
-    traits: ["Product-led", "Conversion", "Mobile-ready"],
-    dark: false,
-  },
-  landing: {
-    label: "Landing Page",
-    nav: ["Overview", "Benefits", "Pricing"],
-    eyebrow: "Campaign",
-    headline: "One page. One clear action.",
-    image: conceptImages.atelier.hero,
-    traits: ["Focused", "High-impact", "Fast to launch"],
-  },
-  corporate: {
-    label: "Corporate Website",
-    nav: ["Company", "Services", "Leadership", "Contact"],
-    eyebrow: "Corporate",
-    headline: "Credibility, clarity and structure",
-    image: conceptImages.mono.caseStudy,
-    traits: ["Trustworthy", "Structured", "Scalable"],
-  },
-  nova: {
-    label: "Portfolio Website",
-    nav: ["Work", "Studio", "Archive", "Contact"],
-    eyebrow: "Showcase",
-    headline: "Editorial work that stands out",
-    image: conceptImages.nova.hero,
-    traits: ["Editorial", "Visual", "Memorable"],
-    dark: false,
-  },
-  pulse: {
-    label: "Custom Web Solution",
-    nav: ["Platform", "Features", "Insights", "Contact"],
-    eyebrow: "Custom Build",
-    headline: "Tailored digital experiences",
-    image: conceptImages.pulse.hero,
-    traits: ["Flexible", "Purpose-built", "Scalable"],
-  },
-  mono: {
-    label: "Corporate Website",
-    nav: ["Company", "Services", "Leadership", "Contact"],
-    eyebrow: "Corporate",
-    headline: "Credibility, clarity and structure",
-    image: conceptImages.mono.caseStudy,
-    traits: ["Trustworthy", "Structured", "Scalable"],
-  },
-  orbit: {
-    label: "E-Commerce",
-    nav: ["Shop", "Products", "Collections", "Cart"],
-    eyebrow: "Product Page",
-    headline: "Clear paths to purchase",
-    image: conceptImages.orbit.hero,
-    traits: ["Product-led", "Conversion", "Mobile-ready"],
-    dark: false,
-  },
+const imageMap: Partial<Record<PreviewId, string>> = {
+  business: conceptImages.mono.hero,
+  ecommerce: conceptImages.orbit.hero,
+  landing: conceptImages.atelier.hero,
+  corporate: conceptImages.mono.caseStudy,
+  nova: conceptImages.nova.hero,
+  pulse: conceptImages.pulse.hero,
+  mono: conceptImages.mono.caseStudy,
+  orbit: conceptImages.orbit.hero,
 };
-
-const defaultDemo = serviceDemos.business!;
-
-function resolveDemo(preview: PreviewId): ServiceDemo {
-  return serviceDemos[preview] ?? defaultDemo;
-}
 
 export function ServicePreview({ preview, className }: ServicePreviewProps) {
-  const demo = resolveDemo(preview);
-  const dark = demo.dark !== false;
+  const { t } = useLanguage();
+  const key = previewKeyMap[preview] ?? "business";
+  const demo = t.servicePreview[key];
+  const image = imageMap[preview] ?? conceptImages.mono.hero;
+  const dark = key !== "ecommerce" && key !== "nova" && key !== "orbit";
 
   return (
     <div
@@ -136,7 +79,7 @@ export function ServicePreview({ preview, className }: ServicePreviewProps) {
       <div className="relative aspect-[16/10] overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={demo.image}
+          src={image}
           alt=""
           loading="lazy"
           decoding="async"

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { FinalCTA } from "@/components/home/FinalCTA";
-import { Portfolio } from "@/components/home/Portfolio";
-import { PageHeader } from "@/components/page/PageHeader";
+import { WorkPageContent } from "@/components/pages/WorkPageContent";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,16 +11,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const revalidate = 300;
+
 export default function WorkPage() {
-  return (
-    <>
-      <PageHeader
-        eyebrow="Our work"
-        title="Concept websites."
-        description="Each project is a SitePro concept design — not a live client. Real work will replace these as projects launch."
-      />
-      <Portfolio hideIntro />
-      <FinalCTA />
-    </>
-  );
+  return <WorkPageContent />;
 }

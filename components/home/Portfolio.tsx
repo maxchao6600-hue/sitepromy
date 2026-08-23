@@ -6,6 +6,8 @@ import { WebsitePreview } from "@/components/previews/WebsitePreview";
 import { MotionReveal } from "@/components/ui/Motion";
 import { usePortraitMobile } from "@/lib/useMediaQuery";
 import { projects } from "@/lib/site";
+import { useLanguage } from "@/lib/i18n";
+import type { ProjectSlug } from "@/lib/i18n/types";
 import { cn } from "@/lib/cn";
 
 const themeStyles: Record<
@@ -80,6 +82,8 @@ function PortfolioItem({
   project: (typeof projects)[number];
   index: number;
 }) {
+  const { t } = useLanguage();
+  const copy = t.portfolio.projects[project.slug as ProjectSlug];
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
   const isPortraitMobile = usePortraitMobile();
@@ -115,26 +119,26 @@ function PortfolioItem({
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,280px)] lg:items-end lg:gap-12">
           <div className="max-w-3xl">
             <p className={cn("meta-label", theme.meta)}>
-              PROJECT {project.number}
+              {t.portfolio.projectLabel} {project.number}
             </p>
             <h3 className={cn("portfolio-title mt-3 lg:mt-4", theme.text)}>
               {project.name}
             </h3>
             <p className={cn("mt-3 text-[0.9375rem] leading-7 sm:text-base lg:mt-4", theme.muted)}>
-              {project.subtitle}
+              {copy.subtitle}
             </p>
             <p className={cn("mt-4 max-w-lg text-[0.9375rem] leading-7 sm:text-base lg:mt-5", theme.muted)}>
-              {project.summary}
+              {copy.summary}
             </p>
           </div>
 
           <div className={cn("grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-1 lg:gap-6", theme.muted)}>
-            <ProjectMeta label="Industry" value={project.industry} />
-            <ProjectMeta label="Direction" value={project.direction} />
+            <ProjectMeta label={t.portfolio.industry} value={copy.industry} />
+            <ProjectMeta label={t.portfolio.direction} value={copy.direction} />
             <div className="col-span-2 sm:col-span-1">
-              <p className="meta-label">Focus</p>
+              <p className="meta-label">{t.portfolio.focus}</p>
               <ul className="mt-1.5 space-y-1 text-sm leading-6">
-                {project.focus.map((item) => (
+                {copy.focus.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
@@ -159,7 +163,7 @@ function PortfolioItem({
               className="aspect-[16/10] min-h-[220px] w-full max-w-full sm:min-h-[320px] lg:min-h-[min(68vh,820px)]"
             />
           </div>
-          <p className={cn("meta-label mt-3 lg:mt-4", theme.meta)}>{project.category}</p>
+          <p className={cn("meta-label mt-3 lg:mt-4", theme.meta)}>{copy.category}</p>
         </motion.div>
       </motion.div>
     </article>
@@ -167,20 +171,29 @@ function PortfolioItem({
 }
 
 export function Portfolio({ hideIntro = false }: { hideIntro?: boolean }) {
+  const { t } = useLanguage();
+
   return (
     <section className="overflow-x-clip">
       {hideIntro ? null : (
         <div className="container-main section-y pb-0">
           <MotionReveal className="max-w-5xl">
-            <p className="eyebrow text-accent">Case Studies</p>
+            <p className="eyebrow text-accent">{t.portfolio.eyebrow}</p>
             <h2 className="display-lg mt-5 lg:mt-6">
-              WEBSITES BUILT
-              <br />
-              <span className="text-accent">FOR EVERY INDUSTRY.</span>
+              {t.portfolio.titleLines.map((line, index) => (
+                <span
+                  key={line}
+                  className={cn(
+                    "block",
+                    index === t.portfolio.accentLineIndex && "text-accent",
+                  )}
+                >
+                  {line}
+                </span>
+              ))}
             </h2>
             <p className="mt-5 max-w-2xl body-lg text-secondary lg:mt-6">
-              Six design directions — each a sample experience showing how SitePro
-              approaches a different industry and website type.
+              {t.portfolio.intro}
             </p>
           </MotionReveal>
         </div>

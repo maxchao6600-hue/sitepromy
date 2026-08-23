@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
-import { budgetRanges, websiteTypes } from "@/lib/site";
+import { useLanguage } from "@/lib/i18n";
 import { validateQuote, type QuotePayload } from "@/lib/quote";
 
 const initial: QuotePayload = {
@@ -17,6 +17,7 @@ const initial: QuotePayload = {
 };
 
 export function QuoteForm() {
+  const { t } = useLanguage();
   const [values, setValues] = useState(initial);
   const [errors, setErrors] = useState<Partial<Record<keyof QuotePayload, string>>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -30,7 +31,11 @@ export function QuoteForm() {
     event.preventDefault();
     if (honeypot) return;
 
-    const result = validateQuote(values);
+    const result = validateQuote(values, {
+      websiteTypes: t.form.websiteTypes,
+      budgetRanges: t.form.budgetRanges,
+      messages: t.form.errors,
+    });
     setErrors(result.errors);
     if (!result.ok) return;
 
@@ -53,16 +58,15 @@ export function QuoteForm() {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-white/10 bg-surface-2 p-10">
-        <p className="eyebrow text-accent">Request received</p>
+        <p className="eyebrow text-accent">{t.form.successEyebrow}</p>
         <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight">
-          Thanks — we&apos;ll take a look.
+          {t.form.successTitle}
         </h2>
         <p className="mt-4 max-w-md text-sm leading-7 text-cream/55">
-          We&apos;ll review your project details and follow up using the email you
-          provided.
+          {t.form.successBody}
         </p>
         <div className="mt-8">
-          <Button onClick={() => setStatus("idle")}>Send another request</Button>
+          <Button onClick={() => setStatus("idle")}>{t.form.sendAnother}</Button>
         </div>
       </div>
     );
@@ -76,7 +80,7 @@ export function QuoteForm() {
     >
       <div className="grid grid-cols-2 gap-5">
         <Field
-          label="Name"
+          label={t.form.name}
           name="name"
           autoComplete="name"
           value={values.name}
@@ -85,7 +89,7 @@ export function QuoteForm() {
           required
         />
         <Field
-          label="Business name"
+          label={t.form.businessName}
           name="businessName"
           autoComplete="organization"
           value={values.businessName}
@@ -93,7 +97,7 @@ export function QuoteForm() {
           onChange={(value) => update("businessName", value)}
         />
         <Field
-          label="Email"
+          label={t.form.email}
           name="email"
           type="email"
           autoComplete="email"
@@ -103,7 +107,7 @@ export function QuoteForm() {
           required
         />
         <Field
-          label="Phone / WhatsApp"
+          label={t.form.phone}
           name="phone"
           type="tel"
           autoComplete="tel"
@@ -112,28 +116,30 @@ export function QuoteForm() {
           onChange={(value) => update("phone", value)}
         />
         <SelectField
-          label="Website type"
+          label={t.form.websiteType}
           name="websiteType"
           value={values.websiteType}
           error={errors.websiteType}
           onChange={(value) => update("websiteType", value)}
           required
-          options={websiteTypes}
+          placeholder={t.form.selectOption}
+          options={t.form.websiteTypes}
         />
         <SelectField
-          label="Budget range"
+          label={t.form.budget}
           name="budget"
           value={values.budget}
           error={errors.budget}
           onChange={(value) => update("budget", value)}
           required
-          options={budgetRanges}
+          placeholder={t.form.selectOption}
+          options={t.form.budgetRanges}
         />
       </div>
 
       <div className="mt-5">
         <label htmlFor="project" className="text-sm font-medium text-cream">
-          Tell us about your project
+          {t.form.project}
           <span className="text-muted"> *</span>
         </label>
         <textarea
@@ -145,7 +151,7 @@ export function QuoteForm() {
           aria-invalid={Boolean(errors.project)}
           aria-describedby={errors.project ? "project-error" : undefined}
           className={fieldClass(Boolean(errors.project), "mt-2 min-h-32 resize-y")}
-          placeholder="What does your business do, and what do you want the website to achieve?"
+          placeholder={t.form.projectPlaceholder}
         />
         {errors.project ? (
           <p id="project-error" className="mt-2 text-sm text-red-400">
@@ -168,18 +174,15 @@ export function QuoteForm() {
 
       {status === "error" ? (
         <p className="mt-4 text-sm text-red-400" role="alert">
-          Something went wrong sending your request. Please try again in a
-          moment.
+          {t.form.error}
         </p>
       ) : null}
 
       <div className="mt-7 flex flex-row items-center gap-3">
         <Button type="submit" disabled={status === "submitting"}>
-          {status === "submitting" ? "Sending…" : "Get My Free Quote"}
+          {status === "submitting" ? t.form.submitting : t.form.submit}
         </Button>
-        <p className="text-xs leading-5 text-muted">
-          No obligation. We&apos;ll reply with a suitable next step.
-        </p>
+        <p className="text-xs leading-5 text-muted">{t.form.footerNote}</p>
       </div>
     </form>
   );
@@ -247,6 +250,7 @@ function SelectField({
   onChange,
   error,
   options,
+  placeholder,
   required,
 }: {
   label: string;
@@ -255,6 +259,7 @@ function SelectField({
   onChange: (value: string) => void;
   error?: string;
   options: readonly string[];
+  placeholder: string;
   required?: boolean;
 }) {
   const errorId = `${name}-error`;
@@ -274,7 +279,7 @@ function SelectField({
         aria-describedby={error ? errorId : undefined}
         className={fieldClass(Boolean(error), "mt-2")}
       >
-        <option value="">Select an option</option>
+        <option value="">{placeholder}</option>
         {options.map((option) => (
           <option key={option} value={option}>
             {option}

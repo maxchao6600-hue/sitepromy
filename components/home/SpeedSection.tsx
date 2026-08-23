@@ -9,12 +9,15 @@ import {
 } from "framer-motion";
 import { MotionReveal } from "@/components/ui/Motion";
 import { conceptImages } from "@/lib/images";
-import { speedPillars } from "@/lib/site";
+import { useLanguage } from "@/lib/i18n";
+import type { SpeedPillarKey } from "@/lib/i18n/types";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const VISUAL_CYCLE_MS = 3200;
+const PILLAR_KEYS: SpeedPillarKey[] = ["01", "02", "03", "04"];
 
 function ProcessVisual({ activeIndex }: { activeIndex: number }) {
+  const { t } = useLanguage();
   const reduced = useReducedMotion();
   const showStructure = activeIndex >= 1;
   const showDesign = activeIndex >= 2;
@@ -58,7 +61,7 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
           SITEPRO
         </span>
         <span className="rounded-full bg-accent/90 px-2.5 py-1 text-[9px] text-white">
-          Preview
+          {t.speed.preview}
         </span>
       </motion.div>
 
@@ -74,7 +77,7 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
         >
           <motion.img
             src={conceptImages.form.hero}
-            alt="Website design preview"
+            alt=""
             loading="lazy"
             decoding="async"
             className="h-full w-full object-cover"
@@ -95,9 +98,11 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
           animate={{ opacity: showDesign ? 1 : 0, y: showDesign ? 0 : 8 }}
           transition={{ duration: 0.55, ease: EASE }}
         >
-          <p className="text-[10px] tracking-[0.2em] text-accent/80">DESIGN DIRECTION</p>
+          <p className="text-[10px] tracking-[0.2em] text-accent/80">
+            {t.speed.designDirection}
+          </p>
           <p className="font-display text-lg font-semibold leading-tight text-white sm:text-xl">
-            Built with intent.
+            {t.speed.builtWithIntent}
           </p>
         </motion.div>
 
@@ -108,7 +113,7 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
           transition={{ duration: 0.45, ease: EASE }}
         >
           <span className="rounded-full bg-accent px-3 py-1.5 text-[10px] text-white">
-            Sample Experience
+            {t.speed.sampleExperience}
           </span>
         </motion.div>
       </div>
@@ -120,20 +125,19 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
           className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/[0.08] px-2.5 py-1"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-          <span className="text-[9px] font-semibold tracking-[0.18em] text-accent">LIVE</span>
+          <span className="text-[9px] font-semibold tracking-[0.18em] text-accent">
+            {t.speed.live}
+          </span>
         </motion.div>
       ) : null}
     </div>
   );
 }
 
-function SpeedPillar({
-  pillar,
-  index,
-}: {
-  pillar: (typeof speedPillars)[number];
-  index: number;
-}) {
+function SpeedPillar({ pillarKey, index }: { pillarKey: SpeedPillarKey; index: number }) {
+  const { t } = useLanguage();
+  const pillar = t.speed.pillars[pillarKey];
+
   return (
     <article className="min-w-0 border-t border-line pt-6 lg:pt-8">
       <span className="meta-label text-accent">0{index + 1}</span>
@@ -148,6 +152,7 @@ function SpeedPillar({
 }
 
 export function SpeedSection() {
+  const { t } = useLanguage();
   const reduced = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
@@ -173,17 +178,13 @@ export function SpeedSection() {
         <MotionReveal>
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-[auto_1fr] lg:items-end lg:gap-16">
             <div className="font-display text-[clamp(3rem,14vw,11rem)] font-bold leading-[0.85] tracking-tight">
-              <span className="block text-cream">FAST</span>
-              <span className="block text-accent">≠</span>
-              <span className="block text-cream/25">BASIC</span>
+              <span className="block text-cream">{t.speed.fast}</span>
+              <span className="block text-accent">{t.speed.notEqual}</span>
+              <span className="block text-cream/25">{t.speed.basic}</span>
             </div>
             <div>
-              <p className="eyebrow text-accent">From idea to live</p>
-              <p className="mt-4 max-w-xl body-lg text-secondary">
-                Speed doesn&apos;t mean cutting corners. SitePro moves from brief to
-                launch with editorial precision — structure, design, build and live
-                delivery in one focused workflow.
-              </p>
+              <p className="eyebrow text-accent">{t.speed.eyebrow}</p>
+              <p className="mt-4 max-w-xl body-lg text-secondary">{t.speed.body}</p>
             </div>
           </div>
         </MotionReveal>
@@ -198,15 +199,15 @@ export function SpeedSection() {
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:gap-x-8">
-              {speedPillars.map((pillar, index) => (
-                <SpeedPillar key={pillar.title} pillar={pillar} index={index} />
+              {PILLAR_KEYS.map((pillarKey, index) => (
+                <SpeedPillar key={pillarKey} pillarKey={pillarKey} index={index} />
               ))}
             </div>
           </div>
 
           <div className="lg:sticky lg:top-28">
             <ProcessVisual activeIndex={activeIndex} />
-            <p className="meta-label mt-4 text-muted">Sample build progression</p>
+            <p className="meta-label mt-4 text-muted">{t.speed.sampleProgression}</p>
           </div>
         </div>
       </div>

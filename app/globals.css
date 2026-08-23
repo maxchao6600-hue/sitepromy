@@ -326,3 +326,14 @@ body {
     max-width: 6.5rem;
   }
 }
+
+html[data-lang="zh"] .display-xl,
+html[data-lang="zh"] .display-lg,
+html[data-lang="zh"] .heading-display {
+  line-height: 1.08;
+}
+
+html[data-lang="zh"] .body-lg,
+html[data-lang="zh"] .hero-copy p {
+  line-height: 1.75;
+}
