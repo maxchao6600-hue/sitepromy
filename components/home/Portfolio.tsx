@@ -120,20 +120,12 @@ function PortfolioItem({
             <h3 className={cn("portfolio-title mt-3 lg:mt-4", theme.text)}>
               {project.name}
             </h3>
-            <div className={cn("mt-3 flex flex-wrap gap-x-4 gap-y-1 body-lg lg:mt-4", theme.muted)}>
-              {project.subtitle.map((line) => (
-                <span key={line}>{line}</span>
-              ))}
-            </div>
-            <p className={cn("mt-5 max-w-xl body-lg lg:mt-6", theme.muted)}>
+            <p className={cn("mt-3 text-[0.9375rem] leading-7 sm:text-base lg:mt-4", theme.muted)}>
+              {project.subtitle}
+            </p>
+            <p className={cn("mt-4 max-w-lg text-[0.9375rem] leading-7 sm:text-base lg:mt-5", theme.muted)}>
               {project.summary}
             </p>
-            <a
-              href={`/#portfolio-${project.slug}`}
-              className="nav-link mt-6 inline-flex min-h-12 items-center gap-2 text-accent transition-opacity hover:opacity-80 lg:mt-8"
-            >
-              View Concept →
-            </a>
           </div>
 
           <div className={cn("grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-1 lg:gap-6", theme.muted)}>
@@ -187,8 +179,8 @@ export function Portfolio({ hideIntro = false }: { hideIntro?: boolean }) {
               <span className="text-accent">FOR EVERY INDUSTRY.</span>
             </h2>
             <p className="mt-5 max-w-2xl body-lg text-secondary lg:mt-6">
-              Six concept projects — each treated as a real design case study with
-              its own visual world, industry context and digital focus.
+              Six design directions — each a sample experience showing how SitePro
+              approaches a different industry and website type.
             </p>
           </MotionReveal>
         </div>

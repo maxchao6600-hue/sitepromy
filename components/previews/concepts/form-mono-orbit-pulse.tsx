@@ -26,7 +26,7 @@ export function FormPreview({ large }: { large?: boolean }) {
       >
         <PreviewEyebrow className="text-[#e8a020]">Architecture · Construction</PreviewEyebrow>
         <PreviewTitle large={large}>FORM</PreviewTitle>
-        <PreviewBody className="text-white/65">Built with intent.</PreviewBody>
+        <PreviewBody className="text-white/65">Concept architecture portfolio.</PreviewBody>
         <PreviewButton variant="outline" className="border-white/25 text-white">
           View Projects
         </PreviewButton>
@@ -61,7 +61,7 @@ export function FormPreview({ large }: { large?: boolean }) {
         ))}
       </section>
 
-      <PreviewFooter text="Studio · Projects · Global" />
+      <PreviewFooter text="Concept architecture portfolio · Sample experience" />
     </PreviewRoot>
   );
 }
@@ -77,7 +77,7 @@ export function MonoPreview({ large }: { large?: boolean }) {
         <div className="flex flex-col justify-center px-[5%] py-[6%]">
           <PreviewEyebrow className="text-white/45">Corporate · Strategy</PreviewEyebrow>
           <PreviewTitle large={large}>MONO</PreviewTitle>
-          <PreviewBody className="text-white/60">Clarity builds confidence.</PreviewBody>
+          <PreviewBody className="text-white/60">Concept corporate website.</PreviewBody>
           <PreviewButton variant="outline" className="border-white/20 text-white">
             View Services
           </PreviewButton>
@@ -113,7 +113,7 @@ export function MonoPreview({ large }: { large?: boolean }) {
         </div>
       </section>
 
-      <PreviewFooter text="Global offices · Since 2012" />
+      <PreviewFooter text="Concept corporate website · Design direction" />
     </PreviewRoot>
   );
 }
@@ -151,7 +151,7 @@ export function OrbitPreview({ large }: { large?: boolean }) {
 
       <section className="grid shrink-0 grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] border-b border-white/10">
         <div className="flex flex-col justify-center px-[4%] py-[6%]">
-          <PreviewEyebrow className="text-white/40">Concept Website</PreviewEyebrow>
+          <PreviewEyebrow className="text-white/40">Concept E-Commerce Experience</PreviewEyebrow>
           <PreviewTitle large={large}>ORBIT ONE</PreviewTitle>
           <PreviewBody className="text-white/55">Precision in sound.</PreviewBody>
           <PreviewBody className="max-w-[95%] text-[0.82em] text-white/45">
@@ -206,7 +206,7 @@ export function OrbitPreview({ large }: { large?: boolean }) {
       </section>
 
       <div className="flex shrink-0 flex-row items-center justify-between gap-2 px-[4%] py-[3%]">
-        <span className="text-[0.78em] text-white/40">ORBIT ONE · RM 899 · Free delivery in Malaysia</span>
+        <span className="text-[0.78em] text-white/40">Sample pricing · Malaysia market</span>
         <PreviewButton className="mt-0 w-fit bg-white px-[1.4em] py-[0.6em] text-[#0a0a0c]">
           Shop Orbit One
         </PreviewButton>
@@ -234,7 +234,7 @@ export function PulsePreview({ large }: { large?: boolean }) {
           PULSE
         </PreviewTitle>
         <PreviewBody className="max-w-[90%] text-white/60">
-          Expertise that moves business forward.
+          Concept professional services website.
         </PreviewBody>
         <PreviewButton className="bg-accent text-white">Book a Consultation</PreviewButton>
       </PreviewHero>
@@ -266,7 +266,7 @@ export function PulsePreview({ large }: { large?: boolean }) {
         ))}
       </section>
 
-      <PreviewFooter text="Book a consultation · Response within 24h" />
+      <PreviewFooter text="Concept professional services website · Sample experience" />
     </PreviewRoot>
   );
 }

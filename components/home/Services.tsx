@@ -110,7 +110,7 @@ export function Services() {
                           transition={{ duration: 0.45, ease: EASE }}
                           className="overflow-hidden pb-6 lg:hidden"
                         >
-                          <ServicePreview preview={service.preview} className="max-w-md" />
+                          <ServicePreview preview={service.preview} />
                         </motion.div>
                       ) : null}
                     </AnimatePresence>

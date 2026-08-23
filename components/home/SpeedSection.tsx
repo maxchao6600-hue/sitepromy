@@ -3,17 +3,16 @@
 import { useEffect, useRef, useState } from "react";
 import {
   motion,
-  useInView,
   useReducedMotion,
   useScroll,
   useTransform,
 } from "framer-motion";
 import { MotionReveal } from "@/components/ui/Motion";
 import { conceptImages } from "@/lib/images";
-import { processStages } from "@/lib/site";
-import { cn } from "@/lib/cn";
+import { speedPillars } from "@/lib/site";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const VISUAL_CYCLE_MS = 3200;
 
 function ProcessVisual({ activeIndex }: { activeIndex: number }) {
   const reduced = useReducedMotion();
@@ -56,10 +55,10 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
         transition={{ duration: 0.55, ease: EASE }}
       >
         <span className="font-display text-[10px] font-bold tracking-[0.16em] text-white/70">
-          FORM
+          SITEPRO
         </span>
         <span className="rounded-full bg-accent/90 px-2.5 py-1 text-[9px] text-white">
-          Projects
+          Preview
         </span>
       </motion.div>
 
@@ -96,7 +95,7 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
           animate={{ opacity: showDesign ? 1 : 0, y: showDesign ? 0 : 8 }}
           transition={{ duration: 0.55, ease: EASE }}
         >
-          <p className="text-[10px] tracking-[0.2em] text-accent/80">ARCHITECTURE</p>
+          <p className="text-[10px] tracking-[0.2em] text-accent/80">DESIGN DIRECTION</p>
           <p className="font-display text-lg font-semibold leading-tight text-white sm:text-xl">
             Built with intent.
           </p>
@@ -109,7 +108,7 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
           transition={{ duration: 0.45, ease: EASE }}
         >
           <span className="rounded-full bg-accent px-3 py-1.5 text-[10px] text-white">
-            View Projects
+            Sample Experience
           </span>
         </motion.div>
       </div>
@@ -128,58 +127,22 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
   );
 }
 
-function ProcessStageItem({
-  stage,
+function SpeedPillar({
+  pillar,
   index,
-  activeIndex,
-  onActivate,
 }: {
-  stage: (typeof processStages)[number];
+  pillar: (typeof speedPillars)[number];
   index: number;
-  activeIndex: number;
-  onActivate: (index: number) => void;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { margin: "-35% 0px -35% 0px" });
-
-  useEffect(() => {
-    if (inView) onActivate(index);
-  }, [inView, index, onActivate]);
-
-  const isActive = activeIndex === index;
-
   return (
-    <article ref={ref} className="min-w-0 shrink-0">
-      <p
-        className={cn(
-          "font-display text-[clamp(3rem,8vw,5.5rem)] font-bold leading-none tracking-tight transition-colors duration-700",
-          isActive ? "text-cream" : "text-cream/15",
-        )}
-      >
-        {stage.number}
+    <article className="min-w-0 border-t border-line pt-6 lg:pt-8">
+      <span className="meta-label text-accent">0{index + 1}</span>
+      <h3 className="mt-3 font-display text-xl font-semibold tracking-tight text-cream sm:text-2xl">
+        {pillar.title}
+      </h3>
+      <p className="mt-2 max-w-xs text-[0.9375rem] leading-7 text-secondary sm:text-base">
+        {pillar.description}
       </p>
-      <p
-        className={cn(
-          "meta-label mt-4 transition-colors duration-700",
-          isActive ? "text-accent" : "text-muted",
-        )}
-      >
-        {stage.label}
-      </p>
-      <p
-        className={cn(
-          "mt-3 max-w-xs text-sm leading-7 transition-colors duration-700 sm:text-base",
-          isActive ? "text-secondary" : "text-muted/70",
-        )}
-      >
-        {stage.description}
-      </p>
-      <span
-        className={cn(
-          "mt-5 block h-px origin-left bg-accent transition-transform duration-700",
-          isActive ? "scale-x-100" : "scale-x-0",
-        )}
-      />
     </article>
   );
 }
@@ -193,6 +156,16 @@ export function SpeedSection() {
     offset: ["start end", "end start"],
   });
   const lineWidth = useTransform(scrollYProgress, [0.15, 0.85], reduced ? ["100%"] : ["0%", "100%"]);
+
+  useEffect(() => {
+    if (reduced) return;
+
+    const id = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % 5);
+    }, VISUAL_CYCLE_MS);
+
+    return () => window.clearInterval(id);
+  }, [reduced]);
 
   return (
     <section ref={sectionRef} className="overflow-x-clip bg-ink">
@@ -224,24 +197,16 @@ export function SpeedSection() {
               />
             </div>
 
-            <div className="flex flex-col gap-8 lg:grid lg:grid-cols-5 lg:gap-6">
-              {processStages.map((stage, index) => (
-                <ProcessStageItem
-                  key={stage.number}
-                  stage={stage}
-                  index={index}
-                  activeIndex={activeIndex}
-                  onActivate={setActiveIndex}
-                />
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:gap-x-8">
+              {speedPillars.map((pillar, index) => (
+                <SpeedPillar key={pillar.title} pillar={pillar} index={index} />
               ))}
             </div>
           </div>
 
           <div className="lg:sticky lg:top-28">
             <ProcessVisual activeIndex={activeIndex} />
-            <p className="meta-label mt-4 text-muted">
-              BRIEF → DIRECTION → DESIGN → BUILD → LIVE
-            </p>
+            <p className="meta-label mt-4 text-muted">Sample build progression</p>
           </div>
         </div>
       </div>

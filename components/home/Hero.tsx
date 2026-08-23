@@ -37,8 +37,8 @@ export function Hero() {
               </span>
             </h1>
             <p className="hero-enter hero-enter-body mt-6 max-w-md body-lg text-secondary lg:mt-8">
-              You have an idea. We turn it into a website you can launch — fast,
-              professional and built around your business.
+              You have an idea. We turn it into a fast, professional website built
+              around your business — from first direction to final launch.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-10">
               <Button

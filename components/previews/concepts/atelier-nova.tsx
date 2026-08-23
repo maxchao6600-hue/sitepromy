@@ -33,10 +33,10 @@ export function AtelierPreview({ large }: { large?: boolean }) {
         priority={large}
         gradientClass="bg-gradient-to-t from-[#120e0a] via-[#120e0a]/55 to-transparent"
       >
-        <PreviewEyebrow className="text-[#c9a882]">Fine Dining</PreviewEyebrow>
+        <PreviewEyebrow className="text-[#c9a882]">Design Direction</PreviewEyebrow>
         <PreviewTitle large={large}>ATELIER</PreviewTitle>
         <PreviewBody className="max-w-[85%] text-[#f4eadc]/70">
-          A modern dining experience shaped by craft, season and detail.
+          Concept hospitality experience.
         </PreviewBody>
         <PreviewButton className="bg-[#b85c32] text-[#f4eadc]">Reserve a Table</PreviewButton>
       </PreviewHero>
@@ -67,7 +67,7 @@ export function AtelierPreview({ large }: { large?: boolean }) {
         <PreviewPhoto src={story} className="aspect-[4/3]" alt="Atelier dining room" />
       </section>
 
-      <PreviewFooter text="Jalan Ampang · Open Tue–Sun" />
+      <PreviewFooter text="Concept hospitality experience · Sample experience" />
     </PreviewRoot>
   );
 }
@@ -94,7 +94,7 @@ export function NovaPreview({ large }: { large?: boolean }) {
         <PreviewTitle large={large} className="font-light tracking-[0.22em]">
           NØVA
         </PreviewTitle>
-        <PreviewBody className="text-zinc-600">New Collection</PreviewBody>
+        <PreviewBody className="text-zinc-600">Concept fashion commerce experience</PreviewBody>
         <PreviewButton variant="underline" className="border-[#111] text-[#111]">
           Explore Collection
         </PreviewButton>
@@ -125,7 +125,7 @@ export function NovaPreview({ large }: { large?: boolean }) {
         </div>
       </section>
 
-      <PreviewFooter text="Free shipping · KL & SG" dark={false} />
+      <PreviewFooter text="Concept fashion commerce experience · Design direction" dark={false} />
     </PreviewRoot>
   );
 }
