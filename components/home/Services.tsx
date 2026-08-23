@@ -11,20 +11,14 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function Services() {
   const [active, setActive] = useState(0);
-  const [mobileOpen, setMobileOpen] = useState<number | null>(0);
   const reduced = useReducedMotion();
   const current = services[active];
-
-  const handleSelect = (index: number) => {
-    setActive(index);
-    setMobileOpen((prev) => (prev === index ? null : index));
-  };
 
   return (
     <section id="services" className="scroll-mt-24 border-y border-line bg-surface">
       <div className="container-main section-y">
-        <div className="lg:grid lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
-          <MotionReveal className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
+        <div className="grid grid-cols-12 gap-x-14">
+          <MotionReveal className="col-span-4 sticky top-28 self-start">
             <p className="eyebrow text-accent">Services</p>
             <h2 className="display-lg mt-6 text-cream">
               WHAT
@@ -35,11 +29,10 @@ export function Services() {
             </h2>
           </MotionReveal>
 
-          <div className="mt-12 lg:col-span-5 lg:mt-0">
+          <div className="col-span-5">
             <div className="border-t border-line">
               {services.map((service, index) => {
                 const isActive = active === index;
-                const isMobileExpanded = mobileOpen === index;
 
                 return (
                   <div key={service.number} className="border-b border-line">
@@ -47,15 +40,15 @@ export function Services() {
                       type="button"
                       onMouseEnter={() => setActive(index)}
                       onFocus={() => setActive(index)}
-                      onClick={() => handleSelect(index)}
+                      onClick={() => setActive(index)}
                       className={cn(
-                        "group relative flex w-full flex-col gap-3 py-7 text-left transition-colors sm:flex-row sm:items-start sm:gap-6 lg:py-9",
+                        "group relative flex w-full flex-row items-start gap-6 py-9 text-left transition-colors",
                         isActive && "bg-white/[0.02]",
                       )}
                     >
                       <span
                         className={cn(
-                          "meta-label w-12 shrink-0 transition-colors sm:w-14",
+                          "meta-label w-14 shrink-0 transition-colors",
                           isActive ? "text-accent" : "text-muted",
                         )}
                       >
@@ -66,7 +59,7 @@ export function Services() {
                         <div className="flex items-start justify-between gap-4">
                           <h3
                             className={cn(
-                              "font-display text-[clamp(1.75rem,4vw,2.75rem)] font-semibold tracking-tight transition-colors",
+                              "font-display text-[clamp(1.75rem,calc(4*var(--cvw,1vw)),2.75rem)] font-semibold tracking-tight transition-colors",
                               isActive ? "text-cream" : "text-cream/65",
                             )}
                           >
@@ -85,7 +78,7 @@ export function Services() {
 
                         <p
                           className={cn(
-                            "mt-2 max-w-md text-[0.9375rem] leading-7 transition-all duration-500 sm:text-base",
+                            "mt-2 max-w-md text-base leading-7 transition-all duration-500",
                             isActive ? "text-secondary" : "text-muted/80",
                           )}
                         >
@@ -100,27 +93,13 @@ export function Services() {
                         />
                       </div>
                     </button>
-
-                    <AnimatePresence initial={false}>
-                      {isMobileExpanded ? (
-                        <motion.div
-                          initial={reduced ? false : { height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={reduced ? undefined : { height: 0, opacity: 0 }}
-                          transition={{ duration: 0.45, ease: EASE }}
-                          className="overflow-hidden px-0 pb-7 lg:hidden"
-                        >
-                          <ServicePreview preview={service.preview} className="max-w-md" />
-                        </motion.div>
-                      ) : null}
-                    </AnimatePresence>
                   </div>
                 );
               })}
             </div>
           </div>
 
-          <div className="relative mt-10 hidden lg:col-span-3 lg:mt-0 lg:block">
+          <div className="relative col-span-3">
             <div className="sticky top-28">
               <AnimatePresence mode="wait">
                 <motion.div

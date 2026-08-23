@@ -26,8 +26,8 @@ export default function QuotePage() {
         title="Tell us what you have in mind."
         description="Share a little about your business and the website you need. We'll follow up with a clear next step — no obligation."
       />
-      <section className="bg-ink py-16 sm:py-20">
-        <div className="container-main grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+      <section className="bg-ink py-20">
+        <div className="container-main grid grid-cols-[0.85fr_1.15fr] gap-12">
           <aside>
             <h2 className="font-display text-2xl font-semibold tracking-tight">
               What happens next

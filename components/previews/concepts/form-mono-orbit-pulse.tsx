@@ -149,8 +149,8 @@ export function OrbitPreview({ large }: { large?: boolean }) {
         cta="Shop"
       />
 
-      <section className="grid shrink-0 grid-cols-1 border-b border-white/10 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
-        <div className="flex flex-col justify-center px-[4%] py-[5%] sm:py-[6%]">
+      <section className="grid shrink-0 grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] border-b border-white/10">
+        <div className="flex flex-col justify-center px-[4%] py-[6%]">
           <PreviewEyebrow className="text-white/40">Concept Website</PreviewEyebrow>
           <PreviewTitle large={large}>ORBIT ONE</PreviewTitle>
           <PreviewBody className="text-white/55">Precision in sound.</PreviewBody>
@@ -164,14 +164,14 @@ export function OrbitPreview({ large }: { large?: boolean }) {
         <PreviewPhoto
           src={hero}
           priority={large}
-          className="min-h-[160px] sm:min-h-[220px]"
+          className="min-h-[220px]"
           alt="Orbit One premium audio product"
         />
       </section>
 
       <section className="shrink-0 px-[4%] py-[3.5%]">
         <PreviewEyebrow className="text-white/35">The Orbit Line</PreviewEyebrow>
-        <div className="mt-[2%] grid grid-cols-1 gap-[3%] sm:grid-cols-3">
+        <div className="mt-[2%] grid grid-cols-3 gap-[3%]">
           {products.map((product) => (
             <article
               key={product.name}
@@ -205,7 +205,7 @@ export function OrbitPreview({ large }: { large?: boolean }) {
         ))}
       </section>
 
-      <div className="flex shrink-0 flex-col gap-2 px-[4%] py-[3%] sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex shrink-0 flex-row items-center justify-between gap-2 px-[4%] py-[3%]">
         <span className="text-[0.78em] text-white/40">ORBIT ONE · RM 899 · Free delivery in Malaysia</span>
         <PreviewButton className="mt-0 w-fit bg-white px-[1.4em] py-[0.6em] text-[#0a0a0c]">
           Shop Orbit One

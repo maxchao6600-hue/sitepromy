@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import { DesktopCanvas } from "@/components/layout/DesktopCanvas";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SkipLink } from "@/components/ui/SkipLink";
@@ -82,11 +83,13 @@ export default function RootLayout({
       lang="en-MY"
       className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-ink font-sans text-cream">
+      <body className="min-h-full overflow-x-clip bg-ink font-sans text-cream">
         <SkipLink />
-        <Navbar />
-        <main id="main">{children}</main>
-        <Footer />
+        <DesktopCanvas>
+          <Navbar />
+          <main id="main">{children}</main>
+          <Footer />
+        </DesktopCanvas>
       </body>
     </html>
   );

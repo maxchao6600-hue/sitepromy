@@ -32,12 +32,12 @@ function ProcessStep({
   return (
     <motion.article
       style={{ opacity: reduced ? 1 : opacity, x: reduced ? 0 : x }}
-      className="w-[min(88vw,440px)] shrink-0 border-t border-line pt-8 lg:w-[520px]"
+      className="w-[520px] shrink-0 border-t border-line pt-8"
     >
       <span className="font-display text-sm tracking-[0.24em] text-accent">
         {step.number}
       </span>
-      <h3 className="mt-4 font-display text-4xl font-bold uppercase tracking-tight sm:text-5xl lg:text-6xl">
+      <h3 className="mt-4 font-display text-6xl font-bold uppercase tracking-tight">
         {step.title}
       </h3>
       <p className="mt-4 max-w-sm body-lg text-secondary">
@@ -77,7 +77,7 @@ export function Process() {
             </p>
           </MotionReveal>
 
-          <div className="relative mt-12 hidden h-px bg-line lg:block">
+          <div className="relative mt-12 h-px bg-line">
             <motion.div
               style={{ width: lineWidth }}
               className="absolute inset-y-0 left-0 bg-accent"
@@ -85,7 +85,7 @@ export function Process() {
           </div>
         </div>
 
-        <div className="h-scroll container-main pb-16 pt-8 lg:pb-24 lg:pt-12">
+        <div className="h-scroll container-main pb-24 pt-12">
           {steps.map((step, index) => (
             <ProcessStep
               key={step.number}

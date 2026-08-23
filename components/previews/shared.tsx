@@ -126,7 +126,7 @@ export function PreviewNav({
         {brand}
       </span>
       {links ? (
-        <div className="hidden items-center gap-[5%] sm:flex">
+        <div className="flex items-center gap-[5%]">
           {links.map((link) => (
             <span
               key={link}

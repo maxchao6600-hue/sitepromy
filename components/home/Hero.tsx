@@ -6,7 +6,7 @@ import { SITE } from "@/lib/site";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[100svh] overflow-hidden pt-[4.25rem]">
+    <section className="hero-section relative overflow-hidden pt-[4.25rem]">
       <div
         className="pointer-events-none absolute inset-0 opacity-40"
         aria-hidden="true"
@@ -16,8 +16,8 @@ export function Hero() {
         }}
       />
 
-      <div className="container-main relative flex min-h-[calc(100svh-4.25rem)] flex-col justify-center section-y">
-        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:gap-16">
+      <div className="hero-section-inner container-main relative flex flex-col justify-center section-y">
+        <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] items-end gap-16">
           <div className="max-w-xl">
             <p className="hero-enter hero-enter-eyebrow eyebrow text-accent">
               {SITE.descriptor}
@@ -40,7 +40,7 @@ export function Hero() {
               You have an idea. We turn it into a website you can launch — fast,
               professional and built around your business.
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-10 flex flex-row gap-3">
               <Button
                 href="/quote"
                 className="hero-enter hero-enter-cta-button hero-enter-cta-button-1"
@@ -57,7 +57,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hero-enter hero-enter-visual relative w-full max-lg:max-w-xl max-lg:justify-self-center lg:max-w-none">
+          <div className="hero-enter hero-enter-visual relative w-full max-w-none">
             <WebsiteBuildPreview />
           </div>
         </div>

@@ -10,6 +10,8 @@
   --accent: #0080ff;
   --accent-dim: rgba(0, 128, 255, 0.14);
   --line: rgba(255, 255, 255, 0.07);
+  --canvas-scale: 1;
+  --cvw: 1vw;
 }
 
 @theme inline {
@@ -41,7 +43,7 @@ body {
   background: var(--ink);
   color: var(--cream);
   font-family: var(--font-sans);
-  font-size: clamp(1rem, 1.05vw, 1.125rem);
+  font-size: clamp(1rem, calc(1.05 * var(--cvw)), 1.125rem);
   line-height: 1.65;
   min-height: 100%;
 }
@@ -54,7 +56,7 @@ body {
 .container-main {
   margin-inline: auto;
   max-width: 80rem;
-  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  padding-inline: clamp(1.25rem, calc(4 * var(--cvw)), 2.5rem);
 }
 
 .display-xl {
@@ -62,7 +64,7 @@ body {
   font-weight: 700;
   letter-spacing: -0.055em;
   line-height: 0.92;
-  font-size: clamp(4rem, 8vw, 9.375rem);
+  font-size: clamp(4rem, calc(8 * var(--cvw)), 9.375rem);
 }
 
 .display-lg {
@@ -70,7 +72,7 @@ body {
   font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 0.95;
-  font-size: clamp(2.625rem, 5vw, 5rem);
+  font-size: clamp(2.625rem, calc(5 * var(--cvw)), 5rem);
 }
 
 .heading-display {
@@ -78,7 +80,7 @@ body {
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.02;
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, calc(4 * var(--cvw)), 3.5rem);
 }
 
 .portfolio-title {
@@ -86,18 +88,18 @@ body {
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.95;
-  font-size: clamp(3rem, 6vw, 6.25rem);
+  font-size: clamp(3rem, calc(6 * var(--cvw)), 6.25rem);
 }
 
 .eyebrow {
-  font-size: clamp(0.6875rem, 0.75vw, 0.8125rem);
+  font-size: clamp(0.6875rem, calc(0.75 * var(--cvw)), 0.8125rem);
   font-weight: 500;
   letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
 .body-lg {
-  font-size: clamp(1rem, 1.1vw, 1.25rem);
+  font-size: clamp(1rem, calc(1.1 * var(--cvw)), 1.25rem);
   line-height: 1.65;
 }
 
@@ -106,25 +108,59 @@ body {
 }
 
 .nav-link {
-  font-size: clamp(0.875rem, 0.9vw, 1rem);
+  font-size: clamp(0.875rem, calc(0.9 * var(--cvw)), 1rem);
   font-weight: 500;
   letter-spacing: 0.01em;
 }
 
 .meta-label {
-  font-size: clamp(0.625rem, 0.7vw, 0.75rem);
+  font-size: clamp(0.625rem, calc(0.7 * var(--cvw)), 0.75rem);
   font-weight: 500;
   letter-spacing: 0.24em;
   text-transform: uppercase;
 }
 
 .micro-label {
-  font-size: clamp(0.6875rem, 0.75vw, 0.8125rem);
+  font-size: clamp(0.6875rem, calc(0.75 * var(--cvw)), 0.8125rem);
   letter-spacing: 0.06em;
 }
 
 .section-y {
-  padding-block: clamp(5rem, 12vw, 9rem);
+  padding-block: clamp(5rem, calc(12 * var(--cvw)), 9rem);
+}
+
+.site-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+}
+
+.hero-section {
+  min-height: 100svh;
+}
+
+.hero-section-inner {
+  min-height: calc(100svh - 4.25rem);
+}
+
+html.canvas-scaled .site-header {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  width: 100%;
+}
+
+html.canvas-scaled .hero-section {
+  min-height: calc(100svh / var(--canvas-scale));
+}
+
+html.canvas-scaled .hero-section-inner {
+  min-height: calc((100svh / var(--canvas-scale)) - 4.25rem);
+}
+
+html.canvas-scaled .page-header {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
 }
 
 .h-scroll {

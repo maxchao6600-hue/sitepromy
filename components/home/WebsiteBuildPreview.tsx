@@ -110,7 +110,7 @@ function BrowserChrome({ conceptLabel }: { conceptLabel: string }) {
           {conceptLabel.toLowerCase()} · sitepromy.build
         </span>
       </div>
-      <span className="hidden text-[9px] tracking-[0.18em] text-accent/70 sm:inline">
+      <span className="inline text-[9px] tracking-[0.18em] text-accent/70">
         CANVAS
       </span>
     </div>
@@ -267,7 +267,7 @@ function ConceptSite({
 
   return (
     <div
-      className="relative flex min-h-[220px] flex-1 flex-col overflow-hidden sm:min-h-[280px]"
+      className="relative flex min-h-[280px] flex-1 flex-col overflow-hidden"
       style={{
         background: concept.surface,
         color: concept.dark ? "#fff" : concept.accent,
@@ -288,7 +288,7 @@ function ConceptSite({
         {wireframe ? (
           <div className="flex items-center gap-2">
             <span className="h-2 w-12 rounded-sm bg-current/10" />
-            <span className="hidden h-1.5 w-8 rounded-sm bg-current/10 sm:block" />
+            <span className="block h-1.5 w-8 rounded-sm bg-current/10" />
           </div>
         ) : (
           <span className="font-display text-[10px] font-bold tracking-[0.22em] sm:text-[11px]">
@@ -296,7 +296,7 @@ function ConceptSite({
           </span>
         )}
 
-        <div className="hidden items-center gap-3 sm:flex">
+        <div className="flex items-center gap-3">
           {concept.nav.map((link, index) => (
             <motion.span
               key={link}
@@ -327,7 +327,7 @@ function ConceptSite({
       </motion.header>
 
       <div className="relative z-10 flex flex-1 flex-col gap-3 p-4 sm:gap-4 sm:p-5">
-        <div className="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] sm:gap-4">
+        <div className="grid flex-1 grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-4">
           <motion.div
             className="flex flex-col justify-center"
             initial={false}
@@ -395,7 +395,7 @@ function ConceptSite({
           </motion.div>
 
           <motion.div
-            className="relative min-h-[120px] overflow-hidden rounded-md sm:min-h-[160px]"
+            className="relative min-h-[160px] overflow-hidden rounded-md"
             style={{ border: `1px solid ${concept.border}` }}
             initial={false}
             animate={{
@@ -601,7 +601,7 @@ export function WebsiteBuildPreview() {
   return (
     <div className="relative w-full">
       <div
-        className="pointer-events-none absolute -inset-6 hidden opacity-60 lg:block"
+        className="pointer-events-none absolute -inset-6 block opacity-60"
         aria-hidden="true"
         style={{
           background:
@@ -626,7 +626,7 @@ export function WebsiteBuildPreview() {
       >
         <motion.div
           style={reduced ? undefined : { rotateX, rotateY }}
-          className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#05070c] shadow-[0_40px_100px_rgba(0,0,0,0.55)] sm:shadow-[0_56px_120px_rgba(0,0,0,0.6)]"
+          className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#05070c] shadow-[0_56px_120px_rgba(0,0,0,0.6)]"
         >
           <div className="aspect-[16/11] w-full sm:aspect-[16/10]">
             <AnimatePresence mode="wait">

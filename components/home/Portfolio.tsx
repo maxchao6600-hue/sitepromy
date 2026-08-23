@@ -94,12 +94,12 @@ function PortfolioItem({
       ref={ref}
       id={index === 0 ? "portfolio" : undefined}
       className={cn(
-        "scroll-mt-24 flex min-h-[88vh] flex-col justify-center py-16 sm:min-h-[92vh] sm:py-20 lg:py-24",
+        "scroll-mt-24 flex min-h-[92vh] flex-col justify-center py-24",
         theme.section,
       )}
     >
-      <motion.div style={{ opacity: reduced ? 1 : opacity }} className="container-main flex flex-col gap-10 lg:gap-12">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,280px)] lg:items-end lg:gap-12">
+      <motion.div style={{ opacity: reduced ? 1 : opacity }} className="container-main flex flex-col gap-12">
+        <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,280px)] items-end gap-12">
           <div className="max-w-3xl">
             <p className={cn("meta-label", theme.meta)}>
               PROJECT {project.number}
@@ -119,7 +119,7 @@ function PortfolioItem({
             </a>
           </div>
 
-          <div className={cn("grid gap-5 sm:grid-cols-3 lg:grid-cols-1 lg:gap-6", theme.muted)}>
+          <div className={cn("grid grid-cols-1 gap-6", theme.muted)}>
             <ProjectMeta label="Industry" value={project.industry} />
             <ProjectMeta label="Direction" value={project.direction} />
             <div>
@@ -177,7 +177,7 @@ export function Portfolio({ hideIntro = false }: { hideIntro?: boolean }) {
         </div>
       )}
 
-      <div className={hideIntro ? "" : "mt-8 sm:mt-12"}>
+      <div className={hideIntro ? "" : "mt-12"}>
         {projects.map((project, index) => (
           <PortfolioItem key={project.slug} project={project} index={index} />
         ))}

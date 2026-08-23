@@ -52,7 +52,7 @@ export function QuoteForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-white/10 bg-surface-2 p-8 sm:p-10">
+      <div className="rounded-2xl border border-white/10 bg-surface-2 p-10">
         <p className="eyebrow text-accent">Request received</p>
         <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight">
           Thanks — we&apos;ll take a look.
@@ -72,9 +72,9 @@ export function QuoteForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-2xl border border-white/10 bg-surface-2 p-6 sm:p-8"
+      className="rounded-2xl border border-white/10 bg-surface-2 p-8"
     >
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="grid grid-cols-2 gap-5">
         <Field
           label="Name"
           name="name"
@@ -173,7 +173,7 @@ export function QuoteForm() {
         </p>
       ) : null}
 
-      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="mt-7 flex flex-row items-center gap-3">
         <Button type="submit" disabled={status === "submitting"}>
           {status === "submitting" ? "Sending…" : "Get My Free Quote"}
         </Button>
