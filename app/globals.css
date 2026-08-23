@@ -94,6 +94,10 @@ body {
   font-size: clamp(2rem, 4vw, 3.5rem);
 }
 
+.page-header-title {
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+}
+
 .portfolio-title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -332,64 +336,71 @@ html[data-lang="zh"] body {
     "Noto Sans SC", sans-serif;
 }
 
-html[data-lang="zh"] .site-button,
-html[data-lang="zh"] .nav-header-cta {
+/* — Chinese typography scale (English rules unchanged) — */
+
+html[data-lang="zh"] .eyebrow {
+  font-size: clamp(0.6875rem, 0.75vw, 0.875rem);
+  letter-spacing: 0.12em;
+}
+
+html[data-lang="zh"] h1.hero-title {
+  font-size: clamp(2.625rem, 11vw, 3.375rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  max-width: none;
+}
+
+html[data-lang="zh"] h1.hero-title .hero-enter-line {
+  display: block;
+  text-wrap: unset;
   white-space: nowrap;
 }
 
-html[data-lang="zh"] .display-xl,
-html[data-lang="zh"] .display-lg,
-html[data-lang="zh"] .heading-display,
-html[data-lang="zh"] .page-header-title {
-  letter-spacing: -0.02em;
-  line-height: 1.12;
+html[data-lang="zh"] .hero-copy {
+  max-width: 100%;
 }
 
-html[data-lang="zh"] .display-xl {
-  font-size: clamp(2.75rem, 11vw, 4.5rem);
-}
-
-@media (min-width: 1024px) {
-  html[data-lang="zh"] .display-xl {
-    font-size: clamp(3.5rem, 6.5vw, 7rem);
-    line-height: 1.14;
-  }
+html[data-lang="zh"] .hero-copy .body-lg,
+html[data-lang="zh"] .hero-copy p {
+  font-size: clamp(1rem, 3.8vw, 1.125rem);
+  letter-spacing: 0.01em;
+  line-height: 1.8;
+  max-width: 32.5rem;
 }
 
 html[data-lang="zh"] .display-lg {
-  font-size: clamp(2rem, 6.5vw, 4.25rem);
+  font-size: clamp(1.75rem, 7vw, 2.25rem);
+  letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
-html[data-lang="zh"] .heading-display,
-html[data-lang="zh"] .page-header-title {
-  font-size: clamp(2rem, 5.5vw, 3.75rem);
-  line-height: 1.14;
+html[data-lang="zh"] h1.page-header-title.heading-display {
+  font-size: clamp(2.5rem, 9vw, 3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
 }
 
-html[data-lang="zh"] .hero-title {
-  max-width: 14em;
-}
-
-html[data-lang="zh"] .hero-title .hero-enter-line {
-  display: block;
-  text-wrap: balance;
-}
-
-html[data-lang="zh"] .hero-copy {
-  max-width: 22rem;
-}
-
-html[data-lang="zh"] .body-lg,
-html[data-lang="zh"] .hero-copy p {
-  line-height: 1.8;
+html[data-lang="zh"] .body-lg {
+  font-size: clamp(1rem, 3.5vw, 1.125rem);
   letter-spacing: 0.01em;
+  line-height: 1.75;
 }
 
 html[data-lang="zh"] .portfolio-title {
-  font-size: clamp(2.25rem, 9vw, 5.5rem);
-  line-height: 1.08;
+  font-size: clamp(1.75rem, 7vw, 2.25rem);
   letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+html[data-lang="zh"] .nav-link {
+  font-size: clamp(0.8125rem, 0.85vw, 0.9375rem);
+}
+
+html[data-lang="zh"] .site-button,
+html[data-lang="zh"] .nav-header-cta {
+  font-size: clamp(0.875rem, 0.9vw, 1rem);
+  white-space: nowrap;
 }
 
 html[data-lang="zh"] .site-logo-wordmark {
@@ -397,10 +408,72 @@ html[data-lang="zh"] .site-logo-wordmark {
   letter-spacing: 0.06em;
 }
 
+@media (min-width: 640px) and (max-width: 1279px) {
+  html[data-lang="zh"] h1.hero-title {
+    font-size: clamp(2.75rem, 7.5vw, 3.75rem);
+  }
+}
+
 @media (min-width: 1024px) {
+  html[data-lang="zh"] .hero-section .grid {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  }
+
+  html[data-lang="zh"] .hero-copy {
+    max-width: min(100%, 30rem);
+  }
+
   html[data-lang="zh"] .site-logo-wordmark {
     font-size: 0.9375rem;
     letter-spacing: 0.14em;
+  }
+}
+
+@media (min-width: 1280px) {
+  html[data-lang="zh"] h1.hero-title {
+    font-size: clamp(4rem, 5.2vw, 5.5rem);
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+    max-width: 8em;
+  }
+
+  html[data-lang="zh"] .hero-copy {
+    max-width: min(100%, 34rem);
+  }
+
+  html[data-lang="zh"] .hero-copy .body-lg,
+  html[data-lang="zh"] .hero-copy p {
+    font-size: clamp(1.125rem, 1.1vw, 1.3125rem);
+  }
+
+  html[data-lang="zh"] .display-lg {
+    font-size: clamp(2.25rem, 3vw, 3rem);
+    line-height: 1.08;
+  }
+
+  html[data-lang="zh"] h1.page-header-title.heading-display {
+    font-size: clamp(3.5rem, 3.8vw, 4.5rem);
+    line-height: 1.1;
+  }
+
+  html[data-lang="zh"] .body-lg {
+    font-size: clamp(1rem, 1.05vw, 1.3125rem);
+    line-height: 1.8;
+  }
+
+  html[data-lang="zh"] .portfolio-title {
+    font-size: clamp(2.25rem, 3.5vw, 3rem);
+  }
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  html[data-lang="zh"] h1.hero-title {
+    font-size: clamp(2.625rem, 11vw, 3.375rem);
+    max-width: 100%;
+  }
+
+  html[data-lang="zh"] h1.hero-title .hero-enter-line {
+    white-space: nowrap;
   }
 }
 
@@ -412,20 +485,5 @@ html[data-lang="zh"] .site-logo-wordmark {
 @media (max-width: 1023px) {
   .site-logo-img {
     max-height: 2rem;
-  }
-}
-
-@media (max-width: 639px) {
-  html[data-lang="zh"] .display-xl {
-    font-size: clamp(2.5rem, 10.5vw, 3.25rem);
-    line-height: 1.16;
-  }
-
-  html[data-lang="zh"] .hero-copy {
-    max-width: 100%;
-  }
-
-  html[data-lang="zh"] .hero-title {
-    max-width: 11em;
   }
 }

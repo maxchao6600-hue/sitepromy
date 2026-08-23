@@ -62,7 +62,7 @@ export const zh: SiteCopy = {
   },
   services: {
     eyebrow: "服务",
-    titleLines: ["我们", "打造", "什么。"],
+    titleLines: ["我们打造", "什么。"],
     items: {
       "01": {
         title: "企业网站",
