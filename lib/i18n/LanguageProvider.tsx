@@ -6,18 +6,21 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
   type ReactNode,
 } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { en } from "./en";
 import { zh } from "./zh";
 import {
   applyLanguageToDocument,
-  isLanguage,
-  readLanguageFromSearch,
-  updateLanguageInUrl,
+  persistLanguagePreference,
 } from "./language";
-import { LANGUAGE_STORAGE_KEY, type Language, type SiteCopy } from "./types";
+import {
+  getLanguageFromPathname,
+  getLocalizedPath,
+  switchLanguagePath,
+} from "./routes";
+import type { Language, SiteCopy } from "./types";
 
 type LanguageContextValue = {
   lang: Language;
@@ -30,23 +33,6 @@ const translations: Record<Language, SiteCopy> = { en, zh };
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-function persistLanguage(lang: Language) {
-  try {
-    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
-  } catch {
-    // Ignore storage access errors.
-  }
-}
-
-function readStoredLanguage(): Language | null {
-  try {
-    const stored = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    return isLanguage(stored) ? stored : null;
-  } catch {
-    return null;
-  }
-}
-
 export function LanguageProvider({
   children,
   initialLang = "en",
@@ -54,59 +40,26 @@ export function LanguageProvider({
   children: ReactNode;
   initialLang?: Language;
 }) {
-  const [lang, setLang] = useState<Language>(initialLang);
-
-  useEffect(() => {
-    if (readLanguageFromSearch(window.location.search)) {
-      return;
-    }
-
-    const stored = readStoredLanguage();
-    if (stored && stored !== initialLang) {
-      // Restore saved preference after SSR when URL has no lang param.
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional post-hydration language restore
-      setLang(stored);
-    }
-  }, [initialLang]);
+  const pathname = usePathname();
+  const router = useRouter();
+  const pathLang = getLanguageFromPathname(pathname);
+  const lang = pathLang || initialLang;
 
   useEffect(() => {
     applyLanguageToDocument(lang);
-    persistLanguage(lang);
-    updateLanguageInUrl(lang);
+    persistLanguagePreference(lang);
   }, [lang]);
 
-  useEffect(() => {
-    const onPopState = () => {
-      const fromUrl = readLanguageFromSearch(window.location.search);
-      if (fromUrl) {
-        setLang(fromUrl);
-        return;
-      }
-
-      setLang(readStoredLanguage() ?? "en");
-    };
-
-    window.addEventListener("popstate", onPopState);
-    return () => window.removeEventListener("popstate", onPopState);
-  }, []);
-
-  const setLanguage = useCallback((next: Language) => {
-    setLang(next);
-  }, []);
+  const setLanguage = useCallback(
+    (next: Language) => {
+      persistLanguagePreference(next);
+      router.push(switchLanguagePath(pathname, next));
+    },
+    [pathname, router],
+  );
 
   const href = useCallback(
-    (path: string) => {
-      if (lang === "en") {
-        return path;
-      }
-
-      const hashIndex = path.indexOf("#");
-      const base = hashIndex >= 0 ? path.slice(0, hashIndex) : path;
-      const hash = hashIndex >= 0 ? path.slice(hashIndex) : "";
-      const url = new URL(base || "/", window.location.origin);
-      url.searchParams.set("lang", "zh");
-      return `${url.pathname}${url.search}${hash}`;
-    },
+    (path: string) => getLocalizedPath(path, lang),
     [lang],
   );
 

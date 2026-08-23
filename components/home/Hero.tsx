@@ -25,7 +25,7 @@ export function Hero() {
             <p className="hero-enter hero-enter-eyebrow eyebrow text-accent">
               {t.hero.eyebrow}
             </p>
-            <h1 className="display-xl mt-5 lg:mt-6">
+            <h1 className="display-xl hero-title mt-5 lg:mt-6">
               {t.hero.lines.map((line, index) => (
                 <span
                   key={line}
@@ -50,7 +50,7 @@ export function Hero() {
                 {t.hero.ctaPrimary}
               </Button>
               <Button
-                href={href("/#portfolio")}
+                href={href("/work")}
                 variant="secondary"
                 className="hero-enter hero-enter-cta-button hero-enter-cta-button-2 min-h-12 w-full sm:w-auto"
               >

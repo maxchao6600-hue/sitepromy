@@ -6,6 +6,38 @@ export const en: SiteCopy = {
     description:
       "SitePro is a Malaysia web design studio creating fast, professional and responsive websites for businesses, brands and entrepreneurs.",
   },
+  pageMeta: {
+    home: {
+      title: "SitePro Malaysia | Professional Web Design & Development",
+      description:
+        "SitePro is a Malaysia web design studio creating fast, professional and responsive websites for businesses, brands and entrepreneurs.",
+    },
+    services: {
+      title: "Web Design Services Malaysia | SitePro",
+      description:
+        "Business websites, e-commerce, landing pages, custom web design, redesigns and ongoing support — built for Malaysian businesses.",
+    },
+    work: {
+      title: "Our Work | SitePro Malaysia",
+      description:
+        "Explore SitePro concept website designs — ATELIER, NØVA, FORM, MONO, ORBIT and PULSE.",
+    },
+    process: {
+      title: "Our Process | SitePro Malaysia",
+      description:
+        "From brief to live — SitePro's five-stage web design process for fast, professional website delivery in Malaysia.",
+    },
+    contact: {
+      title: "Contact | SitePro Malaysia",
+      description:
+        "Contact SitePro Malaysia for professional web design and development. Tell us about your website project.",
+    },
+    quote: {
+      title: "Start Your Project | SitePro Malaysia",
+      description:
+        "Tell SitePro about your website idea. We'll help turn it into a professional website for your Malaysian business.",
+    },
+  },
   skipLink: "Skip to content",
   nav: {
     home: "Home",
@@ -45,17 +77,19 @@ export const en: SiteCopy = {
         description: "One focused page. One clear action. Built to convert.",
       },
       "04": {
-        title: "Corporate Websites",
-        description: "Credibility, clarity and structure for growing companies.",
+        title: "Custom Web Design",
+        description:
+          "Tailored design built around your brand, goals and how your business actually works.",
       },
       "05": {
-        title: "Portfolio Websites",
+        title: "Website Redesign",
         description:
-          "Editorial showcases that make your work impossible to ignore.",
+          "Refresh outdated sites with modern structure, design and performance.",
       },
       "06": {
-        title: "Custom Web Solutions",
-        description: "Tailored builds when your project needs something unique.",
+        title: "Ongoing Support",
+        description:
+          "Updates, improvements and support after launch — when your site needs to keep evolving.",
       },
     },
   },
@@ -277,6 +311,18 @@ export const en: SiteCopy = {
     title: "Concept websites.",
     description:
       "Each project is a SitePro concept design — not a live client. Real work will replace these as projects launch.",
+  },
+  servicesPage: {
+    eyebrow: "Services",
+    title: "What we build.",
+    description:
+      "Six focused website types — from business sites and e-commerce to landing pages, custom design, redesigns and ongoing support.",
+  },
+  processPage: {
+    eyebrow: "Process",
+    title: "From brief to live.",
+    description:
+      "Five focused stages — from understanding the brief to launching a polished website ready for your audience.",
   },
   contactPage: {
     eyebrow: "Contact",

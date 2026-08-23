@@ -61,21 +61,21 @@ export const services = [
   },
   {
     number: "04",
-    title: "Corporate Websites",
-    description: "Credibility, clarity and structure for growing companies.",
-    preview: "mono" as PreviewId,
+    title: "Custom Web Design",
+    description: "Tailored design built around your brand and business goals.",
+    preview: "pulse" as PreviewId,
   },
   {
     number: "05",
-    title: "Portfolio Websites",
-    description: "Editorial showcases that make your work impossible to ignore.",
-    preview: "nova" as PreviewId,
+    title: "Website Redesign",
+    description: "Refresh outdated sites with modern structure, design and performance.",
+    preview: "mono" as PreviewId,
   },
   {
     number: "06",
-    title: "Custom Web Solutions",
-    description: "Tailored builds when your project needs something unique.",
-    preview: "pulse" as PreviewId,
+    title: "Ongoing Support",
+    description: "Updates, improvements and support after launch.",
+    preview: "business" as PreviewId,
   },
 ] as const;
 

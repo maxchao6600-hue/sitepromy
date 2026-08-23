@@ -2,14 +2,7 @@
 
 import { Logo } from "@/components/layout/Logo";
 import { SITE } from "@/lib/site";
-import { useLanguage } from "@/lib/i18n";
-
-const footerItems = [
-  { href: "/#services", key: "services" as const },
-  { href: "/#portfolio", key: "work" as const },
-  { href: "/#process", key: "process" as const },
-  { href: "/contact", key: "contact" as const },
-];
+import { NAV_PAGES, ROUTES, useLanguage } from "@/lib/i18n";
 
 export function Footer() {
   const { t, href } = useLanguage();
@@ -25,13 +18,13 @@ export function Footer() {
 
         <nav aria-label="Footer">
           <ul className="flex flex-wrap gap-x-8 gap-y-3">
-            {footerItems.map((link) => (
-              <li key={link.href}>
+            {NAV_PAGES.filter((page) => page !== "home").map((page) => (
+              <li key={page}>
                 <a
-                  href={href(link.href)}
+                  href={href(ROUTES[page].en)}
                   className="inline-flex min-h-12 items-center text-sm text-cream/60 transition-colors hover:text-cream"
                 >
-                  {t.nav[link.key]}
+                  {t.nav[page as "services" | "work" | "process" | "contact"]}
                 </a>
               </li>
             ))}

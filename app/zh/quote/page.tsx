@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { QuotePageContent } from "@/components/pages/QuotePageContent";
 import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = buildPageMetadata("quote", "en");
+export const metadata: Metadata = buildPageMetadata("quote", "zh");
 
 export const revalidate = 300;
 
-export default function QuotePage() {
+export default function ChineseQuotePage() {
   return <QuotePageContent />;
 }

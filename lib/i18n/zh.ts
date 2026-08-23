@@ -6,6 +6,38 @@ export const zh: SiteCopy = {
     description:
       "SitePro 是一家马来西亚网页设计工作室，为企业、品牌和创业者打造快速、专业且响应式的网站。",
   },
+  pageMeta: {
+    home: {
+      title: "SitePro 马来西亚 | 专业网页设计与开发",
+      description:
+        "SitePro 是一家马来西亚网页设计工作室，为企业、品牌和创业者打造快速、专业且响应式的网站。",
+    },
+    services: {
+      title: "网页设计服务 | SitePro 马来西亚",
+      description:
+        "企业网站、电子商务、营销落地页、定制网页设计、网站改版与持续支持——为马来西亚企业而打造。",
+    },
+    work: {
+      title: "精选作品 | SitePro 马来西亚",
+      description:
+        "探索 SitePro 概念网站设计——ATELIER、NØVA、FORM、MONO、ORBIT 与 PULSE。",
+    },
+    process: {
+      title: "设计流程 | SitePro 马来西亚",
+      description:
+        "从需求沟通到正式上线——SitePro 五阶段网页设计流程，为马来西亚企业提供快速、专业的网站交付。",
+    },
+    contact: {
+      title: "联系 | SitePro 马来西亚",
+      description:
+        "联系 SitePro 马来西亚，获取专业网页设计与开发服务。告诉我们你的项目需求。",
+    },
+    quote: {
+      title: "开始项目 | SitePro 马来西亚",
+      description:
+        "告诉 SitePro 你的网站想法，我们将帮助你把它打造成专业的马来西亚企业网站。",
+    },
+  },
   skipLink: "跳至主要内容",
   nav: {
     home: "首页",
@@ -44,16 +76,16 @@ export const zh: SiteCopy = {
         description: "一个聚焦的页面，一个明确的行动，为转化而设计。",
       },
       "04": {
-        title: "企业官网",
-        description: "为成长中的企业建立可信度、清晰度与结构。",
+        title: "定制网页设计",
+        description: "围绕你的品牌、目标与业务实际运作方式而量身打造的设计。",
       },
       "05": {
-        title: "作品展示网站",
-        description: "编辑式呈现，让你的作品难以被忽视。",
+        title: "网站改版",
+        description: "以现代结构、设计与性能，焕新已过时的网站。",
       },
       "06": {
-        title: "定制网站方案",
-        description: "当项目需要独特方案时，量身打造。",
+        title: "持续支持",
+        description: "上线后的更新、优化与支持——当网站需要持续演进时。",
       },
     },
   },
@@ -259,6 +291,18 @@ export const zh: SiteCopy = {
     title: "概念网站。",
     description:
       "每个项目都是 SitePro 的概念设计——并非真实客户案例。随着项目上线，真实作品将逐步替换这些示例。",
+  },
+  servicesPage: {
+    eyebrow: "服务",
+    title: "我们打造什么。",
+    description:
+      "六种聚焦的网站类型——从企业网站、电子商务到营销落地页、定制设计、网站改版与持续支持。",
+  },
+  processPage: {
+    eyebrow: "流程",
+    title: "从需求到上线。",
+    description:
+      "五个聚焦阶段——从理解需求到上线一个为你的受众准备好的精致网站。",
   },
   contactPage: {
     eyebrow: "联系",

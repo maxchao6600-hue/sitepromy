@@ -7,15 +7,12 @@ import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
 import { cn } from "@/lib/cn";
-import { useLanguage } from "@/lib/i18n";
+import { NAV_PAGES, ROUTES, useLanguage, type NavKey } from "@/lib/i18n";
 
-const navItems = [
-  { href: "/", key: "home" as const },
-  { href: "/#services", key: "services" as const },
-  { href: "/#portfolio", key: "work" as const },
-  { href: "/#process", key: "process" as const },
-  { href: "/contact", key: "contact" as const },
-];
+const navItems: Array<{ key: NavKey; href: string }> = NAV_PAGES.map((page) => ({
+  key: page,
+  href: ROUTES[page].en,
+}));
 
 function subscribeScroll(callback: () => void) {
   window.addEventListener("scroll", callback, { passive: true });
@@ -72,7 +69,7 @@ export function Navbar() {
         <nav className="hidden items-center gap-8 lg:flex" aria-label={t.nav.primary}>
           {navItems.map((link) => (
             <a
-              key={link.href}
+              key={link.key}
               href={href(link.href)}
               className="nav-link text-cream/60 transition-colors hover:text-cream"
             >
@@ -132,7 +129,7 @@ export function Navbar() {
             <nav aria-label={t.nav.mobile} className="container-main flex flex-col gap-1 py-6">
               {navItems.map((link) => (
                 <a
-                  key={link.href}
+                  key={link.key}
                   href={href(link.href)}
                   className="font-display py-3 text-2xl font-semibold tracking-tight"
                   onClick={() => setOpen(false)}

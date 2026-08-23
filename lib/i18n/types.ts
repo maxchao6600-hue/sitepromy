@@ -37,6 +37,10 @@ export type SiteCopy = {
     title: string;
     description: string;
   };
+  pageMeta: Record<
+    "home" | "services" | "work" | "process" | "contact" | "quote",
+    { title: string; description: string }
+  >;
   skipLink: string;
   nav: {
     home: string;
@@ -129,6 +133,16 @@ export type SiteCopy = {
     rights: string;
   };
   workPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  servicesPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
+  processPage: {
     eyebrow: string;
     title: string;
     description: string;

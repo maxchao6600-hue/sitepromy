@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { cn } from "@/lib/cn";
+import { useLanguage } from "@/lib/i18n";
 
 type LogoProps = {
   className?: string;
@@ -7,9 +10,11 @@ type LogoProps = {
 };
 
 export function Logo({ className, variant = "header" }: LogoProps) {
+  const { href } = useLanguage();
+
   return (
     <Link
-      href="/"
+      href={href("/")}
       className={cn(
         "inline-flex shrink-0 items-center",
         variant === "header" && "gap-2 sm:gap-2.5 lg:gap-3",

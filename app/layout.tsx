@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Inter, Space_Grotesk } from "next/font/google";
 import { AppShell } from "@/components/layout/AppShell";
-import { LanguageBootstrap } from "@/components/layout/LanguageBootstrap";
 import type { Language } from "@/lib/i18n";
+import { getHtmlLang } from "@/lib/seo";
 import { SITE } from "@/lib/site";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,19 +31,6 @@ export const metadata: Metadata = {
   creator: SITE.fullName,
   publisher: SITE.fullName,
   category: "Web Design",
-  keywords: [
-    "Malaysia web design",
-    "web design Malaysia",
-    "website design Malaysia",
-    "website development Malaysia",
-    "professional website design",
-    "business website Malaysia",
-    "ecommerce website Malaysia",
-    "custom website Malaysia",
-  ],
-  alternates: {
-    canonical: SITE.url,
-  },
   robots: {
     index: true,
     follow: true,
@@ -51,19 +38,6 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
     },
-  },
-  openGraph: {
-    type: "website",
-    locale: SITE.locale,
-    url: SITE.url,
-    siteName: SITE.fullName,
-    title: "SitePro Malaysia | Professional Web Design & Development",
-    description: SITE.description,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "SitePro Malaysia | Professional Web Design & Development",
-    description: SITE.description,
   },
 };
 
@@ -84,13 +58,10 @@ export default async function RootLayout({
 
   return (
     <html
-      lang={initialLang === "zh" ? "zh-MY" : "en-MY"}
+      lang={getHtmlLang(initialLang)}
+      data-lang={initialLang}
       className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}
-      suppressHydrationWarning
     >
-      <head>
-        <LanguageBootstrap />
-      </head>
       <body className="min-h-full overflow-x-clip bg-ink font-sans text-cream">
         <AppShell initialLang={initialLang}>{children}</AppShell>
       </body>
