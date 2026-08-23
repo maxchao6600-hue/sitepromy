@@ -8,6 +8,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { MotionReveal } from "@/components/ui/Motion";
+import { SectionIndex } from "@/components/ui/SectionIndex";
 import { conceptImages } from "@/lib/images";
 import { useLanguage } from "@/lib/i18n";
 import type { SpeedPillarKey } from "@/lib/i18n/types";
@@ -25,12 +26,12 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
   const showLive = activeIndex >= 4;
 
   return (
-    <div className="relative aspect-[16/11] overflow-hidden rounded-xl border border-line bg-[#07090e]">
+    <div className="relative aspect-[16/11] overflow-hidden rounded-xl border border-line bg-[#07090e] shadow-[0_32px_80px_rgba(0,0,0,0.4)]">
       <div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-25"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0,128,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,128,255,0.08) 1px, transparent 1px)",
+            "linear-gradient(rgba(0,128,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(0,128,255,0.07) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
         aria-hidden="true"
@@ -134,17 +135,23 @@ function ProcessVisual({ activeIndex }: { activeIndex: number }) {
   );
 }
 
-function SpeedPillar({ pillarKey, index }: { pillarKey: SpeedPillarKey; index: number }) {
+function SpeedPillar({
+  pillarKey,
+  index,
+}: {
+  pillarKey: SpeedPillarKey;
+  index: number;
+}) {
   const { t } = useLanguage();
   const pillar = t.speed.pillars[pillarKey];
 
   return (
-    <article className="min-w-0 border-t border-line pt-6 lg:pt-8">
+    <article className="min-w-0 border-t border-line pt-5 lg:border-t-0 lg:pt-0">
       <span className="meta-label text-accent">0{index + 1}</span>
-      <h3 className="mt-3 font-display text-xl font-semibold tracking-tight text-cream sm:text-2xl">
+      <h3 className="mt-2 font-display text-lg font-semibold uppercase tracking-[0.08em] text-cream sm:text-xl">
         {pillar.title}
       </h3>
-      <p className="mt-2 max-w-xs text-[0.9375rem] leading-7 text-secondary sm:text-base">
+      <p className="mt-2 max-w-xs text-[0.875rem] leading-7 text-secondary">
         {pillar.description}
       </p>
     </article>
@@ -160,7 +167,11 @@ export function SpeedSection() {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const lineWidth = useTransform(scrollYProgress, [0.15, 0.85], reduced ? ["100%"] : ["0%", "100%"]);
+  const lineWidth = useTransform(
+    scrollYProgress,
+    [0.15, 0.85],
+    reduced ? ["100%"] : ["0%", "100%"],
+  );
 
   useEffect(() => {
     if (reduced) return;
@@ -173,14 +184,16 @@ export function SpeedSection() {
   }, [reduced]);
 
   return (
-    <section ref={sectionRef} className="overflow-x-clip bg-ink">
+    <section ref={sectionRef} className="scene-speed scene-noise relative overflow-x-clip">
       <div className="container-main section-y">
         <MotionReveal>
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[auto_1fr] lg:items-end lg:gap-16">
-            <div className="font-display text-[clamp(3rem,14vw,11rem)] font-bold leading-[0.85] tracking-tight">
+          <SectionIndex index={t.speed.scene} label={t.speed.index} />
+
+          <div className="mt-8 grid grid-cols-1 gap-10 lg:mt-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-16">
+            <div className="type-poster">
               <span className="block text-cream">{t.speed.fast}</span>
               <span className="block text-accent">{t.speed.notEqual}</span>
-              <span className="block text-cream/25">{t.speed.basic}</span>
+              <span className="block text-cream/20">{t.speed.basic}</span>
             </div>
             <div>
               <p className="eyebrow text-accent">{t.speed.eyebrow}</p>
@@ -189,16 +202,16 @@ export function SpeedSection() {
           </div>
         </MotionReveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 lg:mt-24 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-14">
+        <div className="mt-14 grid grid-cols-1 gap-10 lg:mt-24 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-14">
           <div>
-            <div className="relative mb-6 hidden h-px bg-line lg:mb-8 lg:block">
+            <div className="relative mb-8 hidden h-px bg-line lg:mb-10 lg:block">
               <motion.div
                 style={{ width: lineWidth }}
                 className="absolute inset-y-0 left-0 bg-accent"
               />
             </div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2 lg:gap-x-8">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-8 lg:grid-cols-2">
               {PILLAR_KEYS.map((pillarKey, index) => (
                 <SpeedPillar key={pillarKey} pillarKey={pillarKey} index={index} />
               ))}

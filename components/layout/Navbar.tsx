@@ -59,11 +59,11 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 overflow-x-clip transition-all duration-500",
         scrolled
-          ? "border-b border-line bg-ink/85 backdrop-blur-xl"
+          ? "nav-scrolled border-b border-line bg-ink/92 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-main flex h-16 min-w-0 items-center justify-between gap-2 lg:h-[4.25rem] lg:gap-3">
+      <div className="nav-inner container-main flex h-16 min-w-0 items-center justify-between gap-2 transition-[height] duration-500 lg:h-[4.25rem] lg:gap-3">
         <Logo className="min-w-0 max-w-[calc(100%-9.5rem)] lg:max-w-none" />
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label={t.nav.primary}>

@@ -127,12 +127,18 @@ export function PreviewNav({
       </span>
       {links ? (
         <div className="hidden min-w-0 items-center gap-[5%] sm:flex">
-          {links.map((link) => (
+          {links.map((link, index) => (
             <span
               key={link}
               className={cn(
-                "text-[0.78em] tracking-[0.1em]",
-                dark ? "text-white/55" : "text-black/50",
+                "text-[0.78em] tracking-[0.1em] transition-colors",
+                dark
+                  ? index === 0
+                    ? "text-white/85"
+                    : "text-white/55"
+                  : index === 0
+                    ? "text-black/75"
+                    : "text-black/50",
               )}
             >
               {link}
@@ -225,7 +231,7 @@ export function PreviewButton({
   return (
     <span
       className={cn(
-        "mt-[0.9em] inline-flex w-fit items-center text-[0.78em] font-medium tracking-[0.14em] uppercase",
+        "mt-[0.9em] inline-flex w-fit items-center text-[0.78em] font-medium tracking-[0.14em] uppercase transition-opacity duration-300 hover:opacity-80",
         variant === "solid" && "rounded-full px-[1.4em] py-[0.55em]",
         variant === "outline" && "rounded-full border px-[1.4em] py-[0.55em]",
         variant === "underline" && "border-b pb-[0.15em]",
@@ -234,5 +240,36 @@ export function PreviewButton({
     >
       {children}
     </span>
+  );
+}
+
+export function PreviewMetaRow({
+  items,
+  dark = true,
+}: {
+  items: Array<{ label: string; value: string }>;
+  dark?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "grid shrink-0 grid-cols-2 gap-[3%] border-t px-[4%] py-[3%] sm:grid-cols-4",
+        dark ? "border-white/10" : "border-black/8",
+      )}
+    >
+      {items.map((item) => (
+        <div key={item.label} className="min-w-0">
+          <p
+            className={cn(
+              "text-[0.68em] tracking-[0.18em] uppercase",
+              dark ? "text-white/40" : "text-black/40",
+            )}
+          >
+            {item.label}
+          </p>
+          <p className="mt-[0.35em] text-[0.82em] font-medium">{item.value}</p>
+        </div>
+      ))}
+    </div>
   );
 }

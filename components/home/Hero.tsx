@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/Button";
 import { WebsiteShowcase } from "@/components/home/WebsiteShowcase";
+import { SectionIndex } from "@/components/ui/SectionIndex";
 import { useLanguage } from "@/lib/i18n";
 import { cn } from "@/lib/cn";
 
@@ -9,23 +10,26 @@ export function Hero() {
   const { t, href } = useLanguage();
 
   return (
-    <section className="hero-section relative overflow-x-clip pt-16 lg:min-h-[100svh] lg:overflow-hidden lg:pt-[4.25rem]">
+    <section className="scene-hero scene-noise hero-section relative overflow-x-clip pt-16 lg:min-h-[100svh] lg:overflow-hidden lg:pt-[4.25rem]">
       <div
-        className="pointer-events-none absolute inset-0 opacity-40"
+        className="pointer-events-none absolute inset-0 z-0 opacity-35"
         aria-hidden="true"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 70% 40%, rgba(0,128,255,0.12), transparent 60%)",
+            "radial-gradient(ellipse 70% 55% at 72% 38%, rgba(0,128,255,0.14), transparent 62%)",
         }}
       />
 
-      <div className="container-main relative py-10 lg:flex lg:min-h-[calc(100svh-4.25rem)] lg:flex-col lg:justify-center lg:section-y">
+      <div className="container-main relative z-10 py-10 lg:flex lg:min-h-[calc(100svh-4.25rem)] lg:flex-col lg:justify-center lg:section-y">
+        <SectionIndex
+          index={t.hero.scene}
+          label={t.hero.eyebrow}
+          className="hero-enter hero-enter-eyebrow mb-6 lg:mb-8"
+        />
+
         <div className="grid min-w-0 grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-end lg:gap-16">
           <div className="hero-copy max-w-xl">
-            <p className="hero-enter hero-enter-eyebrow eyebrow text-accent">
-              {t.hero.eyebrow}
-            </p>
-            <h1 className="display-xl hero-title mt-5 lg:mt-6">
+            <h1 className="display-xl hero-title mt-0">
               {t.hero.lines.map((line, index) => (
                 <span
                   key={line}

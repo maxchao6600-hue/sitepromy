@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { WebsitePreview } from "@/components/previews/WebsitePreview";
 import { MotionReveal } from "@/components/ui/Motion";
+import { SectionIndex } from "@/components/ui/SectionIndex";
+import { PreviewFrame } from "@/components/ui/PreviewFrame";
 import { usePortraitMobile } from "@/lib/useMediaQuery";
 import { projects } from "@/lib/site";
 import { useLanguage } from "@/lib/i18n";
@@ -151,19 +153,17 @@ function PortfolioItem({
           style={{ y: reduced || isPortraitMobile ? 0 : y }}
           className="w-full max-w-full origin-center"
         >
-          <div
-            className={cn(
-              "overflow-hidden rounded-xl border shadow-[0_24px_64px_rgba(0,0,0,0.35)] sm:rounded-2xl lg:shadow-[0_48px_120px_rgba(0,0,0,0.35)]",
-              theme.border,
-            )}
-          >
+          <PreviewFrame url={`${project.slug}.sitepromy.com`} fixedAspect={false}>
             <WebsitePreview
               id={project.preview}
               large
-              className="aspect-[16/10] min-h-[220px] w-full max-w-full sm:min-h-[320px] lg:min-h-[min(68vh,820px)]"
+              className="aspect-[16/10] min-h-[220px] h-full w-full max-w-full sm:min-h-[320px] lg:min-h-[min(68vh,820px)]"
             />
+          </PreviewFrame>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 lg:mt-5">
+            <p className={cn("meta-label", theme.meta)}>{copy.category}</p>
+            <p className={cn("micro-label", theme.meta)}>{project.name}</p>
           </div>
-          <p className={cn("meta-label mt-3 lg:mt-4", theme.meta)}>{copy.category}</p>
         </motion.div>
       </motion.div>
     </article>
@@ -174,12 +174,12 @@ export function Portfolio({ hideIntro = false }: { hideIntro?: boolean }) {
   const { t } = useLanguage();
 
   return (
-    <section className="overflow-x-clip">
+    <section className="scene-work-intro scene-noise overflow-x-clip">
       {hideIntro ? null : (
         <div className="container-main section-y pb-0">
           <MotionReveal className="max-w-5xl">
-            <p className="eyebrow text-accent">{t.portfolio.eyebrow}</p>
-            <h2 className="display-lg mt-5 lg:mt-6">
+            <SectionIndex index={t.portfolio.scene} label={t.portfolio.index} />
+            <h2 className="display-lg mt-6 text-cream lg:mt-8">
               {t.portfolio.titleLines.map((line, index) => (
                 <span
                   key={line}

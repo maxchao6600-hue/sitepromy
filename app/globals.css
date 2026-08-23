@@ -4,6 +4,9 @@
   --ink: #050608;
   --surface: #0a0c10;
   --surface-2: #101318;
+  --scene-0: #050608;
+  --scene-1: #080a0d;
+  --scene-2: #0b0d10;
   --off-white: #f2f0eb;
   --cream: #f7f6f3;
   --muted: #8a929e;
@@ -44,6 +47,84 @@ body {
   font-size: clamp(1rem, 1.05vw, 1.125rem);
   line-height: 1.65;
   min-height: 100%;
+}
+
+.scene-noise::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  content: "";
+  inset: 0;
+  opacity: 0.018;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.scene-hero {
+  background: var(--scene-0);
+}
+
+.scene-manifesto {
+  background: var(--scene-1);
+}
+
+.scene-services,
+.scene-work-intro {
+  background: var(--surface);
+}
+
+.scene-speed {
+  background: var(--scene-2);
+}
+
+.scene-process {
+  background: var(--surface);
+}
+
+.scene-cta {
+  background: var(--scene-0);
+}
+
+.type-editorial {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+@media (min-width: 1024px) {
+  .type-editorial {
+    font-size: clamp(3.5rem, 5.5vw, 6.5rem);
+    line-height: 0.96;
+  }
+}
+
+.type-poster {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 14vw, 11rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.82;
+}
+
+.section-index {
+  font-variant-numeric: tabular-nums;
+}
+
+.nav-scrolled .nav-inner {
+  height: 3.75rem;
+}
+
+@media (min-width: 1024px) {
+  .nav-scrolled .nav-inner {
+    height: 3.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-frame-hero .preview-frame-shell {
+    transform: none !important;
+  }
 }
 
 ::selection {
@@ -328,6 +409,19 @@ body {
 
   .site-logo-img {
     max-width: 6.5rem;
+  }
+}
+
+html[data-lang="zh"] .type-editorial {
+  font-size: clamp(2rem, 7vw, 3.75rem);
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+}
+
+@media (min-width: 1280px) {
+  html[data-lang="zh"] .type-editorial {
+    font-size: clamp(2.75rem, 4.5vw, 4.5rem);
+    line-height: 1.04;
   }
 }
 

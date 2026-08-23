@@ -62,11 +62,36 @@ export type SiteCopy = {
     body: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    scene: string;
+  };
+  manifesto: {
+    scene: string;
+    index: string;
+    lines: string[];
+    accentLineIndex: number;
+    body: string;
+    credibility: string[];
   };
   services: {
     eyebrow: string;
     titleLines: string[];
-    items: Record<ServiceKey, { title: string; description: string }>;
+    scene: string;
+    index: string;
+    metaLabels: {
+      type: string;
+      role: string;
+      focus: string;
+    };
+    items: Record<
+      ServiceKey,
+      {
+        title: string;
+        description: string;
+        type: string;
+        role: string;
+        focus: string;
+      }
+    >;
   };
   servicePreview: Record<
     ServicePreviewKey,
@@ -83,6 +108,8 @@ export type SiteCopy = {
     titleLines: string[];
     accentLineIndex: number;
     intro: string;
+    scene: string;
+    index: string;
     projectLabel: string;
     conceptWebsite: string;
     conceptEcommerce: string;
@@ -106,6 +133,8 @@ export type SiteCopy = {
     notEqual: string;
     basic: string;
     eyebrow: string;
+    scene: string;
+    index: string;
     body: string;
     sampleProgression: string;
     preview: string;
@@ -120,6 +149,8 @@ export type SiteCopy = {
     titleLines: string[];
     accentLineIndex: number;
     intro: string;
+    scene: string;
+    index: string;
     steps: Record<ProcessKey, { title: string; label: string; description: string }>;
   };
   cta: {
@@ -128,6 +159,8 @@ export type SiteCopy = {
     action: string;
     body: string;
     offerings: string[];
+    scene: string;
+    credibility: string[];
   };
   footer: {
     tagline: string;

@@ -59,38 +59,72 @@ export const en: SiteCopy = {
     body: "You have an idea. We turn it into a fast, professional website built around your business — from first direction to final launch.",
     ctaPrimary: "Start a Project →",
     ctaSecondary: "View Concept Work →",
+    scene: "01",
+  },
+  manifesto: {
+    scene: "02",
+    index: "Manifesto",
+    lines: ["GOOD WEBSITES AREN'T", "DECORATION.", "THEY'RE BUSINESS TOOLS."],
+    accentLineIndex: 2,
+    body: "Every decision should serve clarity, conversion and credibility. That's the standard we build to — not decoration for its own sake.",
+    credibility: ["DESIGN", "DEVELOPMENT", "PERFORMANCE", "SEO"],
   },
   services: {
     eyebrow: "Services",
     titleLines: ["WHAT", "WE", "BUILD."],
+    scene: "03",
+    index: "Services",
+    metaLabels: {
+      type: "Type",
+      role: "Role",
+      focus: "Focus",
+    },
     items: {
       "01": {
         title: "Business Websites",
         description:
           "Professional sites built around how your business actually works.",
+        type: "Business Website",
+        role: "Design / Development",
+        focus: "Brand / Conversion",
       },
       "02": {
         title: "E-Commerce",
         description: "Product-led storefronts with clear paths to purchase.",
+        type: "E-Commerce",
+        role: "Design / Development",
+        focus: "Conversion / UX",
       },
       "03": {
         title: "Landing Pages",
         description: "One focused page. One clear action. Built to convert.",
+        type: "Landing Page",
+        role: "Design / Development",
+        focus: "Conversion / Campaign",
       },
       "04": {
         title: "Custom Web Design",
         description:
           "Tailored design built around your brand, goals and how your business actually works.",
+        type: "Custom Experience",
+        role: "Design / Development",
+        focus: "Brand / Experience",
       },
       "05": {
         title: "Website Redesign",
         description:
           "Refresh outdated sites with modern structure, design and performance.",
+        type: "Website Redesign",
+        role: "Design / Development",
+        focus: "Performance / Brand",
       },
       "06": {
         title: "Ongoing Support",
         description:
           "Updates, improvements and support after launch — when your site needs to keep evolving.",
+        type: "Ongoing Support",
+        role: "Development / Support",
+        focus: "Maintenance / Growth",
       },
     },
   },
@@ -158,6 +192,8 @@ export const en: SiteCopy = {
     accentLineIndex: 1,
     intro:
       "Six design directions — each a sample experience showing how SitePro approaches a different industry and website type.",
+    scene: "04",
+    index: "Selected Work",
     projectLabel: "PROJECT",
     conceptWebsite: "Concept Website",
     conceptEcommerce: "Concept E-Commerce Experience",
@@ -226,6 +262,8 @@ export const en: SiteCopy = {
     notEqual: "≠",
     basic: "BASIC",
     eyebrow: "From idea to live",
+    scene: "05",
+    index: "Approach",
     body: "Speed doesn't mean cutting corners. SitePro moves from brief to launch with editorial precision — structure, design, build and live delivery in one focused workflow.",
     sampleProgression: "Sample build progression",
     preview: "Preview",
@@ -258,6 +296,8 @@ export const en: SiteCopy = {
     accentLineIndex: 1,
     intro:
       "Five focused stages — from understanding the brief to launching a polished website ready for your audience.",
+    scene: "06",
+    index: "Process",
     steps: {
       "01": {
         title: "Brief",
@@ -302,6 +342,8 @@ export const en: SiteCopy = {
       "Landing page",
       "Custom experience",
     ],
+    scene: "07",
+    credibility: ["BUILT FOR", "BRAND", "BUSINESS", "GROWTH"],
   },
   footer: {
     tagline: "Fast. Professional. Flexible.",
