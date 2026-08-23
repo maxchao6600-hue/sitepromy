@@ -10,6 +10,8 @@ import {
 import { MotionReveal } from "@/components/ui/Motion";
 import { SectionIndex } from "@/components/ui/SectionIndex";
 import { StagePipeline } from "@/components/ui/StagePipeline";
+import { PreviewFrame } from "@/components/ui/PreviewFrame";
+import { WebsitePreview } from "@/components/previews/WebsitePreview";
 import { conceptImages } from "@/lib/images";
 import { useLanguage } from "@/lib/i18n";
 import type { SpeedPillarKey } from "@/lib/i18n/types";
@@ -186,25 +188,48 @@ export function SpeedSection() {
               <p className="mt-3 text-sm leading-7 text-secondary lg:text-base">
                 {t.speed.body}
               </p>
+              <p className="mt-4 font-display text-sm font-semibold uppercase tracking-[0.12em] text-cream lg:mt-5">
+                {t.speed.tagline}
+              </p>
               <StagePipeline
                 stages={t.speed.stages}
                 activeIndex={activeIndex}
-                className="mt-8 hidden lg:flex"
+                className="mt-8 flex"
               />
+              <div className="mt-6 flex flex-wrap gap-2">
+                {t.speed.technical.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border border-line px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-muted"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
 
             <div className="lg:col-span-8">
+              <p className="meta-label mb-3 text-accent">Build System</p>
               <ProcessVisual activeIndex={activeIndex} />
               <p className="meta-label mt-3 text-muted">{t.speed.sampleProgression}</p>
 
-              <div className="relative mt-6 hidden h-px bg-line lg:mb-6 lg:block">
+              <div className="relative mt-6 hidden lg:mb-6 lg:block lg:h-px lg:bg-line">
                 <motion.div
                   style={{ width: lineWidth }}
                   className="absolute inset-y-0 left-0 bg-accent"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-4">
+              <div className="mt-6 hidden overflow-hidden rounded-lg border border-line lg:block">
+                <PreviewFrame url="atelier.sitepromy.com" fixedAspect={false}>
+                  <WebsitePreview
+                    id="atelier"
+                    className="aspect-[16/7] min-h-[140px] w-full"
+                  />
+                </PreviewFrame>
+              </div>
+
+              <div className="mt-6 grid grid-cols-2 gap-3 lg:mt-8 lg:grid-cols-4 lg:gap-4">
                 {PILLAR_KEYS.map((pillarKey, index) => (
                   <SpeedPillar key={pillarKey} pillarKey={pillarKey} index={index} />
                 ))}

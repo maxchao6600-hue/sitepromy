@@ -63,16 +63,43 @@ export type SiteCopy = {
     ctaPrimary: string;
     ctaSecondary: string;
     scene: string;
+    livePreview: string;
+    metaLabels: {
+      status: string;
+      format: string;
+      discipline: string;
+    };
   };
-  manifesto: {
+  studioStatement: {
     scene: string;
     index: string;
     lines: string[];
-    accentLineIndex: number;
     body: string;
-    sideBody: string;
-    credibility: string[];
+    pillars: string[];
+    annotations: string[];
     previewLabel: string;
+  };
+  detailStrips: {
+    capabilities: string[];
+    disciplines: string[];
+  };
+  designSystem: {
+    scene: string;
+    index: string;
+    title: string;
+    subtitle: string;
+    type: { label: string; sample: string };
+    color: { label: string; values: string };
+    grid: { label: string; value: string };
+    components: { label: string; items: string[] };
+    motion: { label: string; items: string[] };
+  };
+  businessGoals: {
+    scene: string;
+    index: string;
+    eyebrow: string;
+    titleLines: string[];
+    goals: Record<"01" | "02" | "03" | "04", { title: string; description: string }>;
   };
   services: {
     eyebrow: string;
@@ -125,6 +152,12 @@ export type SiteCopy = {
       experience: string;
       system: string;
     };
+    detailStrip: {
+      typography: string;
+      imageDirection: string;
+      navigation: string;
+      mobile: string;
+    };
     projects: Record<
       ProjectSlug,
       {
@@ -155,6 +188,8 @@ export type SiteCopy = {
     designDirection: string;
     builtWithIntent: string;
     sampleExperience: string;
+    tagline: string;
+    technical: string[];
     pillars: Record<SpeedPillarKey, { title: string; description: string }>;
   };
   process: {
@@ -169,7 +204,10 @@ export type SiteCopy = {
   cta: {
     eyebrow: string;
     titleLines: string[];
+    headlineLines: string[];
+    prompt: string;
     action: string;
+    actionShort: string;
     body: string;
     offerings: string[];
     scene: string;
@@ -178,10 +216,14 @@ export type SiteCopy = {
   footer: {
     descriptor: string;
     statementLines: string[];
+    exploreTitle: string;
     navTitle: string;
     servicesTitle: string;
+    startTitle: string;
     contactTitle: string;
     serviceLinks: string[];
+    startProject: string;
+    requestQuote: string;
     tagline: string;
     rights: string;
   };

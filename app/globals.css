@@ -63,8 +63,17 @@ body {
   background: var(--scene-0);
 }
 
-.scene-manifesto {
+.scene-manifesto,
+.scene-studio {
   background: #07090c;
+}
+
+.scene-design-system {
+  background: #080a0d;
+}
+
+.scene-business {
+  background: #050608;
 }
 
 .scene-services {

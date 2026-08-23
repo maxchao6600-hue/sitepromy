@@ -78,6 +78,39 @@ function ProjectMeta({
   );
 }
 
+function DetailStripBar({
+  slug,
+  theme,
+}: {
+  slug: ProjectSlug;
+  theme: (typeof themeStyles)[keyof typeof themeStyles];
+}) {
+  const { t } = useLanguage();
+  const copy = t.portfolio.projects[slug];
+  const items = [
+    { label: t.portfolio.detailStrip.typography, value: copy.designDetail.split(" / ")[0] ?? copy.designDetail },
+    { label: t.portfolio.detailStrip.imageDirection, value: copy.designDetail.split(" / ")[1] ?? copy.industry },
+    { label: t.portfolio.detailStrip.navigation, value: copy.systemDetail.split(" / ")[1] ?? "Navigation" },
+    { label: t.portfolio.detailStrip.mobile, value: "Responsive" },
+  ];
+
+  return (
+    <div
+      className={cn(
+        "mt-4 grid grid-cols-2 gap-px border sm:grid-cols-4",
+        theme.border,
+      )}
+    >
+      {items.map((item) => (
+        <div key={item.label} className={cn("px-3 py-3 lg:px-4", theme.section)}>
+          <p className={cn("meta-label", theme.meta)}>{item.label}</p>
+          <p className={cn("mt-1 text-xs leading-5 sm:text-sm", theme.muted)}>{item.value}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function CaseStudyDetails({
   slug,
   theme,
@@ -214,6 +247,9 @@ function PortfolioItem({
             <p className={cn("meta-label", theme.meta)}>{copy.category}</p>
             <p className={cn("micro-label", theme.meta)}>{project.name}</p>
           </div>
+
+          <DetailStripBar slug={project.slug as ProjectSlug} theme={theme} />
+
           <CaseStudyDetails slug={project.slug as ProjectSlug} theme={theme} />
         </motion.div>
       </motion.div>

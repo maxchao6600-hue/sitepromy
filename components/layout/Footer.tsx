@@ -26,11 +26,12 @@ export function Footer() {
               ))}
             </h2>
             <p className="mt-4 text-sm text-secondary">{t.footer.tagline}</p>
+            <p className="mt-6 text-sm text-muted">{SITE.domain}</p>
           </div>
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
             <div>
-              <p className="meta-label text-muted">{t.footer.navTitle}</p>
+              <p className="meta-label text-muted">{t.footer.exploreTitle}</p>
               <ul className="mt-4 space-y-2">
                 {NAV_PAGES.map((page) => (
                   <li key={page}>
@@ -68,21 +69,26 @@ export function Footer() {
             </div>
 
             <div className="col-span-2 sm:col-span-1">
-              <p className="meta-label text-muted">{t.footer.contactTitle}</p>
+              <p className="meta-label text-muted">{t.footer.startTitle}</p>
               <div className="mt-4 space-y-3">
+                <Link
+                  href={href("/quote")}
+                  className="block text-sm text-accent transition-colors hover:text-cream"
+                >
+                  {t.footer.startProject}
+                </Link>
+                <Link
+                  href={href("/quote")}
+                  className="block text-sm text-cream/60 transition-colors hover:text-cream"
+                >
+                  {t.footer.requestQuote}
+                </Link>
                 <Link
                   href={href("/contact")}
                   className="block text-sm text-cream/60 transition-colors hover:text-cream"
                 >
                   {t.nav.contact}
                 </Link>
-                <Link
-                  href={href("/quote")}
-                  className="block text-sm text-accent transition-colors hover:text-cream"
-                >
-                  {t.nav.startProject}
-                </Link>
-                <p className="text-sm text-muted">{SITE.domain}</p>
               </div>
             </div>
           </div>

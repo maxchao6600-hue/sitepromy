@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { WebsitePreview } from "@/components/previews/WebsitePreview";
 import { PreviewFrame } from "@/components/ui/PreviewFrame";
+import { ProjectStatusMeta } from "@/components/ui/ProjectStatusMeta";
+import { SubtleGrid } from "@/components/ui/SubtleGrid";
 import { usePortraitMobile } from "@/lib/useMediaQuery";
 import { useLanguage } from "@/lib/i18n";
 import type { ProjectSlug } from "@/lib/i18n/types";
@@ -48,8 +50,17 @@ export function WebsiteShowcase() {
     return () => window.clearInterval(id);
   }, [shouldRotate]);
 
+  const statusItems = [
+    { label: t.hero.metaLabels.status, value: t.portfolio.conceptWebsite },
+    { label: t.hero.metaLabels.format, value: "Responsive Web" },
+    { label: t.hero.metaLabels.discipline, value: "UX / UI / Development" },
+    { label: t.portfolio.industry, value: activeCopy.industry },
+  ];
+
   return (
     <div className="relative w-full">
+      <SubtleGrid className="rounded-lg opacity-25" />
+
       <AnimatePresence mode="wait">
         <motion.div
           key={active.id}
@@ -66,15 +77,27 @@ export function WebsiteShowcase() {
             {active.brand}
           </p>
           <p className="mt-1 max-w-[10rem] text-xs leading-5 text-secondary">
-            {activeCopy.subtitle}
+            {activeCopy.industry}
           </p>
+          <p className="meta-label mt-1 text-muted">Digital Experience</p>
           <p className="meta-label mt-3 text-muted">
             {active.number} / {String(SHOWCASE_SITES.length).padStart(2, "0")}
           </p>
         </motion.div>
       </AnimatePresence>
 
-      <PreviewFrame url={active.url} variant="hero" className="lg:scale-[1.02] lg:origin-center">
+      <div className="absolute right-2 top-2 z-20 flex items-center gap-1.5 rounded-full border border-accent/30 bg-ink/80 px-2.5 py-1 backdrop-blur-sm sm:right-3 sm:top-3">
+        <motion.span
+          className="h-1.5 w-1.5 rounded-full bg-accent"
+          animate={reduced ? undefined : { opacity: [1, 0.4, 1] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-accent">
+          {t.hero.livePreview}
+        </span>
+      </div>
+
+      <PreviewFrame url={active.url} variant="hero" className="relative lg:scale-[1.02] lg:origin-center">
         {isPortraitMobile ? (
           <WebsitePreview
             id={PORTRAIT_SHOWCASE_ID}
@@ -123,6 +146,8 @@ export function WebsiteShowcase() {
           </div>
         ) : null}
       </PreviewFrame>
+
+      <ProjectStatusMeta items={statusItems} className="mt-4 hidden sm:grid" />
 
       <div className="mt-4 grid grid-cols-[1fr_auto] items-end gap-4 border-t border-line pt-4 lg:mt-5">
         <div>
