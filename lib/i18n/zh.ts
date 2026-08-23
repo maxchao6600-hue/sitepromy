@@ -50,6 +50,7 @@ export const zh: SiteCopy = {
     closeMenu: "关闭菜单",
     mobile: "移动端",
     primary: "主导航",
+    language: "语言",
   },
   hero: {
     eyebrow: "马来西亚网页设计工作室",

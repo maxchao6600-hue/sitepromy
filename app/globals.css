@@ -327,9 +327,20 @@ body {
   }
 }
 
+html[data-lang="zh"] body {
+  font-family: var(--font-inter), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans SC", sans-serif;
+}
+
+html[data-lang="zh"] .site-button,
+html[data-lang="zh"] .nav-header-cta {
+  white-space: nowrap;
+}
+
 html[data-lang="zh"] .display-xl,
 html[data-lang="zh"] .display-lg,
-html[data-lang="zh"] .heading-display {
+html[data-lang="zh"] .heading-display,
+html[data-lang="zh"] .page-header-title {
   letter-spacing: -0.02em;
   line-height: 1.12;
 }
@@ -343,6 +354,17 @@ html[data-lang="zh"] .display-xl {
     font-size: clamp(3.5rem, 6.5vw, 7rem);
     line-height: 1.14;
   }
+}
+
+html[data-lang="zh"] .display-lg {
+  font-size: clamp(2rem, 6.5vw, 4.25rem);
+  line-height: 1.1;
+}
+
+html[data-lang="zh"] .heading-display,
+html[data-lang="zh"] .page-header-title {
+  font-size: clamp(2rem, 5.5vw, 3.75rem);
+  line-height: 1.14;
 }
 
 html[data-lang="zh"] .hero-title {
@@ -365,8 +387,32 @@ html[data-lang="zh"] .hero-copy p {
 }
 
 html[data-lang="zh"] .portfolio-title {
-  line-height: 1.06;
+  font-size: clamp(2.25rem, 9vw, 5.5rem);
+  line-height: 1.08;
   letter-spacing: -0.02em;
+}
+
+html[data-lang="zh"] .site-logo-wordmark {
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+}
+
+@media (min-width: 1024px) {
+  html[data-lang="zh"] .site-logo-wordmark {
+    font-size: 0.9375rem;
+    letter-spacing: 0.14em;
+  }
+}
+
+.nav-header-cta {
+  min-width: fit-content;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .site-logo-img {
+    max-height: 2rem;
+  }
 }
 
 @media (max-width: 639px) {
@@ -377,5 +423,9 @@ html[data-lang="zh"] .portfolio-title {
 
   html[data-lang="zh"] .hero-copy {
     max-width: 100%;
+  }
+
+  html[data-lang="zh"] .hero-title {
+    max-width: 11em;
   }
 }

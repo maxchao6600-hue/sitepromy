@@ -8,7 +8,13 @@ const options: Array<{ lang: Language; label: string }> = [
   { lang: "zh", label: "中文" },
 ];
 
-export function LanguageSwitcher({ className }: { className?: string }) {
+export function LanguageSwitcher({
+  className,
+  onSelect,
+}: {
+  className?: string;
+  onSelect?: () => void;
+}) {
   const { lang, setLanguage } = useLanguage();
 
   return (
@@ -26,9 +32,12 @@ export function LanguageSwitcher({ className }: { className?: string }) {
           ) : null}
           <button
             type="button"
-            onClick={() => setLanguage(option.lang)}
+            onClick={() => {
+              setLanguage(option.lang);
+              onSelect?.();
+            }}
             className={cn(
-              "min-h-10 px-1 transition-colors duration-300",
+              "min-h-11 px-2 transition-colors duration-300 lg:min-h-10 lg:px-1",
               lang === option.lang
                 ? "text-cream"
                 : "text-cream/40 hover:text-accent",

@@ -57,14 +57,14 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        "fixed inset-x-0 top-0 z-50 overflow-x-clip transition-all duration-500",
         scrolled
           ? "border-b border-line bg-ink/85 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent",
       )}
     >
-      <div className="container-main flex h-16 items-center justify-between gap-3 lg:h-[4.25rem]">
-        <Logo />
+      <div className="container-main flex h-16 min-w-0 items-center justify-between gap-2 lg:h-[4.25rem] lg:gap-3">
+        <Logo className="min-w-0 max-w-[calc(100%-9.5rem)] lg:max-w-none" />
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label={t.nav.primary}>
           {navItems.map((link) => (
@@ -78,16 +78,19 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 lg:gap-3">
-          <LanguageSwitcher className="hidden sm:inline-flex" />
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 lg:gap-3">
+          <LanguageSwitcher className="max-lg:hidden lg:inline-flex" />
 
-          <Button href={href("/quote")} className="hidden min-h-12 sm:inline-flex">
+          <Button
+            href={href("/quote")}
+            className="nav-header-cta min-h-11 px-4 py-2.5 text-xs lg:min-h-12 lg:px-6 lg:text-sm"
+          >
             {t.nav.startProject}
           </Button>
 
           <button
             type="button"
-            className="inline-flex h-11 w-11 min-h-12 min-w-12 items-center justify-center border border-line text-cream lg:hidden"
+            className="inline-flex h-11 w-11 shrink-0 items-center justify-center border border-line text-cream lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
@@ -137,11 +140,13 @@ export function Navbar() {
                   {t.nav[link.key]}
                 </a>
               ))}
-              <div className="flex items-center justify-between pt-4">
-                <LanguageSwitcher />
-                <Button href={href("/quote")} className="min-h-12 w-auto">
-                  {t.nav.startProject}
-                </Button>
+
+              <div className="mt-6 border-t border-line pt-6">
+                <p className="eyebrow text-muted">{t.nav.language}</p>
+                <LanguageSwitcher
+                  className="mt-3"
+                  onSelect={() => setOpen(false)}
+                />
               </div>
             </nav>
           </motion.div>

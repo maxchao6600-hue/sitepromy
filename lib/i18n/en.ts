@@ -50,6 +50,7 @@ export const en: SiteCopy = {
     closeMenu: "Close menu",
     mobile: "Mobile",
     primary: "Primary",
+    language: "Language",
   },
   hero: {
     eyebrow: "Malaysia Web Design Studio",

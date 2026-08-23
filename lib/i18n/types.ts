@@ -53,6 +53,7 @@ export type SiteCopy = {
     closeMenu: string;
     mobile: string;
     primary: string;
+    language: string;
   };
   hero: {
     eyebrow: string;
