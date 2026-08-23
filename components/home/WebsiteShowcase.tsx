@@ -58,35 +58,36 @@ export function WebsiteShowcase() {
   ];
 
   return (
-    <div className="relative w-full">
+    <div className="hero-showcase-root relative w-full min-w-0 max-w-full overflow-hidden">
       <SubtleGrid className="rounded-lg opacity-25" />
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active.id}
-          initial={reduced ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={reduced ? undefined : { opacity: 0, y: -6 }}
-          transition={{ duration: 0.45, ease: EASE }}
-          className="pointer-events-none absolute -left-1 top-8 z-20 hidden border border-line bg-ink/90 p-4 backdrop-blur-sm lg:-left-6 lg:block xl:-left-10"
-        >
-          <p className="meta-label text-accent">
-            {t.portfolio.projectLabel} {active.number}
-          </p>
-          <p className="mt-2 font-display text-lg font-bold tracking-tight text-cream">
-            {active.brand}
-          </p>
-          <p className="mt-1 max-w-[10rem] text-xs leading-5 text-secondary">
-            {activeCopy.industry}
-          </p>
-          <p className="meta-label mt-1 text-muted">Digital Experience</p>
-          <p className="meta-label mt-3 text-muted">
-            {active.number} / {String(SHOWCASE_SITES.length).padStart(2, "0")}
-          </p>
-        </motion.div>
-      </AnimatePresence>
+      <div className="hero-preview-frame relative min-w-0 max-w-full overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active.id}
+            initial={reduced ? false : { opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduced ? undefined : { opacity: 0, y: -6 }}
+            transition={{ duration: 0.45, ease: EASE }}
+            className="pointer-events-none absolute left-3 top-14 z-20 hidden max-w-[11rem] border border-line bg-ink/90 p-4 backdrop-blur-sm lg:block"
+          >
+            <p className="meta-label text-accent">
+              {t.portfolio.projectLabel} {active.number}
+            </p>
+            <p className="mt-2 font-display text-lg font-bold tracking-tight text-cream">
+              {active.brand}
+            </p>
+            <p className="mt-1 text-xs leading-5 text-secondary">
+              {activeCopy.industry}
+            </p>
+            <p className="meta-label mt-1 text-muted">Digital Experience</p>
+            <p className="meta-label mt-3 text-muted">
+              {active.number} / {String(SHOWCASE_SITES.length).padStart(2, "0")}
+            </p>
+          </motion.div>
+        </AnimatePresence>
 
-      <div className="absolute right-2 top-2 z-20 flex items-center gap-1.5 rounded-full border border-accent/30 bg-ink/80 px-2.5 py-1 backdrop-blur-sm sm:right-3 sm:top-3">
+        <div className="absolute right-2 top-2 z-20 flex items-center gap-1.5 rounded-full border border-accent/30 bg-ink/80 px-2.5 py-1 backdrop-blur-sm sm:right-3 sm:top-3">
         <motion.span
           className="h-1.5 w-1.5 rounded-full bg-accent"
           animate={reduced ? undefined : { opacity: [1, 0.4, 1] }}
@@ -97,7 +98,7 @@ export function WebsiteShowcase() {
         </span>
       </div>
 
-      <PreviewFrame url={active.url} variant="hero" className="relative lg:scale-[1.02] lg:origin-center">
+      <PreviewFrame url={active.url} variant="hero" className="hero-showcase-frame relative w-full max-w-full">
         {isPortraitMobile ? (
           <WebsitePreview
             id={PORTRAIT_SHOWCASE_ID}
@@ -146,6 +147,7 @@ export function WebsiteShowcase() {
           </div>
         ) : null}
       </PreviewFrame>
+      </div>
 
       <ProjectStatusMeta items={statusItems} className="mt-4 hidden sm:grid" />
 

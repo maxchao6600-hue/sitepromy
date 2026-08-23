@@ -42,13 +42,13 @@ export function PreviewFrame({
     <div
       className={cn(
         "preview-frame-root relative w-full max-w-full",
-        variant === "hero" && "preview-frame-hero lg:[perspective:1400px]",
+        variant === "hero" && "preview-frame-hero overflow-hidden lg:[perspective:1400px]",
         className,
       )}
     >
       {variant === "hero" ? (
         <div
-          className="pointer-events-none absolute -inset-4 rounded-[1.75rem] bg-accent/[0.06] blur-3xl motion-safe-only lg:-inset-8"
+          className="pointer-events-none absolute inset-y-0 right-0 w-1/2 rounded-[1.75rem] bg-accent/[0.06] blur-3xl motion-safe-only"
           aria-hidden="true"
         />
       ) : null}
@@ -57,7 +57,7 @@ export function PreviewFrame({
         className={cn(
           "preview-frame-shell relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#07090e] shadow-[0_24px_64px_rgba(0,0,0,0.45)] sm:rounded-2xl",
           variant === "hero" &&
-            "lg:shadow-[0_64px_140px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.04)_inset] lg:transition-transform lg:duration-700 lg:[transform:rotateY(-4deg)_rotateX(2deg)]",
+            "lg:shadow-[0_64px_140px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.04)_inset]",
         )}
       >
         <BrowserChrome url={url} />

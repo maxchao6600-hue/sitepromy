@@ -27,8 +27,8 @@ export function Hero() {
           className="hero-enter hero-enter-eyebrow mb-5 lg:mb-6"
         />
 
-        <div className="grid min-w-0 grid-cols-1 items-end gap-8 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-10 xl:gap-14">
-          <div className="hero-copy max-w-xl">
+        <div className="hero-grid grid min-w-0 grid-cols-1 items-end gap-8 lg:items-center lg:gap-10">
+          <div className="hero-copy relative z-[2] min-w-0 max-w-xl">
             <h1 className="display-xl hero-title mt-0">
               {t.hero.lines.map((line, index) => (
                 <span
@@ -63,7 +63,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="hero-enter hero-enter-visual relative mx-auto w-full min-w-0 max-w-[min(560px,calc(100vw-2rem))] lg:mx-0 lg:max-w-none">
+          <div className="hero-preview hero-enter hero-enter-visual relative z-[1] mx-auto w-full min-w-0 max-w-[min(560px,calc(100vw-2rem))] overflow-hidden lg:mx-0 lg:max-w-full">
             <WebsiteShowcase />
           </div>
         </div>

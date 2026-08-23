@@ -153,6 +153,57 @@ body {
   }
 }
 
+@media (min-width: 1024px) {
+  .preview-frame-hero .preview-frame-shell {
+    transform-origin: center center;
+  }
+
+  html:not([data-lang="zh"]) .hero-section .hero-grid {
+    gap: clamp(2.5rem, 4vw, 4rem);
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  }
+
+  html:not([data-lang="zh"]) .hero-copy {
+    max-width: min(100%, 42rem);
+  }
+
+  html:not([data-lang="zh"]) .hero-preview {
+    isolation: isolate;
+    margin-inline-start: auto;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    padding-inline-start: clamp(0.5rem, 1.5vw, 1.5rem);
+    width: 100%;
+  }
+
+  html:not([data-lang="zh"]) .hero-showcase-root,
+  html:not([data-lang="zh"]) .hero-showcase-frame {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+
+  html:not([data-lang="zh"]) .hero-showcase-frame .preview-frame-stage {
+    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  html:not([data-lang="zh"]) .hero-preview-frame {
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  html:not([data-lang="zh"]) .hero-section .hero-grid {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  }
+}
+
 ::selection {
   background: var(--accent);
   color: var(--cream);
@@ -535,7 +586,7 @@ html[data-lang="zh"] .site-logo-wordmark {
 }
 
 @media (min-width: 1024px) {
-  html[data-lang="zh"] .hero-section .grid {
+  html[data-lang="zh"] .hero-section .hero-grid {
     grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
   }
 
