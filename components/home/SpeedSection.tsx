@@ -152,7 +152,7 @@ function ProcessStageItem({
     <article ref={ref} className="min-w-0 shrink-0">
       <p
         className={cn(
-          "font-display text-[clamp(3rem,calc(8*var(--cvw,1vw)),5.5rem)] font-bold leading-none tracking-tight transition-colors duration-700",
+          "font-display text-[clamp(3rem,8vw,5.5rem)] font-bold leading-none tracking-tight transition-colors duration-700",
           isActive ? "text-cream" : "text-cream/15",
         )}
       >
@@ -198,8 +198,8 @@ export function SpeedSection() {
     <section ref={sectionRef} className="overflow-x-clip bg-ink">
       <div className="container-main section-y">
         <MotionReveal>
-          <div className="grid grid-cols-[auto_1fr] items-end gap-16">
-            <div className="font-display text-[clamp(3.5rem,calc(14*var(--cvw,1vw)),11rem)] font-bold leading-[0.85] tracking-tight">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[auto_1fr] lg:items-end lg:gap-16">
+            <div className="font-display text-[clamp(3rem,14vw,11rem)] font-bold leading-[0.85] tracking-tight">
               <span className="block text-cream">FAST</span>
               <span className="block text-accent">≠</span>
               <span className="block text-cream/25">BASIC</span>
@@ -215,16 +215,16 @@ export function SpeedSection() {
           </div>
         </MotionReveal>
 
-        <div className="mt-24 grid grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start gap-14">
+        <div className="mt-12 grid grid-cols-1 gap-10 lg:mt-24 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-14">
           <div>
-            <div className="relative mb-8 h-px bg-line">
+            <div className="relative mb-6 hidden h-px bg-line lg:mb-8 lg:block">
               <motion.div
                 style={{ width: lineWidth }}
                 className="absolute inset-y-0 left-0 bg-accent"
               />
             </div>
 
-            <div className="grid grid-cols-5 gap-6">
+            <div className="flex flex-col gap-8 lg:grid lg:grid-cols-5 lg:gap-6">
               {processStages.map((stage, index) => (
                 <ProcessStageItem
                   key={stage.number}
@@ -237,7 +237,7 @@ export function SpeedSection() {
             </div>
           </div>
 
-          <div className="sticky top-28">
+          <div className="lg:sticky lg:top-28">
             <ProcessVisual activeIndex={activeIndex} />
             <p className="meta-label mt-4 text-muted">
               BRIEF → DIRECTION → DESIGN → BUILD → LIVE

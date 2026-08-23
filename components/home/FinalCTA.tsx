@@ -38,7 +38,7 @@ export function FinalCTA() {
 
           <Link
             href="/quote"
-            className="group mt-10 inline-flex flex-col items-start gap-4 sm:mt-12"
+            className="group mt-8 inline-flex min-h-12 flex-col items-start gap-4 sm:mt-10 lg:mt-12"
           >
             <span className="relative font-display text-[clamp(2.75rem,8vw,6rem)] font-bold leading-[0.92] tracking-tight text-cream transition-transform duration-500 group-hover:translate-x-1">
               <span className="relative z-10">

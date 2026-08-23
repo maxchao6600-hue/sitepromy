@@ -11,16 +11,22 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function Services() {
   const [active, setActive] = useState(0);
+  const [mobileOpen, setMobileOpen] = useState<number | null>(null);
   const reduced = useReducedMotion();
   const current = services[active];
+
+  const handleSelect = (index: number) => {
+    setActive(index);
+    setMobileOpen((prev) => (prev === index ? null : index));
+  };
 
   return (
     <section id="services" className="scroll-mt-24 border-y border-line bg-surface">
       <div className="container-main section-y">
-        <div className="grid grid-cols-12 gap-x-14">
-          <MotionReveal className="col-span-4 sticky top-28 self-start">
+        <div className="lg:grid lg:grid-cols-12 lg:gap-x-10 xl:gap-x-14">
+          <MotionReveal className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
             <p className="eyebrow text-accent">Services</p>
-            <h2 className="display-lg mt-6 text-cream">
+            <h2 className="display-lg mt-5 text-cream lg:mt-6">
               WHAT
               <br />
               WE
@@ -29,10 +35,11 @@ export function Services() {
             </h2>
           </MotionReveal>
 
-          <div className="col-span-5">
+          <div className="mt-10 lg:col-span-5 lg:mt-0">
             <div className="border-t border-line">
               {services.map((service, index) => {
                 const isActive = active === index;
+                const isMobileExpanded = mobileOpen === index;
 
                 return (
                   <div key={service.number} className="border-b border-line">
@@ -40,15 +47,15 @@ export function Services() {
                       type="button"
                       onMouseEnter={() => setActive(index)}
                       onFocus={() => setActive(index)}
-                      onClick={() => setActive(index)}
+                      onClick={() => handleSelect(index)}
                       className={cn(
-                        "group relative flex w-full flex-row items-start gap-6 py-9 text-left transition-colors",
+                        "group relative flex w-full flex-col gap-3 py-6 text-left transition-colors sm:flex-row sm:items-start sm:gap-5 sm:py-7 lg:py-9",
                         isActive && "bg-white/[0.02]",
                       )}
                     >
                       <span
                         className={cn(
-                          "meta-label w-14 shrink-0 transition-colors",
+                          "meta-label w-12 shrink-0 transition-colors sm:w-14",
                           isActive ? "text-accent" : "text-muted",
                         )}
                       >
@@ -59,7 +66,7 @@ export function Services() {
                         <div className="flex items-start justify-between gap-4">
                           <h3
                             className={cn(
-                              "font-display text-[clamp(1.75rem,calc(4*var(--cvw,1vw)),2.75rem)] font-semibold tracking-tight transition-colors",
+                              "font-display text-[clamp(1.5rem,5vw,2.75rem)] font-semibold tracking-tight transition-colors",
                               isActive ? "text-cream" : "text-cream/65",
                             )}
                           >
@@ -67,7 +74,7 @@ export function Services() {
                           </h3>
                           <span
                             className={cn(
-                              "mt-2 shrink-0 text-lg transition-all duration-500",
+                              "mt-1 shrink-0 text-lg transition-all duration-500 sm:mt-2",
                               isActive ? "translate-x-0 text-accent opacity-100" : "text-muted opacity-35",
                             )}
                             aria-hidden="true"
@@ -78,7 +85,7 @@ export function Services() {
 
                         <p
                           className={cn(
-                            "mt-2 max-w-md text-base leading-7 transition-all duration-500",
+                            "mt-2 max-w-md text-[0.9375rem] leading-7 transition-all duration-500 sm:text-base",
                             isActive ? "text-secondary" : "text-muted/80",
                           )}
                         >
@@ -93,13 +100,27 @@ export function Services() {
                         />
                       </div>
                     </button>
+
+                    <AnimatePresence initial={false}>
+                      {isMobileExpanded ? (
+                        <motion.div
+                          initial={reduced ? false : { height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={reduced ? undefined : { height: 0, opacity: 0 }}
+                          transition={{ duration: 0.45, ease: EASE }}
+                          className="overflow-hidden pb-6 lg:hidden"
+                        >
+                          <ServicePreview preview={service.preview} className="max-w-md" />
+                        </motion.div>
+                      ) : null}
+                    </AnimatePresence>
                   </div>
                 );
               })}
             </div>
           </div>
 
-          <div className="relative col-span-3">
+          <div className="relative mt-8 hidden lg:col-span-3 lg:mt-0 lg:block">
             <div className="sticky top-28">
               <AnimatePresence mode="wait">
                 <motion.div

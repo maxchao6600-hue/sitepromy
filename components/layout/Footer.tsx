@@ -4,10 +4,11 @@ import { SITE, footerLinks } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="border-t border-line bg-surface">
-      <div className="container-main flex flex-row items-start justify-between gap-10 py-16">
+      <div className="container-main flex flex-col gap-8 py-12 sm:flex-row sm:items-start sm:justify-between sm:py-16">
         <div>
           <Logo variant="footer" />
-          <p className="mt-4 text-sm text-cream/50">{SITE.tagline}</p>
+          <p className="mt-3 text-sm text-cream/50 sm:mt-4">{SITE.tagline}</p>
+          <p className="mt-2 text-sm text-muted">{SITE.domain}</p>
         </div>
 
         <nav aria-label="Footer">
@@ -16,7 +17,7 @@ export function Footer() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm text-cream/60 transition-colors hover:text-cream"
+                  className="inline-flex min-h-12 items-center text-sm text-cream/60 transition-colors hover:text-cream"
                 >
                   {link.label}
                 </a>

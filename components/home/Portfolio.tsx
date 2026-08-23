@@ -87,42 +87,53 @@ function PortfolioItem({
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [40, -40]);
-  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], reduced ? [1, 1, 1, 1] : [0.7, 1, 1, 0.85]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.25, 0.75, 1],
+    reduced ? [1, 1, 1, 1] : [0.7, 1, 1, 0.85],
+  );
 
   return (
     <article
       ref={ref}
       id={index === 0 ? "portfolio" : undefined}
       className={cn(
-        "scroll-mt-24 flex min-h-[92vh] flex-col justify-center py-24",
+        "scroll-mt-24 flex flex-col justify-center py-14 sm:py-16 lg:min-h-[92vh] lg:py-24",
         theme.section,
       )}
     >
-      <motion.div style={{ opacity: reduced ? 1 : opacity }} className="container-main flex flex-col gap-12">
-        <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,280px)] items-end gap-12">
+      <motion.div
+        style={{ opacity: reduced ? 1 : opacity }}
+        className="container-main flex flex-col gap-8 lg:gap-12"
+      >
+        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,280px)] lg:items-end lg:gap-12">
           <div className="max-w-3xl">
             <p className={cn("meta-label", theme.meta)}>
               PROJECT {project.number}
             </p>
-            <h3 className={cn("portfolio-title mt-4", theme.text)}>{project.name}</h3>
-            <div className={cn("mt-4 flex flex-wrap gap-x-4 gap-y-1 body-lg", theme.muted)}>
+            <h3 className={cn("portfolio-title mt-3 lg:mt-4", theme.text)}>
+              {project.name}
+            </h3>
+            <div className={cn("mt-3 flex flex-wrap gap-x-4 gap-y-1 body-lg lg:mt-4", theme.muted)}>
               {project.subtitle.map((line) => (
                 <span key={line}>{line}</span>
               ))}
             </div>
-            <p className={cn("mt-6 max-w-xl body-lg", theme.muted)}>{project.summary}</p>
+            <p className={cn("mt-5 max-w-xl body-lg lg:mt-6", theme.muted)}>
+              {project.summary}
+            </p>
             <a
               href={`/#portfolio-${project.slug}`}
-              className="nav-link mt-8 inline-flex items-center gap-2 text-accent transition-opacity hover:opacity-80"
+              className="nav-link mt-6 inline-flex min-h-12 items-center gap-2 text-accent transition-opacity hover:opacity-80 lg:mt-8"
             >
               View Concept →
             </a>
           </div>
 
-          <div className={cn("grid grid-cols-1 gap-6", theme.muted)}>
+          <div className={cn("grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-1 lg:gap-6", theme.muted)}>
             <ProjectMeta label="Industry" value={project.industry} />
             <ProjectMeta label="Direction" value={project.direction} />
-            <div>
+            <div className="col-span-2 sm:col-span-1">
               <p className="meta-label">Focus</p>
               <ul className="mt-1.5 space-y-1 text-sm leading-6">
                 {project.focus.map((item) => (
@@ -140,17 +151,17 @@ function PortfolioItem({
         >
           <div
             className={cn(
-              "overflow-hidden rounded-2xl border shadow-[0_48px_120px_rgba(0,0,0,0.35)]",
+              "overflow-hidden rounded-xl border shadow-[0_24px_64px_rgba(0,0,0,0.35)] sm:rounded-2xl lg:shadow-[0_48px_120px_rgba(0,0,0,0.35)]",
               theme.border,
             )}
           >
             <WebsitePreview
               id={project.preview}
               large
-              className="min-h-[min(68vh,820px)] w-full"
+              className="aspect-[16/10] min-h-[220px] w-full sm:min-h-[320px] lg:min-h-[min(68vh,820px)]"
             />
           </div>
-          <p className={cn("meta-label mt-4", theme.meta)}>{project.category}</p>
+          <p className={cn("meta-label mt-3 lg:mt-4", theme.meta)}>{project.category}</p>
         </motion.div>
       </motion.div>
     </article>
@@ -164,12 +175,12 @@ export function Portfolio({ hideIntro = false }: { hideIntro?: boolean }) {
         <div className="container-main section-y pb-0">
           <MotionReveal className="max-w-5xl">
             <p className="eyebrow text-accent">Case Studies</p>
-            <h2 className="display-lg mt-6">
+            <h2 className="display-lg mt-5 lg:mt-6">
               WEBSITES BUILT
               <br />
               <span className="text-accent">FOR EVERY INDUSTRY.</span>
             </h2>
-            <p className="mt-6 max-w-2xl body-lg text-secondary">
+            <p className="mt-5 max-w-2xl body-lg text-secondary lg:mt-6">
               Six concept projects — each treated as a real design case study with
               its own visual world, industry context and digital focus.
             </p>
@@ -177,7 +188,7 @@ export function Portfolio({ hideIntro = false }: { hideIntro?: boolean }) {
         </div>
       )}
 
-      <div className={hideIntro ? "" : "mt-12"}>
+      <div className={hideIntro ? "" : "mt-8 sm:mt-10 lg:mt-12"}>
         {projects.map((project, index) => (
           <PortfolioItem key={project.slug} project={project} index={index} />
         ))}

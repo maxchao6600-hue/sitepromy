@@ -79,14 +79,6 @@ export const services = [
   },
 ] as const;
 
-export const buildPipeline = [
-  { key: "idea", label: "IDEA" },
-  { key: "structure", label: "STRUCTURE" },
-  { key: "design", label: "DESIGN" },
-  { key: "build", label: "BUILD" },
-  { key: "live", label: "LIVE" },
-] as const;
-
 export const speedPillars = [
   {
     title: "Fast Execution",

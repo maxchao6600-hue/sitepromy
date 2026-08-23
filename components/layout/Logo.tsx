@@ -12,7 +12,7 @@ export function Logo({ className, variant = "header" }: LogoProps) {
       href="/"
       className={cn(
         "inline-flex shrink-0 items-center",
-        variant === "header" && "gap-3",
+        variant === "header" && "gap-2 sm:gap-2.5 lg:gap-3",
         className,
       )}
       aria-label="SitePro home"
@@ -25,12 +25,12 @@ export function Logo({ className, variant = "header" }: LogoProps) {
         height={48}
         className={cn(
           "h-auto w-auto max-w-none object-contain",
-          variant === "header" ? "h-9" : "h-11",
+          variant === "header" ? "h-7 sm:h-8 lg:h-9" : "h-10 sm:h-11",
         )}
       />
       {variant === "header" ? (
         <span
-          className="font-display text-[0.9375rem] font-semibold uppercase tracking-[0.14em] text-cream"
+          className="font-display text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-cream sm:text-xs lg:text-[0.9375rem] lg:tracking-[0.14em]"
           aria-hidden="true"
         >
           SITEPRO<span className="text-accent">MY</span>

@@ -26,8 +26,8 @@ export default function ContactPage() {
         title="Contact SitePro."
         description="The fastest way to start is the form. Tell us about your project and we'll follow up."
       />
-      <section className="bg-ink py-20">
-        <div className="container-main grid grid-cols-[0.85fr_1.15fr] gap-12">
+      <section className="bg-ink py-12 sm:py-16 lg:py-20">
+        <div className="container-main grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
           <aside>
             <p className="text-sm leading-7 text-cream/55">
               SitePro designs and develops professional websites for businesses
