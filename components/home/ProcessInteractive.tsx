@@ -14,7 +14,7 @@ import { cn } from "@/lib/cn";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const STAGE_PREVIEWS = ["wireframe", "layout", "design", "build", "live"] as const;
+const STAGE_PREVIEWS = ["wireframe", "layout", "design", "build", "test", "live"] as const;
 
 function StagePreview({ stage }: { stage: number }) {
   const reduced = useReducedMotion();
@@ -22,10 +22,21 @@ function StagePreview({ stage }: { stage: number }) {
 
   if (previewType === "build" || previewType === "live") {
     return (
-      <PreviewFrame url="form.sitepromy.com" fixedAspect={false}>
+      <PreviewFrame url="nova.sitepromy.com" fixedAspect={false}>
         <WebsitePreview
-          id="form"
+          id="nova"
           large={previewType === "live"}
+          className="aspect-[16/10] min-h-[220px] w-full sm:min-h-[280px] lg:min-h-[360px]"
+        />
+      </PreviewFrame>
+    );
+  }
+
+  if (previewType === "test") {
+    return (
+      <PreviewFrame url="launch.sitepromy.com" fixedAspect={false}>
+        <WebsitePreview
+          id="landing"
           className="aspect-[16/10] min-h-[220px] w-full sm:min-h-[280px] lg:min-h-[360px]"
         />
       </PreviewFrame>

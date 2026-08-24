@@ -14,6 +14,7 @@ const initial: QuotePayload = {
   websiteType: "",
   currentWebsite: "",
   budget: "",
+  timeline: "",
   project: "",
 };
 
@@ -144,6 +145,15 @@ export function QuoteForm() {
           required
           placeholder={t.form.selectOption}
           options={t.form.budgetRanges}
+        />
+        <SelectField
+          label={t.form.timeline}
+          name="timeline"
+          value={values.timeline}
+          error={errors.timeline}
+          onChange={(value) => update("timeline", value)}
+          placeholder={t.form.selectOption}
+          options={t.form.timelines}
         />
       </div>
 

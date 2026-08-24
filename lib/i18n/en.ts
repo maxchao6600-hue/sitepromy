@@ -85,29 +85,87 @@ export const en: SiteCopy = {
   why: {
     scene: "03",
     index: "Why SitePro",
-    titleLines: ["Built around your business.", "Not another template."],
+    titleLines: ["Not just a website.", "A better digital foundation."],
     principles: {
       "01": {
-        title: "Built Around Your Business",
-        lead: "Not another template.",
-        body: "Every website starts from the business, audience and goal.",
+        title: "Business First",
+        lead: "Start with the business.",
+        body: "Every project starts with the business, audience and objective — not a template.",
       },
       "02": {
         title: "Design + Development",
-        lead: "One team from direction to launch.",
-        body: "Visual direction and implementation stay aligned through the full build.",
+        lead: "One direction to launch.",
+        body: "Concept, design and development stay aligned from first direction to live delivery.",
       },
       "03": {
-        title: "Mobile-First Experience",
-        lead: "Designed for how people actually browse.",
-        body: "Layouts are shaped for real devices — not a desktop design squeezed later.",
+        title: "Built For Real Screens",
+        lead: "Desktop is not the finish line.",
+        body: "Mobile matters from day one — layouts are shaped for how people actually browse.",
       },
       "04": {
-        title: "Built To Grow",
-        lead: "A foundation for what comes next.",
-        body: "Launch is a starting point — structure that can evolve with the business.",
+        title: "Ready For What's Next",
+        lead: "Built to evolve.",
+        body: "A website should be able to grow — structure that supports the next stage.",
       },
     },
+  },
+  standard: {
+    scene: "07",
+    index: "The SitePro Standard",
+    titleLines: ["What we don't", "compromise on."],
+    items: {
+      "01": {
+        title: "Clarity",
+        body: "Every page should have a purpose — and a clear next step for the visitor.",
+      },
+      "02": {
+        title: "Responsiveness",
+        body: "The experience must work across real devices, not only a desktop mockup.",
+      },
+      "03": {
+        title: "Performance",
+        body: "A beautiful website still needs to load properly and feel responsive.",
+      },
+      "04": {
+        title: "Detail",
+        body: "Spacing, typography, interaction and hierarchy are part of the craft.",
+      },
+      "05": {
+        title: "Foundation",
+        body: "The website should be ready for the next stage — content, SEO and growth.",
+      },
+    },
+  },
+  trust: {
+    scene: "02",
+    index: "Studio Approach",
+    title: "Why clients choose a studio like SitePro",
+    items: [
+      {
+        title: "Custom Direction",
+        body: "Not every business needs the same website. Direction starts from your goals.",
+      },
+      {
+        title: "Responsive Experience",
+        body: "Designed for desktop, tablet and mobile from the beginning.",
+      },
+      {
+        title: "SEO-Ready Foundation",
+        body: "Structured properly from the start — metadata, hierarchy and performance basics.",
+      },
+      {
+        title: "Performance-Minded",
+        body: "Visual quality without unnecessary technical weight.",
+      },
+      {
+        title: "Clear Process",
+        body: "From discovery to launch — defined stages, clear decisions.",
+      },
+      {
+        title: "Post-Launch Ready",
+        body: "Websites can continue to evolve after launch when you need them to.",
+      },
+    ],
   },
   capabilities: {
     scene: "05",
@@ -120,10 +178,10 @@ export const en: SiteCopy = {
         title: "Design",
         items: [
           "Visual direction",
-          "Responsive UI",
+          "UI / UX",
+          "Responsive design",
           "Design systems",
-          "Interaction design",
-          "Mobile experience",
+          "Interaction",
         ],
       },
       development: {
@@ -132,7 +190,7 @@ export const en: SiteCopy = {
           "Custom development",
           "Responsive implementation",
           "CMS integration",
-          "Performance optimization",
+          "Performance",
           "Technical foundations",
         ],
       },
@@ -140,10 +198,10 @@ export const en: SiteCopy = {
         title: "Growth",
         items: [
           "SEO foundations",
-          "Analytics setup",
+          "Analytics",
           "Conversion structure",
           "Content architecture",
-          "Future scalability",
+          "Scalability",
         ],
       },
     },
@@ -154,24 +212,24 @@ export const en: SiteCopy = {
     title: "Common questions.",
     items: [
       {
-        question: "How long does a website take?",
-        answer:
-          "Timelines depend on scope — a focused landing page can move quickly, while a full business or e-commerce site needs more structure, design and review. We'll recommend a realistic timeline after understanding the project.",
-      },
-      {
         question: "How much does a website cost?",
         answer:
           "Pricing depends on website type, content volume, features and timeline. Share your project details and we'll recommend a suitable direction and quote.",
       },
       {
-        question: "Do you provide domain and hosting?",
+        question: "How long does a website take?",
         answer:
-          "We can advise on domain and hosting options and help set up what's needed for launch. Specific arrangements depend on the project.",
+          "Timelines depend on scope — a focused landing page can move quickly, while a full business or e-commerce site needs more structure, design and review. We'll recommend a realistic timeline after understanding the project.",
       },
       {
-        question: "Can you redesign my existing website?",
+        question: "Can you redesign an existing website?",
         answer:
           "Yes. Website redesign is part of what we build — improving structure, design, performance and clarity for an existing brand.",
+      },
+      {
+        question: "Can you build e-commerce websites?",
+        answer:
+          "Yes. We design and build product-led storefronts with clear paths to purchase.",
       },
       {
         question: "Will the website work on mobile?",
@@ -189,14 +247,9 @@ export const en: SiteCopy = {
           "Where a project needs editable content, we can set up a CMS or a practical update workflow. The right approach depends on how often you need to change the site.",
       },
       {
-        question: "What happens after the website launches?",
+        question: "What happens after launch?",
         answer:
-          "After launch we hand over a production-ready site. Ongoing support — updates, improvements and maintenance — can continue if you need it.",
-      },
-      {
-        question: "Can you build e-commerce websites?",
-        answer:
-          "Yes. We design and build product-led storefronts with clear paths to purchase.",
+          "After launch we hand over a production-ready site. Ongoing support — updates, improvements and maintenance — can continue if you need it. It is discussed clearly, not assumed.",
       },
       {
         question: "Can you work with businesses outside Malaysia?",
@@ -214,7 +267,7 @@ export const en: SiteCopy = {
       "Fixes and refinements",
       "Content updates",
       "Performance and SEO improvements",
-      "New sections or features",
+      "New pages or features",
       "Ongoing maintenance",
     ],
   },
@@ -316,6 +369,10 @@ export const en: SiteCopy = {
     selectedLabel: "Selected Service",
     viewLabel: "View →",
     liveLabel: "Live",
+    detailWhat: "What it is",
+    detailFor: "Who it is for",
+    detailBuilds: "What we build",
+    detailWhy: "Why it matters",
     items: {
       "01": {
         title: "Business Websites",
@@ -325,6 +382,17 @@ export const en: SiteCopy = {
         role: "Design / Development",
         focus: "Brand / Conversion",
         deliverable: "Design / Development / SEO",
+        what: "A professional digital home for businesses that need more than a basic brochure website.",
+        forWho: "Businesses that need credibility, clarity and a clear path for visitors to take the next step.",
+        builds: [
+          "Responsive pages",
+          "Custom visual direction",
+          "Business-focused structure",
+          "Mobile experience",
+          "SEO foundations",
+          "Performance foundations",
+        ],
+        why: "Your website often becomes the first serious interaction someone has with your business.",
       },
       "02": {
         title: "E-Commerce",
@@ -333,6 +401,16 @@ export const en: SiteCopy = {
         role: "Design / Development",
         focus: "Conversion / UX",
         deliverable: "Design / Development / SEO",
+        what: "A product-led online storefront with clear browsing and purchase paths.",
+        forWho: "Businesses selling products online that need stronger presentation and conversion clarity.",
+        builds: [
+          "Product storytelling",
+          "Collection and product structure",
+          "Mobile commerce experience",
+          "Checkout-ready foundations",
+          "Performance basics",
+        ],
+        why: "People need to understand the product quickly — and know how to buy.",
       },
       "03": {
         title: "Landing Pages",
@@ -341,6 +419,16 @@ export const en: SiteCopy = {
         role: "Design / Development",
         focus: "Conversion / Campaign",
         deliverable: "Design / Development / SEO",
+        what: "A focused page built around one message and one clear action.",
+        forWho: "Campaigns, launches and offers that need a direct path to enquiry or signup.",
+        builds: [
+          "Single-purpose layout",
+          "Strong visual hierarchy",
+          "Clear CTA structure",
+          "Mobile-first flow",
+          "Tracking-ready foundations",
+        ],
+        why: "When the goal is one action, the page should remove everything that distracts from it.",
       },
       "04": {
         title: "Custom Web Design",
@@ -349,6 +437,16 @@ export const en: SiteCopy = {
         role: "Design / Development",
         focus: "Brand / Experience",
         deliverable: "Design / Development / SEO",
+        what: "A tailored digital experience shaped around your brand, audience and goals.",
+        forWho: "Businesses that need more than a standard template structure.",
+        builds: [
+          "Custom visual system",
+          "Interaction design",
+          "Responsive experience",
+          "Content architecture",
+          "Technical foundations",
+        ],
+        why: "Some projects need a direction that templates cannot express cleanly.",
       },
       "05": {
         title: "Website Redesign",
@@ -357,6 +455,16 @@ export const en: SiteCopy = {
         role: "Design / Development",
         focus: "Performance / Brand",
         deliverable: "Design / Development / SEO",
+        what: "A rebuild of an outdated website into a clearer, more modern experience.",
+        forWho: "Businesses with an existing site that no longer matches the brand or how people browse.",
+        builds: [
+          "Structure refresh",
+          "Visual redesign",
+          "Mobile experience",
+          "Performance improvements",
+          "SEO foundations",
+        ],
+        why: "An outdated website can quietly reduce trust before a conversation even starts.",
       },
       "06": {
         title: "Ongoing Support",
@@ -365,6 +473,16 @@ export const en: SiteCopy = {
         role: "Development / Support",
         focus: "Maintenance / Growth",
         deliverable: "Updates / Optimization / Support",
+        what: "Continued improvements after launch — updates, refinements and future features when needed.",
+        forWho: "Businesses that want the website to keep evolving after going live.",
+        builds: [
+          "Content updates",
+          "Design refinements",
+          "New sections or pages",
+          "Performance checks",
+          "Maintenance",
+        ],
+        why: "Launch is a starting point. Support keeps the website useful as the business changes.",
       },
     },
   },
@@ -404,7 +522,7 @@ export const en: SiteCopy = {
         industry: "Hospitality",
         direction: "Editorial / Luxury",
         focus: ["Brand Experience", "Reservations", "Mobile UX"],
-        category: "Concept Website",
+        category: "Concept Experience",
         designDetail: "Typography / Photography / Atmosphere",
         experienceDetail: "Menu / Reservations / Private Dining",
         systemDetail: "Grid / Navigation / Responsive",
@@ -420,7 +538,7 @@ export const en: SiteCopy = {
         industry: "Fashion",
         direction: "Editorial / Commerce",
         focus: ["Collection Discovery", "Lookbook", "Mobile UX"],
-        category: "Concept Website",
+        category: "Concept Experience",
         designDetail: "Editorial Type / Imagery / Spacing",
         experienceDetail: "Lookbook / Collection / Product",
         systemDetail: "Layout / Commerce / Mobile",
@@ -429,22 +547,6 @@ export const en: SiteCopy = {
         intendedOutcome:
           "A memorable visual journey that supports browsing and purchase intent.",
       },
-      form: {
-        subtitle: "Architecture Digital Portfolio",
-        summary:
-          "Concept architecture portfolio balancing material, space and project storytelling.",
-        industry: "Architecture",
-        direction: "Material / Spatial",
-        focus: ["Project Showcase", "Studio Identity", "Case Studies"],
-        category: "Concept Website",
-        designDetail: "Material / Structure / Space",
-        experienceDetail: "Projects / Location / Year",
-        systemDetail: "Grid / Case Studies / Responsive",
-        challenge:
-          "Communicate architectural work with clarity — material, space and project narrative.",
-        intendedOutcome:
-          "A focused portfolio that presents projects with credibility and structure.",
-      },
       mono: {
         subtitle: "Corporate Digital Experience",
         summary:
@@ -452,7 +554,7 @@ export const en: SiteCopy = {
         industry: "Corporate",
         direction: "Clarity / Credibility",
         focus: ["Service Structure", "Case Studies", "Conversion"],
-        category: "Concept Website",
+        category: "Concept Experience",
         designDetail: "Typography / Hierarchy / Clarity",
         experienceDetail: "Services / Leadership / Capabilities",
         systemDetail: "Components / Structure / Responsive",
@@ -468,7 +570,7 @@ export const en: SiteCopy = {
         industry: "Consumer Electronics",
         direction: "Luxury / Product-Led",
         focus: ["Product Storytelling", "E-Commerce UX", "Brand System"],
-        category: "Concept E-Commerce Experience",
+        category: "Concept Experience",
         designDetail: "Product / Material / Precision",
         experienceDetail: "Specs / Purchase / Comparison",
         systemDetail: "Commerce / Product Grid / Mobile",
@@ -484,7 +586,7 @@ export const en: SiteCopy = {
         industry: "Professional Services",
         direction: "Trust / Expertise",
         focus: ["Service Clarity", "Advisory Flow", "Credibility"],
-        category: "Concept Website",
+        category: "Concept Experience",
         designDetail: "Typography / Trust / Structure",
         experienceDetail: "Strategy / Advisory / Results",
         systemDetail: "Services / Flow / Responsive",
@@ -492,6 +594,22 @@ export const en: SiteCopy = {
           "Communicate expertise and services without overwhelming the visitor.",
         intendedOutcome:
           "A clear advisory experience that builds trust and guides contact.",
+      },
+      launch: {
+        subtitle: "Campaign Landing Experience",
+        summary:
+          "Concept landing experience built around one clear action and a focused message.",
+        industry: "Product Launch",
+        direction: "Focus / Conversion",
+        focus: ["Single CTA", "Campaign Clarity", "Mobile UX"],
+        category: "Concept Experience",
+        designDetail: "Hierarchy / Focus / Motion",
+        experienceDetail: "Message / Proof / Action",
+        systemDetail: "Landing Structure / CTA / Mobile",
+        challenge:
+          "Communicate one offer clearly and guide visitors to a single next step.",
+        intendedOutcome:
+          "A focused campaign page that reduces distraction and strengthens conversion intent.",
       },
     },
   },
@@ -532,43 +650,44 @@ export const en: SiteCopy = {
     },
   },
   process: {
-    eyebrow: "Process",
-    titleLines: ["FROM BRIEF", "TO LIVE."],
+    eyebrow: "How We Work",
+    titleLines: ["FROM IDEA", "TO LIVE."],
     accentLineIndex: 1,
     intro:
-      "Five focused stages — from understanding the brief to launching a polished website ready for your audience.",
+      "Six focused stages — from understanding the business to launching a production-ready website.",
     scene: "06",
-    index: "Process",
+    index: "How We Work",
     steps: {
       "01": {
-        title: "Brief",
-        label: "BRIEF",
-        description:
-          "We understand what you're building — goals, audience and scope.",
+        title: "Discovery",
+        label: "DISCOVERY",
+        description: "Understand the business, audience and goals.",
       },
       "02": {
         title: "Direction",
         label: "DIRECTION",
-        description:
-          "We define the visual and structural direction for the project.",
+        description: "Define structure, priorities and visual direction.",
       },
       "03": {
         title: "Design",
         label: "DESIGN",
-        description:
-          "We turn the direction into a polished, intentional interface.",
+        description: "Create the interface and responsive experience.",
       },
       "04": {
         title: "Build",
         label: "BUILD",
-        description:
-          "We develop the experience into a fast, responsive website.",
+        description: "Develop the approved direction into a real website.",
       },
       "05": {
+        title: "Test",
+        label: "TEST",
+        description:
+          "Check responsiveness, interactions, forms, performance and SEO basics.",
+      },
+      "06": {
         title: "Live",
         label: "LIVE",
-        description:
-          "We launch, refine and hand over a site ready for your customers.",
+        description: "Deploy and prepare the website for launch.",
       },
     },
   },
@@ -622,9 +741,9 @@ export const en: SiteCopy = {
   },
   processPage: {
     eyebrow: "Process",
-    title: "From brief to live.",
+    title: "From idea to live.",
     description:
-      "Five focused stages — from understanding the brief to launching a polished website ready for your audience.",
+      "Six focused stages — from discovery to launch, with room for what comes after.",
   },
   aboutPage: {
     eyebrow: "About",
@@ -637,7 +756,7 @@ export const en: SiteCopy = {
     title: "Contact SitePro.",
     titleLines: ["LET'S", "BUILD", "SOMETHING", "USEFUL."],
     description:
-      "The fastest way to start is the form. Tell us about your project and we'll follow up.",
+      "Tell us what you're building. We'll review the project and recommend a clear next step.",
     aside:
       "SitePro designs and develops professional websites for businesses. If you already have an idea — or just know you need a better website — start here.",
   },
@@ -656,21 +775,22 @@ export const en: SiteCopy = {
     sections: [
       { number: "01", title: "About You" },
       { number: "02", title: "Your Business" },
-      { number: "03", title: "Your Project" },
+      { number: "03", title: "Your Website" },
       { number: "04", title: "Your Goals" },
-      { number: "05", title: "Budget / Timeline" },
+      { number: "05", title: "Budget & Timeline" },
       { number: "06", title: "Contact" },
     ],
   },
   form: {
     name: "Name",
-    businessName: "Business name",
+    businessName: "Business / Company",
     email: "Email",
     phone: "Phone / WhatsApp",
-    websiteType: "Website type",
-    currentWebsite: "Current website",
+    websiteType: "Project type",
+    currentWebsite: "Website URL",
     budget: "Budget range",
-    project: "Tell us about your project",
+    timeline: "Timeline",
+    project: "Tell us about the project",
     submit: "Start a Project",
     submitting: "Sending…",
     successEyebrow: "Request received",
@@ -692,9 +812,10 @@ export const en: SiteCopy = {
       businessNameTooLong: "Business name is too long.",
       email: "Please enter a valid email.",
       phoneTooLong: "Phone number is too long.",
-      websiteType: "Please choose a website type.",
+      websiteType: "Please choose a project type.",
       currentWebsiteTooLong: "Website URL is too long.",
       budget: "Please choose a budget range.",
+      timelineTooLong: "Timeline is too long.",
       project: "Please tell us a little more about your project.",
       projectTooLong: "Please keep this under 2,000 characters.",
     },
@@ -711,6 +832,13 @@ export const en: SiteCopy = {
       "Starting website / landing page",
       "Full business website",
       "E-commerce or custom project",
+      "Prefer to discuss",
+    ],
+    timelines: [
+      "Flexible",
+      "Within 1 month",
+      "1–2 months",
+      "2–3 months",
       "Prefer to discuss",
     ],
   },

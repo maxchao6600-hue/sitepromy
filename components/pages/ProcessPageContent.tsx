@@ -3,7 +3,8 @@
 import { AfterLaunch } from "@/components/home/AfterLaunch";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { FAQ } from "@/components/home/FAQ";
-import { Process } from "@/components/home/Process";
+import { ProcessInteractive } from "@/components/home/ProcessInteractive";
+import { SiteProStandard } from "@/components/home/SiteProStandard";
 import { StartingPoints } from "@/components/home/StartingPoints";
 import { PageHeader } from "@/components/page/PageHeader";
 import { useLanguage } from "@/lib/i18n";
@@ -18,8 +19,9 @@ export function ProcessPageContent() {
         title={t.processPage.title}
         description={t.processPage.description}
       />
-      <Process />
+      <ProcessInteractive />
       <AfterLaunch />
+      <SiteProStandard />
       <StartingPoints />
       <FAQ />
       <FinalCTA />

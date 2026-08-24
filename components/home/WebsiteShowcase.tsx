@@ -21,10 +21,10 @@ const SHOWCASE_SITES: ReadonlyArray<{
 }> = [
   { id: "atelier", brand: "ATELIER", url: "atelier.sitepromy.com", slug: "atelier", number: "01" },
   { id: "nova", brand: "NØVA", url: "nova.sitepromy.com", slug: "nova", number: "02" },
-  { id: "form", brand: "FORM", url: "form.sitepromy.com", slug: "form", number: "03" },
-  { id: "mono", brand: "MONO", url: "mono.sitepromy.com", slug: "mono", number: "04" },
-  { id: "orbit", brand: "ORBIT", url: "orbit.sitepromy.com", slug: "orbit", number: "05" },
-  { id: "pulse", brand: "PULSE", url: "pulse.sitepromy.com", slug: "pulse", number: "06" },
+  { id: "orbit", brand: "ORBIT ONE", url: "orbit.sitepromy.com", slug: "orbit", number: "03" },
+  { id: "pulse", brand: "PULSE", url: "pulse.sitepromy.com", slug: "pulse", number: "04" },
+  { id: "mono", brand: "MONO", url: "mono.sitepromy.com", slug: "mono", number: "05" },
+  { id: "landing", brand: "LAUNCH", url: "launch.sitepromy.com", slug: "launch", number: "06" },
 ];
 
 const PORTRAIT_SHOWCASE_ID: PreviewId = "atelier";

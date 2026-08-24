@@ -7,8 +7,8 @@ import { WhySitePro } from "@/components/home/WhySitePro";
 import { Services } from "@/components/home/Services";
 import { Capabilities } from "@/components/home/Capabilities";
 import { ProcessInteractive } from "@/components/home/ProcessInteractive";
+import { SiteProStandard } from "@/components/home/SiteProStandard";
 import { FAQ } from "@/components/home/FAQ";
-import { StartingPoints } from "@/components/home/StartingPoints";
 
 export function HomePageContent() {
   return (
@@ -19,7 +19,7 @@ export function HomePageContent() {
       <Services />
       <Capabilities />
       <ProcessInteractive />
-      <StartingPoints />
+      <SiteProStandard />
       <FAQ />
       <FinalCTA />
     </>

@@ -10,7 +10,14 @@ import { useLanguage } from "@/lib/i18n";
 import type { ProcessKey } from "@/lib/i18n/types";
 import { cn } from "@/lib/cn";
 
-const STAGE_LABELS = ["Wireframe", "Layout", "Typography", "Imagery", "Live"] as const;
+const STAGE_LABELS = [
+  "Discovery",
+  "Direction",
+  "Design",
+  "Build",
+  "Test",
+  "Live",
+] as const;
 
 function ProcessVisualCue({ stage }: { stage: number }) {
   const reduced = useReducedMotion();

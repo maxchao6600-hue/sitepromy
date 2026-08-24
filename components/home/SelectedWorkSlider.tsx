@@ -76,6 +76,22 @@ export function SelectedWorkSlider() {
     return () => clearTimer();
   }, [clearTimer]);
 
+  const touchStartX = useRef<number | null>(null);
+
+  const onTouchStart = (event: React.TouchEvent) => {
+    touchStartX.current = event.changedTouches[0]?.clientX ?? null;
+  };
+
+  const onTouchEnd = (event: React.TouchEvent) => {
+    if (touchStartX.current == null) return;
+    const endX = event.changedTouches[0]?.clientX ?? touchStartX.current;
+    const delta = endX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(delta) < 48) return;
+    if (delta < 0) goNext();
+    else goPrev();
+  };
+
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "ArrowRight") {
       event.preventDefault();
@@ -112,6 +128,8 @@ export function SelectedWorkSlider() {
             className="relative mt-6 outline-none lg:mt-8"
             tabIndex={0}
             onKeyDown={onKeyDown}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
             aria-live="polite"
           >
             <div className="relative aspect-[16/11] w-full min-w-0 overflow-hidden sm:aspect-[16/9] lg:aspect-[16/7] lg:max-h-[620px]">

@@ -128,6 +128,14 @@ body {
   background: #07090c;
 }
 
+.scene-standard {
+  background: #050608;
+}
+
+.scene-trust {
+  background: #080a0d;
+}
+
 @keyframes selected-work-progress {
   from {
     transform: scaleX(0);
@@ -207,23 +215,24 @@ body {
   }
 
   html:not([data-lang="zh"]) .hero-section .hero-grid {
-    gap: clamp(2.5rem, 4vw, 4rem);
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(2.75rem, 4.5vw, 4.5rem);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   }
 
   html:not([data-lang="zh"]) .hero-copy {
-    max-width: min(100%, 42rem);
+    max-width: min(100%, 40rem);
     z-index: 2;
   }
 
   html:not([data-lang="zh"]) .hero-preview {
-    contain: layout paint;
+    contain: layout paint style;
     isolation: isolate;
     margin-inline-start: auto;
     max-width: 100%;
     min-width: 0;
     overflow: clip;
-    padding-inline-start: clamp(0.5rem, 1.5vw, 1.5rem);
+    padding-inline-start: clamp(0.75rem, 2vw, 1.75rem);
+    pointer-events: auto;
     width: 100%;
     z-index: 1;
   }

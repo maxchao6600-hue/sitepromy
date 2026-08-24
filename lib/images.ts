@@ -24,6 +24,10 @@ export const conceptImages = {
     project: "/images/form/detail-1.jpg",
     material: "/images/form/detail-2.jpg",
   },
+  launch: {
+    hero: "/images/hero/build-preview.jpg",
+    gallery: ["/images/atelier/hero.jpg", "/images/form/detail-1.jpg"],
+  },
   mono: {
     hero: "/images/mono/hero.jpg",
     gallery: ["/images/mono/office-1.jpg", "/images/mono/office-2.jpg"],

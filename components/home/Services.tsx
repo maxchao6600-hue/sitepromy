@@ -157,6 +157,31 @@ export function Services() {
                 </span>
               </Link>
             </div>
+
+            <div className="mt-8 grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
+              <div>
+                <p className="meta-label text-muted">{t.services.detailWhat}</p>
+                <p className="mt-2 text-sm leading-7 text-secondary">{activeCopy.what}</p>
+              </div>
+              <div>
+                <p className="meta-label text-muted">{t.services.detailFor}</p>
+                <p className="mt-2 text-sm leading-7 text-secondary">{activeCopy.forWho}</p>
+              </div>
+              <div>
+                <p className="meta-label text-muted">{t.services.detailBuilds}</p>
+                <ul className="mt-2 space-y-1.5">
+                  {activeCopy.builds.map((item) => (
+                    <li key={item} className="text-sm leading-6 text-secondary">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="meta-label text-muted">{t.services.detailWhy}</p>
+                <p className="mt-2 text-sm leading-7 text-secondary">{activeCopy.why}</p>
+              </div>
+            </div>
           </div>
         </MotionReveal>
       </div>

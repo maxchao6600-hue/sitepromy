@@ -85,29 +85,87 @@ export const zh: SiteCopy = {
   why: {
     scene: "03",
     index: "为什么选择 SitePro",
-    titleLines: ["围绕你的业务打造。", "不是套一个模板就结束。"],
+    titleLines: ["不只是一个网站。", "而是一套更好的数字基础。"],
     principles: {
       "01": {
-        title: "围绕你的业务打造",
-        lead: "不是套模板。",
-        body: "从你的业务、客户与目标开始。",
+        title: "以业务为先",
+        lead: "从业务开始。",
+        body: "从业务、客户和目标开始，而不是从模板开始。",
       },
       "02": {
         title: "设计 + 开发",
-        lead: "从设计方向到最终上线，由同一个团队完成。",
-        body: "视觉方向与实现保持一致，贯穿整个项目。",
+        lead: "统一方向到上线。",
+        body: "从概念、设计到最终上线，保持统一方向。",
       },
       "03": {
-        title: "移动端优先",
-        lead: "根据真实用户的浏览方式设计。",
-        body: "面向真实设备布局——不是桌面版缩小后再处理。",
+        title: "为真实设备而设计",
+        lead: "桌面不是终点。",
+        body: "手机体验从第一天就开始考虑——按真实浏览方式布局。",
       },
       "04": {
-        title: "为未来扩展而设计",
-        lead: "网站上线不是终点。",
-        body: "而是下一阶段发展的基础——结构可以随业务演进。",
+        title: "为下一步做好准备",
+        lead: "可以持续演进。",
+        body: "网站上线不是终点，而是下一阶段的基础。",
       },
     },
+  },
+  standard: {
+    scene: "07",
+    index: "SitePro 标准",
+    titleLines: ["我们不会", "妥协的标准。"],
+    items: {
+      "01": {
+        title: "清晰",
+        body: "每一页都应有明确目的，并引导访客采取下一步。",
+      },
+      "02": {
+        title: "响应式",
+        body: "体验必须在真实设备上可用，而不只是桌面效果图。",
+      },
+      "03": {
+        title: "性能",
+        body: "漂亮的网站仍然需要加载顺畅、操作流畅。",
+      },
+      "04": {
+        title: "细节",
+        body: "间距、字体、交互与层级，都是专业呈现的一部分。",
+      },
+      "05": {
+        title: "基础",
+        body: "网站应为下一阶段做好准备——内容、SEO 与增长。",
+      },
+    },
+  },
+  trust: {
+    scene: "02",
+    index: "工作室方式",
+    title: "为什么选择像 SitePro 这样的工作室",
+    items: [
+      {
+        title: "定制方向",
+        body: "不是每家企业都需要同一套网站。方向从你的目标开始。",
+      },
+      {
+        title: "响应式体验",
+        body: "从一开始就为桌面、平板与手机设计。",
+      },
+      {
+        title: "SEO 基础就绪",
+        body: "从结构、元数据到性能基础，一开始就做对。",
+      },
+      {
+        title: "重视性能",
+        body: "保证视觉品质，同时避免不必要的技术负担。",
+      },
+      {
+        title: "清晰流程",
+        body: "从需求发现到上线——阶段明确，决策清楚。",
+      },
+      {
+        title: "上线后可延续",
+        body: "网站上线后仍可按需要持续演进。",
+      },
+    ],
   },
   capabilities: {
     scene: "05",
@@ -117,15 +175,15 @@ export const zh: SiteCopy = {
     columns: {
       design: {
         title: "设计",
-        items: ["视觉方向", "响应式界面", "设计系统", "交互设计", "移动端体验"],
+        items: ["视觉方向", "UI / UX", "响应式设计", "设计系统", "交互"],
       },
       development: {
         title: "开发",
-        items: ["定制开发", "响应式实现", "CMS 集成", "性能优化", "技术基础"],
+        items: ["定制开发", "响应式实现", "CMS 集成", "性能", "技术基础"],
       },
       growth: {
         title: "增长",
-        items: ["SEO 基础", "分析设置", "转化结构", "内容架构", "未来可扩展性"],
+        items: ["SEO 基础", "数据分析", "转化结构", "内容架构", "可扩展性"],
       },
     },
   },
@@ -135,24 +193,23 @@ export const zh: SiteCopy = {
     title: "常见问题。",
     items: [
       {
-        question: "网站一般需要多久？",
-        answer:
-          "时间取决于项目范围——聚焦的落地页可以更快推进，完整企业站或电商站则需要更多结构、设计与确认。我们会在了解项目后给出合理时间线。",
-      },
-      {
         question: "网站大概多少钱？",
         answer:
           "费用取决于网站类型、内容量、功能与时间线。告诉我们你的项目，我们会推荐合适的方向与报价。",
       },
       {
-        question: "你们提供域名和主机吗？",
+        question: "网站一般需要多久？",
         answer:
-          "我们可以建议域名与主机方案，并协助完成上线所需配置。具体安排取决于项目。",
+          "时间取决于项目范围——聚焦的落地页可以更快推进，完整企业站或电商站则需要更多结构、设计与确认。我们会在了解项目后给出合理时间线。",
       },
       {
         question: "可以改版现有网站吗？",
         answer:
           "可以。网站改版是我们提供的服务之一——改善结构、设计、性能与清晰度。",
+      },
+      {
+        question: "可以做电子商务网站吗？",
+        answer: "可以。我们设计并打造以产品为导向、购买路径清晰的在线商店。",
       },
       {
         question: "网站在手机上能用吗？",
@@ -172,11 +229,7 @@ export const zh: SiteCopy = {
       {
         question: "网站上线之后呢？",
         answer:
-          "上线后我们会交付可用的正式网站。若你需要，也可以继续更新、优化与维护。",
-      },
-      {
-        question: "可以做电子商务网站吗？",
-        answer: "可以。我们设计并打造以产品为导向、购买路径清晰的在线商店。",
+          "上线后我们会交付可用的正式网站。若你需要，也可以继续更新、优化与维护——会事先说清楚，而不是默认包含。",
       },
       {
         question: "可以服务马来西亚以外的企业吗？",
@@ -190,7 +243,7 @@ export const zh: SiteCopy = {
     index: "上线之后",
     title: "上线之后会发生什么？",
     body: "上线不是网站的终点。根据项目需要，支持可以包括修复、优化与后续功能——会事先说清楚，而不是默认包含。",
-    items: ["修复与微调", "内容更新", "性能与 SEO 优化", "新版块或功能", "持续维护"],
+    items: ["修复与微调", "内容更新", "性能与 SEO 优化", "新页面或功能", "持续维护"],
   },
   startingPoints: {
     scene: "06",
@@ -290,6 +343,10 @@ export const zh: SiteCopy = {
     selectedLabel: "当前服务",
     viewLabel: "查看 →",
     liveLabel: "实时",
+    detailWhat: "它是什么",
+    detailFor: "适合谁",
+    detailBuilds: "我们做什么",
+    detailWhy: "为什么重要",
     items: {
       "01": {
         title: "企业网站",
@@ -298,6 +355,17 @@ export const zh: SiteCopy = {
         role: "设计 / 开发",
         focus: "品牌 / 转化",
         deliverable: "设计 / 开发 / SEO",
+        what: "面向企业的专业数字门面——不只是基础介绍页。",
+        forWho: "需要可信度、清晰结构，并引导访客采取下一步的企业。",
+        builds: [
+          "响应式页面",
+          "定制视觉方向",
+          "业务导向结构",
+          "移动端体验",
+          "SEO 基础",
+          "性能基础",
+        ],
+        why: "网站往往是别人第一次认真接触你业务的入口。",
       },
       "02": {
         title: "电子商务",
@@ -306,6 +374,16 @@ export const zh: SiteCopy = {
         role: "设计 / 开发",
         focus: "转化 / 体验",
         deliverable: "设计 / 开发 / SEO",
+        what: "以产品为导向、购买路径清晰的在线商店。",
+        forWho: "需要更强展示与转化清晰度的线上销售业务。",
+        builds: [
+          "产品叙事",
+          "系列与产品结构",
+          "移动端购物体验",
+          "结账流程基础",
+          "性能基础",
+        ],
+        why: "访客需要快速理解产品——并知道如何购买。",
       },
       "03": {
         title: "营销落地页",
@@ -314,6 +392,16 @@ export const zh: SiteCopy = {
         role: "设计 / 开发",
         focus: "转化 / 营销",
         deliverable: "设计 / 开发 / SEO",
+        what: "围绕一个信息与一个明确行动打造的聚焦页面。",
+        forWho: "需要直接导向咨询或注册的营销活动与发布。",
+        builds: [
+          "单目标布局",
+          "清晰视觉层级",
+          "明确 CTA 结构",
+          "移动端优先流程",
+          "追踪基础就绪",
+        ],
+        why: "当目标只有一个行动时，页面应去掉一切干扰。",
       },
       "04": {
         title: "定制网页设计",
@@ -322,6 +410,16 @@ export const zh: SiteCopy = {
         role: "设计 / 开发",
         focus: "品牌 / 体验",
         deliverable: "设计 / 开发 / SEO",
+        what: "围绕品牌、受众与目标定制的数字体验。",
+        forWho: "需要超出标准模板结构的企业。",
+        builds: [
+          "定制视觉系统",
+          "交互设计",
+          "响应式体验",
+          "内容架构",
+          "技术基础",
+        ],
+        why: "有些项目需要模板无法干净表达的方向。",
       },
       "05": {
         title: "网站改版",
@@ -330,6 +428,16 @@ export const zh: SiteCopy = {
         role: "设计 / 开发",
         focus: "性能 / 品牌",
         deliverable: "设计 / 开发 / SEO",
+        what: "把过时的网站重建为更清晰、更现代的体验。",
+        forWho: "现有网站已无法匹配品牌或真实浏览方式的企业。",
+        builds: [
+          "结构刷新",
+          "视觉改版",
+          "移动端体验",
+          "性能提升",
+          "SEO 基础",
+        ],
+        why: "过时的网站可能在对话开始前就悄悄降低信任。",
       },
       "06": {
         title: "持续支持",
@@ -338,6 +446,16 @@ export const zh: SiteCopy = {
         role: "开发 / 维护",
         focus: "维护 / 增长",
         deliverable: "更新 / 优化 / 支持",
+        what: "上线后的持续改进——更新、微调与后续功能（按需）。",
+        forWho: "希望网站上线后仍能持续演进的企业。",
+        builds: [
+          "内容更新",
+          "设计微调",
+          "新版块或页面",
+          "性能检查",
+          "维护",
+        ],
+        why: "上线是起点。支持让网站随着业务变化保持有用。",
       },
     },
   },
@@ -396,26 +514,13 @@ export const zh: SiteCopy = {
         challenge: "以编辑式清晰度呈现时尚系列，并引导产品发现。",
         intendedOutcome: "令人难忘的视觉旅程，同时支持浏览与购买意图。",
       },
-      form: {
-        subtitle: "建筑数字作品集",
-        summary: "在材质、空间与项目叙事之间取得平衡的概念建筑作品集。",
-        industry: "建筑",
-        direction: "材质 / 空间",
-        focus: ["项目展示", "工作室形象", "案例研究"],
-        category: "概念网站",
-        designDetail: "材质 / 结构 / 空间",
-        experienceDetail: "项目 / 地点 / 年份",
-        systemDetail: "栅格 / 案例 / 响应式",
-        challenge: "清晰传达建筑作品——材质、空间与项目叙事。",
-        intendedOutcome: "结构清晰、可信度强的作品集呈现。",
-      },
       mono: {
         subtitle: "企业数字体验",
         summary: "围绕清晰、可信与转化而设计的概念企业网站。",
         industry: "企业",
         direction: "清晰 / 可信",
         focus: ["服务结构", "案例研究", "转化优化"],
-        category: "概念网站",
+        category: "概念体验",
         designDetail: "字体 / 层级 / 清晰",
         experienceDetail: "服务 / 领导团队 / 能力",
         systemDetail: "组件 / 结构 / 响应式",
@@ -428,7 +533,7 @@ export const zh: SiteCopy = {
         industry: "高端音频",
         direction: "奢华 / 产品导向",
         focus: ["产品叙事", "电商体验", "品牌系统"],
-        category: "概念电商体验",
+        category: "概念体验",
         designDetail: "产品 / 材质 / 精准",
         experienceDetail: "规格 / 购买 / 对比",
         systemDetail: "电商 / 产品栅格 / 移动端",
@@ -441,12 +546,25 @@ export const zh: SiteCopy = {
         industry: "咨询服务",
         direction: "信任 / 专业",
         focus: ["服务清晰", "咨询流程", "可信度"],
-        category: "概念网站",
+        category: "概念体验",
         designDetail: "字体 / 信任 / 结构",
         experienceDetail: "战略 / 咨询 / 成果",
         systemDetail: "服务 / 流程 / 响应式",
         challenge: "清晰传达专业能力与服务，而不让访客感到过载。",
         intendedOutcome: "建立信任并引导联系的清晰咨询体验。",
+      },
+      launch: {
+        subtitle: "营销落地页体验",
+        summary: "围绕一个明确行动与聚焦信息打造的概念落地页体验。",
+        industry: "产品发布",
+        direction: "聚焦 / 转化",
+        focus: ["单一 CTA", "活动清晰度", "移动端体验"],
+        category: "概念体验",
+        designDetail: "层级 / 聚焦 / 动效",
+        experienceDetail: "信息 / 证明 / 行动",
+        systemDetail: "落地页结构 / CTA / 移动端",
+        challenge: "清晰传达一个主张，并引导访客完成单一下一步。",
+        intendedOutcome: "减少干扰、强化转化意图的聚焦活动页。",
       },
     },
   },
@@ -487,38 +605,42 @@ export const zh: SiteCopy = {
     },
   },
   process: {
-    eyebrow: "流程",
-    titleLines: ["从需求", "到上线。"],
+    eyebrow: "我们如何工作",
+    titleLines: ["从想法", "到上线。"],
     accentLineIndex: 1,
-    intro:
-      "五个聚焦阶段——从理解需求到上线一个为你的受众准备好的精致网站。",
+    intro: "六个聚焦阶段——从理解业务到上线一个可用于正式环境的网站。",
     scene: "06",
-    index: "流程",
+    index: "我们如何工作",
     steps: {
       "01": {
-        title: "需求沟通",
-        label: "BRIEF",
-        description: "我们了解你要打造什么——目标、受众与范围。",
+        title: "需求发现",
+        label: "DISCOVERY",
+        description: "理解业务、受众与目标。",
       },
       "02": {
         title: "方向规划",
         label: "DIRECTION",
-        description: "我们为项目定义视觉与结构方向。",
+        description: "定义结构、优先级与视觉方向。",
       },
       "03": {
         title: "视觉设计",
         label: "DESIGN",
-        description: "我们将方向转化为精致、有意图的界面。",
+        description: "打造界面与响应式体验。",
       },
       "04": {
         title: "网站开发",
         label: "BUILD",
-        description: "我们将体验开发为快速、响应式的网站。",
+        description: "将已确认的方向开发成真实网站。",
       },
       "05": {
+        title: "测试验证",
+        label: "TEST",
+        description: "检查响应式、交互、表单、性能与 SEO 基础。",
+      },
+      "06": {
         title: "正式上线",
         label: "LIVE",
-        description: "我们上线、优化并交付一个为你的客户准备好的网站。",
+        description: "部署并准备网站正式发布。",
       },
     },
   },
@@ -562,9 +684,8 @@ export const zh: SiteCopy = {
   },
   processPage: {
     eyebrow: "流程",
-    title: "从需求到上线。",
-    description:
-      "五个聚焦阶段——从理解需求到上线一个为你的受众准备好的精致网站。",
+    title: "从想法到上线。",
+    description: "六个聚焦阶段——从需求发现到正式上线，并说明上线之后可以发生什么。",
   },
   aboutPage: {
     eyebrow: "关于",
@@ -574,8 +695,8 @@ export const zh: SiteCopy = {
   contactPage: {
     eyebrow: "开始项目",
     title: "联系 SitePro。",
-    titleLines: ["一起", "把它", "做出来。"],
-    description: "最快的开始方式是填写表单。告诉我们你的项目，我们会跟进回复。",
+    titleLines: ["一起把它", "做出来。"],
+    description: "告诉我们你正在打造什么。我们会审阅项目并建议清晰的下一步。",
     aside:
       "SitePro 为企业设计与开发专业网站。如果你已有想法——或只是知道你需要一个更好的网站——从这里开始。",
   },
@@ -593,20 +714,21 @@ export const zh: SiteCopy = {
     sections: [
       { number: "01", title: "关于你" },
       { number: "02", title: "你的业务" },
-      { number: "03", title: "你的项目" },
+      { number: "03", title: "你的网站" },
       { number: "04", title: "你的目标" },
-      { number: "05", title: "预算 / 时间线" },
+      { number: "05", title: "预算与时间线" },
       { number: "06", title: "联系方式" },
     ],
   },
   form: {
     name: "姓名",
-    businessName: "企业名称",
+    businessName: "企业 / 公司",
     email: "电子邮箱",
     phone: "电话 / WhatsApp",
-    websiteType: "网站类型",
-    currentWebsite: "现有网站",
+    websiteType: "项目类型",
+    currentWebsite: "网站链接",
     budget: "预算范围",
+    timeline: "时间线",
     project: "告诉我们你的项目",
     submit: "开始项目",
     submitting: "发送中…",
@@ -626,9 +748,10 @@ export const zh: SiteCopy = {
       businessNameTooLong: "企业名称过长。",
       email: "请输入有效的电子邮箱。",
       phoneTooLong: "电话号码过长。",
-      websiteType: "请选择网站类型。",
+      websiteType: "请选择项目类型。",
       currentWebsiteTooLong: "网站链接过长。",
       budget: "请选择预算范围。",
+      timelineTooLong: "时间线过长。",
       project: "请再多介绍一些你的项目。",
       projectTooLong: "请控制在 2,000 字以内。",
     },
@@ -647,6 +770,7 @@ export const zh: SiteCopy = {
       "电商或定制项目",
       "希望进一步沟通",
     ],
+    timelines: ["灵活", "1 个月内", "1–2 个月", "2–3 个月", "希望进一步沟通"],
   },
   concepts: {
     shared: {

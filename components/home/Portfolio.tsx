@@ -120,7 +120,15 @@ function CaseStudyDetails({
 }) {
   const { t } = useLanguage();
   const copy = t.portfolio.projects[slug];
-  const images = conceptImages[slug];
+  const projectImages = {
+    atelier: conceptImages.atelier,
+    nova: conceptImages.nova,
+    orbit: conceptImages.orbit,
+    pulse: conceptImages.pulse,
+    mono: conceptImages.mono,
+    launch: conceptImages.launch,
+  } as const;
+  const images = projectImages[slug];
   const crops = [
     images.hero,
     images.gallery?.[0] ?? images.hero,

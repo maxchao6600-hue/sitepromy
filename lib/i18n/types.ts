@@ -13,12 +13,12 @@ export type ServiceKey =
 export type ProjectSlug =
   | "atelier"
   | "nova"
-  | "form"
-  | "mono"
   | "orbit"
-  | "pulse";
+  | "pulse"
+  | "mono"
+  | "launch";
 
-export type ProcessKey = "01" | "02" | "03" | "04" | "05";
+export type ProcessKey = "01" | "02" | "03" | "04" | "05" | "06";
 
 export type SpeedPillarKey = "01" | "02" | "03" | "04";
 
@@ -78,6 +78,21 @@ export type SiteCopy = {
       "01" | "02" | "03" | "04",
       { title: string; lead: string; body: string }
     >;
+  };
+  standard: {
+    scene: string;
+    index: string;
+    titleLines: string[];
+    items: Record<
+      "01" | "02" | "03" | "04" | "05",
+      { title: string; body: string }
+    >;
+  };
+  trust: {
+    scene: string;
+    index: string;
+    title: string;
+    items: Array<{ title: string; body: string }>;
   };
   capabilities: {
     scene: string;
@@ -156,6 +171,10 @@ export type SiteCopy = {
     selectedLabel: string;
     viewLabel: string;
     liveLabel: string;
+    detailWhat: string;
+    detailFor: string;
+    detailBuilds: string;
+    detailWhy: string;
     items: Record<
       ServiceKey,
       {
@@ -165,6 +184,10 @@ export type SiteCopy = {
         role: string;
         focus: string;
         deliverable: string;
+        what: string;
+        forWho: string;
+        builds: string[];
+        why: string;
       }
     >;
   };
@@ -309,6 +332,7 @@ export type SiteCopy = {
     websiteType: string;
     currentWebsite: string;
     budget: string;
+    timeline: string;
     project: string;
     submit: string;
     submitting: string;
@@ -331,11 +355,13 @@ export type SiteCopy = {
       websiteType: string;
       currentWebsiteTooLong: string;
       budget: string;
+      timelineTooLong: string;
       project: string;
       projectTooLong: string;
     };
     websiteTypes: string[];
     budgetRanges: string[];
+    timelines: string[];
   };
   concepts: {
     shared: {

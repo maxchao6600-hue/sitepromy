@@ -32,6 +32,20 @@ export function ContactPageContent() {
               {t.contactPage.aside}
             </p>
             <p className="meta-label mt-8 text-muted">{SITE.domain}</p>
+
+            <div className="mt-10 border-t border-line pt-8">
+              <p className="meta-label text-accent">{t.quotePage.nextTitle}</p>
+              <ol className="mt-5 space-y-4">
+                {t.quotePage.steps.map((step, index) => (
+                  <li key={step} className="flex gap-4 text-sm leading-6 text-secondary">
+                    <span className="meta-label shrink-0 text-accent">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </div>
           </aside>
           <QuoteForm />
         </div>

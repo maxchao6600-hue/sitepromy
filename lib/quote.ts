@@ -8,12 +8,14 @@ export type QuotePayload = {
   websiteType: string;
   currentWebsite: string;
   budget: string;
+  timeline: string;
   project: string;
 };
 
 type ValidateOptions = {
   websiteTypes?: readonly string[];
   budgetRanges?: readonly string[];
+  timelines?: readonly string[];
   messages?: {
     name?: string;
     nameTooLong?: string;
@@ -23,6 +25,7 @@ type ValidateOptions = {
     websiteType?: string;
     currentWebsiteTooLong?: string;
     budget?: string;
+    timelineTooLong?: string;
     project?: string;
     projectTooLong?: string;
   };
@@ -43,6 +46,7 @@ export function validateQuote(input: Partial<QuotePayload>, options?: ValidateOp
   const websiteType = input.websiteType?.trim() ?? "";
   const currentWebsite = input.currentWebsite?.trim() ?? "";
   const budget = input.budget?.trim() ?? "";
+  const timeline = input.timeline?.trim() ?? "";
   const project = input.project?.trim() ?? "";
 
   if (name.length < 2) errors.name = messages.name ?? "Please enter your name.";
@@ -71,6 +75,10 @@ export function validateQuote(input: Partial<QuotePayload>, options?: ValidateOp
     errors.budget = messages.budget ?? "Please choose a budget range.";
   }
 
+  if (timeline.length > 80) {
+    errors.timeline = messages.timelineTooLong ?? "Timeline is too long.";
+  }
+
   if (project.length < 10) {
     errors.project = messages.project ?? "Please tell us a little more about your project.";
   }
@@ -86,6 +94,7 @@ export function validateQuote(input: Partial<QuotePayload>, options?: ValidateOp
     websiteType,
     currentWebsite,
     budget,
+    timeline,
     project,
   };
 
