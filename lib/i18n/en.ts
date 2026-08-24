@@ -67,40 +67,14 @@ export const en: SiteCopy = {
       discipline: "Discipline",
     },
   },
-  brandFilm: {
+  selectedWork: {
     scene: "02",
-    index: "Brand Film",
-    titleLines: ["FROM IDEA", "TO LIVE."],
-    stages: {
-      idea: {
-        label: "IDEA",
-        description: "Every project begins with a clear business idea — what you need the website to achieve.",
-      },
-      direction: {
-        label: "DIRECTION",
-        description: "We define structure, hierarchy and visual direction before a single pixel is polished.",
-      },
-      design: {
-        label: "DESIGN",
-        description: "Direction becomes interface — typography, imagery and interaction composed with intent.",
-      },
-      build: {
-        label: "BUILD",
-        description: "Design becomes a fast, responsive website — desktop, tablet and mobile as one system.",
-      },
-      live: {
-        label: "LIVE",
-        description: "The experience launches. From idea to a website ready for your audience.",
-      },
-    },
-    closingLines: ["FROM IDEA", "TO LIVE."],
-    brandName: "SITEPROMY",
-    brandDescriptor: "Malaysia Web Design",
-    cta: "START A PROJECT →",
-    artboard: "Artboard",
-    concept: "Concept",
-    responsive: "Responsive",
-    liveStatus: "Live",
+    index: "Selected Work",
+    projectLabel: "Project",
+    viewProject: "View Project →",
+    prev: "Prev",
+    next: "Next",
+    live: "Live",
   },
   studioStatement: {
     scene: "03",

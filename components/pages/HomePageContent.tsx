@@ -2,7 +2,7 @@
 
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { Hero } from "@/components/home/Hero";
-import { BrandFilm } from "@/components/home/BrandFilm";
+import { SelectedWorkSlider } from "@/components/home/SelectedWorkSlider";
 import { StudioStatement } from "@/components/home/StudioStatement";
 import { Services } from "@/components/home/Services";
 import { Portfolio } from "@/components/home/Portfolio";
@@ -19,7 +19,7 @@ export function HomePageContent() {
   return (
     <>
       <Hero />
-      <BrandFilm />
+      <SelectedWorkSlider />
       <DetailStrip items={t.detailStrips.capabilities} numbered />
       <StudioStatement />
       <DetailStrip items={t.detailStrips.disciplines} />
