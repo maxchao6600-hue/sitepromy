@@ -286,6 +286,9 @@ export type SiteCopy = {
     visitTitle: string;
     mapsLink: string;
     mapsAria: string;
+    whatsappLabel: string;
+    whatsappLink: string;
+    whatsappAria: string;
     serviceLinks: string[];
     startProject: string;
     requestQuote: string;
@@ -318,6 +321,11 @@ export type SiteCopy = {
     titleLines: string[];
     description: string;
     aside: string;
+    conversationTitle: string;
+    whatsappChannelLabel: string;
+    mapsChannelLabel: string;
+    mapsChannelLink: string;
+    preferWhatsApp: string;
   };
   quotePage: {
     eyebrow: string;
@@ -326,6 +334,7 @@ export type SiteCopy = {
     nextTitle: string;
     steps: string[];
     sections: Array<{ number: string; title: string }>;
+    preferWhatsApp: string;
   };
   form: {
     name: string;

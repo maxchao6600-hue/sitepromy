@@ -9,6 +9,8 @@ export const SITE = {
   url: "https://sitepromy.com",
   domain: "sitepromy.com",
   locale: "en_MY",
+  /** Official WhatsApp contact — single source of truth (wasap.my short link). */
+  whatsappUrl: "https://sitepromy.wasap.my",
   address: {
     line1: "16A, Jln Austin Heights 8/2",
     line2: "81100 Johor Bahru, Johor",

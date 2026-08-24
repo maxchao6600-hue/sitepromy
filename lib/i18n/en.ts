@@ -719,6 +719,9 @@ export const en: SiteCopy = {
     visitTitle: "Visit Us",
     mapsLink: "View on Google Maps",
     mapsAria: "View SitePro location on Google Maps",
+    whatsappLabel: "WhatsApp",
+    whatsappLink: "Chat with us",
+    whatsappAria: "Chat with SitePro on WhatsApp",
     serviceLinks: [
       "Business Websites",
       "E-Commerce",
@@ -762,6 +765,11 @@ export const en: SiteCopy = {
       "Tell us what you're building. We'll review the project and recommend a clear next step.",
     aside:
       "SitePro designs and develops professional websites for businesses. If you already have an idea — or just know you need a better website — start here.",
+    conversationTitle: "Start a conversation",
+    whatsappChannelLabel: "WhatsApp",
+    mapsChannelLabel: "Google Maps",
+    mapsChannelLink: "Find us in Johor Bahru",
+    preferWhatsApp: "Prefer WhatsApp?",
   },
   quotePage: {
     eyebrow: "Start with your project",
@@ -783,6 +791,7 @@ export const en: SiteCopy = {
       { number: "05", title: "Budget & Timeline" },
       { number: "06", title: "Contact" },
     ],
+    preferWhatsApp: "Prefer WhatsApp?",
   },
   form: {
     name: "Name",

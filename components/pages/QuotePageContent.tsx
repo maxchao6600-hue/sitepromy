@@ -1,5 +1,6 @@
 "use client";
 
+import { PreferWhatsApp } from "@/components/contact/PreferWhatsApp";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { FAQ } from "@/components/home/FAQ";
 import { PageHeader } from "@/components/page/PageHeader";
@@ -45,6 +46,10 @@ export function QuotePageContent() {
                 ))}
               </ul>
             </div>
+            <PreferWhatsApp
+              prompt={t.quotePage.preferWhatsApp}
+              className="border-t border-line pt-8"
+            />
           </aside>
           <QuoteForm />
         </div>

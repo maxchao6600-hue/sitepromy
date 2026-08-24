@@ -667,6 +667,9 @@ export const zh: SiteCopy = {
     visitTitle: "到访我们",
     mapsLink: "查看 Google 地图",
     mapsAria: "在 Google 地图查看 SitePro 地址",
+    whatsappLabel: "WhatsApp",
+    whatsappLink: "立即联系",
+    whatsappAria: "通过 WhatsApp 联系 SitePro",
     serviceLinks: ["企业网站", "电子商务", "营销落地页", "定制体验"],
     startProject: "开始项目",
     requestQuote: "获取报价",
@@ -702,6 +705,11 @@ export const zh: SiteCopy = {
     description: "告诉我们你正在打造什么。我们会审阅项目并建议清晰的下一步。",
     aside:
       "SitePro 为企业设计与开发专业网站。如果你已有想法——或只是知道你需要一个更好的网站——从这里开始。",
+    conversationTitle: "开始对话",
+    whatsappChannelLabel: "WhatsApp",
+    mapsChannelLabel: "Google 地图",
+    mapsChannelLink: "在柔佛新山找到我们",
+    preferWhatsApp: "更想用 WhatsApp？",
   },
   quotePage: {
     eyebrow: "从项目开始",
@@ -722,6 +730,7 @@ export const zh: SiteCopy = {
       { number: "05", title: "预算与时间线" },
       { number: "06", title: "联系方式" },
     ],
+    preferWhatsApp: "更想用 WhatsApp？",
   },
   form: {
     name: "姓名",

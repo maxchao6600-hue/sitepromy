@@ -1,8 +1,10 @@
 "use client";
 
+import { PreferWhatsApp } from "@/components/contact/PreferWhatsApp";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { FAQ } from "@/components/home/FAQ";
 import { QuoteForm } from "@/components/quote/QuoteForm";
+import { StudioExternalLink } from "@/components/ui/StudioExternalLink";
 import { SITE } from "@/lib/site";
 import { useLanguage } from "@/lib/i18n";
 
@@ -34,31 +36,45 @@ export function ContactPageContent() {
             <p className="meta-label mt-8 text-muted">{SITE.domain}</p>
 
             <div className="mt-8 border-t border-line pt-8">
+              <p className="meta-label text-accent">{t.contactPage.conversationTitle}</p>
+              <ul className="mt-5 space-y-6">
+                <li>
+                  <p className="meta-label text-muted">{t.contactPage.whatsappChannelLabel}</p>
+                  <StudioExternalLink
+                    href={SITE.whatsappUrl}
+                    label={t.footer.whatsappLink}
+                    ariaLabel={t.footer.whatsappAria}
+                    className="mt-2"
+                  />
+                </li>
+                <li>
+                  <p className="meta-label text-muted">{t.contactPage.mapsChannelLabel}</p>
+                  <StudioExternalLink
+                    href={SITE.address.mapsUrl}
+                    label={t.contactPage.mapsChannelLink}
+                    ariaLabel={t.footer.mapsAria}
+                    className="mt-2"
+                  />
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 border-t border-line pt-8">
               <p className="meta-label text-accent">{t.footer.visitTitle}</p>
               <address className="mt-4 not-italic text-sm leading-7 text-cream/70">
                 <span className="block">{SITE.address.line1}</span>
                 <span className="block">{SITE.address.line2}</span>
                 <span className="block">{SITE.address.line3}</span>
               </address>
-              <a
+              <StudioExternalLink
                 href={SITE.address.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={t.footer.mapsAria}
-                className="group mt-5 inline-flex max-w-full items-center gap-2 text-sm text-accent transition-colors duration-300 hover:text-cream"
-              >
-                <span className="relative min-w-0">
-                  <span className="break-words">{t.footer.mapsLink}</span>
-                  <span className="absolute -bottom-px left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="inline-block shrink-0 transition-transform duration-300 group-hover:translate-x-1"
-                >
-                  ↗
-                </span>
-              </a>
+                label={t.footer.mapsLink}
+                ariaLabel={t.footer.mapsAria}
+                className="mt-5"
+              />
             </div>
+
+            <PreferWhatsApp className="mt-8 border-t border-line pt-8" />
 
             <div className="mt-10 border-t border-line pt-8">
               <p className="meta-label text-accent">{t.quotePage.nextTitle}</p>

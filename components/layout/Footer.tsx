@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FooterMap } from "@/components/layout/FooterMap";
 import { Logo } from "@/components/layout/Logo";
+import { StudioExternalLink } from "@/components/ui/StudioExternalLink";
 import { SITE } from "@/lib/site";
 import { NAV_PAGES, ROUTES, useLanguage } from "@/lib/i18n";
 
@@ -53,29 +54,27 @@ export function Footer() {
 
             <FooterMap />
 
-            <a
+            <StudioExternalLink
               href={address.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t.footer.mapsAria}
-              className="group mt-5 inline-flex max-w-full items-center gap-2 text-sm text-cream/70 transition-colors duration-300 hover:text-accent"
-            >
-              <span className="relative min-w-0">
-                <span className="break-words">{t.footer.mapsLink}</span>
-                <span className="absolute -bottom-px left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-              </span>
-              <span
-                aria-hidden="true"
-                className="inline-block shrink-0 transition-transform duration-300 group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </a>
+              label={t.footer.mapsLink}
+              ariaLabel={t.footer.mapsAria}
+              className="mt-5"
+            />
+
+            <div className="mt-8 border-t border-line pt-6">
+              <p className="meta-label text-muted">{t.footer.whatsappLabel}</p>
+              <StudioExternalLink
+                href={SITE.whatsappUrl}
+                label={t.footer.whatsappLink}
+                ariaLabel={t.footer.whatsappAria}
+                className="mt-3"
+              />
+            </div>
 
             <div className="mt-8 border-t border-line pt-6 lg:mt-10">
               <Link
                 href={href("/quote")}
-                className="group inline-flex items-center gap-2 text-sm text-cream/70 transition-colors duration-300 hover:text-accent"
+                className="group inline-flex items-center gap-2 whitespace-nowrap text-sm text-cream/70 transition-colors duration-300 hover:text-accent"
               >
                 <span className="relative">
                   {t.footer.startProject}

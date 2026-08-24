@@ -2,6 +2,7 @@
 
 import { MotionReveal } from "@/components/ui/Motion";
 import { SectionIndex } from "@/components/ui/SectionIndex";
+import { StudioExternalLink } from "@/components/ui/StudioExternalLink";
 import { SITE } from "@/lib/site";
 import { useLanguage } from "@/lib/i18n";
 
@@ -42,24 +43,21 @@ export function AboutStudio() {
               <span className="block">{SITE.address.line2}</span>
               <span className="block">{SITE.address.line3}</span>
             </address>
-            <a
+            <StudioExternalLink
               href={SITE.address.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={t.footer.mapsAria}
-              className="group mt-5 inline-flex max-w-full items-center gap-2 text-sm text-accent transition-colors duration-300 hover:text-cream"
-            >
-              <span className="relative min-w-0">
-                <span className="break-words">{t.footer.mapsLink}</span>
-                <span className="absolute -bottom-px left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-              </span>
-              <span
-                aria-hidden="true"
-                className="inline-block shrink-0 transition-transform duration-300 group-hover:translate-x-1"
-              >
-                ↗
-              </span>
-            </a>
+              label={t.footer.mapsLink}
+              ariaLabel={t.footer.mapsAria}
+              className="mt-5"
+            />
+            <div className="mt-6">
+              <p className="meta-label text-muted">{t.footer.whatsappLabel}</p>
+              <StudioExternalLink
+                href={SITE.whatsappUrl}
+                label={t.footer.whatsappLink}
+                ariaLabel={t.footer.whatsappAria}
+                className="mt-3"
+              />
+            </div>
           </div>
         </MotionReveal>
       </div>
