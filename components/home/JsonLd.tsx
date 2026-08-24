@@ -29,6 +29,14 @@ export function JsonLd() {
           "Business website design",
           "E-commerce website design",
         ],
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: SITE.address.streetAddress,
+          addressLocality: SITE.address.addressLocality,
+          addressRegion: SITE.address.addressRegion,
+          postalCode: SITE.address.postalCode,
+          addressCountry: SITE.address.addressCountry,
+        },
       },
     ],
   };

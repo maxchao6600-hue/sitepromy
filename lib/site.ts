@@ -9,6 +9,18 @@ export const SITE = {
   url: "https://sitepromy.com",
   domain: "sitepromy.com",
   locale: "en_MY",
+  address: {
+    line1: "16A, Jln Austin Heights 8/2",
+    line2: "81100 Johor Bahru, Johor",
+    line3: "Darul Ta'zim, Malaysia",
+    streetAddress: "16A, Jln Austin Heights 8/2",
+    addressLocality: "Johor Bahru",
+    addressRegion: "Johor",
+    postalCode: "81100",
+    addressCountry: "MY",
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=16A%2C%20Jln%20Austin%20Heights%208%2F2%2C%2081100%20Johor%20Bahru%2C%20Johor%20Darul%20Ta%27zim%2C%20Malaysia",
+  },
 } as const;
 
 export const navLinks = [

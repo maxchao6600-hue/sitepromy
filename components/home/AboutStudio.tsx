@@ -2,6 +2,7 @@
 
 import { MotionReveal } from "@/components/ui/Motion";
 import { SectionIndex } from "@/components/ui/SectionIndex";
+import { SITE } from "@/lib/site";
 import { useLanguage } from "@/lib/i18n";
 
 export function AboutStudio() {
@@ -33,6 +34,33 @@ export function AboutStudio() {
               </div>
             ))}
           </dl>
+
+          <div className="mt-10 max-w-md border-t border-line pt-8">
+            <p className="meta-label text-accent">{t.footer.visitTitle}</p>
+            <address className="mt-4 not-italic text-sm leading-7 text-cream/70">
+              <span className="block">{SITE.address.line1}</span>
+              <span className="block">{SITE.address.line2}</span>
+              <span className="block">{SITE.address.line3}</span>
+            </address>
+            <a
+              href={SITE.address.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.footer.mapsAria}
+              className="group mt-5 inline-flex max-w-full items-center gap-2 text-sm text-accent transition-colors duration-300 hover:text-cream"
+            >
+              <span className="relative min-w-0">
+                <span className="break-words">{t.footer.mapsLink}</span>
+                <span className="absolute -bottom-px left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+              </span>
+              <span
+                aria-hidden="true"
+                className="inline-block shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+              >
+                ↗
+              </span>
+            </a>
+          </div>
         </MotionReveal>
       </div>
     </section>

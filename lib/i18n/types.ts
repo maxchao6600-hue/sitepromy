@@ -283,6 +283,9 @@ export type SiteCopy = {
     servicesTitle: string;
     startTitle: string;
     contactTitle: string;
+    visitTitle: string;
+    mapsLink: string;
+    mapsAria: string;
     serviceLinks: string[];
     startProject: string;
     requestQuote: string;
