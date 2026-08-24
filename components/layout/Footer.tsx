@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FooterMap } from "@/components/layout/FooterMap";
 import { Logo } from "@/components/layout/Logo";
 import { SITE } from "@/lib/site";
 import { NAV_PAGES, ROUTES, useLanguage } from "@/lib/i18n";
@@ -12,8 +13,8 @@ export function Footer() {
   return (
     <footer className="scene-footer scene-noise relative border-t border-line">
       <div className="container-main section-y-compact pb-8 lg:pb-10">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
-          <div className="lg:col-span-4">
+        <div className="footer-grid grid grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.8fr_1.3fr] lg:gap-12 xl:gap-16">
+          <div className="min-w-0">
             <Logo variant="footer" />
             <p className="mt-3 font-display text-sm font-semibold uppercase tracking-[0.12em] text-cream">
               SITEPRO<span className="text-accent">MY</span>
@@ -23,7 +24,7 @@ export function Footer() {
             <p className="mt-6 text-sm text-muted">{SITE.domain}</p>
           </div>
 
-          <div className="border-t border-line pt-8 lg:col-span-3 lg:border-t-0 lg:pt-0">
+          <div className="min-w-0 border-t border-line pt-8 lg:border-t-0 lg:pt-0">
             <p className="meta-label text-muted">{t.footer.navTitle}</p>
             <ul className="mt-4 space-y-2">
               {NAV_PAGES.map((page) => (
@@ -42,19 +43,22 @@ export function Footer() {
             </ul>
           </div>
 
-          <div className="border-t border-line pt-8 lg:col-span-5 lg:border-t-0 lg:pt-0">
+          <div className="min-w-0 border-t border-line pt-8 lg:border-t-0 lg:pt-0">
             <p className="meta-label text-muted">{t.footer.visitTitle}</p>
             <address className="mt-4 not-italic text-sm leading-7 text-cream/70">
               <span className="block">{address.line1}</span>
               <span className="block">{address.line2}</span>
               <span className="block">{address.line3}</span>
             </address>
+
+            <FooterMap />
+
             <a
               href={address.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t.footer.mapsAria}
-              className="group mt-5 inline-flex max-w-full items-center gap-2 text-sm text-accent transition-colors duration-300 hover:text-cream"
+              className="group mt-5 inline-flex max-w-full items-center gap-2 text-sm text-cream/70 transition-colors duration-300 hover:text-accent"
             >
               <span className="relative min-w-0">
                 <span className="break-words">{t.footer.mapsLink}</span>
@@ -64,7 +68,7 @@ export function Footer() {
                 aria-hidden="true"
                 className="inline-block shrink-0 transition-transform duration-300 group-hover:translate-x-1"
               >
-                ↗
+                →
               </span>
             </a>
 

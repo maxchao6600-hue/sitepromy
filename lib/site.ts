@@ -20,6 +20,12 @@ export const SITE = {
     addressCountry: "MY",
     mapsUrl:
       "https://www.google.com/maps/search/?api=1&query=16A%2C%20Jln%20Austin%20Heights%208%2F2%2C%2081100%20Johor%20Bahru%2C%20Johor%20Darul%20Ta%27zim%2C%20Malaysia",
+    /** Keyless Google Maps embed (q + output=embed). No Maps JavaScript API required. */
+    mapsEmbedUrl:
+      "https://www.google.com/maps?q=16A%2C%20Jln%20Austin%20Heights%208%2F2%2C%2081100%20Johor%20Bahru%2C%20Johor%20Darul%20Ta%27zim%2C%20Malaysia&hl=en&z=16&output=embed",
+    mapOverlayBrand: "SITEPRO MY",
+    mapOverlayLocation: "JOHOR BAHRU, MALAYSIA",
+    mapIframeTitle: "SitePro location in Johor Bahru",
   },
 } as const;
 

@@ -100,6 +100,75 @@ body {
   background: #050608;
 }
 
+/* Footer Google Maps preview — dark, muted, studio-grade */
+.footer-map {
+  box-sizing: border-box;
+  max-width: min(420px, 100%);
+}
+
+.footer-map-frame {
+  aspect-ratio: 16 / 9;
+  background: #0a0c10;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 210px;
+  transition: border-color 250ms ease;
+}
+
+.footer-map-frame:hover {
+  border-color: rgba(0, 128, 255, 0.35);
+}
+
+.footer-map-iframe {
+  /* Crop Google embed chrome; darken to match studio UI */
+  filter: grayscale(1) invert(0.92) contrast(0.86) brightness(0.62) saturate(0.2);
+  height: 118% !important;
+  left: -4%;
+  top: -6%;
+  transform: none;
+  width: 108% !important;
+}
+
+.footer-map-veil {
+  background:
+    linear-gradient(180deg, rgba(5, 6, 8, 0.55) 0%, rgba(5, 6, 8, 0.12) 22%, transparent 40%, transparent 52%, rgba(5, 6, 8, 0.78) 100%),
+    linear-gradient(90deg, rgba(5, 6, 8, 0.35) 0%, transparent 18%, transparent 82%, rgba(5, 6, 8, 0.35) 100%),
+    rgba(5, 6, 8, 0.22);
+}
+
+.footer-map-pin {
+  height: 8px;
+  width: 8px;
+  border-radius: 9999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(0, 128, 255, 0.22);
+}
+
+.footer-map-overlay {
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 6, 8, 0.82) 100%);
+}
+
+@media (max-width: 1023px) {
+  .footer-map {
+    max-width: 100%;
+  }
+
+  .footer-map-frame {
+    aspect-ratio: auto;
+    height: 220px;
+    min-height: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-map-frame {
+    height: auto;
+    max-height: 250px;
+  }
+}
+
 .scene-selected-work {
   background: #06080c;
 }

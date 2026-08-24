@@ -665,7 +665,7 @@ export const zh: SiteCopy = {
     startTitle: "开始",
     contactTitle: "联系",
     visitTitle: "到访我们",
-    mapsLink: "查看 Google 地图 →",
+    mapsLink: "查看 Google 地图",
     mapsAria: "在 Google 地图查看 SitePro 地址",
     serviceLinks: ["企业网站", "电子商务", "营销落地页", "定制体验"],
     startProject: "开始项目",

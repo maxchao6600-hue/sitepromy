@@ -717,7 +717,7 @@ export const en: SiteCopy = {
     startTitle: "Start",
     contactTitle: "Contact",
     visitTitle: "Visit Us",
-    mapsLink: "View on Google Maps →",
+    mapsLink: "View on Google Maps",
     mapsAria: "View SitePro location on Google Maps",
     serviceLinks: [
       "Business Websites",
