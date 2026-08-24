@@ -70,6 +70,23 @@ export type SiteCopy = {
       discipline: string;
     };
   };
+  brandFilm: {
+    scene: string;
+    index: string;
+    titleLines: string[];
+    stages: Record<
+      "idea" | "direction" | "design" | "build" | "live",
+      { label: string; description: string }
+    >;
+    closingLines: string[];
+    brandName: string;
+    brandDescriptor: string;
+    cta: string;
+    artboard: string;
+    concept: string;
+    responsive: string;
+    liveStatus: string;
+  };
   studioStatement: {
     scene: string;
     index: string;

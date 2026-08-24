@@ -67,8 +67,43 @@ export const zh: SiteCopy = {
       discipline: "领域",
     },
   },
-  studioStatement: {
+  brandFilm: {
     scene: "02",
+    index: "品牌影像",
+    titleLines: ["从想法", "到上线。"],
+    stages: {
+      idea: {
+        label: "想法",
+        description: "每个项目都从清晰的业务想法开始——你希望网站实现什么目标。",
+      },
+      direction: {
+        label: "方向",
+        description: "在精细打磨之前，我们先定义结构、层级与视觉方向。",
+      },
+      design: {
+        label: "设计",
+        description: "方向转化为界面——字体、影像与交互被有意图地组合在一起。",
+      },
+      build: {
+        label: "开发",
+        description: "设计成为快速、响应式的网站——桌面、平板与手机形成同一系统。",
+      },
+      live: {
+        label: "上线",
+        description: "体验正式上线。从想法到一个为受众准备好的网站。",
+      },
+    },
+    closingLines: ["从想法", "到上线。"],
+    brandName: "SITEPROMY",
+    brandDescriptor: "马来西亚网页设计",
+    cta: "开始项目 →",
+    artboard: "画板",
+    concept: "概念",
+    responsive: "响应式",
+    liveStatus: "上线",
+  },
+  studioStatement: {
+    scene: "03",
     index: "工作室",
     lines: ["我们不只是", "做网站。"],
     body: "我们设计的是品牌体验、用户路径与可衡量的业务结果。",
