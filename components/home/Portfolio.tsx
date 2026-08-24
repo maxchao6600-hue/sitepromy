@@ -128,13 +128,19 @@ function CaseStudyDetails({
   ];
 
   const blocks = [
+    { label: t.portfolio.caseStudy.challenge, value: copy.challenge, image: crops[0] },
     { label: t.portfolio.caseStudy.designDirection, value: copy.designDetail, image: crops[0] },
     { label: t.portfolio.caseStudy.experience, value: copy.experienceDetail, image: crops[1] },
     { label: t.portfolio.caseStudy.system, value: copy.systemDetail, image: crops[2] },
+    {
+      label: t.portfolio.caseStudy.intendedOutcome,
+      value: copy.intendedOutcome,
+      image: crops[1],
+    },
   ];
 
   return (
-    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3 lg:mt-8 lg:gap-5">
+    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-8 lg:grid-cols-3 lg:gap-5">
       {blocks.map((block) => (
         <article
           key={block.label}

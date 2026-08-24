@@ -7,7 +7,9 @@ const SITEMAP_PAGES: PageKey[] = [
   "services",
   "work",
   "process",
+  "about",
   "contact",
+  "quote",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -12,6 +12,7 @@ const initial: QuotePayload = {
   email: "",
   phone: "",
   websiteType: "",
+  currentWebsite: "",
   budget: "",
   project: "",
 };
@@ -57,12 +58,12 @@ export function QuoteForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-white/10 bg-surface-2 p-10">
-        <p className="eyebrow text-accent">{t.form.successEyebrow}</p>
-        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight">
+      <div className="border border-line bg-surface-2/40 p-8 lg:p-10">
+        <p className="meta-label text-accent">{t.form.successEyebrow}</p>
+        <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-cream">
           {t.form.successTitle}
         </h2>
-        <p className="mt-4 max-w-md text-sm leading-7 text-cream/55">
+        <p className="mt-4 max-w-md text-sm leading-7 text-secondary">
           {t.form.successBody}
         </p>
         <div className="mt-8">
@@ -76,9 +77,9 @@ export function QuoteForm() {
     <form
       onSubmit={onSubmit}
       noValidate
-      className="rounded-2xl border border-white/10 bg-surface-2 p-8"
+      className="border border-line bg-surface-2/40 p-6 sm:p-8"
     >
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <Field
           label={t.form.name}
           name="name"
@@ -124,6 +125,15 @@ export function QuoteForm() {
           required
           placeholder={t.form.selectOption}
           options={t.form.websiteTypes}
+        />
+        <Field
+          label={t.form.currentWebsite}
+          name="currentWebsite"
+          type="url"
+          autoComplete="url"
+          value={values.currentWebsite}
+          error={errors.currentWebsite}
+          onChange={(value) => update("currentWebsite", value)}
         />
         <SelectField
           label={t.form.budget}
@@ -178,7 +188,7 @@ export function QuoteForm() {
         </p>
       ) : null}
 
-      <div className="mt-7 flex flex-row items-center gap-3">
+      <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
         <Button type="submit" disabled={status === "submitting"}>
           {status === "submitting" ? t.form.submitting : t.form.submit}
         </Button>
@@ -190,8 +200,8 @@ export function QuoteForm() {
 
 function fieldClass(invalid: boolean, extra?: string) {
   return cn(
-    "w-full rounded-lg border bg-ink px-3.5 py-2.5 text-sm text-cream outline-none transition-colors placeholder:text-muted focus-visible:ring-2 focus-visible:ring-accent",
-    invalid ? "border-red-400" : "border-white/10 focus-visible:border-accent/40",
+    "w-full border bg-ink px-3.5 py-3 text-sm text-cream outline-none transition-colors placeholder:text-muted focus-visible:ring-2 focus-visible:ring-accent",
+    invalid ? "border-red-400" : "border-line focus-visible:border-accent/40",
     extra,
   );
 }

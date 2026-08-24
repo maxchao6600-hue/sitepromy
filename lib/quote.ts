@@ -6,6 +6,7 @@ export type QuotePayload = {
   email: string;
   phone: string;
   websiteType: string;
+  currentWebsite: string;
   budget: string;
   project: string;
 };
@@ -20,6 +21,7 @@ type ValidateOptions = {
     email?: string;
     phoneTooLong?: string;
     websiteType?: string;
+    currentWebsiteTooLong?: string;
     budget?: string;
     project?: string;
     projectTooLong?: string;
@@ -39,6 +41,7 @@ export function validateQuote(input: Partial<QuotePayload>, options?: ValidateOp
   const email = input.email?.trim() ?? "";
   const phone = input.phone?.trim() ?? "";
   const websiteType = input.websiteType?.trim() ?? "";
+  const currentWebsite = input.currentWebsite?.trim() ?? "";
   const budget = input.budget?.trim() ?? "";
   const project = input.project?.trim() ?? "";
 
@@ -59,6 +62,11 @@ export function validateQuote(input: Partial<QuotePayload>, options?: ValidateOp
     errors.websiteType = messages.websiteType ?? "Please choose a website type.";
   }
 
+  if (currentWebsite.length > 200) {
+    errors.currentWebsite =
+      messages.currentWebsiteTooLong ?? "Website URL is too long.";
+  }
+
   if (!ranges.includes(budget)) {
     errors.budget = messages.budget ?? "Please choose a budget range.";
   }
@@ -76,6 +84,7 @@ export function validateQuote(input: Partial<QuotePayload>, options?: ValidateOp
     email,
     phone,
     websiteType,
+    currentWebsite,
     budget,
     project,
   };

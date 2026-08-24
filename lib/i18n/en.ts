@@ -27,6 +27,11 @@ export const en: SiteCopy = {
       description:
         "From brief to live — SitePro's five-stage web design process for fast, professional website delivery in Malaysia.",
     },
+    about: {
+      title: "About SitePro | Malaysia Web Design Studio",
+      description:
+        "SitePro is a Malaysia web design studio focused on professional digital experiences for businesses that want a stronger online presence.",
+    },
     contact: {
       title: "Contact | SitePro Malaysia",
       description:
@@ -44,6 +49,7 @@ export const en: SiteCopy = {
     services: "Services",
     work: "Work",
     process: "Process",
+    about: "About",
     contact: "Contact",
     startProject: "Start a Project",
     openMenu: "Open menu",
@@ -75,6 +81,178 @@ export const en: SiteCopy = {
     prev: "Prev",
     next: "Next",
     live: "Live",
+  },
+  why: {
+    scene: "03",
+    index: "Why SitePro",
+    titleLines: ["Built around your business.", "Not another template."],
+    principles: {
+      "01": {
+        title: "Built Around Your Business",
+        lead: "Not another template.",
+        body: "Every website starts from the business, audience and goal.",
+      },
+      "02": {
+        title: "Design + Development",
+        lead: "One team from direction to launch.",
+        body: "Visual direction and implementation stay aligned through the full build.",
+      },
+      "03": {
+        title: "Mobile-First Experience",
+        lead: "Designed for how people actually browse.",
+        body: "Layouts are shaped for real devices — not a desktop design squeezed later.",
+      },
+      "04": {
+        title: "Built To Grow",
+        lead: "A foundation for what comes next.",
+        body: "Launch is a starting point — structure that can evolve with the business.",
+      },
+    },
+  },
+  capabilities: {
+    scene: "05",
+    index: "What's Inside",
+    titleLines: ["More than", "a website."],
+    intro:
+      "SitePro combines design direction, development and growth foundations into one focused delivery.",
+    columns: {
+      design: {
+        title: "Design",
+        items: [
+          "Visual direction",
+          "Responsive UI",
+          "Design systems",
+          "Interaction design",
+          "Mobile experience",
+        ],
+      },
+      development: {
+        title: "Development",
+        items: [
+          "Custom development",
+          "Responsive implementation",
+          "CMS integration",
+          "Performance optimization",
+          "Technical foundations",
+        ],
+      },
+      growth: {
+        title: "Growth",
+        items: [
+          "SEO foundations",
+          "Analytics setup",
+          "Conversion structure",
+          "Content architecture",
+          "Future scalability",
+        ],
+      },
+    },
+  },
+  faq: {
+    scene: "08",
+    index: "FAQ",
+    title: "Common questions.",
+    items: [
+      {
+        question: "How long does a website take?",
+        answer:
+          "Timelines depend on scope — a focused landing page can move quickly, while a full business or e-commerce site needs more structure, design and review. We'll recommend a realistic timeline after understanding the project.",
+      },
+      {
+        question: "How much does a website cost?",
+        answer:
+          "Pricing depends on website type, content volume, features and timeline. Share your project details and we'll recommend a suitable direction and quote.",
+      },
+      {
+        question: "Do you provide domain and hosting?",
+        answer:
+          "We can advise on domain and hosting options and help set up what's needed for launch. Specific arrangements depend on the project.",
+      },
+      {
+        question: "Can you redesign my existing website?",
+        answer:
+          "Yes. Website redesign is part of what we build — improving structure, design, performance and clarity for an existing brand.",
+      },
+      {
+        question: "Will the website work on mobile?",
+        answer:
+          "Yes. Every SitePro website is designed and built to work clearly across mobile, tablet and desktop.",
+      },
+      {
+        question: "Do you provide SEO?",
+        answer:
+          "We build SEO foundations into the site — structure, metadata, performance and content hierarchy. Ongoing SEO campaigns can be discussed separately if needed.",
+      },
+      {
+        question: "Can I update the website myself?",
+        answer:
+          "Where a project needs editable content, we can set up a CMS or a practical update workflow. The right approach depends on how often you need to change the site.",
+      },
+      {
+        question: "What happens after the website launches?",
+        answer:
+          "After launch we hand over a production-ready site. Ongoing support — updates, improvements and maintenance — can continue if you need it.",
+      },
+      {
+        question: "Can you build e-commerce websites?",
+        answer:
+          "Yes. We design and build product-led storefronts with clear paths to purchase.",
+      },
+      {
+        question: "Can you work with businesses outside Malaysia?",
+        answer:
+          "Yes. We work with businesses in Malaysia, Singapore and remotely where the collaboration fits.",
+      },
+    ],
+  },
+  afterLaunch: {
+    scene: "07",
+    index: "After Launch",
+    title: "What happens after launch?",
+    body: "Launch is not the end of the website. Depending on the project, support can include fixes, improvements and future features — discussed clearly, not assumed.",
+    items: [
+      "Fixes and refinements",
+      "Content updates",
+      "Performance and SEO improvements",
+      "New sections or features",
+      "Ongoing maintenance",
+    ],
+  },
+  startingPoints: {
+    scene: "06",
+    index: "Starting Points",
+    title: "Project starting points.",
+    intro: "Every project is scoped around the business — not a fixed package list.",
+    items: [
+      {
+        title: "Business Website",
+        description: "For businesses that need a professional digital presence.",
+      },
+      {
+        title: "E-Commerce",
+        description: "For businesses selling products online.",
+      },
+      {
+        title: "Custom Experience",
+        description: "For projects requiring a more tailored digital experience.",
+      },
+    ],
+    cta: "Discuss Your Project →",
+  },
+  about: {
+    scene: "01",
+    index: "About",
+    titleLines: ["A Malaysia web", "design studio."],
+    body: [
+      "SitePro is a Malaysia-based web design studio focused on building professional digital experiences for businesses that want a stronger online presence.",
+      "We design and develop websites around the business — clarity, structure and a clear path for people to take the next step.",
+    ],
+    profile: [
+      { label: "Based In", value: "Malaysia" },
+      { label: "Focus", value: "Web Design · E-Commerce · Landing Pages · Custom Experiences" },
+      { label: "Languages", value: "English · 中文" },
+      { label: "Working With", value: "Malaysia · Singapore · Remote" },
+    ],
   },
   studioStatement: {
     scene: "03",
@@ -133,7 +311,7 @@ export const en: SiteCopy = {
   services: {
     eyebrow: "Services",
     titleLines: ["WHAT", "WE", "BUILD."],
-    scene: "03",
+    scene: "04",
     index: "Services",
     selectedLabel: "Selected Service",
     viewLabel: "View →",
@@ -208,6 +386,8 @@ export const en: SiteCopy = {
       designDirection: "Design Direction",
       experience: "Experience",
       system: "System",
+      challenge: "The Challenge",
+      intendedOutcome: "Intended Outcome",
     },
     detailStrip: {
       typography: "Typography",
@@ -215,6 +395,7 @@ export const en: SiteCopy = {
       navigation: "Navigation",
       mobile: "Mobile",
     },
+    navLabel: "Projects",
     projects: {
       atelier: {
         subtitle: "Fine Dining Digital Experience",
@@ -227,6 +408,10 @@ export const en: SiteCopy = {
         designDetail: "Typography / Photography / Atmosphere",
         experienceDetail: "Menu / Reservations / Private Dining",
         systemDetail: "Grid / Navigation / Responsive",
+        challenge:
+          "Create a premium digital experience for a modern hospitality brand.",
+        intendedOutcome:
+          "A stronger digital first impression and a clearer path to reservation.",
       },
       nova: {
         subtitle: "Fashion Editorial Commerce",
@@ -239,6 +424,10 @@ export const en: SiteCopy = {
         designDetail: "Editorial Type / Imagery / Spacing",
         experienceDetail: "Lookbook / Collection / Product",
         systemDetail: "Layout / Commerce / Mobile",
+        challenge:
+          "Present fashion collections with editorial clarity and a clear path to product discovery.",
+        intendedOutcome:
+          "A memorable visual journey that supports browsing and purchase intent.",
       },
       form: {
         subtitle: "Architecture Digital Portfolio",
@@ -251,6 +440,10 @@ export const en: SiteCopy = {
         designDetail: "Material / Structure / Space",
         experienceDetail: "Projects / Location / Year",
         systemDetail: "Grid / Case Studies / Responsive",
+        challenge:
+          "Communicate architectural work with clarity — material, space and project narrative.",
+        intendedOutcome:
+          "A focused portfolio that presents projects with credibility and structure.",
       },
       mono: {
         subtitle: "Corporate Digital Experience",
@@ -263,6 +456,10 @@ export const en: SiteCopy = {
         designDetail: "Typography / Hierarchy / Clarity",
         experienceDetail: "Services / Leadership / Capabilities",
         systemDetail: "Components / Structure / Responsive",
+        challenge:
+          "Create a corporate presence that feels clear, credible and easy to navigate.",
+        intendedOutcome:
+          "A professional digital foundation that supports trust and next-step actions.",
       },
       orbit: {
         subtitle: "Premium Audio E-Commerce",
@@ -275,6 +472,10 @@ export const en: SiteCopy = {
         designDetail: "Product / Material / Precision",
         experienceDetail: "Specs / Purchase / Comparison",
         systemDetail: "Commerce / Product Grid / Mobile",
+        challenge:
+          "Sell premium products through storytelling without losing a clear purchase path.",
+        intendedOutcome:
+          "A product-led storefront that balances brand atmosphere with conversion clarity.",
       },
       pulse: {
         subtitle: "Professional Services Platform",
@@ -287,6 +488,10 @@ export const en: SiteCopy = {
         designDetail: "Typography / Trust / Structure",
         experienceDetail: "Strategy / Advisory / Results",
         systemDetail: "Services / Flow / Responsive",
+        challenge:
+          "Communicate expertise and services without overwhelming the visitor.",
+        intendedOutcome:
+          "A clear advisory experience that builds trust and guides contact.",
       },
     },
   },
@@ -368,12 +573,12 @@ export const en: SiteCopy = {
     },
   },
   cta: {
-    eyebrow: "Start here",
-    titleLines: ["HAVE A", "GOOD IDEA?"],
-    headlineLines: ["FROM IDEA", "TO LIVE WEBSITE."],
-    prompt: "Have something you're building?",
-    action: "LET'S BUILD IT.",
-    actionShort: "Let's build it.",
+    eyebrow: "Start a Project",
+    titleLines: ["READY TO BUILD", "SOMETHING BETTER?"],
+    headlineLines: ["READY TO BUILD", "SOMETHING BETTER?"],
+    prompt: "Tell us what you're building.",
+    action: "START A PROJECT",
+    actionShort: "Let's start with your project.",
     body: "Tell us what you're building.",
     offerings: [
       "Business Website",
@@ -421,24 +626,40 @@ export const en: SiteCopy = {
     description:
       "Five focused stages — from understanding the brief to launching a polished website ready for your audience.",
   },
+  aboutPage: {
+    eyebrow: "About",
+    title: "About SitePro.",
+    description:
+      "A Malaysia web design studio building professional digital experiences for businesses.",
+  },
   contactPage: {
-    eyebrow: "Contact",
+    eyebrow: "Start a Project",
     title: "Contact SitePro.",
+    titleLines: ["LET'S", "BUILD", "SOMETHING", "USEFUL."],
     description:
       "The fastest way to start is the form. Tell us about your project and we'll follow up.",
     aside:
-      "SitePro designs and develops professional websites for businesses in Malaysia. If you already have an idea — or just know you need a better website — start here.",
+      "SitePro designs and develops professional websites for businesses. If you already have an idea — or just know you need a better website — start here.",
   },
   quotePage: {
-    eyebrow: "Start your project",
-    title: "Tell us what you have in mind.",
+    eyebrow: "Start with your project",
+    title: "Tell us what you're building.",
     description:
-      "Share a little about your business and the website you need. We'll follow up with a clear next step — no obligation.",
+      "Share what you need and where you want to go. We'll review the project and recommend a clear next step.",
     nextTitle: "What happens next",
     steps: [
-      "We review your brief. Your goals, website type and timeline help us recommend the right approach.",
-      "We follow up. You'll hear from us with questions if needed, and a suitable quote.",
-      "We plan the site. Once you're ready, we turn the idea into structure, design and a live website.",
+      "We review your project.",
+      "We understand the scope.",
+      "We recommend the right direction.",
+      "We discuss the next step.",
+    ],
+    sections: [
+      { number: "01", title: "About You" },
+      { number: "02", title: "Your Business" },
+      { number: "03", title: "Your Project" },
+      { number: "04", title: "Your Goals" },
+      { number: "05", title: "Budget / Timeline" },
+      { number: "06", title: "Contact" },
     ],
   },
   form: {
@@ -447,9 +668,10 @@ export const en: SiteCopy = {
     email: "Email",
     phone: "Phone / WhatsApp",
     websiteType: "Website type",
+    currentWebsite: "Current website",
     budget: "Budget range",
     project: "Tell us about your project",
-    submit: "Get My Free Quote",
+    submit: "Start a Project",
     submitting: "Sending…",
     successEyebrow: "Request received",
     successTitle: "Thanks — we'll take a look.",
@@ -471,6 +693,7 @@ export const en: SiteCopy = {
       email: "Please enter a valid email.",
       phoneTooLong: "Phone number is too long.",
       websiteType: "Please choose a website type.",
+      currentWebsiteTooLong: "Website URL is too long.",
       budget: "Please choose a budget range.",
       project: "Please tell us a little more about your project.",
       projectTooLong: "Please keep this under 2,000 characters.",

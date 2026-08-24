@@ -27,6 +27,11 @@ export const zh: SiteCopy = {
       description:
         "从需求沟通到正式上线——SitePro 五阶段网页设计流程，为马来西亚企业提供快速、专业的网站交付。",
     },
+    about: {
+      title: "关于 SitePro | 马来西亚网页设计工作室",
+      description:
+        "SitePro 是一家马来西亚网页设计工作室，为企业打造更专业的数字体验与在线形象。",
+    },
     contact: {
       title: "联系 | SitePro 马来西亚",
       description:
@@ -44,6 +49,7 @@ export const zh: SiteCopy = {
     services: "服务",
     work: "作品",
     process: "流程",
+    about: "关于",
     contact: "联系",
     startProject: "开始项目",
     openMenu: "打开菜单",
@@ -75,6 +81,152 @@ export const zh: SiteCopy = {
     prev: "上一个",
     next: "下一个",
     live: "实时",
+  },
+  why: {
+    scene: "03",
+    index: "为什么选择 SitePro",
+    titleLines: ["围绕你的业务打造。", "不是套一个模板就结束。"],
+    principles: {
+      "01": {
+        title: "围绕你的业务打造",
+        lead: "不是套模板。",
+        body: "从你的业务、客户与目标开始。",
+      },
+      "02": {
+        title: "设计 + 开发",
+        lead: "从设计方向到最终上线，由同一个团队完成。",
+        body: "视觉方向与实现保持一致，贯穿整个项目。",
+      },
+      "03": {
+        title: "移动端优先",
+        lead: "根据真实用户的浏览方式设计。",
+        body: "面向真实设备布局——不是桌面版缩小后再处理。",
+      },
+      "04": {
+        title: "为未来扩展而设计",
+        lead: "网站上线不是终点。",
+        body: "而是下一阶段发展的基础——结构可以随业务演进。",
+      },
+    },
+  },
+  capabilities: {
+    scene: "05",
+    index: "包含什么",
+    titleLines: ["不只是", "一个网站。"],
+    intro: "SitePro 将设计方向、开发与增长基础整合在一次聚焦的交付中。",
+    columns: {
+      design: {
+        title: "设计",
+        items: ["视觉方向", "响应式界面", "设计系统", "交互设计", "移动端体验"],
+      },
+      development: {
+        title: "开发",
+        items: ["定制开发", "响应式实现", "CMS 集成", "性能优化", "技术基础"],
+      },
+      growth: {
+        title: "增长",
+        items: ["SEO 基础", "分析设置", "转化结构", "内容架构", "未来可扩展性"],
+      },
+    },
+  },
+  faq: {
+    scene: "08",
+    index: "常见问题",
+    title: "常见问题。",
+    items: [
+      {
+        question: "网站一般需要多久？",
+        answer:
+          "时间取决于项目范围——聚焦的落地页可以更快推进，完整企业站或电商站则需要更多结构、设计与确认。我们会在了解项目后给出合理时间线。",
+      },
+      {
+        question: "网站大概多少钱？",
+        answer:
+          "费用取决于网站类型、内容量、功能与时间线。告诉我们你的项目，我们会推荐合适的方向与报价。",
+      },
+      {
+        question: "你们提供域名和主机吗？",
+        answer:
+          "我们可以建议域名与主机方案，并协助完成上线所需配置。具体安排取决于项目。",
+      },
+      {
+        question: "可以改版现有网站吗？",
+        answer:
+          "可以。网站改版是我们提供的服务之一——改善结构、设计、性能与清晰度。",
+      },
+      {
+        question: "网站在手机上能用吗？",
+        answer:
+          "可以。SitePro 的网站都会针对手机、平板与桌面进行设计与开发。",
+      },
+      {
+        question: "你们做 SEO 吗？",
+        answer:
+          "我们会把 SEO 基础做进网站——结构、元数据、性能与内容层级。持续的 SEO 推广如有需要可以另行讨论。",
+      },
+      {
+        question: "我可以自己更新网站吗？",
+        answer:
+          "如果项目需要可编辑内容，我们可以配置 CMS 或实用的更新流程。具体方式取决于你需要多频繁更新。",
+      },
+      {
+        question: "网站上线之后呢？",
+        answer:
+          "上线后我们会交付可用的正式网站。若你需要，也可以继续更新、优化与维护。",
+      },
+      {
+        question: "可以做电子商务网站吗？",
+        answer: "可以。我们设计并打造以产品为导向、购买路径清晰的在线商店。",
+      },
+      {
+        question: "可以服务马来西亚以外的企业吗？",
+        answer:
+          "可以。我们与马来西亚、新加坡以及远程协作合适的企业合作。",
+      },
+    ],
+  },
+  afterLaunch: {
+    scene: "07",
+    index: "上线之后",
+    title: "上线之后会发生什么？",
+    body: "上线不是网站的终点。根据项目需要，支持可以包括修复、优化与后续功能——会事先说清楚，而不是默认包含。",
+    items: ["修复与微调", "内容更新", "性能与 SEO 优化", "新版块或功能", "持续维护"],
+  },
+  startingPoints: {
+    scene: "06",
+    index: "起步方向",
+    title: "项目起步方向。",
+    intro: "每个项目都围绕业务来界定范围——不是固定套餐列表。",
+    items: [
+      {
+        title: "企业网站",
+        description: "适合需要专业在线形象的企业。",
+      },
+      {
+        title: "电子商务",
+        description: "适合在线销售产品的业务。",
+      },
+      {
+        title: "定制体验",
+        description: "适合需要更定制化数字体验的项目。",
+      },
+    ],
+    cta: "讨论你的项目 →",
+  },
+  about: {
+    scene: "01",
+    index: "关于",
+    titleLines: ["马来西亚", "网页设计工作室。"],
+    body: [
+      "SitePro 是一家马来西亚网页设计工作室，专注为企业打造更专业的数字体验与在线形象。",
+      "我们围绕业务来设计与开发网站——清晰、结构明确，并让访客知道下一步该做什么。",
+    ],
+    profile: [
+      { label: "所在地", value: "马来西亚" },
+      { label: "专注领域", value: "网页设计 · 电子商务 · 落地页 · 定制体验" },
+      { label: "语言", value: "English · 中文" },
+      { label: "服务范围", value: "马来西亚 · 新加坡 · 远程" },
+    ],
   },
   studioStatement: {
     scene: "03",
@@ -133,7 +285,7 @@ export const zh: SiteCopy = {
   services: {
     eyebrow: "服务",
     titleLines: ["我们打造", "什么。"],
-    scene: "03",
+    scene: "04",
     index: "服务",
     selectedLabel: "当前服务",
     viewLabel: "查看 →",
@@ -207,6 +359,8 @@ export const zh: SiteCopy = {
       designDirection: "设计方向",
       experience: "体验",
       system: "系统",
+      challenge: "挑战",
+      intendedOutcome: "预期效果",
     },
     detailStrip: {
       typography: "字体",
@@ -214,6 +368,7 @@ export const zh: SiteCopy = {
       navigation: "导航",
       mobile: "移动端",
     },
+    navLabel: "项目",
     projects: {
       atelier: {
         subtitle: "高端餐饮数字体验",
@@ -225,6 +380,8 @@ export const zh: SiteCopy = {
         designDetail: "字体 / 摄影 / 氛围",
         experienceDetail: "菜单 / 预订 / 私人用餐",
         systemDetail: "栅格 / 导航 / 响应式",
+        challenge: "为现代餐饮品牌打造高端的数字体验。",
+        intendedOutcome: "更强的第一印象，以及更清晰的预订路径。",
       },
       nova: {
         subtitle: "时尚编辑式电商",
@@ -236,6 +393,8 @@ export const zh: SiteCopy = {
         designDetail: "编辑式排版 / 影像 / 留白",
         experienceDetail: "Lookbook / 系列 / 产品",
         systemDetail: "布局 / 电商 / 移动端",
+        challenge: "以编辑式清晰度呈现时尚系列，并引导产品发现。",
+        intendedOutcome: "令人难忘的视觉旅程，同时支持浏览与购买意图。",
       },
       form: {
         subtitle: "建筑数字作品集",
@@ -247,6 +406,8 @@ export const zh: SiteCopy = {
         designDetail: "材质 / 结构 / 空间",
         experienceDetail: "项目 / 地点 / 年份",
         systemDetail: "栅格 / 案例 / 响应式",
+        challenge: "清晰传达建筑作品——材质、空间与项目叙事。",
+        intendedOutcome: "结构清晰、可信度强的作品集呈现。",
       },
       mono: {
         subtitle: "企业数字体验",
@@ -258,6 +419,8 @@ export const zh: SiteCopy = {
         designDetail: "字体 / 层级 / 清晰",
         experienceDetail: "服务 / 领导团队 / 能力",
         systemDetail: "组件 / 结构 / 响应式",
+        challenge: "打造清晰、可信、易于导航的企业在线形象。",
+        intendedOutcome: "支持信任与下一步行动的专业数字基础。",
       },
       orbit: {
         subtitle: "高端音频电商",
@@ -269,6 +432,8 @@ export const zh: SiteCopy = {
         designDetail: "产品 / 材质 / 精准",
         experienceDetail: "规格 / 购买 / 对比",
         systemDetail: "电商 / 产品栅格 / 移动端",
+        challenge: "用叙事销售高端产品，同时保持清晰的购买路径。",
+        intendedOutcome: "在品牌氛围与转化清晰度之间取得平衡的产品店面。",
       },
       pulse: {
         subtitle: "专业服务网站",
@@ -280,6 +445,8 @@ export const zh: SiteCopy = {
         designDetail: "字体 / 信任 / 结构",
         experienceDetail: "战略 / 咨询 / 成果",
         systemDetail: "服务 / 流程 / 响应式",
+        challenge: "清晰传达专业能力与服务，而不让访客感到过载。",
+        intendedOutcome: "建立信任并引导联系的清晰咨询体验。",
       },
     },
   },
@@ -356,12 +523,12 @@ export const zh: SiteCopy = {
     },
   },
   cta: {
-    eyebrow: "从这里开始",
-    titleLines: ["有一个", "好想法？"],
-    headlineLines: ["从想法", "到上线网站。"],
-    prompt: "有什么正在打造的项目？",
-    action: "让我们一起把它做出来。",
-    actionShort: "一起打造。",
+    eyebrow: "开始项目",
+    titleLines: ["准备好，", "把网站做得更好吗？"],
+    headlineLines: ["准备好，", "把网站做得更好吗？"],
+    prompt: "告诉我们你正在打造什么。",
+    action: "开始项目",
+    actionShort: "从你的项目开始。",
     body: "告诉我们你正在打造什么。",
     offerings: ["企业网站", "电子商务", "营销落地页", "定制体验"],
     scene: "09",
@@ -379,7 +546,7 @@ export const zh: SiteCopy = {
     startProject: "开始项目",
     requestQuote: "获取报价",
     tagline: "快速。专业。灵活。",
-    rights: "© 2026 SitePro Malaysia Web Design.",
+    rights: "© 2026 SitePro Malaysia Web Design。保留所有权利。",
   },
   workPage: {
     eyebrow: "我们的作品",
@@ -399,23 +566,37 @@ export const zh: SiteCopy = {
     description:
       "五个聚焦阶段——从理解需求到上线一个为你的受众准备好的精致网站。",
   },
+  aboutPage: {
+    eyebrow: "关于",
+    title: "关于 SitePro。",
+    description: "一家马来西亚网页设计工作室，为企业打造专业的数字体验。",
+  },
   contactPage: {
-    eyebrow: "联系",
+    eyebrow: "开始项目",
     title: "联系 SitePro。",
+    titleLines: ["一起", "把它", "做出来。"],
     description: "最快的开始方式是填写表单。告诉我们你的项目，我们会跟进回复。",
     aside:
-      "SitePro 为马来西亚的企业设计与开发专业网站。如果你已有想法——或只是知道你需要一个更好的网站——从这里开始。",
+      "SitePro 为企业设计与开发专业网站。如果你已有想法——或只是知道你需要一个更好的网站——从这里开始。",
   },
   quotePage: {
-    eyebrow: "开始项目",
-    title: "告诉我们你的想法。",
-    description:
-      "简单介绍你的业务与所需的网站。我们会跟进并给出清晰的下一步——无任何义务。",
+    eyebrow: "从项目开始",
+    title: "告诉我们你正在打造什么。",
+    description: "分享你的需求与目标。我们会审阅项目并建议清晰的下一步。",
     nextTitle: "接下来会发生什么",
     steps: [
-      "我们审阅你的需求。你的目标、网站类型与时间线，帮助我们推荐合适的方案。",
-      "我们跟进回复。如有需要会向你提问，并提供合适的报价。",
-      "我们规划网站。当你准备好后，我们将想法转化为结构、设计与上线的网站。",
+      "我们审阅你的项目。",
+      "我们理解范围。",
+      "我们推荐合适的方向。",
+      "我们讨论下一步。",
+    ],
+    sections: [
+      { number: "01", title: "关于你" },
+      { number: "02", title: "你的业务" },
+      { number: "03", title: "你的项目" },
+      { number: "04", title: "你的目标" },
+      { number: "05", title: "预算 / 时间线" },
+      { number: "06", title: "联系方式" },
     ],
   },
   form: {
@@ -424,9 +605,10 @@ export const zh: SiteCopy = {
     email: "电子邮箱",
     phone: "电话 / WhatsApp",
     websiteType: "网站类型",
+    currentWebsite: "现有网站",
     budget: "预算范围",
     project: "告诉我们你的项目",
-    submit: "获取免费报价",
+    submit: "开始项目",
     submitting: "发送中…",
     successEyebrow: "已收到请求",
     successTitle: "谢谢——我们会查看。",
@@ -445,6 +627,7 @@ export const zh: SiteCopy = {
       email: "请输入有效的电子邮箱。",
       phoneTooLong: "电话号码过长。",
       websiteType: "请选择网站类型。",
+      currentWebsiteTooLong: "网站链接过长。",
       budget: "请选择预算范围。",
       project: "请再多介绍一些你的项目。",
       projectTooLong: "请控制在 2,000 字以内。",

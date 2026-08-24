@@ -3,32 +3,24 @@
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { Hero } from "@/components/home/Hero";
 import { SelectedWorkSlider } from "@/components/home/SelectedWorkSlider";
-import { StudioStatement } from "@/components/home/StudioStatement";
+import { WhySitePro } from "@/components/home/WhySitePro";
 import { Services } from "@/components/home/Services";
-import { Portfolio } from "@/components/home/Portfolio";
-import { SpeedSection } from "@/components/home/SpeedSection";
+import { Capabilities } from "@/components/home/Capabilities";
 import { ProcessInteractive } from "@/components/home/ProcessInteractive";
-import { DesignSystemSection } from "@/components/home/DesignSystemSection";
-import { BusinessGoalsSection } from "@/components/home/BusinessGoalsSection";
-import { DetailStrip } from "@/components/ui/DetailStrip";
-import { useLanguage } from "@/lib/i18n";
+import { FAQ } from "@/components/home/FAQ";
+import { StartingPoints } from "@/components/home/StartingPoints";
 
 export function HomePageContent() {
-  const { t } = useLanguage();
-
   return (
     <>
       <Hero />
       <SelectedWorkSlider />
-      <DetailStrip items={t.detailStrips.capabilities} numbered />
-      <StudioStatement />
-      <DetailStrip items={t.detailStrips.disciplines} />
+      <WhySitePro />
       <Services />
-      <Portfolio />
-      <SpeedSection />
+      <Capabilities />
       <ProcessInteractive />
-      <DesignSystemSection />
-      <BusinessGoalsSection />
+      <StartingPoints />
+      <FAQ />
       <FinalCTA />
     </>
   );

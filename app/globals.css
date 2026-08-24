@@ -104,6 +104,30 @@ body {
   background: #06080c;
 }
 
+.scene-why {
+  background: #050608;
+}
+
+.scene-capabilities {
+  background: #080a0d;
+}
+
+.scene-faq {
+  background: #050608;
+}
+
+.scene-after-launch {
+  background: #07090c;
+}
+
+.scene-starting-points {
+  background: #06080c;
+}
+
+.scene-about {
+  background: #07090c;
+}
+
 @keyframes selected-work-progress {
   from {
     transform: scaleX(0);
@@ -189,16 +213,19 @@ body {
 
   html:not([data-lang="zh"]) .hero-copy {
     max-width: min(100%, 42rem);
+    z-index: 2;
   }
 
   html:not([data-lang="zh"]) .hero-preview {
+    contain: layout paint;
     isolation: isolate;
     margin-inline-start: auto;
     max-width: 100%;
     min-width: 0;
-    overflow: hidden;
+    overflow: clip;
     padding-inline-start: clamp(0.5rem, 1.5vw, 1.5rem);
     width: 100%;
+    z-index: 1;
   }
 
   html:not([data-lang="zh"]) .hero-showcase-root,

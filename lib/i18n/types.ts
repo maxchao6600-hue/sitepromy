@@ -28,7 +28,7 @@ export type SiteCopy = {
     description: string;
   };
   pageMeta: Record<
-    "home" | "services" | "work" | "process" | "contact" | "quote",
+    "home" | "services" | "work" | "process" | "about" | "contact" | "quote",
     { title: string; description: string }
   >;
   skipLink: string;
@@ -37,6 +37,7 @@ export type SiteCopy = {
     services: string;
     work: string;
     process: string;
+    about: string;
     contact: string;
     startProject: string;
     openMenu: string;
@@ -68,6 +69,53 @@ export type SiteCopy = {
     prev: string;
     next: string;
     live: string;
+  };
+  why: {
+    scene: string;
+    index: string;
+    titleLines: string[];
+    principles: Record<
+      "01" | "02" | "03" | "04",
+      { title: string; lead: string; body: string }
+    >;
+  };
+  capabilities: {
+    scene: string;
+    index: string;
+    titleLines: string[];
+    intro: string;
+    columns: Record<
+      "design" | "development" | "growth",
+      { title: string; items: string[] }
+    >;
+  };
+  faq: {
+    scene: string;
+    index: string;
+    title: string;
+    items: Array<{ question: string; answer: string }>;
+  };
+  afterLaunch: {
+    scene: string;
+    index: string;
+    title: string;
+    body: string;
+    items: string[];
+  };
+  startingPoints: {
+    scene: string;
+    index: string;
+    title: string;
+    intro: string;
+    items: Array<{ title: string; description: string }>;
+    cta: string;
+  };
+  about: {
+    scene: string;
+    index: string;
+    titleLines: string[];
+    body: string[];
+    profile: Array<{ label: string; value: string }>;
   };
   studioStatement: {
     scene: string;
@@ -137,6 +185,8 @@ export type SiteCopy = {
       designDirection: string;
       experience: string;
       system: string;
+      challenge: string;
+      intendedOutcome: string;
     };
     detailStrip: {
       typography: string;
@@ -144,6 +194,7 @@ export type SiteCopy = {
       navigation: string;
       mobile: string;
     };
+    navLabel: string;
     projects: Record<
       ProjectSlug,
       {
@@ -156,6 +207,8 @@ export type SiteCopy = {
         designDetail: string;
         experienceDetail: string;
         systemDetail: string;
+        challenge: string;
+        intendedOutcome: string;
       }
     >;
   };
@@ -228,9 +281,15 @@ export type SiteCopy = {
     title: string;
     description: string;
   };
+  aboutPage: {
+    eyebrow: string;
+    title: string;
+    description: string;
+  };
   contactPage: {
     eyebrow: string;
     title: string;
+    titleLines: string[];
     description: string;
     aside: string;
   };
@@ -240,6 +299,7 @@ export type SiteCopy = {
     description: string;
     nextTitle: string;
     steps: string[];
+    sections: Array<{ number: string; title: string }>;
   };
   form: {
     name: string;
@@ -247,6 +307,7 @@ export type SiteCopy = {
     email: string;
     phone: string;
     websiteType: string;
+    currentWebsite: string;
     budget: string;
     project: string;
     submit: string;
@@ -268,6 +329,7 @@ export type SiteCopy = {
       email: string;
       phoneTooLong: string;
       websiteType: string;
+      currentWebsiteTooLong: string;
       budget: string;
       project: string;
       projectTooLong: string;

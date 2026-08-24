@@ -5,6 +5,7 @@ export type PageKey =
   | "services"
   | "work"
   | "process"
+  | "about"
   | "contact"
   | "quote";
 
@@ -15,6 +16,7 @@ export const ROUTES: Record<PageKey, Record<Language, string>> = {
   services: { en: "/services", zh: "/zh/services" },
   work: { en: "/work", zh: "/zh/work" },
   process: { en: "/process", zh: "/zh/process" },
+  about: { en: "/about", zh: "/zh/about" },
   contact: { en: "/contact", zh: "/zh/contact" },
   quote: { en: "/quote", zh: "/zh/quote" },
 };
@@ -24,6 +26,7 @@ export const NAV_PAGES: NavKey[] = [
   "services",
   "work",
   "process",
+  "about",
   "contact",
 ];
 
@@ -84,6 +87,7 @@ export function getPageKeyFromPathname(pathname: string): PageKey | null {
   if (base === "/services") return "services";
   if (base === "/work") return "work";
   if (base === "/process") return "process";
+  if (base === "/about") return "about";
   if (base === "/contact") return "contact";
   if (base === "/quote") return "quote";
 

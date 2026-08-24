@@ -31,7 +31,7 @@ export function Footer() {
 
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
             <div>
-              <p className="meta-label text-muted">{t.footer.exploreTitle}</p>
+              <p className="meta-label text-muted">{t.footer.navTitle}</p>
               <ul className="mt-4 space-y-2">
                 {NAV_PAGES.map((page) => (
                   <li key={page}>
