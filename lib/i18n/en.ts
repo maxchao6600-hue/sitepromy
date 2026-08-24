@@ -135,12 +135,9 @@ export const en: SiteCopy = {
     titleLines: ["WHAT", "WE", "BUILD."],
     scene: "03",
     index: "Services",
-    metaLabels: {
-      type: "Type",
-      role: "Role",
-      focus: "Focus",
-      deliverable: "Deliverable",
-    },
+    selectedLabel: "Selected Service",
+    viewLabel: "View →",
+    liveLabel: "Live",
     items: {
       "01": {
         title: "Business Websites",
@@ -161,7 +158,7 @@ export const en: SiteCopy = {
       },
       "03": {
         title: "Landing Pages",
-        description: "One focused page. One clear action. Built to convert.",
+        description: "One focused page. One clear action.",
         type: "Landing Page",
         role: "Design / Development",
         focus: "Conversion / Campaign",
@@ -169,8 +166,7 @@ export const en: SiteCopy = {
       },
       "04": {
         title: "Custom Web Design",
-        description:
-          "Tailored design built around your brand, goals and how your business actually works.",
+        description: "Designed around your business, not a template.",
         type: "Custom Experience",
         role: "Design / Development",
         focus: "Brand / Experience",
@@ -178,8 +174,7 @@ export const en: SiteCopy = {
       },
       "05": {
         title: "Website Redesign",
-        description:
-          "Refresh outdated sites with modern structure, design and performance.",
+        description: "A sharper experience for an existing brand.",
         type: "Website Redesign",
         role: "Design / Development",
         focus: "Performance / Brand",
@@ -187,71 +182,12 @@ export const en: SiteCopy = {
       },
       "06": {
         title: "Ongoing Support",
-        description:
-          "Updates, improvements and support after launch — when your site needs to keep evolving.",
+        description: "Continuous improvements after launch.",
         type: "Ongoing Support",
         role: "Development / Support",
         focus: "Maintenance / Growth",
         deliverable: "Updates / Optimization / Support",
       },
-    },
-  },
-  servicePreview: {
-    business: {
-      label: "Business Website",
-      nav: ["Home", "About", "Services", "Projects", "Contact"],
-      eyebrow: "Homepage",
-      headline: "Professional presence for your business",
-      traits: ["Professional", "Modern", "Responsive"],
-    },
-    ecommerce: {
-      label: "E-Commerce",
-      nav: ["Shop", "Products", "Collections", "Cart"],
-      eyebrow: "Product Page",
-      headline: "Clear paths to purchase",
-      traits: ["Product-led", "Conversion", "Mobile-ready"],
-    },
-    landing: {
-      label: "Landing Page",
-      nav: ["Overview", "Benefits", "Pricing"],
-      eyebrow: "Campaign",
-      headline: "One page. One clear action.",
-      traits: ["Focused", "High-impact", "Fast to launch"],
-    },
-    corporate: {
-      label: "Corporate Website",
-      nav: ["Company", "Services", "Leadership", "Contact"],
-      eyebrow: "Corporate",
-      headline: "Credibility, clarity and structure",
-      traits: ["Trustworthy", "Structured", "Scalable"],
-    },
-    nova: {
-      label: "Portfolio Website",
-      nav: ["Work", "Studio", "Archive", "Contact"],
-      eyebrow: "Showcase",
-      headline: "Editorial work that stands out",
-      traits: ["Editorial", "Visual", "Memorable"],
-    },
-    pulse: {
-      label: "Custom Web Solution",
-      nav: ["Platform", "Features", "Insights", "Contact"],
-      eyebrow: "Custom Build",
-      headline: "Tailored digital experiences",
-      traits: ["Flexible", "Purpose-built", "Scalable"],
-    },
-    mono: {
-      label: "Corporate Website",
-      nav: ["Company", "Services", "Leadership", "Contact"],
-      eyebrow: "Corporate",
-      headline: "Credibility, clarity and structure",
-      traits: ["Trustworthy", "Structured", "Scalable"],
-    },
-    orbit: {
-      label: "E-Commerce",
-      nav: ["Shop", "Products", "Collections", "Cart"],
-      eyebrow: "Product Page",
-      headline: "Clear paths to purchase",
-      traits: ["Product-led", "Conversion", "Mobile-ready"],
     },
   },
   portfolio: {

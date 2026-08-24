@@ -4,79 +4,61 @@ import { cn } from "@/lib/cn";
 import { conceptImages } from "@/lib/images";
 import type { PreviewId } from "@/lib/site";
 import { useLanguage } from "@/lib/i18n";
-import type { ServicePreviewKey } from "@/lib/i18n/types";
 
 type ServicePreviewProps = {
   preview: PreviewId;
+  url?: string;
   className?: string;
-};
-
-const previewKeyMap: Partial<Record<PreviewId, ServicePreviewKey>> = {
-  business: "business",
-  ecommerce: "ecommerce",
-  landing: "landing",
-  corporate: "corporate",
-  nova: "nova",
-  pulse: "pulse",
-  mono: "mono",
-  orbit: "orbit",
 };
 
 const imageMap: Partial<Record<PreviewId, string>> = {
   business: conceptImages.mono.hero,
   ecommerce: conceptImages.orbit.hero,
-  landing: conceptImages.atelier.hero,
+  landing: conceptImages.hero.build,
   corporate: conceptImages.mono.caseStudy,
+  restaurant: conceptImages.atelier.hero,
+  custom: conceptImages.pulse.hero,
   nova: conceptImages.nova.hero,
   pulse: conceptImages.pulse.hero,
-  mono: conceptImages.mono.caseStudy,
+  mono: conceptImages.mono.hero,
   orbit: conceptImages.orbit.hero,
+  atelier: conceptImages.atelier.hero,
+  form: conceptImages.form.hero,
 };
 
-export function ServicePreview({ preview, className }: ServicePreviewProps) {
+export function ServicePreview({ preview, url, className }: ServicePreviewProps) {
   const { t } = useLanguage();
-  const key = previewKeyMap[preview] ?? "business";
-  const demo = t.servicePreview[key];
   const image = imageMap[preview] ?? conceptImages.mono.hero;
-  const dark = key !== "ecommerce" && key !== "nova" && key !== "orbit";
+  const displayUrl = url ?? `${preview}.sitepromy.com`;
 
   return (
     <div
       className={cn(
-        "flex w-full flex-col overflow-hidden rounded-xl border shadow-[0_24px_64px_rgba(0,0,0,0.4)]",
-        dark
-          ? "border-white/10 bg-[#080a10] text-white"
-          : "border-black/8 bg-[#f7f6f3] text-zinc-900",
+        "overflow-hidden border border-line bg-[#07090e]",
         className,
       )}
+      aria-hidden="true"
     >
-      <div
-        className={cn(
-          "border-b px-4 py-3",
-          dark ? "border-white/10" : "border-black/8",
-        )}
-      >
-        <p className="meta-label text-accent">{demo.label}</p>
-        <div className="mt-2.5 flex flex-wrap gap-1.5">
-          {demo.nav.map((item, index) => (
-            <span
-              key={item}
-              className={cn(
-                "rounded-full px-2.5 py-1 text-[0.6875rem] font-medium tracking-wide",
-                index === 0
-                  ? "bg-accent text-white"
-                  : dark
-                    ? "bg-white/[0.06] text-white/55"
-                    : "bg-black/[0.05] text-zinc-600",
-              )}
-            >
-              {item}
-            </span>
-          ))}
+      <div className="flex items-center gap-3 border-b border-white/[0.06] px-3 py-2.5 sm:px-4">
+        <div className="flex items-center gap-1.5" aria-hidden="true">
+          <span className="h-[7px] w-[7px] rounded-full bg-white/10" />
+          <span className="h-[7px] w-[7px] rounded-full bg-white/10" />
+          <span className="h-[7px] w-[7px] rounded-full bg-white/10" />
         </div>
+        <div className="flex min-w-0 flex-1 justify-center">
+          <span className="truncate rounded-md border border-white/[0.06] bg-white/[0.03] px-2.5 py-1 font-mono text-[9px] tracking-[0.08em] text-white/40 sm:px-3 sm:text-[10px]">
+            {displayUrl}
+          </span>
+        </div>
+        <span className="hidden items-center gap-1.5 sm:flex" aria-hidden="true">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent/80" />
+          <span className="text-[9px] tracking-[0.18em] text-white/30">
+            {t.services.liveLabel}
+          </span>
+        </span>
       </div>
 
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-[16/9] w-full overflow-hidden sm:aspect-[16/8] lg:aspect-[16/7] lg:max-h-[520px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={image}
@@ -86,42 +68,9 @@ export function ServicePreview({ preview, className }: ServicePreviewProps) {
           className="h-full w-full object-cover"
         />
         <div
-          className={cn(
-            "absolute inset-0",
-            dark
-              ? "bg-gradient-to-t from-[#080a10] via-[#080a10]/55 to-transparent"
-              : "bg-gradient-to-t from-[#f7f6f3] via-[#f7f6f3]/50 to-transparent",
-          )}
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent"
+          aria-hidden="true"
         />
-        <div className="absolute inset-x-0 bottom-0 p-4">
-          <p className="text-[0.6875rem] font-medium tracking-[0.2em] uppercase text-accent">
-            {demo.eyebrow}
-          </p>
-          <p className="mt-1 font-display text-[1.05rem] font-semibold leading-snug sm:text-lg">
-            {demo.headline}
-          </p>
-        </div>
-      </div>
-
-      <div
-        className={cn(
-          "flex flex-wrap gap-2 border-t px-4 py-3",
-          dark ? "border-white/10" : "border-black/8",
-        )}
-      >
-        {demo.traits.map((trait) => (
-          <span
-            key={trait}
-            className={cn(
-              "rounded-full border px-2.5 py-1 text-[0.6875rem] font-medium tracking-wide",
-              dark
-                ? "border-white/12 text-white/65"
-                : "border-black/10 text-zinc-600",
-            )}
-          >
-            {trait}
-          </span>
-        ))}
       </div>
     </div>
   );

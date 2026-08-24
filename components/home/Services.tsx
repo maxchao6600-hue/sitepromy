@@ -1,50 +1,59 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { WebsitePreview } from "@/components/previews/WebsitePreview";
-import { PreviewFrame } from "@/components/ui/PreviewFrame";
+import { useReducedMotion } from "framer-motion";
+import Link from "next/link";
 import { MotionReveal } from "@/components/ui/Motion";
 import { SectionIndex } from "@/components/ui/SectionIndex";
-import { SubtleGrid } from "@/components/ui/SubtleGrid";
+import { ServicePreview } from "@/components/home/ServicePreview";
 import { services } from "@/lib/site";
 import { useLanguage } from "@/lib/i18n";
 import type { ServiceKey } from "@/lib/i18n/types";
 import { cn } from "@/lib/cn";
 
-const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
-
-type ServicesProps = {
-  variant?: "showcase" | "workbench";
-};
-
-export function Services({ variant = "showcase" }: ServicesProps) {
-  const { t } = useLanguage();
-  const [active, setActive] = useState(0);
+export function Services() {
+  const { t, href } = useLanguage();
   const reduced = useReducedMotion();
+  const [active, setActive] = useState(0);
   const current = services[active];
   const activeCopy = t.services.items[current.number as ServiceKey];
 
-  if (variant === "workbench") {
-    return (
-      <section
-        id="services"
-        className="scene-services scene-noise relative scroll-mt-24 overflow-x-clip border-y border-line"
-      >
-        <SubtleGrid />
-        <div className="container-main relative z-10 section-y-compact lg:section-y">
-          <MotionReveal>
-            <SectionIndex index={t.services.scene} label={t.services.index} />
+  return (
+    <section
+      id="services"
+      className="scene-services scene-noise relative scroll-mt-24 overflow-x-clip border-y border-line"
+    >
+      <div className="container-main section-y-compact lg:section-y">
+        <MotionReveal>
+          <SectionIndex index={t.services.scene} label={t.services.index} />
 
-            <h2 className="display-lg mt-6 text-cream lg:mt-8">
-              {t.services.titleLines.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-            </h2>
+          <div className="mt-8 grid grid-cols-1 gap-10 lg:mt-10 lg:grid-cols-[minmax(0,0.38fr)_minmax(0,0.62fr)] lg:gap-14 xl:gap-16">
+            <div className="min-w-0">
+              <h2 className="display-lg text-cream">
+                {t.services.titleLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </h2>
+            </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3 lg:gap-4">
+            <div
+              className="min-w-0"
+              role="listbox"
+              aria-label={t.services.index}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+                  event.preventDefault();
+                  setActive((current) => (current + 1) % services.length);
+                } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+                  event.preventDefault();
+                  setActive(
+                    (current) => (current - 1 + services.length) % services.length,
+                  );
+                }
+              }}
+            >
               {services.map((service, index) => {
                 const copy = t.services.items[service.number as ServiceKey];
                 const isActive = active === index;
@@ -53,209 +62,104 @@ export function Services({ variant = "showcase" }: ServicesProps) {
                   <button
                     key={service.number}
                     type="button"
-                    onMouseEnter={() => setActive(index)}
-                    onFocus={() => setActive(index)}
+                    role="option"
+                    aria-selected={isActive}
                     onClick={() => setActive(index)}
+                    onFocus={() => setActive(index)}
                     className={cn(
-                      "group border text-left transition-all duration-300",
-                      isActive
-                        ? "border-accent/40 bg-accent/[0.06]"
-                        : "border-line bg-surface-2/20 hover:border-white/15",
+                      "group flex w-full flex-col border-b border-line py-4 text-left transition-colors duration-300 first:border-t lg:py-5",
+                      isActive ? "border-b-accent/30" : "hover:border-b-white/15",
                     )}
                   >
-                    <div className="overflow-hidden border-b border-line">
-                      <div
-                        className={cn(
-                          "origin-center transition-transform duration-500",
-                          isActive ? "scale-[1.02]" : "scale-100 group-hover:scale-[1.02]",
-                        )}
-                      >
-                        <WebsitePreview
-                          id={service.preview}
-                          className="aspect-[16/10] w-full"
-                        />
-                      </div>
-                    </div>
-                    <div className="p-4 lg:p-5">
+                    <div className="flex items-baseline gap-4 sm:gap-6">
                       <span
                         className={cn(
-                          "meta-label transition-colors duration-300",
+                          "meta-label w-8 shrink-0 transition-colors duration-300",
                           isActive ? "text-accent" : "text-muted group-hover:text-accent/70",
                         )}
                       >
                         {service.number}
                       </span>
-                      <p
+                      <span
                         className={cn(
-                          "mt-2 font-display text-base font-semibold uppercase tracking-tight transition-colors lg:text-lg",
-                          isActive ? "text-cream" : "text-cream/55 group-hover:text-cream/85",
+                          "min-w-0 flex-1 font-display text-base font-semibold uppercase tracking-[0.06em] transition-colors duration-300 sm:text-lg lg:text-xl",
+                          isActive ? "text-cream" : "text-cream/40 group-hover:text-cream/70",
                         )}
                       >
                         {copy.title}
-                      </p>
-                      <p
-                        className={cn(
-                          "mt-2 text-sm leading-6 transition-colors duration-300",
-                          isActive ? "text-secondary" : "text-muted group-hover:text-secondary",
-                        )}
-                      >
-                        {copy.description}
-                      </p>
+                      </span>
                       <span
                         className={cn(
-                          "mt-4 block h-px origin-left bg-accent transition-transform duration-500",
-                          isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
+                          "shrink-0 text-sm transition-all duration-300",
+                          isActive
+                            ? "translate-x-0 text-accent"
+                            : "translate-x-0 text-muted group-hover:translate-x-1 group-hover:text-accent/70",
                         )}
-                      />
+                        aria-hidden="true"
+                      >
+                        →
+                      </span>
+                    </div>
+                    <div
+                      className={cn(
+                        "grid transition-[grid-template-rows,opacity] duration-300",
+                        isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                      )}
+                      style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="mt-3 max-w-md pl-12 text-sm leading-7 text-secondary sm:pl-14">
+                          {copy.description}
+                        </p>
+                      </div>
                     </div>
                   </button>
                 );
               })}
             </div>
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.number}
-                initial={reduced ? false : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduced ? undefined : { opacity: 0, y: -8 }}
-                transition={{ duration: 0.45, ease: EASE }}
-                className="mt-8 lg:mt-10"
-              >
-                <PreviewFrame url={`${current.preview}.sitepromy.com`} fixedAspect={false}>
-                  <WebsitePreview
-                    id={current.preview}
-                    large
-                    className="aspect-[16/10] min-h-[240px] w-full sm:min-h-[320px] lg:min-h-[420px]"
-                  />
-                </PreviewFrame>
-                <div className="mt-4 grid grid-cols-2 gap-4 border border-line bg-surface-2/50 p-4 sm:grid-cols-4 lg:mt-5 lg:p-5">
-                  <MetaBlock label={t.services.metaLabels.type} value={activeCopy.type} />
-                  <MetaBlock label={t.services.metaLabels.role} value={activeCopy.role} />
-                  <MetaBlock label={t.services.metaLabels.focus} value={activeCopy.focus} />
-                  <MetaBlock
-                    label={t.services.metaLabels.deliverable}
-                    value={activeCopy.deliverable}
-                  />
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </MotionReveal>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section
-      id="services"
-      className="scene-services scene-noise relative scroll-mt-24 border-y border-line"
-    >
-      <div className="container-main section-y-compact lg:section-y">
-        <MotionReveal>
-          <SectionIndex index={t.services.scene} label={t.services.index} />
-
-          <div className="mt-6 grid grid-cols-1 gap-8 lg:mt-8 lg:grid-cols-12 lg:gap-10">
-            <div className="lg:col-span-3">
-              <h2 className="display-lg text-cream">
-                {t.services.titleLines.map((line) => (
-                  <span key={line} className="block">
-                    {line}
-                  </span>
-                ))}
-              </h2>
-              <p className="mt-4 text-sm leading-7 text-secondary lg:mt-5">
-                {activeCopy.description}
-              </p>
-            </div>
-
-            <div className="lg:col-span-9">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current.number}
-                  initial={reduced ? false : { opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={reduced ? undefined : { opacity: 0, y: -8 }}
-                  transition={{ duration: 0.5, ease: EASE }}
-                >
-                  <PreviewFrame url={`${current.preview}.sitepromy.com`} fixedAspect={false}>
-                    <WebsitePreview
-                      id={current.preview}
-                      large
-                      className="aspect-[16/10] min-h-[240px] w-full sm:min-h-[320px] lg:min-h-[420px]"
-                    />
-                  </PreviewFrame>
-
-                  <div className="mt-4 grid grid-cols-2 gap-4 border border-line bg-surface-2/50 p-4 sm:grid-cols-4 lg:mt-5 lg:p-5">
-                    <MetaBlock label={t.services.metaLabels.type} value={activeCopy.type} />
-                    <MetaBlock label={t.services.metaLabels.role} value={activeCopy.role} />
-                    <MetaBlock label={t.services.metaLabels.focus} value={activeCopy.focus} />
-                    <MetaBlock
-                      label={t.services.metaLabels.deliverable}
-                      value={activeCopy.deliverable}
-                    />
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:mt-10 lg:grid-cols-6 lg:gap-3">
-            {services.map((service, index) => {
-              const copy = t.services.items[service.number as ServiceKey];
-              const isActive = active === index;
+          <div className="mt-12 border-t border-line pt-8 lg:mt-16 lg:pt-10">
+            <p className="meta-label text-accent">{t.services.selectedLabel}</p>
 
-              return (
-                <button
-                  key={service.number}
-                  type="button"
-                  onMouseEnter={() => setActive(index)}
-                  onFocus={() => setActive(index)}
-                  onClick={() => setActive(index)}
-                  className={cn(
-                    "group border px-3 py-3 text-left transition-all duration-300 sm:px-4 sm:py-4",
-                    isActive
-                      ? "border-accent/40 bg-accent/[0.06]"
-                      : "border-line bg-transparent hover:border-white/15",
-                  )}
-                >
-                  <span
-                    className={cn(
-                      "meta-label transition-colors",
-                      isActive ? "text-accent" : "text-muted",
-                    )}
-                  >
-                    {service.number}
-                  </span>
-                  <p
-                    className={cn(
-                      "mt-2 font-display text-sm font-semibold leading-snug tracking-tight transition-colors sm:text-base",
-                      isActive ? "text-cream" : "text-cream/55",
-                    )}
-                  >
-                    {copy.title}
-                  </p>
-                  <span
-                    className={cn(
-                      "mt-3 block h-px origin-left bg-accent transition-transform duration-500",
-                      isActive ? "scale-x-100" : "scale-x-0",
-                    )}
-                  />
-                </button>
-              );
-            })}
+            <div
+              className={cn(
+                "mt-5 overflow-hidden transition-[opacity,transform] duration-300 lg:mt-6",
+                reduced ? "" : "will-change-transform",
+              )}
+              key={current.number}
+              style={{
+                transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+              }}
+            >
+              <ServicePreview
+                preview={current.preview}
+                url={`${current.preview}.sitepromy.com`}
+                className="w-full"
+              />
+            </div>
+
+            <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+              <div className="min-w-0 max-w-xl">
+                <h3 className="font-display text-xl font-semibold uppercase tracking-[0.06em] text-cream sm:text-2xl">
+                  {activeCopy.title}
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-secondary sm:text-[0.9375rem]">
+                  {activeCopy.description}
+                </p>
+              </div>
+              <Link
+                href={href("/quote")}
+                className="group inline-flex shrink-0 items-center font-display text-sm font-semibold uppercase tracking-[0.14em] text-accent transition-colors hover:text-cream"
+              >
+                <span className="transition-transform duration-300 group-hover:translate-x-0.5">
+                  {t.services.viewLabel}
+                </span>
+              </Link>
+            </div>
           </div>
         </MotionReveal>
       </div>
     </section>
-  );
-}
-
-function MetaBlock({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <p className="meta-label text-muted">{label}</p>
-      <p className="mt-1.5 text-sm leading-6 text-cream">{value}</p>
-    </div>
   );
 }

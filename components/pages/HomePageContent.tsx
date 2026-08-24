@@ -23,7 +23,7 @@ export function HomePageContent() {
       <DetailStrip items={t.detailStrips.capabilities} numbered />
       <StudioStatement />
       <DetailStrip items={t.detailStrips.disciplines} />
-      <Services variant="workbench" />
+      <Services />
       <Portfolio />
       <SpeedSection />
       <ProcessInteractive />

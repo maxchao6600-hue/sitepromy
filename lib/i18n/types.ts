@@ -22,16 +22,6 @@ export type ProcessKey = "01" | "02" | "03" | "04" | "05";
 
 export type SpeedPillarKey = "01" | "02" | "03" | "04";
 
-export type ServicePreviewKey =
-  | "business"
-  | "ecommerce"
-  | "landing"
-  | "corporate"
-  | "nova"
-  | "pulse"
-  | "mono"
-  | "orbit";
-
 export type SiteCopy = {
   meta: {
     title: string;
@@ -115,12 +105,9 @@ export type SiteCopy = {
     titleLines: string[];
     scene: string;
     index: string;
-    metaLabels: {
-      type: string;
-      role: string;
-      focus: string;
-      deliverable: string;
-    };
+    selectedLabel: string;
+    viewLabel: string;
+    liveLabel: string;
     items: Record<
       ServiceKey,
       {
@@ -133,16 +120,6 @@ export type SiteCopy = {
       }
     >;
   };
-  servicePreview: Record<
-    ServicePreviewKey,
-    {
-      label: string;
-      nav: string[];
-      eyebrow: string;
-      headline: string;
-      traits: string[];
-    }
-  >;
   portfolio: {
     eyebrow: string;
     titleLines: string[];
