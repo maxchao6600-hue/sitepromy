@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/layout/Logo";
 import { cn } from "@/lib/cn";
 import { NAV_PAGES, ROUTES, useLanguage, type NavKey } from "@/lib/i18n";
+import { SITE } from "@/lib/site";
 
 const navItems: Array<{ key: NavKey; href: string }> = NAV_PAGES.map((page) => ({
   key: page,
@@ -82,7 +83,9 @@ export function Navbar() {
           <LanguageSwitcher className="max-lg:hidden lg:inline-flex" />
 
           <Button
-            href={href("/quote")}
+            href={SITE.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="nav-header-cta min-h-11 px-4 py-2.5 text-xs lg:min-h-12 lg:px-6 lg:text-sm"
           >
             {t.nav.startProject}

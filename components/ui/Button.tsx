@@ -9,6 +9,8 @@ type ButtonProps = {
   type?: "button" | "submit";
   disabled?: boolean;
   onClick?: () => void;
+  target?: React.HTMLAttributeAnchorTarget;
+  rel?: string;
 };
 
 export function Button({
@@ -19,6 +21,8 @@ export function Button({
   type = "button",
   disabled,
   onClick,
+  target,
+  rel,
 }: ButtonProps) {
   const classes = cn(
     "site-button inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap px-6 py-3 text-sm font-medium tracking-tight transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-ink disabled:pointer-events-none disabled:opacity-60",
@@ -33,6 +37,16 @@ export function Button({
   );
 
   if (href) {
+    const isExternal = Boolean(target) || /^https?:\/\//i.test(href);
+
+    if (isExternal) {
+      return (
+        <a href={href} target={target} rel={rel} className={classes}>
+          {children}
+        </a>
+      );
+    }
+
     return (
       <Link href={href} className={classes}>
         {children}
